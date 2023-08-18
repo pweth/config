@@ -82,17 +82,22 @@
     description = "Peter";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      bat
       cmatrix
-	  curl
-	  exa
+      cowsay
+      curl
+      dig
       firefox
       gh
       git
+      go
       htop
       lolcat
       micro
+      nodejs
+      rustup
       sl
+      tree
+      vscode
       wget
     ];
   };
