@@ -80,10 +80,12 @@
   services.printing.enable = true;
 
   # User account
-  users.users.peter = {
+  users.users.pweth = {
     createHome = true;
+    description = "Peter";
     extraGroups = [ "networkmanager" "wheel" ];
-    home = "/home/peter";
+    hashedPassword = "$6$s98uj0CMyHhqKyMq$uyYD.TV2Nz9XCKvw6JO6NX2c2Agll8YkZNJaMCigi9oKITrKSr/EOSJhHwFYlUrLJUUDJYpZeMYsG9EBDMhyr0";
+    home = "/home/pweth";
     isNormalUser = true;
     uid = 1000;
   };
