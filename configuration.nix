@@ -1,9 +1,13 @@
 { config, pkgs, ... }:
-
+let
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-23.05.tar.gz";
+in
 {
   imports = [
     # Import hardware scan file
     ./hardware-configuration.nix
+    # Import home manager
+    (import "${home-manager}/nixos")
   ];
 
   nix = {
@@ -56,6 +60,7 @@
     LC_TIME = "en_GB.UTF-8";
   };
   
+  # GUI
   services.xserver = {
     desktopManager.gnome.enable = true;
     displayManager.gdm.enable = true;
@@ -65,7 +70,7 @@
     xkbVariant = "";
   };
 
-  # Enable sound with pipewire
+  # Sound
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -84,10 +89,20 @@
     createHome = true;
     description = "Peter";
     extraGroups = [ "networkmanager" "wheel" ];
-    hashedPassword = "$6$s98uj0CMyHhqKyMq$uyYD.TV2Nz9XCKvw6JO6NX2c2Agll8YkZNJaMCigi9oKITrKSr/EOSJhHwFYlUrLJUUDJYpZeMYsG9EBDMhyr0";
     home = "/home/pweth";
     isNormalUser = true;
     uid = 1000;
+  };
+
+  # Home manager
+  home-manager.users.pweth = { pkgs, ... }: {
+    home.packages = [ pkgs.httpie ];
+    home.stateVersion = "18.09";
+    programs.git = {
+      enable = true;
+      userName = "pweth";
+      userEmail = "22416843+pweth@users.noreply.github.com";
+    };
   };
 
   # Allow unfree packages
@@ -99,6 +114,7 @@
     cowsay
     curl
     dig
+    duf
     firefox
     gcc
     gh
