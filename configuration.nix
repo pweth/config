@@ -70,6 +70,22 @@ in
     xkbVariant = "";
   };
 
+  # Exclude unwanted default Gnome packages
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-tour
+  ]) ++ (with pkgs.gnome; [
+    gnome-music
+    gedit
+    epiphany
+    geary
+    evince
+    gnome-characters
+    tali
+    iagno
+    hitori
+    atomix
+  ]);
+
   # Sound
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -105,7 +121,7 @@ in
       userEmail = "22416843+pweth@users.noreply.github.com";
     };
 
-    # Gnome dconf
+    # Gnome dconf settings
     dconf = {
       enable = true;
       settings = {
