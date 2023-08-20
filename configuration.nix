@@ -96,18 +96,37 @@ in
 
   # Home manager
   home-manager.users.pweth = { pkgs, ... }: {
-    home.packages = [ pkgs.httpie ];
     home.stateVersion = "18.09";
+
+    # Git
     programs.git = {
       enable = true;
       userName = "pweth";
       userEmail = "22416843+pweth@users.noreply.github.com";
     };
+
+    # Gnome dconf
+    dconf = {
+      enable = true;
+      settings = {
+        "org/gnome/desktop/background" = {
+          picture-uri = "file:///home/pweth/dotfiles/img/background.jpg";
+          picture-uri-dark = "file:///home/pweth/dotfiles/img/background.jpg";
+        };
+        "org/gnome/desktop/interface" = {
+          color-scheme = "prefer-dark";
+          enable-hot-corners = false;
+          text-scaling-factor = 1.3;
+        };
+      };
+    };
+
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # System packages
   environment.systemPackages = with pkgs; [
     bitwarden
     cmatrix
@@ -115,6 +134,8 @@ in
     curl
     dig
     duf
+    exiftool
+    ffmpeg
     firefox
     gcc
     gh
