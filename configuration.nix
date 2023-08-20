@@ -1,30 +1,43 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
 
-  # Nix preferences
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-    builders-use-substitutes = true
-  '';
+  imports = [
+    ./hardware-configuration.nix          # Import hardware scan file
+  ];
 
-  # Bootloader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  nix = {
+    gc = {
+      automatic = true;                   # Enable automatic garbage collection
+      dates = "weekly";                   # Schedule once a week
+      options = "--delete-older-than 7d"; # Target store entries older than 7 days
+    };
+    settings = {
+      auto-optimise-store = true;         # Automatic `nix store --optimise`
+      experimental-features = [
+        "nix-command"                     # Enable the new `nix` subcommands
+        "flakes"                          # Enable flakes
+      ];
+    };
+  };
 
-  networking.hostName = "chordata";
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    systemd-boot.enable = true;
+  };
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "chordata";                # Set hostname to 'chordata'
+    networkmanager.enable = true;         # Enable networking
+  };
 
-  # Time and language
-  time.timeZone = "Europe/London";
-  i18n.defaultLocale = "en_GB.UTF-8";
+  services.printing.enable = true;        # Enable CUPS to print documents
+
+  nixpkgs.config.allowUnfree = true;      # Allow unfree packages
+
+  console.keyMap = "uk";                  # Set console keyboard map to UK format
+  time.timeZone = "Europe/London";        # Set timezone to London
+  i18n.defaultLocale = "en_GB.UTF-8";     # Configure UK locale settings
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_GB.UTF-8";
     LC_IDENTIFICATION = "en_GB.UTF-8";
@@ -36,8 +49,7 @@
     LC_TELEPHONE = "en_GB.UTF-8";
     LC_TIME = "en_GB.UTF-8";
   };
-
-  # X11 (GNOME Desktop Environment)
+  
   services.xserver = {
     desktopManager.gnome.enable = true;
     displayManager.gdm.enable = true;
@@ -47,14 +59,7 @@
     xkbVariant = "";
   };
 
-  # UK keymap
-  console.keyMap = "uk";
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  sound.enable = true;
+  sound.enable = true;                    # Enable sound with pipewire
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -62,20 +67,18 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.peter = {
     isNormalUser = true;
-    description = "Peter";
-    extraGroups = [ "networkmanager" "wheel" ];
+    uid = 1000;
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       cmatrix
       cowsay
-      curl
-      dig
       firefox
       gh
       git
@@ -83,44 +86,22 @@
       htop
       lolcat
       micro
+      neofetch
       nms
       nodejs
       rustup
       sl
       tree
       vscode
-      wget
     ];
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    curl
+    dig
+    vim
+    wget
   ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   system.stateVersion = "23.05";
 
