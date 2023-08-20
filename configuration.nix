@@ -1,23 +1,25 @@
 { config, pkgs, ... }:
 
 {
-
   imports = [
-    ./hardware-configuration.nix          # Import hardware scan file
+    # Import hardware scan file
+    ./hardware-configuration.nix
   ];
 
   nix = {
     gc = {
-      automatic = true;                   # Enable automatic garbage collection
-      dates = "weekly";                   # Schedule once a week
-      options = "--delete-older-than 7d"; # Target store entries older than 7 days
+      # Enable automatic garbage collection
+      automatic = true;
+      # Schedule once a week                 
+      dates = "weekly";
+      # Target store entries older than 7 days
+      options = "--delete-older-than 7d";
     };
     settings = {
-      auto-optimise-store = true;         # Automatic `nix store --optimise`
-      experimental-features = [
-        "nix-command"                     # Enable the new `nix` subcommands
-        "flakes"                          # Enable flakes
-      ];
+      # Automatic `nix store --optimise`
+      auto-optimise-store = true;
+      # Enable the new `nix` subcommands and flakes
+      experimental-features = [ "nix-command" "flakes" ];
     };
   };
 
@@ -27,8 +29,10 @@
   };
 
   networking = {
-    hostName = "chordata";                # Set hostname to 'chordata'
-    networkmanager.enable = true;         # Enable networking
+    # Set hostname to 'chordata'
+    hostName = "chordata";
+    # Enable networking
+    networkmanager.enable = true;
   };
 
   services.printing.enable = true;        # Enable CUPS to print documents
@@ -104,5 +108,4 @@
   ];
 
   system.stateVersion = "23.05";
-
 }
