@@ -16,13 +16,14 @@
       options = "--delete-older-than 7d";
     };
     settings = {
-      # Automatic `nix store --optimise`
+      # Automatic `nix store optimise`
       auto-optimise-store = true;
       # Enable the new `nix` subcommands and flakes
       experimental-features = [ "nix-command" "flakes" ];
     };
   };
 
+  # Use the systemd-boot EFI boot loader
   boot.loader = {
     efi.canTouchEfiVariables = true;
     systemd-boot.enable = true;
@@ -31,17 +32,18 @@
   networking = {
     # Set hostname to 'chordata'
     hostName = "chordata";
-    # Enable networking
+    # Enable network manager
     networkmanager.enable = true;
   };
 
-  services.printing.enable = true;        # Enable CUPS to print documents
+  # Set time zone to London
+  time.timeZone = "Europe/London";
 
-  nixpkgs.config.allowUnfree = true;      # Allow unfree packages
+  # Set console keyboard map to UK format
+  console.keyMap = "uk";
 
-  console.keyMap = "uk";                  # Set console keyboard map to UK format
-  time.timeZone = "Europe/London";        # Set timezone to London
-  i18n.defaultLocale = "en_GB.UTF-8";     # Configure UK locale settings
+  # Configure UK locale settings
+  i18n.defaultLocale = "en_GB.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_GB.UTF-8";
     LC_IDENTIFICATION = "en_GB.UTF-8";
@@ -63,7 +65,8 @@
     xkbVariant = "";
   };
 
-  sound.enable = true;                    # Enable sound with pipewire
+  # Enable sound with pipewire
+  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -73,39 +76,59 @@
     pulse.enable = true;
   };
 
+  # Enable CUPS to print documents
+  services.printing.enable = true;
+
+  # User account
   users.users.peter = {
+    createHome = true;
+    extraGroups = [ "networkmanager" "wheel" ];
+    home = "/home/peter";
     isNormalUser = true;
     uid = 1000;
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-    packages = with pkgs; [
-      cmatrix
-      cowsay
-      firefox
-      gh
-      git
-      go
-      htop
-      lolcat
-      micro
-      neofetch
-      nms
-      nodejs
-      rustup
-      sl
-      tree
-      vscode
-    ];
   };
 
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
+    bitwarden
+    cmatrix
+    cowsay
     curl
     dig
+    firefox
+    gcc
+    gh
+    gimp
+    git
+    go
+    htop
+    libreoffice
+    lolcat
+    micro
+    neofetch
+    nms
+    nodejs
+    openssl
+    (python3.withPackages (ps: with ps; [
+      ipython
+      jupyter
+      matplotlib
+      numpy
+      pandas
+      setuptools
+    ]))
+    rustup
+    sl
+    spotify
+    tldr
+    tree
     vim
+    vscode
     wget
   ];
 
+  # NixOS release version
   system.stateVersion = "23.05";
 }
