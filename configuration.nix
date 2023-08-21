@@ -114,6 +114,29 @@ in
   home-manager.users.pweth = { pkgs, ... }: {
     home.stateVersion = "18.09";
 
+    # Firefox
+    programs.firefox = {
+      enable = true;
+      profiles = {
+        default = {
+          id = 0;
+          search.default = "DuckDuckGo";
+          search.engines = {
+            "Amazon.co.uk".metaData.hidden = true;
+            "Bing".metaData.hidden = true;
+            "eBay".metaData.hidden = true;
+            "Google".metaData.hidden = true;
+            "Wikipedia (en)".metaData.hidden = true;
+          };
+          search.force = true;
+          settings = {
+            "browser.newtabpage.enabled" = false;
+            "browser.startup.homepage" = "about:blank";
+          };
+        };
+      };
+    };
+
     # Git
     programs.git = {
       enable = true;
