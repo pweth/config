@@ -19,9 +19,6 @@
         # about:config settings
         # Source: brainfucksec.github.io/firefox-hardening-guide
         settings = {
-          # Dark mode
-          "browser.in-content.dark-mode" = true;
-
           # Disable about:config warning
           "browser.aboutConfig.warning" = false;
 

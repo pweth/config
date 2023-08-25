@@ -3,7 +3,7 @@
 {
   imports = [
     ./dconf.nix
-    ./firefox.nix
+    # ./firefox.nix
     ./git.nix
   ];
 
