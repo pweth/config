@@ -209,8 +209,8 @@ in
       enable = true;
       settings = {
         "org/gnome/desktop/background" = {
-          picture-uri = "file:///home/pweth/dotfiles/img/background.jpg";
-          picture-uri-dark = "file:///home/pweth/dotfiles/img/background.jpg";
+          picture-uri = "file:///home/pweth/dotfiles/assets/background.jpg";
+          picture-uri-dark = "file:///home/pweth/dotfiles/assets/background.jpg";
         };
         "org/gnome/desktop/interface" = {
           color-scheme = "prefer-dark";
