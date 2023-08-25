@@ -106,7 +106,7 @@
 
   # Home manager
   home-manager.users.pweth = { pkgs, ... }: {
-    home.stateVersion = "18.09";
+    home.stateVersion = "20.09";
 
     # Firefox
     programs.firefox = {
