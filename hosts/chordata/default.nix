@@ -2,7 +2,7 @@
 {
   imports = [
     # Import hardware scan file
-    ./hardware/xps.nix
+    ./hardware-configuration.nix
     # Import home manager
     (import "${home-manager}/nixos")
   ];
@@ -71,16 +71,16 @@
   environment.gnome.excludePackages = (with pkgs; [
     gnome-tour
   ]) ++ (with pkgs.gnome; [
-    gnome-music
-    gedit
-    epiphany
-    geary
-    evince
-    gnome-characters
-    tali
-    iagno
-    hitori
     atomix
+    epiphany
+    evince
+    geary
+    gedit
+    gnome-characters
+    gnome-music
+    hitori
+    iagno
+    tali
   ]);
 
   # Sound

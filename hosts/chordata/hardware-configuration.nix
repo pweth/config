@@ -1,3 +1,6 @@
+# Hardware scan
+# Dell Inc. XPS 13 9360
+
 { config, lib, pkgs, modulesPath, ... }:
 
 {
