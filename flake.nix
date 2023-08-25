@@ -14,10 +14,11 @@
     nixosConfigurations = {
       # sudo nixos-rebuild switch --flake .#nixos-test
       "chordata" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         modules = [
           ./configuration.nix
         ];
+        specialArgs = inputs;
+        system = "x86_64-linux";
       };
     };
   };
