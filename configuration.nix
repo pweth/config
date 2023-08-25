@@ -5,7 +5,7 @@ in
 {
   imports = [
     # Import hardware scan file
-    ./hardware-configuration.nix
+    ./hardware/xps.nix
     # Import home manager
     (import "${home-manager}/nixos")
   ];
