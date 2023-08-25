@@ -89,6 +89,10 @@
           "browser.urlbar.quicksuggest.enabled" = false;
           "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
           "browser.urlbar.suggest.quicksuggest.sponsored" = false;
+          "browser.urlbar.suggest.bookmark" = false;
+          "browser.urlbar.suggest.engines" = false;
+          "browser.urlbar.suggest.history" = false;
+          "browser.urlbar.suggest.openpage" = false;
 
           # Disable autofill
           "signon.rememberSignons" = false;
