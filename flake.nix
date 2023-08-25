@@ -16,7 +16,7 @@
     nixosConfigurations = {
       "chordata" = nixpkgs.lib.nixosSystem {
         modules = [
-          ./nixos/chordata
+          ./hosts/chordata
           # home-manager.nixosModules.home-manager
           # {
           #   home-manager.useGlobalPkgs = true;
