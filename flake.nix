@@ -12,8 +12,8 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     # NixOS configurations
-    # `sudo nixos-rebuild switch --flake .#chordata`
     nixosConfigurations = {
+      # `sudo nixos-rebuild switch --flake .#chordata`
       chordata = nixpkgs.lib.nixosSystem {
         modules = [
           ./hosts/chordata
