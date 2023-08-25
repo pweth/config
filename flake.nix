@@ -14,15 +14,16 @@
     # NixOS configurations
     # `sudo nixos-rebuild switch --flake .#chordata`
     nixosConfigurations = {
-      "chordata" = nixpkgs.lib.nixosSystem {
+      chordata = nixpkgs.lib.nixosSystem {
         modules = [
           ./hosts/chordata
-          # home-manager.nixosModules.home-manager
-          # {
-          #   home-manager.useGlobalPkgs = true;
-          #   home-manager.useUserPackages = true;
-          #   home-manager.users.pweth = import ./home
-          # }
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = inputs;
+            home-manager.users.pweth = import ./home;
+          }
         ];
         specialArgs = inputs;
         system = "x86_64-linux";
