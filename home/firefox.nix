@@ -27,6 +27,9 @@
         "browser.startup.page" = 1;
         "browser.startup.homepage" = "https://start.duckduckgo.com";
 
+        # Dark theme
+        "layout.css.prefers-color-scheme.content-override" = 0;
+
         # Disable Activity Stream
         "browser.newtabpage.enabled" = false;
         "browser.newtab.preload" = false;
@@ -39,6 +42,10 @@
         "browser.newtabpage.activity-stream.showSponsored" = false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
         "browser.newtabpage.activity-stream.default.sites" = "";
+        "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
+
+        # Do not track signal
+        "privacy.donottrackheader.enabled" = false;
 
         # Language settings
         "intl.accept_languages" = "en-US, en";
@@ -94,6 +101,8 @@
         "browser.urlbar.suggest.topsites" = false;
 
         # Disable autofill
+        "dom.forms.autocomplete.formautofill" = false;
+        "extensions.formautofill.creditCards.enabled" = false;
         "signon.rememberSignons" = false;
         "signon.autofillForms" = false;
 
