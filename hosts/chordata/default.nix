@@ -115,7 +115,6 @@
     duf
     exiftool
     ffmpeg
-    firefox
     gcc
     gh
     gimp
