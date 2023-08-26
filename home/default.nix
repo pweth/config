@@ -7,13 +7,12 @@
     ./git.nix
   ];
 
+  programs.home-manager.enable = true;
+
   home = {
     username = "pweth";
     homeDirectory = "/home/pweth";
     stateVersion = "22.11";
-
-    # Allow home manager to manage itself
-    programs.home-manager.enable = true;
 
     # User packges not imported as modules
     packages = with pkgs; [
@@ -48,6 +47,6 @@
       spotify
       tldr
       vscode
-    ];
+    ];    
   };
 }
