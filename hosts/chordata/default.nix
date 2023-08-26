@@ -107,42 +107,11 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
-    bitwarden
-    cmatrix
-    cowsay
     curl
     dig
-    duf
-    exiftool
-    ffmpeg
-    gcc
-    gh
-    gimp
     git
-    go
-    htop
-    libreoffice
-    lolcat
-    micro
-    neofetch
-    nms
-    nodejs
-    openssl
-    (python3.withPackages (ps: with ps; [
-      ipython
-      jupyter
-      matplotlib
-      numpy
-      pandas
-      setuptools
-    ]))
-    rustup
-    sl
-    spotify
-    tldr
     tree
     vim
-    vscode
     wget
   ];
 

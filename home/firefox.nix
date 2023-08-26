@@ -44,8 +44,8 @@
         "browser.newtabpage.activity-stream.default.sites" = "";
         "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
 
-        # Do not track signal
-        "privacy.donottrackheader.enabled" = false;
+        # Do not track
+        "privacy.donottrackheader.enabled" = true;
 
         # Language settings
         "intl.accept_languages" = "en-US, en";
