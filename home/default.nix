@@ -26,9 +26,6 @@
       gcc
       gh
       gimp
-      gnome.dconf-editor
-      gnome.eog
-      gnome.gnome-tweaks
       go
       htop
       libreoffice
