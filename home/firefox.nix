@@ -29,6 +29,16 @@ in
         "Wikipedia (en)".metaData.hidden = true;
       };
 
+      # bookmarks = [
+      #   {
+      #     name = "GitHub";
+      #     keyword = "!gh";
+      #     toolbar = true;
+      #     url = "https://github.com/";
+      #   }
+      #   # TODO
+      # ];
+
       # about:config values
       settings = {
         # Disable about:config warning
@@ -36,7 +46,7 @@ in
 
         # Set home page
         "browser.startup.page" = 1;
-        "browser.startup.homepage" = "https://duckduckgo.com/?${ddgSettings}";
+        "browser.startup.homepage" = "about:blank";
 
         # Dark theme
         "layout.css.prefers-color-scheme.content-override" = 0;
@@ -67,6 +77,10 @@ in
         "extensions.getAddons.showPane" = false;
         "extensions.htmlaboutaddons.recommendations.enabled" = false;
         "browser.discovery.enabled" = false;
+
+        # Disable specific APIs
+        "dom.battery.enabled" = false;
+        "dom.gamepad.enabled" = false;
 
         # Disable telemetry
         "datareporting.policy.dataSubmissionEnabled" = false;
@@ -145,6 +159,12 @@ in
 
         # Disable Pocket
         "extensions.pocket.enabled" = false;
+
+        # Only retain active logins and cookies
+        "places.history.enabled" = false;
+        "privacy.history.custom" = true;
+        "privacy.sanitize.sanitizeOnShutdown" = true;
+        "privacy.sanitize.pending" = "[{\"id\":\"shutdown\",\"itemsToClear\":[\"cache\",\"history\",\"formdata\",\"downloads\"],\"options\":{}},{\"id\":\"newtab-container\",\"itemsToClear\":[],\"options\":{}}]";
       };
     };
   };

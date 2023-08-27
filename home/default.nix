@@ -29,7 +29,6 @@
       go
       htop
       libreoffice
-      librewolf
       lolcat
       micro
       neofetch
@@ -48,6 +47,7 @@
       sl
       spotify
       tldr
-    ];    
+      tor
+    ];
   };
 }
