@@ -27,6 +27,7 @@
     # settings.json values
     userSettings = {
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "explorer.confirmDelete" = false;
       "workbench.colorTheme" = "Default Dark Modern";
     };
   };

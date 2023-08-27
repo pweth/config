@@ -33,6 +33,7 @@
       };
       "org/gnome/desktop/screensaver" = {
         picture-uri = "file:///home/pweth/dotfiles/assets/background.jpg";
+        user-switch-enabled = false;
       };
       "org/gnome/desktop/wm/preferences" = {
         button-layout = "appmenu:minimize,close";
