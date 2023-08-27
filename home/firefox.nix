@@ -1,37 +1,48 @@
 { config, pkgs, ... }:
-
+let
+  # duckduckgo.com/duckduckgo-help-pages/settings/params/
+  ddgSettings = "kp=1&kl=uk-en&kad=en_GB&k1=-1&kaj=m&kak=-1&kax=-1&kaq=-1&kap=-1&kao=-1&kau=-1&kae=d&k5=1";
+in
 {
   programs.firefox = {
     enable = true;
     profiles.default = {
       id = 0;
 
-      # Set default search engine to DuckDuckGo and disable others
-      search.default = "DuckDuckGo";
+      # Set default search engine to my themed DuckDuckGo and disable others
+      search.default = "DDG";
+      search.force = true;
       search.engines = {
+        "DDG" = {
+          urls = [{
+            template = "https://duckduckgo.com/?q={searchTerms}&${ddgSettings}";
+          }];
+          # Update icon once a day
+          iconUpdateURL = "https://duckduckgo.com/favicon.png";
+          updateInterval = 24 * 60 * 60 * 1000;
+        };
         "Amazon.co.uk".metaData.hidden = true;
         "Bing".metaData.hidden = true;
+        "DuckDuckGo".metaData.hidden = true;
         "eBay".metaData.hidden = true;
         "Google".metaData.hidden = true;
         "Wikipedia (en)".metaData.hidden = true;
       };
-      search.force = true;
 
-      # about:config settings
-      # Source: brainfucksec.github.io/firefox-hardening-guide
+      # about:config values
       settings = {
         # Disable about:config warning
         "browser.aboutConfig.showWarning" = false;
 
         # Set home page
-        # Source: duckduckgo.com/duckduckgo-help-pages/settings/params/
         "browser.startup.page" = 1;
-        "browser.startup.homepage" = "https://duckduckgo.com/?kp=1&kl=uk-en&kad=en_GB&k1=-1&kaj=m&kak=-1&kax=-1&kaq=-1&kap=-1&kao=-1&kau=-1&kae=d&k5=1";
+        "browser.startup.homepage" = "https://duckduckgo.com/?${ddgSettings}";
 
         # Dark theme
         "layout.css.prefers-color-scheme.content-override" = 0;
 
         # Disable Activity Stream
+        # brainfucksec.github.io/firefox-hardening-guide
         "browser.newtabpage.enabled" = false;
         "browser.newtab.preload" = false;
         "browser.newtabpage.activity-stream.feeds.telemetry" = false;
@@ -110,7 +121,7 @@
         # Disable thumbnail collection
         "browser.pagethumbnails.capturing_disabled" = true;
 
-        # Delete temporary files opening in external apps
+        # Delete temporary files opened in external apps
         "browser.helperApps.deleteTempFileOnExit" = true;
 
         # TLS settings
