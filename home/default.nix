@@ -28,6 +28,7 @@
       go
       htop
       libreoffice
+      librewolf
       lolcat
       micro
       neofetch
