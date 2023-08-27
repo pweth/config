@@ -5,6 +5,7 @@
     ./dconf.nix
     ./firefox.nix
     ./git.nix
+    ./vscode.nix
   ];
 
   programs.home-manager.enable = true;
@@ -47,7 +48,6 @@
       sl
       spotify
       tldr
-      vscode
     ];    
   };
 }
