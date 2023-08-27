@@ -25,7 +25,7 @@
 
         # Set home page
         "browser.startup.page" = 1;
-        "browser.startup.homepage" = "https://start.duckduckgo.com";
+        "browser.startup.homepage" = "https://duckduckgo.com/?key=285b1f17fbf9b2123e39bb0db11658fc465dc8eee7dacc078496deadc1687e8dcf80507f728d0b6d3601612b7fd071f9c0fef59dd0cde1c9a83013b436eed5aa";
 
         # Dark theme
         "layout.css.prefers-color-scheme.content-override" = 0;
