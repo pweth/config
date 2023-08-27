@@ -9,9 +9,9 @@
 - Install a fresh version of NixOS
 - Enter a shell with git installed
   ```
-  nix --extra-experimental-features nix-command	\
-  	--extra-experimental-features flakes		\
-	shell nixpkgs#git
+  nix --extra-experimental-features nix-command \
+    --extra-experimental-features flakes        \
+    shell nixpkgs#git
   ```
 - Clone this repository
   ```
@@ -20,8 +20,8 @@
   ```
 - Update the hardware configuration (if required)
   ```
-  cp -f /etc/nixos/hardware-configuration.nix 	\
-  	./hosts/chordata/hardware-configuration.nix`
+  cp -f /etc/nixos/hardware-configuration.nix   \
+    ./hosts/chordata/hardware-configuration.nix
   ```
 - Build the system
   ```
