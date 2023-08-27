@@ -156,12 +156,11 @@ in
         "browser.urlbar.suggest.topsites" = false;
 
         # Bookmarks toolbar
-        "browser.bookmarks.addedImportButton" = true;
-        "browser.places.importBookmarksHTML" = false;
         "browser.toolbars.bookmarks.visibility" = "always";
 
         # Skip Firefox welcome pages
-        "trailhead.firstrun.didSeeAboutWelcome" = true;
+        "browser.aboutwelcome.enabled" = false;
+        "startup.homepage_welcome_url" = "about:blank";
 
         # Disable autofill
         "dom.forms.autocomplete.formautofill" = false;
