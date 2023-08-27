@@ -4,9 +4,9 @@
 
 ---
 
-## Installation
+## Usage
 
-Install a fresh version of NixOS enter a shell with git installed:
+After installing NixOS, enter a shell with git installed:
 
 ```
 nix --extra-experimental-features nix-command \
