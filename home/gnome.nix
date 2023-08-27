@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 
 {
+  # Gnome extensions to install
+  home.packages = with pkgs; [
+    gnomeExtensions.caffeine
+  ];
+
+  # dconf values
   dconf = {
     enable = true;
     settings = {
@@ -36,6 +42,12 @@
       };
       "org/gnome/settings-daemon/plugins/color" = {
         night-light-enabled = true;
+      };
+      "org/gnome/shell" = {
+        disable-user-extensions = false;
+        enabled-extensions = [
+          "caffeine@patapon.info"
+        ];
       };
     };
   };

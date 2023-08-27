@@ -2,9 +2,9 @@
 
 {
   imports = [
-    ./dconf.nix
     ./firefox.nix
     ./git.nix
+    ./gnome.nix
     ./vscode.nix
   ];
 
@@ -26,6 +26,7 @@
       gcc
       gh
       gimp
+      gnome.dconf-editor
       gnome.eog
       gnome.gnome-tweaks
       go
