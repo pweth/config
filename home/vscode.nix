@@ -17,7 +17,6 @@
       ms-python.python
       ms-vscode.cpptools
       ms-vscode.hexeditor
-      ms-vscode.live-server
       ms-vscode.powershell
       ms-vscode-remote.remote-ssh
       rust-lang.rust-analyzer
@@ -27,6 +26,7 @@
 
     # settings.json values
     userSettings = {
+      "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "workbench.colorTheme" = "Default Dark Modern";
     };
   };
