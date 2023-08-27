@@ -29,15 +29,14 @@ in
         "Wikipedia (en)".metaData.hidden = true;
       };
 
-      # bookmarks = [
-      #   {
-      #     name = "GitHub";
-      #     keyword = "!gh";
-      #     toolbar = true;
-      #     url = "https://github.com/";
-      #   }
-      #   # TODO
-      # ];
+      bookmarks = [
+        {
+          name = "GitHub";
+          keyword = "!gh";
+          url = "https://github.com/";
+        }
+        # TODO
+      ];
 
       # about:config values
       settings = {

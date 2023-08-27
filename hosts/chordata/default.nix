@@ -77,6 +77,7 @@
     gedit
     gnome-characters
     gnome-music
+    gnome-photos
     hitori
     iagno
     tali

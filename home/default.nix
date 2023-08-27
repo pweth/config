@@ -26,6 +26,8 @@
       gcc
       gh
       gimp
+      gnome.eog
+      gnome.gnome-tweaks
       go
       htop
       libreoffice
