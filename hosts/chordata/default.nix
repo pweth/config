@@ -68,6 +68,7 @@
 
   # Exclude default Gnome packages
   environment.gnome.excludePackages = (with pkgs; [
+    gnome-photos
     gnome-tour
   ]) ++ (with pkgs.gnome; [
     atomix
@@ -77,7 +78,6 @@
     gedit
     gnome-characters
     gnome-music
-    gnome-photos
     hitori
     iagno
     tali
