@@ -10,6 +10,5 @@
 
 ## To-Do
 
-- Add Firefox bookmarks
 - Fix keymaps to add Dvorak to xkb
 - Add GNOME extensions

@@ -31,11 +31,41 @@ in
 
       bookmarks = [
         {
-          name = "GitHub";
-          keyword = "!gh";
-          url = "https://github.com/";
+          name = "Bookmarks";
+          toolbar = true;
+          bookmarks = [
+            {
+              name = "Fastmail";
+              keyword = "!fm";
+              url = "https://app.fastmail.com/mail/Inbox/";
+            }
+            {
+              name = "Outlook";
+              keyword = "!o";
+              url = "https://outlook.office365.com/mail/";
+            }
+            {
+              name = "Cloudflare";
+              keyword = "!c";
+              url = "https://dash.cloudflare.com/";
+            }
+            {
+              name = "GitHub";
+              keyword = "!gh";
+              url = "https://github.com/";
+            }
+            {
+              name = "sourcehut";
+              keyword = "!sh";
+              url = "https://sr.ht/";
+            }
+            {
+              name = "LinkedIn";
+              keyword = "!li";
+              url = "https://www.linkedin.com/";
+            }
+          ];
         }
-        # TODO
       ];
 
       # about:config values
@@ -124,6 +154,14 @@ in
         "browser.urlbar.suggest.history" = false;
         "browser.urlbar.suggest.openpage" = false;
         "browser.urlbar.suggest.topsites" = false;
+
+        # Bookmarks toolbar
+        "browser.bookmarks.addedImportButton" = true;
+        "browser.places.importBookmarksHTML" = false;
+        "browser.toolbars.bookmarks.visibility" = "always";
+
+        # Skip Firefox welcome pages
+        "trailhead.firstrun.didSeeAboutWelcome" = true;
 
         # Disable autofill
         "dom.forms.autocomplete.formautofill" = false;
