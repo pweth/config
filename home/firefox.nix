@@ -24,8 +24,9 @@
         "browser.aboutConfig.showWarning" = false;
 
         # Set home page
+        # Source: duckduckgo.com/duckduckgo-help-pages/settings/params/
         "browser.startup.page" = 1;
-        "browser.startup.homepage" = "https://duckduckgo.com/?key=285b1f17fbf9b2123e39bb0db11658fc465dc8eee7dacc078496deadc1687e8dcf80507f728d0b6d3601612b7fd071f9c0fef59dd0cde1c9a83013b436eed5aa";
+        "browser.startup.homepage" = "https://duckduckgo.com/?kp=1&kl=uk-en&kad=en_GB&k1=-1&kaj=m&kak=-1&kax=-1&kaq=-1&kap=-1&kao=-1&kau=-1&kae=d&k5=1";
 
         # Dark theme
         "layout.css.prefers-color-scheme.content-override" = 0;
