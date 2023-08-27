@@ -11,4 +11,4 @@
 ## To-Do
 
 - Fix keymaps to add Dvorak to xkb
-- Add GNOME extensions
+- Add .face using home manager
