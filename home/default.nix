@@ -16,7 +16,10 @@
     homeDirectory = "/home/pweth";
     stateVersion = "22.11";
 
-    # Create .face file
+    # .bashrc file
+    file.".bashrc".source = ../assets/bashrc;
+
+    # .face file
     file.".face".source = ../assets/profile.png;
 
     # User packges not imported as modules
