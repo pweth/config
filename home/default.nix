@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./alacritty.nix
     ./firefox.nix
     ./git.nix
     ./gnome.nix
@@ -14,6 +15,9 @@
     username = "pweth";
     homeDirectory = "/home/pweth";
     stateVersion = "22.11";
+
+    # Create .face file
+    file.".face".source = ../assets/profile.png;
 
     # User packges not imported as modules
     packages = with pkgs; [
@@ -55,8 +59,5 @@
       vlc
       youtube-dl
     ];
-
-    # Create .face file
-    file.".face".source = ../assets/profile.png;
   };
 }
