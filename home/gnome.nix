@@ -29,6 +29,7 @@
         color-scheme = "prefer-dark";
         enable-hot-corners = false;
         gtk-enable-primary-paste = false;
+        gtk-theme = "Adwaita-dark";
         show-battery-percentage = true;
         text-scaling-factor = 1.3;
       };

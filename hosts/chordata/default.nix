@@ -58,7 +58,10 @@
     enable = true;
     libinput.enable = true;
     desktopManager.gnome.enable = true;
-    displayManager.gdm.enable = true;
+    displayManager.gdm = {
+      enable = true;
+      wayland = false;
+    };
 
     # UK QWERTY and Dvorak layouts
     # TODO
