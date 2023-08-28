@@ -10,23 +10,23 @@ in
       id = 0;
 
       # Set default search engine to my themed DuckDuckGo and disable others
-      search.default = "DuckDuckGo Themed";
-      search.force = true;
-      search.engines = {
-        "DuckDuckGo Themed" = {
-          urls = [{
-            template = "https://duckduckgo.com/?q={searchTerms}&${ddgSettings}";
-          }];
-          # Update icon once a day
-          iconUpdateURL = "https://duckduckgo.com/favicon.png";
-          updateInterval = 24 * 60 * 60 * 1000;
+      search = {
+        default = "DuckDuckGo Themed";
+        force = true;
+        engines = {
+          "DuckDuckGo Themed" = {
+            urls = [{
+              template = "https://duckduckgo.com/?q={searchTerms}&${ddgSettings}";
+            }];
+            iconUpdateURL = "https://duckduckgo.com/favicon.png";
+          };
+          "Amazon.co.uk".metaData.hidden = true;
+          "Bing".metaData.hidden = true;
+          "DuckDuckGo".metaData.hidden = true;
+          "eBay".metaData.hidden = true;
+          "Google".metaData.hidden = true;
+          "Wikipedia (en)".metaData.hidden = true;
         };
-        "Amazon.co.uk".metaData.hidden = true;
-        "Bing".metaData.hidden = true;
-        "DuckDuckGo".metaData.hidden = true;
-        "eBay".metaData.hidden = true;
-        "Google".metaData.hidden = true;
-        "Wikipedia (en)".metaData.hidden = true;
       };
 
       bookmarks = [
