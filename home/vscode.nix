@@ -28,6 +28,7 @@
     userSettings = {
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "explorer.confirmDelete" = false;
+      "explorer.confirmDragAndDrop" = false;
       "workbench.colorTheme" = "Default Dark Modern";
     };
   };
