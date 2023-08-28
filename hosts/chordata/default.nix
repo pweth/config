@@ -93,6 +93,7 @@
     gnome-logs
     gnome-maps
     gnome-music
+    gnome-terminal
     seahorse
     simple-scan
     totem
