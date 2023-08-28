@@ -10,10 +10,10 @@ in
       id = 0;
 
       # Set default search engine to my themed DuckDuckGo and disable others
-      search.default = "DDG";
+      search.default = "DuckDuckGo Themed";
       search.force = true;
       search.engines = {
-        "DDG" = {
+        "DuckDuckGo Themed" = {
           urls = [{
             template = "https://duckduckgo.com/?q={searchTerms}&${ddgSettings}";
           }];
@@ -195,12 +195,6 @@ in
 
         # Disable Pocket
         "extensions.pocket.enabled" = false;
-
-        # Only retain active logins and cookies
-        "places.history.enabled" = false;
-        "privacy.history.custom" = true;
-        "privacy.sanitize.sanitizeOnShutdown" = true;
-        "privacy.sanitize.pending" = "[{\"id\":\"shutdown\",\"itemsToClear\":[\"cache\",\"history\",\"formdata\",\"downloads\"],\"options\":{}},{\"id\":\"newtab-container\",\"itemsToClear\":[],\"options\":{}}]";
       };
     };
   };
