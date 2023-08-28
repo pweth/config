@@ -52,6 +52,7 @@
       sl
       spotify
       tldr
+      vlc
       youtube-dl
     ];
 

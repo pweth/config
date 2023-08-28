@@ -70,19 +70,27 @@
 
   # Exclude default Gnome packages
   environment.gnome.excludePackages = (with pkgs; [
+    gnome-connections
     gnome-photos
+    gnome-text-editor
     gnome-tour
   ]) ++ (with pkgs.gnome; [
-    atomix
+    baobab
     epiphany
     evince
+    file-roller
     geary
     gedit
     gnome-characters
+    gnome-contacts
+    gnome-font-viewer
+    gnome-logs
+    gnome-maps
     gnome-music
-    hitori
-    iagno
-    tali
+    seahorse
+    simple-scan
+    totem
+    yelp
   ]);
 
   # Sound and Bluetooth
