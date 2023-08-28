@@ -31,6 +31,7 @@
   networking = {
     # Set hostname
     hostName = "chordata";
+
     # Enable network manager
     networkmanager.enable = true;
   };
@@ -53,14 +54,12 @@
   };
 
   services.xserver = {
+    # GUI
     enable = true;
     libinput.enable = true;
-    # GUI
     desktopManager.gnome.enable = true;
-    displayManager.gdm = {
-      enable = true;
-      wayland = false;
-    };
+    displayManager.gdm.enable = true;
+
     # UK QWERTY and Dvorak layouts
     # TODO
     layout = "gb,gb";
