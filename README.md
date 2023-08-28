@@ -40,4 +40,3 @@ sudo nixos-rebuild switch --flake .#chordata
 ## To-Do
 
 - Fix keymaps to add Dvorak to xkb
-- Add .face using home manager

@@ -54,5 +54,8 @@
       tldr
       youtube-dl
     ];
+
+    # Create .face file
+    file.".face".source = ../assets/profile.png;
   };
 }
