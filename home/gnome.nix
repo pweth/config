@@ -8,6 +8,7 @@
     gnome.gnome-tweaks
     gnomeExtensions.blur-my-shell
     gnomeExtensions.caffeine
+    gnomeExtensions.gnome-bedtime
     gnomeExtensions.just-perfection
     gnomeExtensions.vitals
   ];
@@ -49,14 +50,12 @@
       "org/gnome/mutter" = {
         dynamic-workspaces = true;
       };
-      "org/gnome/settings-daemon/plugins/color" = {
-        night-light-enabled = true;
-      };
       "org/gnome/shell" = {
         disable-user-extensions = false;
         enabled-extensions = [
           "blur-my-shell@aunetx"
           "caffeine@patapon.info"
+          "gnomebedtime@ionutbortis.gmail.com"
           "just-perfection-desktop@just-perfection"
           "Vitals@CoreCoding.com"
         ];
@@ -64,6 +63,9 @@
       };
 
       # Extension settings
+      "org/gnome/shell/extensions/bedtime-mode" = {
+        bedtime-mode-active = false;
+      };
       "org/gnome/shell/extensions/blur-my-shell/overview" = {
         blur = true;
       };
