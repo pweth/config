@@ -9,7 +9,7 @@
         unfocused_hollow = false;
       };
       font = {
-        size = 14;
+        size = 11;
       };
       key_bindings = [
         {

@@ -62,6 +62,9 @@
       enable = true;
       wayland = false;
     };
+    excludePackages = with pkgs; [
+      xterm
+    ];
 
     # UK QWERTY and Dvorak layouts
     # TODO
