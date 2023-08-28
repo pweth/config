@@ -28,13 +28,17 @@
       gimp
       go
       htop
+      httpie
+      jq
       libreoffice
+      librewolf
       lolcat
       micro
       neofetch
       nms
       nodejs
       openssl
+      pipes
       (python3.withPackages (ps: with ps; [
         ipython
         jupyter
@@ -43,11 +47,12 @@
         pandas
         setuptools
       ]))
+      ripgrep
       rustup
       sl
       spotify
       tldr
-      tor
+      youtube-dl
     ];
   };
 }
