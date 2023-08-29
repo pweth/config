@@ -12,5 +12,5 @@ HISTCONTROL=ignoredups
 alias cls="clear"
 alias folders="find . -maxdepth 1 -type d -print | xargs du -sk | sort -rn"
 alias ll="ls -aFhl"
-alias ..="cd .."
-alias ...="cd ..; cd .."
+alias rb="sudo nixos-rebuild switch --flake /home/pweth/dotfiles"
+alias rbi="sudo nixos-rebuild switch --flake /home/pweth/dotfiles --impure"
