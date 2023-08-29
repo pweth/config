@@ -22,11 +22,6 @@
     # .face file
     file.".face".source = ../assets/profile.png;
 
-    # User services
-    services = {
-      keybase.enable = true;
-    };
-
     # User packges not imported as modules
     packages = with pkgs; [
       bitwarden
