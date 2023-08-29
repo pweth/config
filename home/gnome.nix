@@ -51,7 +51,7 @@
         dynamic-workspaces = true;
       };
       "org/gnome/shell" = {
-        disable-user-extensions = false;
+        # `gnome-extensions list`
         enabled-extensions = [
           "blur-my-shell@aunetx"
           "caffeine@patapon.info"
@@ -59,6 +59,7 @@
           "just-perfection-desktop@just-perfection"
           "Vitals@CoreCoding.com"
         ];
+        disable-user-extensions = false;
         favorite-apps = [];
       };
 

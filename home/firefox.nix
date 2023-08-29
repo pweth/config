@@ -35,6 +35,11 @@ in
           toolbar = true;
           bookmarks = [
             {
+              name = "NixOS";
+              keyword = "!n";
+              url = "https://search.nixos.org/packages?channel=23.05&from=0&size=50&sort=relevance&type=packages&query=%s";
+            }
+            {
               name = "Fastmail";
               keyword = "!fm";
               url = "https://app.fastmail.com/mail/Inbox/";
@@ -58,11 +63,6 @@ in
               name = "sourcehut";
               keyword = "!sh";
               url = "https://sr.ht/";
-            }
-            {
-              name = "LinkedIn";
-              keyword = "!li";
-              url = "https://www.linkedin.com/";
             }
           ];
         }
