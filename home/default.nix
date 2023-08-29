@@ -22,6 +22,11 @@
     # .face file
     file.".face".source = ../assets/profile.png;
 
+    # User services
+    services = {
+      keybase.enable = true;
+    };
+
     # User packges not imported as modules
     packages = with pkgs; [
       bitwarden
@@ -37,7 +42,6 @@
       htop
       httpie
       jq
-      kbfs
       keybase
       libreoffice
       librewolf
