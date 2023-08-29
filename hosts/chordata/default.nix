@@ -77,6 +77,10 @@
   hardware.bluetooth.enable = true;
   hardware.pulseaudio.enable = true;
 
+  # Load password hash
+  age.identityPaths = [ "/home/pweth/.ssh/id_ed25519" ];
+  age.secrets.pwdhash.file = ../../secrets/pwdhash.age;
+
   # User account
   users.users.pweth = {
     description = "Peter";
@@ -85,6 +89,7 @@
       "wheel"
     ];
     isNormalUser = true;
+    passwordFile = config.age.secrets.pwdhash.path;
   };
 
   # Home manager
