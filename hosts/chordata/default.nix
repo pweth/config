@@ -66,8 +66,7 @@
       xterm
     ];
 
-    # UK QWERTY and Dvorak layouts
-    # TODO
+    # UK QWERTY and Dvorak layouts (TODO)
     layout = "gb,gb";
     xkbVariant = ",dvorakukp";
     xkbOptions = "grp:win_space_toggle";
@@ -123,7 +122,6 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
-    clamav
     curl
     dig
     git
@@ -132,6 +130,14 @@
     vim
     wget
   ];
+
+  services = {
+    # Enable ClamAV and automatic `sudo freshclam`
+    clamav = {
+      daemon.enable = true;
+      updater.enable = true;
+    };
+  };
 
   # NixOS release version
   system.stateVersion = "23.05";
