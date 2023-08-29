@@ -4,6 +4,9 @@
   programs.vscode = {
     enable = true;
 
+    # Use open source binary
+    package = pkgs.vscodium;
+
     # Extensions to install
     extensions = with pkgs.vscode-extensions; [
       attilabuti.brainfuck-syntax
@@ -17,7 +20,6 @@
       ms-python.python
       ms-vscode.cpptools
       ms-vscode.hexeditor
-      ms-vscode.powershell
       ms-vscode-remote.remote-ssh
       rust-lang.rust-analyzer
       vscode-icons-team.vscode-icons
