@@ -16,11 +16,10 @@
     homeDirectory = "/home/pweth";
     stateVersion = "22.11";
 
-    # .bashrc file
+    # Dotfiles
     file.".bashrc".source = ../assets/bashrc;
-
-    # .face file
     file.".face".source = ../assets/profile.png;
+    file.".config/news-flash/newsflash_gtk.json".source = ../assets/newsflash.json;
 
     # User packges not imported as modules
     packages = with pkgs; [
@@ -44,6 +43,7 @@
       lolcat
       micro
       neofetch
+      newsflash
       nmap
       nms
       nodejs
