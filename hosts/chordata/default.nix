@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, home-manager, agenix, ... }:
 
 {
   imports = [
@@ -87,11 +87,17 @@
     isNormalUser = true;
   };
 
+  # Home manager
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.users.pweth = import ../../home;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # System packages
   environment.systemPackages = with pkgs; [
+    agenix.packages.x86_64-linux.default
     curl
     dig
     git

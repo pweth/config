@@ -8,9 +8,14 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # agenix
+    agenix.url = "github:ryantm/agenix";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
+    agenix.inputs.darwin.follows = "";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, agenix }@inputs: {
     # NixOS configurations
     nixosConfigurations = {
       # `sudo nixos-rebuild switch --flake .#chordata`
@@ -18,12 +23,7 @@
         modules = [
           ./hosts/chordata
           home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = inputs;
-            home-manager.users.pweth = import ./home;
-          }
+          agenix.nixosModules.default
         ];
         specialArgs = inputs;
         system = "x86_64-linux";
