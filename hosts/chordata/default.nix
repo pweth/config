@@ -6,20 +6,18 @@
   ];
 
   nix = {
+    # Enable automatic garbage collection
     gc = {
-      # Enable automatic garbage collection
       automatic = true;
-      # Schedule once a week                 
       dates = "weekly";
-      # Target store entries older than 7 days
       options = "--delete-older-than 7d";
     };
-    settings = {
-      # Automatic `nix store optimise`
-      auto-optimise-store = true;
-      # Enable `nix` subcommands and flakes
-      experimental-features = [ "nix-command" "flakes" ];
-    };
+
+    # Automatic `nix store optimise`
+    settings.auto-optimise-store = true;
+
+    # Enable `nix` subcommands and flakes
+    settings.experimental-features = [ "nix-command" "flakes" ];
   };
 
   # Use the systemd-boot EFI boot loader
@@ -28,11 +26,11 @@
     systemd-boot.enable = true;
   };
 
+  # Set hostname and enable network manager
   networking = {
-    # Set hostname
     hostName = "chordata";
-
-    # Enable network manager
+    nameservers = [ "127.0.0.1" "::1" ];
+    networkmanager.dns = "none";
     networkmanager.enable = true;
   };
 
@@ -55,48 +53,23 @@
 
   services.xserver = {
     # GUI
-    enable = true;
-    libinput.enable = true;
     desktopManager.gnome.enable = true;
     displayManager.gdm = {
       enable = true;
       wayland = false;
     };
-    excludePackages = with pkgs; [
-      xterm
-    ];
+    enable = true;
+    excludePackages = [ pkgs.xterm ];
+    libinput.enable = true;
 
     # UK QWERTY and Dvorak layouts (TODO)
     layout = "gb,gb";
     xkbVariant = ",dvorakukp";
     xkbOptions = "grp:win_space_toggle";
   };
-  console.useXkbConfig = true;
 
-  # Exclude default Gnome packages
-  environment.gnome.excludePackages = (with pkgs; [
-    gnome-connections
-    gnome-photos
-    gnome-text-editor
-    gnome-tour
-  ]) ++ (with pkgs.gnome; [
-    baobab
-    epiphany
-    evince
-    file-roller
-    geary
-    gedit
-    gnome-characters
-    gnome-contacts
-    gnome-font-viewer
-    gnome-logs
-    gnome-maps
-    gnome-music
-    seahorse
-    simple-scan
-    totem
-    yelp
-  ]);
+  # Use X keyboard in the console
+  console.useXkbConfig = true;
 
   # Sound and Bluetooth
   sound.enable = true;
@@ -131,13 +104,43 @@
     wget
   ];
 
-  services = {
-    # Enable ClamAV and automatic `sudo freshclam`
-    clamav = {
-      daemon.enable = true;
-      updater.enable = true;
-    };
+  # Enable ClamAV daemon and automatic `freshclam`
+  services.clamav = {
+    daemon.enable = true;
+    updater.enable = true;
   };
+
+  # NextDNS proxy (DNS-over-HTTPS)
+  services.nextdns = {
+    enable = true;
+    arguments = [ "-profile" "ffa426" ];
+  };
+
+  # Exclude default Gnome packages
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-connections
+    gnome-photos
+    gnome-text-editor
+    gnome-tour
+  ]) ++ (with pkgs.gnome; [
+    baobab
+    epiphany
+    evince
+    file-roller
+    geary
+    gedit
+    gnome-characters
+    gnome-contacts
+    gnome-font-viewer
+    gnome-logs
+    gnome-maps
+    gnome-music
+    gnome-weather
+    seahorse
+    simple-scan
+    totem
+    yelp
+  ]);
 
   # NixOS release version
   system.stateVersion = "23.05";
