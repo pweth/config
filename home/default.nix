@@ -37,6 +37,8 @@
       htop
       httpie
       jq
+      kbfs
+      keybase
       libreoffice
       librewolf
       lolcat

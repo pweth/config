@@ -3,9 +3,7 @@
 {
   # Gnome packages and extensions to install
   home.packages = with pkgs; [
-    gnome.dconf-editor
     gnome.eog
-    gnome.gnome-tweaks
     gnomeExtensions.blur-my-shell
     gnomeExtensions.caffeine
     gnomeExtensions.gnome-bedtime
