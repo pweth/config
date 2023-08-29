@@ -77,9 +77,6 @@
   hardware.bluetooth.enable = true;
   hardware.pulseaudio.enable = true;
 
-  # Printing
-  services.printing.enable = true;
-
   # User account
   users.users.pweth = {
     description = "Peter";
@@ -98,11 +95,16 @@
     curl
     dig
     git
+    gnupg
     htop
     tree
     vim
     wget
   ];
+
+  # System services
+  services.keybase.enable = true;
+  services.printing.enable = true;
 
   # Enable ClamAV daemon and automatic `freshclam`
   services.clamav = {
