@@ -123,9 +123,11 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
+    clamav
     curl
     dig
     git
+    htop
     tree
     vim
     wget

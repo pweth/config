@@ -24,7 +24,6 @@
     # User packges not imported as modules
     packages = with pkgs; [
       bitwarden
-      clamav
       cmatrix
       cowsay
       duf
@@ -35,7 +34,6 @@
       gimp
       gping
       go
-      htop
       httpie
       jq
       keybase
