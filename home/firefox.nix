@@ -64,6 +64,10 @@ in
               keyword = "!sh";
               url = "https://sr.ht/";
             }
+            {
+              name = "Wordle";
+              url = "https://www.nytimes.com/games/wordle/index.html";
+            }
           ];
         }
       ];

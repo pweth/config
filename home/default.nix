@@ -38,6 +38,7 @@
       gcc
       gh
       gimp
+      gping
       go
       htop
       httpie
@@ -48,6 +49,7 @@
       lolcat
       micro
       neofetch
+      nmap
       nms
       nodejs
       openssl
@@ -65,8 +67,9 @@
       sl
       spotify
       tldr
+      tmpmail
       vlc
-      youtube-dl
+      yt-dlp
     ];
   };
 }
