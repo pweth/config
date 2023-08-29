@@ -61,6 +61,8 @@
       rustup
       sl
       spotify
+      sqlite
+      sqlitebrowser
       tldr
       tmpmail
       vlc
