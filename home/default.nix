@@ -24,6 +24,7 @@
     # User packges not imported as modules
     packages = with pkgs; [
       bitwarden
+      clamav
       cmatrix
       cowsay
       duf
