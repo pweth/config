@@ -49,6 +49,7 @@
       openssl
       pipes
       (python3.withPackages (ps: with ps; [
+        build
         ipython
         jupyter
         matplotlib
