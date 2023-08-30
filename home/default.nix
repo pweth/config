@@ -54,6 +54,7 @@
         matplotlib
         numpy
         pandas
+        pip
         setuptools
       ]))
       ripgrep
