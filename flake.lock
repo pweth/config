@@ -90,11 +90,11 @@
     },
     "secrets": {
       "locked": {
-        "lastModified": 1693399074,
-        "narHash": "sha256-xyaXIO6rcadeSPPs3s1e0OfeYHgjPWtFRGdRbXCeMhs=",
+        "lastModified": 1693407489,
+        "narHash": "sha256-ibd4uDW/nlOGO4uwzLNayk/huTw3IGhcSJW9xT1uVag=",
         "ref": "refs/heads/main",
-        "rev": "2fe9fabdd6e241e4b13e2623e7899a3399a3169b",
-        "revCount": 3,
+        "rev": "c08ba90d4e407595b540d78b7777b5aa404bc470",
+        "revCount": 5,
         "type": "git",
         "url": "ssh://git@github.com/pweth/secrets.git"
       },
