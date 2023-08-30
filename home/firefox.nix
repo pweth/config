@@ -189,6 +189,7 @@ in
         # Downloads
         "browser.download.useDownloadDir" = false;
         "browser.download.manager.addToRecentDocs" = false;
+        "browser.download.always_ask_before_handling_new_types" = true;
 
         # Enable ETP and RFP
         "browser.contentblocking.category" = "strict";
