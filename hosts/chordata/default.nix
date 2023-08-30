@@ -1,4 +1,4 @@
-{ config, pkgs, home-manager, agenix, ... }:
+{ config, pkgs, home-manager, agenix, secrets, ... }:
 
 {
   imports = [
@@ -77,9 +77,9 @@
   hardware.bluetooth.enable = true;
   hardware.pulseaudio.enable = true;
 
-  # Load password hash
+  # Load in all agenix secrets
   age.identityPaths = [ "/home/pweth/.ssh/id_ed25519" ];
-  age.secrets.pwdhash.file = ../../secrets/pwdhash.age;
+  age.secrets = secrets.secrets;
 
   # User account
   users.users.pweth = {
@@ -89,7 +89,7 @@
       "wheel"
     ];
     isNormalUser = true;
-    passwordFile = config.age.secrets.pwdhash.path;
+    passwordFile = config.age.secrets.password-hash.path;
   };
 
   # Home manager

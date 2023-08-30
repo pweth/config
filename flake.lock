@@ -84,7 +84,23 @@
       "inputs": {
         "agenix": "agenix",
         "home-manager": "home-manager_2",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "secrets": "secrets"
+      }
+    },
+    "secrets": {
+      "locked": {
+        "lastModified": 1693399074,
+        "narHash": "sha256-xyaXIO6rcadeSPPs3s1e0OfeYHgjPWtFRGdRbXCeMhs=",
+        "ref": "refs/heads/main",
+        "rev": "2fe9fabdd6e241e4b13e2623e7899a3399a3169b",
+        "revCount": 3,
+        "type": "git",
+        "url": "ssh://git@github.com/pweth/secrets.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/pweth/secrets.git"
       }
     }
   },

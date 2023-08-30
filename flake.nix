@@ -13,9 +13,12 @@
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     agenix.inputs.darwin.follows = "";
+  
+    # Secrets
+    secrets.url = "git+ssh://git@github.com/pweth/secrets.git";
   };
 
-  outputs = { self, nixpkgs, home-manager, agenix }@inputs: {
+  outputs = { self, nixpkgs, home-manager, agenix, secrets }@inputs: {
     # NixOS configurations
     nixosConfigurations = {
       # `sudo nixos-rebuild switch --flake .#chordata`
