@@ -7,6 +7,7 @@
     ./firefox.nix
     ./git.nix
     ./gnome.nix
+    ./starship.nix
     ./vscode.nix
   ];
 
