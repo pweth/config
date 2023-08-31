@@ -3,6 +3,7 @@
 {
   imports = [
     ./alacritty.nix
+    ./bash.nix
     ./firefox.nix
     ./git.nix
     ./gnome.nix
@@ -17,9 +18,15 @@
     stateVersion = "22.11";
 
     # Dotfiles
-    file.".bashrc".source = ../assets/bashrc;
     file.".face".source = ../assets/profile.png;
-    file.".config/news-flash/newsflash_gtk.json".source = ../assets/newsflash.json;
+    file.".config/news-flash/newsflash_gtk.json".source = ../assets/newsflash.json;    
+
+    # Environment variables
+    sessionVariables = {
+      EDITOR = "micro";
+      HISTTIMEFORMAT = "%F %T ";
+      TZ_LIST = "America/New_York,New York;Europe/London,London;Australia/Sydney,Sydney";
+    };
 
     # User packges not imported as modules
     packages = with pkgs; [
@@ -66,6 +73,7 @@
       sqlitebrowser
       tldr
       tmpmail
+      tz
       vlc
       yt-dlp
     ];

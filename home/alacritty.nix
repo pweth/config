@@ -23,6 +23,10 @@
           action = "Quit";
         }
       ];
+      window = {
+        dynamic_title = false;
+        title = "Terminal";
+      };
     };
   };
 }
