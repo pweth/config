@@ -43,6 +43,12 @@
     LC_TIME = "en_GB.UTF-8";
   };
 
+  # Fonts
+  fonts.fonts = with pkgs; [
+    fira-code
+    fira-code-symbols
+  ];
+
   services.xserver = {
     # GUI
     desktopManager.gnome.enable = true;
