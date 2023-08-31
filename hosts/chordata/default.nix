@@ -1,4 +1,4 @@
-{ config, pkgs, home-manager, agenix, secrets, ... }:
+{ config, pkgs, home-manager, agenix, ... }:
 
 {
   imports = [
@@ -24,14 +24,6 @@
   boot.loader = {
     efi.canTouchEfiVariables = true;
     systemd-boot.enable = true;
-  };
-
-  # Set hostname and enable network manager
-  networking = {
-    hostName = "chordata";
-    nameservers = [ "127.0.0.1" "::1" ];
-    networkmanager.dns = "none";
-    networkmanager.enable = true;
   };
 
   # Set time zone to London
@@ -79,7 +71,17 @@
 
   # Load in all agenix secrets
   age.identityPaths = [ "/home/pweth/.ssh/id_ed25519" ];
-  age.secrets = secrets.secrets;
+  age.secrets.duckduckgo-api-key.file = ../../secrets/duckduckgo-api-key.age;
+  age.secrets.internetas.file = ../../secrets/internetas.age;
+  age.secrets.password-hash.file = ../../secrets/password-hash.age;
+
+  # Set hostname and enable network manager
+  networking = {
+    hostName = "chordata";
+    nameservers = [ "127.0.0.1" "::1" ];
+    networkmanager.dns = "none";
+    networkmanager.enable = true;
+  };
 
   # User account
   users.users.pweth = {
