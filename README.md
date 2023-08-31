@@ -16,10 +16,6 @@
 		<td>Desktop background image</td>
 	</tr>
 	<tr>
-		<td>newsflash.json</td>
-		<td><a href="https://gitlab.com/news-flash/news_flash_gtk">NewsFlash</a> configuration</td>
-	</tr>
-	<tr>
 		<td>profile.png</td>
 		<td>GNOME profile image</td>
 	</tr>

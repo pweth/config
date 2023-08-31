@@ -18,9 +18,8 @@
     homeDirectory = "/home/pweth";
     stateVersion = "22.11";
 
-    # Dotfiles
+    # GNOME profile picture
     file.".face".source = ../assets/profile.png;
-    file.".config/news-flash/newsflash_gtk.json".source = ../assets/newsflash.json;    
 
     # Environment variables
     sessionVariables = {
@@ -51,7 +50,6 @@
       lolcat
       micro
       neofetch
-      newsflash
       nmap
       nms
       nodejs
