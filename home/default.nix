@@ -37,6 +37,7 @@
       duf
       exiftool
       ffmpeg
+      file
       gcc
       gh
       gimp
