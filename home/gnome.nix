@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Gnome packages and extensions to install
@@ -25,8 +25,8 @@
       };
       "org/gnome/desktop/input-sources" = {
         sources = [
-          lib.hm.gvariant.mkTuple ["xkb" "gb"]
-          lib.hm.gvariant.mkTuple ["xkb" "gb+dvorakukp"]
+          (lib.hm.gvariant.mkTuple ["xkb" "gb"])
+          (lib.hm.gvariant.mkTuple ["xkb" "gb+dvorakukp"])
         ];
       };
       "org/gnome/desktop/interface" = {
