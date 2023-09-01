@@ -46,10 +46,7 @@
   services.xserver = {
     # GUI
     desktopManager.gnome.enable = true;
-    displayManager.gdm = {
-      enable = true;
-      wayland = false;
-    };
+    displayManager.gdm.enable = true;
     enable = true;
     excludePackages = [ pkgs.xterm ];
     libinput.enable = true;
