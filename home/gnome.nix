@@ -78,7 +78,10 @@
         accessibility-menu = false;
         activities-button = false;
         background-menu = false;
+        dash = false;
+        dash-separator = false;
         events-button = false;
+        keyboard-layout = false;
         search = false;
         show-apps-button = false;
         window-menu-take-screenshot-button = false;
