@@ -23,6 +23,12 @@
       "org/gnome/desktop/calendar" = {
         show-weekdate = true;
       };
+      "org/gnome/desktop/input-sources" = {
+        sources = [
+          lib.hm.gvariant.mkTuple ["xkb" "gb"]
+          lib.hm.gvariant.mkTuple ["xkb" "gb+dvorakukp"]
+        ];
+      };
       "org/gnome/desktop/interface" = {
         clock-show-weekday = true;
         color-scheme = "prefer-dark";

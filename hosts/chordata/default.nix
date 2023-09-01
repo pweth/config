@@ -53,15 +53,7 @@
     enable = true;
     excludePackages = [ pkgs.xterm ];
     libinput.enable = true;
-
-    # UK QWERTY and Dvorak layouts (TODO)
-    layout = "gb,gb";
-    xkbVariant = ",dvorakukp";
-    xkbOptions = "grp:win_space_toggle";
   };
-
-  # Use X keyboard in the console
-  console.useXkbConfig = true;
 
   # Sound and Bluetooth
   sound.enable = true;
