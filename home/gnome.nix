@@ -74,6 +74,9 @@
       "org/gnome/shell/extensions/blur-my-shell/overview" = {
         blur = true;
       };
+      "org/gnome/shell/extensions/caffeine" = {
+        show-indicator = "always";
+      };
       "org/gnome/shell/extensions/just-perfection" = {
         accessibility-menu = false;
         activities-button = false;
