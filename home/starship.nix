@@ -15,7 +15,6 @@
         disabled = false;
         ssh_only = false;
       };
-      os.disabled = false;
       package.disabled = true;
       status.disabled = false;
       username = {
