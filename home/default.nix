@@ -24,11 +24,12 @@
     sessionVariables = {
       EDITOR = "micro";
       HISTTIMEFORMAT = "%F %T ";
-      TZ_LIST = "America/New_York,New York;Europe/London,London;Australia/Sydney,Sydney";
+      TZ_LIST = "America/New_York;Europe/London;Australia/Sydney";
     };
 
     # User packges not imported as modules
     packages = with pkgs; [
+      age
       bitwarden
       cmatrix
       cowsay
