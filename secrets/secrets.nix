@@ -3,6 +3,5 @@ let
 in
 {
   "duckduckgo-api-key.age".publicKeys = [ key ];
-  "internetas.age".publicKeys = [ key ];
   "password-hash.age".publicKeys = [ key ];
 }
