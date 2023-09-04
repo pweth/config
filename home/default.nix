@@ -74,7 +74,6 @@
       sqlite
       sqlitebrowser
       tldr
-      tmpmail
       tz
       vlc
       yt-dlp
