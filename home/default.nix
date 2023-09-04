@@ -45,6 +45,7 @@
       httpie
       jq
       keybase
+      killall
       libreoffice
       librewolf
       lolcat
@@ -53,6 +54,7 @@
       nmap
       nms
       nodejs
+      obsidian
       openssl
       pipes
       (python3.withPackages (ps: with ps; [
