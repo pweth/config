@@ -65,6 +65,11 @@ in
               url = "https://sr.ht/";
             }
             {
+              name = "NextDNS";
+              keyword = "!nd";
+              url = "https://my.nextdns.io/";
+            }
+            {
               name = "Wordle";
               url = "https://www.nytimes.com/games/wordle/index.html";
             }

@@ -20,11 +20,10 @@
         editor = "micro";
       };
       credential = {
-        helper = "store";
-
         # Manually ensure the correct gh package
         "https://gist.github.com".helper = "!${pkgs.gh}/bin/gh auth git-credential";
         "https://github.com".helper = "!${pkgs.gh}/bin/gh auth git-credentials";
+        helper = "store";
       };
       init = {
         defaultBranch = "main";
