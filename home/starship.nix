@@ -14,6 +14,7 @@
       hostname = {
         disabled = false;
         ssh_only = false;
+        style = "bold green";
       };
       package.disabled = true;
       status.disabled = false;
