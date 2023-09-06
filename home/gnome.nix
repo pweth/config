@@ -70,6 +70,7 @@
       # Extension settings
       "org/gnome/shell/extensions/bedtime-mode" = {
         bedtime-mode-active = false;
+        ondemand-button-location = "menu";
       };
       "org/gnome/shell/extensions/blur-my-shell/overview" = {
         blur = true;
