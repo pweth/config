@@ -65,6 +65,11 @@ in
               url = "https://sr.ht/";
             }
             {
+              name = "Moodle";
+              keyword = "!m";
+              url = "https://moodle.bath.ac.uk/";
+            }
+            {
               name = "NextDNS";
               keyword = "!nd";
               url = "https://my.nextdns.io/";
