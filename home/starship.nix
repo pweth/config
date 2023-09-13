@@ -20,7 +20,7 @@
       status.disabled = false;
       username = {
         disabled = false;
-        format = "[$user]($style)→";
+        format = "[$user]($style) → ";
         show_always = true;
       };
     };
