@@ -94,10 +94,13 @@
       "org/gnome/shell/extensions/vitals" = {
         alphabetize = false;
         fixed-widths = false;
+        hide-icons = true;
         hot-sensors = [ "_processor_usage_" "_memory_allocated_" "_storage_used_" ];
-        show-battery = true;
         show-fan = false;
+        show-network = false;
         show-system = false;
+        show-temperature = false;
+        show-voltage = false;
       };
 
       # Emote keyboard shortcut
