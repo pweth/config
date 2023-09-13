@@ -99,6 +99,16 @@
         show-fan = false;
         show-system = false;
       };
+
+      # Emote keyboard shortcut
+      "org/gnome/settings-daemon/plugins/media-keys" = {
+        custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" ];
+      };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+        binding = "<Super>period";
+        command = "emote";
+        name = "Emote";
+      };
     };
   };
 }

@@ -34,6 +34,7 @@
       cmatrix
       cowsay
       duf
+      emote
       exiftool
       ffmpeg
       file
