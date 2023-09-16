@@ -21,7 +21,8 @@
       # `sudo nixos-rebuild switch --flake .#emperor`
       emperor = nixpkgs.lib.nixosSystem {
         modules = [
-          ./hosts/common.nix
+          ./hosts/common
+          ./hosts/common/gui.nix
           ./hosts/emperor
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default

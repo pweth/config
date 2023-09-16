@@ -33,6 +33,7 @@
       bitwarden
       cmatrix
       cowsay
+      dig
       duf
       emote
       exiftool
@@ -41,6 +42,7 @@
       gcc
       gh
       gimp
+      gnupg
       gping
       go
       httpie

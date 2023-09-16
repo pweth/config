@@ -1,15 +1,13 @@
-{ config, pkgs, home-manager, agenix, ... }:
+/*
+* Personal laptop system configuration.
+*/
+
+{ config, pkgs, home-manager, ... }:
 
 {
   imports = [
     ./hardware.nix
   ];
-
-  # Use the systemd-boot EFI boot loader
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-    systemd-boot.enable = true;
-  };
 
   # Set hostname and enable network manager
   networking = {
@@ -21,29 +19,6 @@
 
   # Set time zone to London
   time.timeZone = "Europe/London";
-
-  # Configure UK locale settings
-  i18n.defaultLocale = "en_GB.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_GB.UTF-8";
-    LC_IDENTIFICATION = "en_GB.UTF-8";
-    LC_MEASUREMENT = "en_GB.UTF-8";
-    LC_MONETARY = "en_GB.UTF-8";
-    LC_NAME = "en_GB.UTF-8";
-    LC_NUMERIC = "en_GB.UTF-8";
-    LC_PAPER = "en_GB.UTF-8";
-    LC_TELEPHONE = "en_GB.UTF-8";
-    LC_TIME = "en_GB.UTF-8";
-  };
-
-  # GUI
-  services.xserver = {
-    desktopManager.gnome.enable = true;
-    displayManager.gdm.enable = true;
-    enable = true;
-    excludePackages = [ pkgs.xterm ];
-    libinput.enable = true;
-  };
 
   # Sound and Bluetooth
   sound.enable = true;
@@ -72,19 +47,6 @@
   home-manager.useUserPackages = true;
   home-manager.users.pweth = import ../../home;
 
-  # System packages
-  environment.systemPackages = with pkgs; [
-    agenix.packages.x86_64-linux.default
-    curl
-    dig
-    git
-    gnupg
-    htop
-    tree
-    vim
-    wget
-  ];
-
   # System services
   services.keybase.enable = true;
   services.printing.enable = true;
@@ -100,30 +62,4 @@
     enable = true;
     arguments = [ "-profile" "ffa426" ];
   };
-
-  # Exclude default Gnome packages
-  environment.gnome.excludePackages = (with pkgs; [
-    gnome-connections
-    gnome-photos
-    gnome-text-editor
-    gnome-tour
-  ]) ++ (with pkgs.gnome; [
-    baobab
-    epiphany
-    evince
-    file-roller
-    geary
-    gedit
-    gnome-characters
-    gnome-contacts
-    gnome-font-viewer
-    gnome-logs
-    gnome-maps
-    gnome-music
-    gnome-weather
-    seahorse
-    simple-scan
-    totem
-    yelp
-  ]);
 }
