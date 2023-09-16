@@ -18,7 +18,7 @@
     stateVersion = "22.11";
 
     # GNOME profile picture
-    file.".face".source = ../assets/profile.png;
+    file.".face".source = ../static/profile.png;
 
     # Environment variables
     sessionVariables = {
@@ -30,6 +30,7 @@
     # User packges not imported as modules
     packages = with pkgs; [
       age
+      appimage-run
       bitwarden
       cmatrix
       cowsay
