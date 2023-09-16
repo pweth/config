@@ -2,23 +2,8 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
+    ./hardware.nix
   ];
-
-  nix = {
-    # Enable automatic garbage collection
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
-
-    # Automatic `nix store optimise`
-    settings.auto-optimise-store = true;
-
-    # Enable `nix` subcommands and flakes
-    settings.experimental-features = [ "nix-command" "flakes" ];
-  };
 
   # Use the systemd-boot EFI boot loader
   boot.loader = {
@@ -28,7 +13,7 @@
 
   # Set hostname and enable network manager
   networking = {
-    hostName = "chordata";
+    hostName = "emperor";
     nameservers = [ "127.0.0.1" "::1" ];
     networkmanager.dns = "none";
     networkmanager.enable = true;
@@ -87,9 +72,6 @@
   home-manager.useUserPackages = true;
   home-manager.users.pweth = import ../../home;
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # System packages
   environment.systemPackages = with pkgs; [
     agenix.packages.x86_64-linux.default
@@ -144,7 +126,4 @@
     totem
     yelp
   ]);
-
-  # NixOS release version
-  system.stateVersion = "23.05";
 }

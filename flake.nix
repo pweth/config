@@ -18,10 +18,11 @@
   outputs = { self, nixpkgs, home-manager, agenix }@inputs: {
     # NixOS configurations
     nixosConfigurations = {
-      # `sudo nixos-rebuild switch --flake .#chordata`
-      chordata = nixpkgs.lib.nixosSystem {
+      # `sudo nixos-rebuild switch --flake .#emperor`
+      emperor = nixpkgs.lib.nixosSystem {
         modules = [
-          ./hosts/chordata
+          ./hosts/common.nix
+          ./hosts/emperor
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
         ];
