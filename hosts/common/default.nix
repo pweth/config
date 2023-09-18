@@ -73,6 +73,12 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Enable ClamAV daemon and automatic `freshclam`
+  services.clamav = {
+    daemon.enable = true;
+    updater.enable = true;
+  };
+
   # NixOS release version
   system.stateVersion = "23.05";
 

@@ -39,12 +39,6 @@
   services.keybase.enable = true;
   services.printing.enable = true;
 
-  # Enable ClamAV daemon and automatic `freshclam`
-  services.clamav = {
-    daemon.enable = true;
-    updater.enable = true;
-  };
-
   # NextDNS proxy (DNS-over-HTTPS)
   services.nextdns = {
     enable = true;
