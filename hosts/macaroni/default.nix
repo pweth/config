@@ -25,6 +25,9 @@
   # Home manager
   home-manager.users.pweth = import ./home.nix;
 
+  # Remote VS Code
+  environment.systemPackages = [ pkgs.code-server ];
+
   # Enable Docker
   virtualisation.docker.enable = true;
 }
