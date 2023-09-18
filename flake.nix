@@ -36,6 +36,7 @@
         modules = [
           ./hosts/common
           ./hosts/macaroni
+          home-manager.nixosModules.home-manager
         ];
         specialArgs = inputs;
         system = "aarch64-linux";
