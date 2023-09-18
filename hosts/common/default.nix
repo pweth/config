@@ -16,7 +16,6 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
-    agenix.packages.x86_64-linux.default
     curl
     git
     htop

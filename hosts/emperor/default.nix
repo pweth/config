@@ -48,6 +48,11 @@
   services.keybase.enable = true;
   services.printing.enable = true;
 
+  # Install agenix
+  environment.systemPackages = [
+    agenix.packages.x86_64-linux.default
+  ];
+
   # Enable ClamAV daemon and automatic `freshclam`
   services.clamav = {
     daemon.enable = true;
