@@ -30,12 +30,20 @@
   age.identityPaths = [ "/home/pweth/.ssh/id_ed25519" ];
   age.secrets.duckduckgo-api-key.file = ../../secrets/duckduckgo-api-key.age;
   age.secrets.password-hash.file = ../../secrets/password-hash.age;
-  users.users.pweth.passwordFile = config.age.secrets.password-hash.path;
+
+  # User account
+  users.users.pweth = {
+    description = "Peter";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+    isNormalUser = true;
+    passwordFile = config.age.secrets.password-hash.path;
+  };
 
   # Home manager
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-  home-manager.users.pweth = import ../../home;
+  home-manager.users.pweth = import ../../home/pweth;
 
   # System services
   services.keybase.enable = true;

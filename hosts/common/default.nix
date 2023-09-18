@@ -11,9 +11,6 @@
     systemd-boot.enable = true;
   };
 
-  # Set time zone to London
-  time.timeZone = "Europe/London";
-
   # Environment variables
   environment.sessionVariables = {
     EDITOR = "micro";
@@ -33,6 +30,10 @@
     vim
     wget
   ];
+
+  # Home manager
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
 
   # UK locale settings
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -64,19 +65,9 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # User account
-  users.users.pweth = {
-    description = "Peter";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-    isNormalUser = true;
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN2LcPpOlnOwQ67Xp6uJnuOmDj0W06Bzyr73l6xkZgtg"
-    ];
-  };
-
   # NixOS release version
   system.stateVersion = "23.05";
+
+  # Set time zone to London
+  time.timeZone = "Europe/London";
 }
