@@ -22,6 +22,9 @@
     settings.PermitRootLogin = "no";
   };
 
+  # Home manager
+  home-manager.users.pweth = import ./home.nix;
+
   # Enable Docker
   virtualisation.docker.enable = true;
 }
