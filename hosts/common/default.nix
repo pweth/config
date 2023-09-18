@@ -11,6 +11,9 @@
     systemd-boot.enable = true;
   };
 
+  # Set time zone to London
+  time.timeZone = "Europe/London";
+
   # System packages
   environment.systemPackages = with pkgs; [
     agenix.packages.x86_64-linux.default

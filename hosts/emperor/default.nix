@@ -17,9 +17,6 @@
     networkmanager.enable = true;
   };
 
-  # Set time zone to London
-  time.timeZone = "Europe/London";
-
   # Sound and Bluetooth
   sound.enable = true;
   services.blueman.enable = true;
