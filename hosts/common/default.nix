@@ -14,12 +14,19 @@
   # Set time zone to London
   time.timeZone = "Europe/London";
 
+  # Environment variables
+  environment.sessionVariables = {
+    EDITOR = "micro";
+    HISTTIMEFORMAT = "%F %T ";
+  };
+
   # System packages
   environment.systemPackages = with pkgs; [
     curl
     dig
     git
     htop
+    micro
     nano
     neofetch
     tree
