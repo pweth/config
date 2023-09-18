@@ -2,7 +2,7 @@
 
 {
   # User icon
-  home.file.".face".source = ../../static/profile.png;
+  home.file.".face".source = ../static/profile.png;
 
   # Gnome packages and extensions to install
   home.packages = with pkgs; [

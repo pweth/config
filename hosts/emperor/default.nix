@@ -33,7 +33,7 @@
   users.users.pweth.passwordFile = config.age.secrets.password-hash.path;
 
   # Home manager
-  home-manager.users.pweth = import ../../home/pweth;
+  home-manager.users.pweth = import ./home.nix;
 
   # System services
   services.keybase.enable = true;
