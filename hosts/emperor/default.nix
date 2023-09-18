@@ -32,8 +32,8 @@
   age.secrets.password-hash.file = ../../secrets/password-hash.age;
   users.users.pweth.passwordFile = config.age.secrets.password-hash.path;
 
-  # Home manager
-  home-manager.users.pweth = import ./home.nix;
+  # Home manager GUI packages
+  home-manager.users.pweth = import ../../home/gui.nix;
 
   # System services
   services.keybase.enable = true;
