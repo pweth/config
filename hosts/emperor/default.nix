@@ -24,20 +24,13 @@
   hardware.pulseaudio.enable = true;
 
   # Load in agenix secrets
+  environment.systemPackages = [
+    agenix.packages.x86_64-linux.default
+  ];
   age.identityPaths = [ "/home/pweth/.ssh/id_ed25519" ];
   age.secrets.duckduckgo-api-key.file = ../../secrets/duckduckgo-api-key.age;
   age.secrets.password-hash.file = ../../secrets/password-hash.age;
-
-  # User account
-  users.users.pweth = {
-    description = "Peter";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-    isNormalUser = true;
-    passwordFile = config.age.secrets.password-hash.path;
-  };
+  users.users.pweth.passwordFile = config.age.secrets.password-hash.path;
 
   # Home manager
   home-manager.useGlobalPkgs = true;
@@ -47,11 +40,6 @@
   # System services
   services.keybase.enable = true;
   services.printing.enable = true;
-
-  # Install agenix
-  environment.systemPackages = [
-    agenix.packages.x86_64-linux.default
-  ];
 
   # Enable ClamAV daemon and automatic `freshclam`
   services.clamav = {

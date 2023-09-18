@@ -2,7 +2,7 @@
 * Oracle Cloud VM system configuration.
 */
 
-{ config, pkgs, agenix, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -15,7 +15,7 @@
     nameservers = [ "1.1.1.3" "1.0.0.3" ];
   };
 
-  # Enable SSH
+  # Secure Shell
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = false;
@@ -25,21 +25,5 @@
   # TMP
   users.users.root.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN2LcPpOlnOwQ67Xp6uJnuOmDj0W06Bzyr73l6xkZgtg me@pweth.com"
-  ];
-
-  users.users.pweth = {
-    description = "Peter";
-    extraGroups = [
-      "wheel"
-    ];
-    isNormalUser = true;
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN2LcPpOlnOwQ67Xp6uJnuOmDj0W06Bzyr73l6xkZgtg me@pweth.com"
-    ];
-  };
-
-  # Install agenix
-  environment.systemPackages = [
-    agenix.packages.aarch64-linux.default
   ];
 }

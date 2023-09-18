@@ -34,7 +34,6 @@
       bitwarden
       cmatrix
       cowsay
-      dig
       duf
       emote
       exiftool
@@ -44,8 +43,8 @@
       gh
       gimp
       gnupg
-      gping
       go
+      gping
       httpie
       jq
       keybase
@@ -54,7 +53,6 @@
       librewolf
       lolcat
       micro
-      neofetch
       nmap
       nms
       nodejs

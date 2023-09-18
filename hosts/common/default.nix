@@ -17,9 +17,11 @@
   # System packages
   environment.systemPackages = with pkgs; [
     curl
+    dig
     git
     htop
     nano
+    neofetch
     tree
     vim
     wget
@@ -54,6 +56,19 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  # User account
+  users.users.pweth = {
+    description = "Peter";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+    isNormalUser = true;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN2LcPpOlnOwQ67Xp6uJnuOmDj0W06Bzyr73l6xkZgtg"
+    ];
+  };
 
   # NixOS release version
   system.stateVersion = "23.05";
