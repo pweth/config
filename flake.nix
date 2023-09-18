@@ -30,6 +30,15 @@
         specialArgs = inputs;
         system = "x86_64-linux";
       };
+
+      # `sudo nixos-rebuild switch --flake .#macaroni`
+      macaroni = nixpkgs.lib.nixosSystem {
+        modules = [
+          ./hosts/macaroni
+        ];
+        specialArgs = inputs;
+        system = "aarch64-linux";
+      };
     };
   };
 }
