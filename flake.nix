@@ -34,6 +34,7 @@
       # `sudo nixos-rebuild switch --flake .#macaroni`
       macaroni = nixpkgs.lib.nixosSystem {
         modules = [
+          ./hosts/common
           ./hosts/macaroni
         ];
         specialArgs = inputs;
