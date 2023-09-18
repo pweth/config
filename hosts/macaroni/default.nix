@@ -2,7 +2,7 @@
 * Oracle Cloud VM system configuration.
 */
 
-{ config, pkgs, ... }:
+{ config, pkgs, agenix, ... }:
 
 {
   imports = [

@@ -2,14 +2,14 @@
 * Personal laptop system configuration.
 */
 
-{ config, pkgs, home-manager, ... }:
+{ config, pkgs, home-manager, agenix, ... }:
 
 {
   imports = [
     ./hardware.nix
   ];
 
-  # Set hostname and enable network manager
+  # Networking
   networking = {
     hostName = "emperor";
     nameservers = [ "127.0.0.1" "::1" ];

@@ -2,7 +2,7 @@
 * Common system configuration across all hosts.
 */
 
-{ config, pkgs, home-manager, agenix, ... }:
+{ config, pkgs, home-manager, ... }:
 
 {
   # Use the systemd-boot EFI boot loader
