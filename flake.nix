@@ -13,9 +13,12 @@
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     agenix.inputs.darwin.follows = "";
+
+    # VSCode server
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
-  outputs = { self, nixpkgs, home-manager, agenix }@inputs: {
+  outputs = { self, nixpkgs, home-manager, agenix, vscode-server }@inputs: {
     # NixOS configurations
     nixosConfigurations = {
       # `sudo nixos-rebuild switch --flake .#emperor`
@@ -38,6 +41,7 @@
           ./hosts/macaroni
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
+          vscode-server.nixosModules.default
         ];
         specialArgs = inputs;
         system = "aarch64-linux";

@@ -28,6 +28,9 @@
     settings.PermitRootLogin = "no";
   };
 
+  # VSCode server
+  services.vscode-server.enable = true;
+
   # Enable Docker
   virtualisation.docker.enable = true;
 }
