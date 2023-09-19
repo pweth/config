@@ -1,3 +1,7 @@
+/*
+* Bourne Again SHell configuration.
+*/
+
 { config, pkgs, ... }:
 
 {

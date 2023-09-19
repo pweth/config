@@ -1,10 +1,14 @@
+/*
+* GNOME desktop environment configuration.
+*/
+
 { config, pkgs, lib, ... }:
 
 {
   # User icon
   home.file.".face".source = ../static/profile.png;
 
-  # Gnome packages and extensions to install
+  # Packages and extensions to install
   home.packages = with pkgs; [
     gnome.eog
     gnomeExtensions.blur-my-shell

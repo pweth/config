@@ -1,3 +1,7 @@
+/*
+* Mozilla Firefox browser configuration.
+*/
+
 { config, pkgs, ... }:
 let
   # duckduckgo.com/duckduckgo-help-pages/settings/params/

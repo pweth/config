@@ -1,3 +1,7 @@
+/*
+* Microsoft Visual Studio Code configuration.
+*/
+
 { config, pkgs, ... }:
 
 {
@@ -29,6 +33,7 @@
       "explorer.confirmDelete" = false;
       "explorer.confirmDragAndDrop" = false;
       "workbench.colorTheme" = "Default Dark Modern";
+      "workbench.startupEditor" = "none";
     };
   };
 }

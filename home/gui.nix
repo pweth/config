@@ -1,3 +1,8 @@
+/*
+* Home manager configuration for GUI programs.
+* See ./default.nix for CLI programs.
+*/
+
 { config, pkgs, ... }:
 
 {
@@ -7,7 +12,6 @@
     ./vscode.nix
   ];
 
-  # GUI user packges not imported as modules
   home.packages = with pkgs; [
     appimage-run
     bitwarden

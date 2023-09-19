@@ -39,4 +39,7 @@
     totem
     yelp
   ]);
+
+  # Home manager GUI packages
+  home-manager.users.pweth = import ../../home/gui.nix;
 }

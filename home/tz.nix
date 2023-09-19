@@ -1,3 +1,8 @@
+/*
+* tz time zone helper configuration.
+* https://github.com/oz/tz
+*/
+
 { config, pkgs, ... }:
 
 {

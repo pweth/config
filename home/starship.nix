@@ -1,3 +1,8 @@
+/*
+* Starship cross-shell prompt configuration.
+* https://starship.rs/
+*/
+
 { config, pkgs, ... }:
 
 {

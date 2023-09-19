@@ -1,3 +1,8 @@
+/*
+* Home manager configuration for CLI programs.
+* See ./gui.nix for GUI programs.
+*/
+
 { config, pkgs, ... }:
 
 {
@@ -16,7 +21,6 @@
     stateVersion = "22.11";
   };
 
-  # User packges not imported as modules
   home.packages = with pkgs; [
     age
     cmatrix

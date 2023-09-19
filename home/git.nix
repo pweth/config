@@ -1,3 +1,7 @@
+/*
+* Git CLI tool configuration.
+*/
+
 { config, pkgs, ... }:
 
 {

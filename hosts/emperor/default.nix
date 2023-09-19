@@ -2,11 +2,12 @@
 * Personal laptop system configuration.
 */
 
-{ config, pkgs, home-manager, agenix, ... }:
+{ config, pkgs, agenix, ... }:
 
 {
   imports = [
     ./hardware.nix
+    ../../containers # TODO: Temporary import
   ];
 
   # Networking
@@ -31,9 +32,6 @@
   age.secrets.duckduckgo-api-key.file = ../../secrets/duckduckgo-api-key.age;
   age.secrets.password-hash.file = ../../secrets/password-hash.age;
   users.users.pweth.passwordFile = config.age.secrets.password-hash.path;
-
-  # Home manager GUI packages
-  home-manager.users.pweth = import ../../home/gui.nix;
 
   # System services
   services.keybase.enable = true;
