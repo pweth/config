@@ -10,7 +10,6 @@
 
     # Extensions to install
     extensions = with pkgs.vscode-extensions; [
-      attilabuti.brainfuck-syntax
       eamodio.gitlens
       esbenp.prettier-vscode
       golang.go
