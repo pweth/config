@@ -1,9 +1,14 @@
+/*
+* VPS services configuration.
+*/
+
 { config, pkgs, ... }:
 
 {
   imports = [
     ./cowyo.nix
     ./radicale.nix
+    ./uptime-kuma.nix
   ];
 
   networking.firewall.allowedTCPPorts = [

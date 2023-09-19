@@ -21,9 +21,9 @@ in
     autoStart = true;
     image = "rockstorm/radicale";
     ports = [ "5232:5232" ];
-    # volumes = [
-    #   "/home/pweth/radicale.config:/etc/radicale/config:ro"
-    #   "/home/pweth/users.txt:/etc/radicale/users:ro"
-    # ];
+    volumes = [
+       "${../static/radicale.config}:/etc/radicale/config:ro"
+       "${config.age.secrets.radicale-users.path}:/etc/radicale/users:ro"
+    ];
   };
 }
