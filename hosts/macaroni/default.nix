@@ -9,6 +9,11 @@
     ./hardware.nix
   ];
 
+  # agenix
+  environment.systemPackages = [
+    agenix.packages.aarch64-linux.default
+  ];
+
   # Networking
   networking = {
     hostName = "macaroni";

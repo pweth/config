@@ -10,6 +10,11 @@
     ../../containers # TODO: Temporary import
   ];
 
+  # agenix
+  environment.systemPackages = [
+    agenix.packages.x86_64-linux.default
+  ];
+
   # Networking
   networking = {
     hostName = "emperor";
@@ -23,15 +28,6 @@
   services.blueman.enable = true;
   hardware.bluetooth.enable = true;
   hardware.pulseaudio.enable = true;
-
-  # Load in agenix secrets
-  environment.systemPackages = [
-    agenix.packages.x86_64-linux.default
-  ];
-  age.identityPaths = [ "/home/pweth/.ssh/id_ed25519" ];
-  age.secrets.duckduckgo-api-key.file = ../../secrets/duckduckgo-api-key.age;
-  age.secrets.password-hash.file = ../../secrets/password-hash.age;
-  users.users.pweth.passwordFile = config.age.secrets.password-hash.path;
 
   # System services
   services.keybase.enable = true;
