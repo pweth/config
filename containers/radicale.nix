@@ -15,6 +15,7 @@ in
     group = "nginx";
   };
 
+  age.secrets.radicale-configuration.file = ../secrets/radicale-configuration.age;
   age.secrets.radicale-users.file = ../secrets/radicale-users.age;
 
   virtualisation.oci-containers.containers.radicale = {
@@ -22,8 +23,9 @@ in
     image = "rockstorm/radicale";
     ports = [ "5232:5232" ];
     volumes = [
-       "${../static/radicale.config}:/etc/radicale/config:ro"
+       "${config.age.secrets.radicale-configuration.path}:/etc/radicale/config:ro"
        "${config.age.secrets.radicale-users.path}:/etc/radicale/users:ro"
+       "/home/pweth/radicale:/var/lib/radicale/collections"
     ];
   };
 }
