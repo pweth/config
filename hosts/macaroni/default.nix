@@ -31,6 +31,6 @@
   # VSCode server
   services.vscode-server.enable = true;
 
-  # Enable Docker
-  virtualisation.docker.enable = true;
+  # Enable Podman
+  virtualisation.podman.enable = true;
 }

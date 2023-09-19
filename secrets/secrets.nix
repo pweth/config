@@ -14,4 +14,5 @@ in
 {
   "cloudflare-api.age".publicKeys = [ primary macaroni ];
   "password-hash.age".publicKeys = [ primary emperor macaroni ];
+  "radicale-users.age".publicKeys = [ primary macaroni ];
 }

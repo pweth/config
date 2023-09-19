@@ -17,7 +17,7 @@ in
 
   virtualisation.oci-containers.containers.cowyo = {
     autoStart = true;
-    image = "schollz/cowyo";
+    image = "matosama/cowyo";
     ports = [ "8050:8050" ];
   };
 }
