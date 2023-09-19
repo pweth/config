@@ -7,6 +7,7 @@
 {
   imports = [
     ./hardware.nix
+    ../../containers
   ];
 
   # agenix

@@ -12,5 +12,6 @@ let
   macaroni = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDs6W94lN0Kx8hOEU4BArPlzkishQGQDVD/gLEsncAzI root@macaroni";
 in
 {
+  "cloudflare-api.age".publicKeys = [ primary macaroni ];
   "password-hash.age".publicKeys = [ primary emperor macaroni ];
 }

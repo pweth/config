@@ -7,7 +7,6 @@
 {
   imports = [
     ./hardware.nix
-    ../../containers # TODO: Temporary import
   ];
 
   # agenix
