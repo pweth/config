@@ -37,6 +37,7 @@
           ./hosts/common
           ./hosts/macaroni
           home-manager.nixosModules.home-manager
+          agenix.nixosModules.default
         ];
         specialArgs = inputs;
         system = "aarch64-linux";
