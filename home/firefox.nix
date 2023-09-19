@@ -24,6 +24,13 @@ in
             }];
             iconUpdateURL = "https://duckduckgo.com/favicon.png";
           };
+          "Cowyo" = {
+            urls = [{
+              template = "https://cowyo.pw.ax/{searchTerms}";
+            }];
+            definedAliases = [ "!c" ];
+            iconUpdateURL = "https://cowyo.com/static/img/cowyo/favicon-96x96.png";
+          };
           "Amazon.co.uk".metaData.hidden = true;
           "Bing".metaData.hidden = true;
           "DuckDuckGo".metaData.hidden = true;
@@ -55,7 +62,7 @@ in
             }
             {
               name = "Cloudflare";
-              keyword = "!c";
+              keyword = "!cf";
               url = "https://dash.cloudflare.com/";
             }
             {
