@@ -20,3 +20,4 @@ Oracle Cloud VM.Standard.A1.Flex (4 OCPUs, 24 GB)
 ## Notes
 
  - [How to Install NixOS on Oracle ARM machine](https://blog.digitalimmigrants.org/deploy-nixos-on-oracle-arm-machines/)
+ - [Firefox Hardening Guide](https://brainfucksec.github.io/firefox-hardening-guide)
