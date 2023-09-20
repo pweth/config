@@ -7,8 +7,14 @@
 {
   imports = [
     ./hardware.nix
-    ../../containers
+    ../../services
   ];
+
+  # Bootloader
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    systemd-boot.enable = true;
+  };
 
   # agenix
   environment.systemPackages = [

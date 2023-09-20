@@ -9,6 +9,12 @@
     ./hardware.nix
   ];
 
+  # Bootloader
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    systemd-boot.enable = true;
+  };
+
   # agenix
   environment.systemPackages = [
     agenix.packages.x86_64-linux.default

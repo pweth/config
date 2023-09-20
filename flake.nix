@@ -50,10 +50,7 @@
       # `sudo nixos-rebuild switch --flake .#rockhopper`
       rockhopper = nixpkgs.lib.nixosSystem {
         modules = [
-          ./hosts/common
           ./hosts/rockhopper
-          home-manager.nixosModules.home-manager
-          agenix.nixosModules.default
         ];
         specialArgs = inputs;
         system = "aarch64-linux";
