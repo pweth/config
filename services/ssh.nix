@@ -12,7 +12,7 @@
       GSSAPIAuthentication = false;
       KerberosAuthentication = false;
       PasswordAuthentication = false;
-      PermitRootLogin = false;
+      PermitRootLogin = "no";
       X11Forwarding = false;
     };
   };
