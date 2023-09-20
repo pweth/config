@@ -8,6 +8,7 @@
   imports = [
     ./hardware.nix
     ../../services
+    ../../services/ssh.nix
   ];
 
   # Bootloader
@@ -43,13 +44,6 @@
     enable = true;
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
-  };
-
-  # Secure Shell
-  services.openssh = {
-    enable = true;
-    settings.PasswordAuthentication = false;
-    settings.PermitRootLogin = "no";
   };
 
   # System services

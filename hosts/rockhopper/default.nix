@@ -7,6 +7,7 @@
 {
   imports = [
     ./hardware.nix
+    ../../services/ssh.nix
   ];
 
   # Bootloader
@@ -27,12 +28,5 @@
   networking = {
     hostName = "rockhopper";
     nameservers = [ "1.1.1.3" "1.0.0.3" ];
-  };
-
-  # Secure Shell
-  services.openssh = {
-    enable = true;
-    settings.PasswordAuthentication = false;
-    settings.PermitRootLogin = "no";
-  };
+  };  
 }
