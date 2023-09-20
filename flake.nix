@@ -26,10 +26,9 @@
         modules = [
           ./hosts/common
           ./hosts/common/gui.nix
-          ./host/common/home.nix
           ./hosts/emperor
-          home-manager.nixosModules.home-manager
           agenix.nixosModules.default
+          home-manager.nixosModules.home-manager
         ];
         specialArgs = inputs;
         system = "x86_64-linux";
@@ -39,10 +38,9 @@
       macaroni = nixpkgs.lib.nixosSystem {
         modules = [
           ./hosts/common
-          ./host/common/home.nix
           ./hosts/macaroni
-          home-manager.nixosModules.home-manager
           agenix.nixosModules.default
+          home-manager.nixosModules.home-manager
           vscode-server.nixosModules.default
         ];
         specialArgs = inputs;
@@ -55,6 +53,7 @@
           ./hosts/common
           ./hosts/rockhopper
           agenix.nixosModules.default
+          home-manager.nixosModules.home-manager
         ];
         specialArgs = inputs;
         system = "aarch64-linux";

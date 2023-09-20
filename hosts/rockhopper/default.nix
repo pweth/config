@@ -15,6 +15,11 @@
     generic-extlinux-compatible.enable = true;
   };
 
+  # agenix
+  environment.systemPackages = [
+    agenix.packages.aarch64-linux.default
+  ];
+
   # Networking
   networking = {
     hostName = "rockhopper";
@@ -24,8 +29,7 @@
   # Secure Shell
   services.openssh = {
     enable = true;
-    # TMP
-    settings.PasswordAuthentication = true;
-    settings.PermitRootLogin = "yes";
+    settings.PasswordAuthentication = false;
+    settings.PermitRootLogin = "no";
   };
 }

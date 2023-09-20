@@ -2,7 +2,7 @@
 * Common system configuration across all hosts.
 */
 
-{ config, pkgs, ... }:
+{ config, pkgs, home-manager, ... }:
 
 {
   # Environment variables
@@ -24,6 +24,11 @@
     vim
     wget
   ];
+
+  # Home manager
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.users.pweth = import ../../home;
 
   # UK locale settings
   i18n.defaultLocale = "en_GB.UTF-8";
