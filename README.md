@@ -9,11 +9,15 @@ My NixOS configuration flake.
 
 ### Emperor
 
-Dell Inc. XPS 13 9360 (i5-8250U, 8GiB)
+Dell Inc. XPS 13 9360 (i5-8250U, 8GB)
 
 ### Macaroni
 
-Oracle Cloud VM.Standard.A1.Flex (4 OCPUs, 24GiB)
+Oracle Cloud VM.Standard.A1.Flex (4 OCPUs, 24GB)
+
+### Rockhopper
+
+Raspberry Pi Model 3B+ (Cortex-A53, 1GB)
 
 ---
 

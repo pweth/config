@@ -10,9 +10,10 @@ let
   # Host keys
   emperor = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILqt+SLcA0kXPLvuF+mogzId9n57rB5y0PyWJ8RE0ja8 root@emperor";
   macaroni = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDs6W94lN0Kx8hOEU4BArPlzkishQGQDVD/gLEsncAzI root@macaroni";
+  rockhopper = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDw/Rhr1cdwp3RIwmxTWBa1tWA3gzMyyC8YTJNMN0Fbf root@rockhopper";
 in
 {
   "cloudflare-api.age".publicKeys = [ primary macaroni ];
   "grafana-password.age".publicKeys = [ primary macaroni ];
-  "password-hash.age".publicKeys = [ primary emperor macaroni ];
+  "password-hash.age".publicKeys = [ primary emperor macaroni rockhopper ];
 }
