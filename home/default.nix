@@ -1,5 +1,5 @@
 /*
-* Home manager configuration for CLI programs.
+* Home manager configuration for basic CLI programs.
 * See ./gui.nix for GUI programs.
 */
 
@@ -43,7 +43,6 @@
     nms
     nodejs
     openssl
-    pipes
     (python3.withPackages (ps: with ps; [
       build
       ipython
@@ -59,7 +58,6 @@
     sl
     sqlite
     tldr
-    tz
     yt-dlp
     zstd
   ];

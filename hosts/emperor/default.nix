@@ -2,7 +2,7 @@
 * Personal laptop system configuration.
 */
 
-{ config, pkgs, agenix, ... }:
+{ config, pkgs, agenix, home-manager, ... }:
 
 {
   imports = [
@@ -19,6 +19,9 @@
   environment.systemPackages = [
     agenix.packages.x86_64-linux.default
   ];
+
+  # Home manager
+  home-manager.users.pweth = import ../../home;
 
   # Networking
   networking = {
