@@ -5,15 +5,13 @@
 { config, pkgs, ... }:
 let
   services = [
-    { domain = "cowyo.pw.ax"; port = 8050; }
-    { domain = "grafana.pw.ax"; port = 3000; }
-    { domain = "status.pw.ax"; port = 3001; }
+    { domain = "cowyo.pw.ax"; port = 44615; }
+    { domain = "status.pw.ax"; port = 58057; }
   ];
 in
 {
   imports = [
     ./cowyo.nix
-    ./grafana.nix
     ./uptime-kuma.nix
   ];
 

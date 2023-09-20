@@ -9,6 +9,6 @@
   virtualisation.oci-containers.containers.cowyo = {
     autoStart = true;
     image = "matosama/cowyo";
-    ports = [ "8050:8050" ];
+    ports = [ "44615:8050" ];
   };
 }
