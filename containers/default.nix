@@ -6,12 +6,14 @@
 let
   services = [
     { domain = "cowyo.pw.ax"; port = 8050; }
+    { domain = "grafana.pw.ax"; port = 3000; }
     { domain = "status.pw.ax"; port = 3001; }
   ];
 in
 {
   imports = [
     ./cowyo.nix
+    ./grafana.nix
     ./uptime-kuma.nix
   ];
 

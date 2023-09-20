@@ -82,7 +82,6 @@
   users.users.pweth = {
     description = "Peter";
     extraGroups = [
-      "docker"
       "networkmanager"
       "wheel"
     ];

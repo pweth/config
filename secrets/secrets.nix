@@ -13,5 +13,6 @@ let
 in
 {
   "cloudflare-api.age".publicKeys = [ primary macaroni ];
+  "grafana-password.age".publicKeys = [ primary macaroni ];
   "password-hash.age".publicKeys = [ primary emperor macaroni ];
 }
