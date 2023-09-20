@@ -58,6 +58,7 @@
     sl
     sqlite
     tldr
+    unzip
     yt-dlp
     zstd
   ];

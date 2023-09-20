@@ -15,6 +15,7 @@
   home.packages = with pkgs; [
     appimage-run
     bitwarden
+    conky
     emote
     gimp
     keybase
