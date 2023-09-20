@@ -61,5 +61,6 @@
     tldr
     tz
     yt-dlp
+    zstd
   ];
 }

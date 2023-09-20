@@ -9,11 +9,11 @@ My NixOS configuration flake.
 
 ### Emperor
 
-Dell Inc. XPS 13 9360 (i5-8250U, 8 GB)
+Dell Inc. XPS 13 9360 (i5-8250U, 8GiB)
 
 ### Macaroni
 
-Oracle Cloud VM.Standard.A1.Flex (4 OCPUs, 24 GB)
+Oracle Cloud VM.Standard.A1.Flex (4 OCPUs, 24GiB)
 
 ---
 
@@ -22,3 +22,4 @@ Oracle Cloud VM.Standard.A1.Flex (4 OCPUs, 24 GB)
  - [How to Install NixOS on Oracle ARM machine](https://blog.digitalimmigrants.org/deploy-nixos-on-oracle-arm-machines/)
  - [Firefox Hardening Guide](https://brainfucksec.github.io/firefox-hardening-guide)
  - [Declarative Docker Container Service in NixOS](https://www.breakds.org/post/declarative-docker-in-nixos/)
+ - [NixOS on ARM/Raspberry Pi](https://nixos.wiki/wiki/NixOS_on_ARM/Raspberry_Pi)
