@@ -11,7 +11,7 @@
 
   # Bootloader
   boot.loader = {
-    grub.enable = true;
+    grub.enable = false;
     generic-extlinux-compatible.enable = true;
   };
 
@@ -28,43 +28,4 @@
     settings.PasswordAuthentication = true;
     settings.PermitRootLogin = "yes";
   };
-
-  # Nix subcommands and flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # NixOS release version
-  system.stateVersion = "23.05";
-
-  # Set time zone to London
-  time.timeZone = "Europe/London";
-
-  # User account
-  users.users.pweth = {
-    description = "Peter";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-    isNormalUser = true;
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN2LcPpOlnOwQ67Xp6uJnuOmDj0W06Bzyr73l6xkZgtg"
-    ];
-  };
-
-  # System packages
-  environment.systemPackages = with pkgs; [
-    curl
-    dig
-    git
-    htop
-    micro
-    nano
-    neofetch
-    tree
-    vim
-    wget
-  ];
 }

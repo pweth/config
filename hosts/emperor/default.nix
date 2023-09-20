@@ -35,6 +35,8 @@
   hardware.pulseaudio.enable = true;
 
   # System services
+  services.clamav.daemon.enable = true;
+  services.clamav.updater.enable = true;
   services.keybase.enable = true;
   services.printing.enable = true;
 

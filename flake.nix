@@ -26,6 +26,7 @@
         modules = [
           ./hosts/common
           ./hosts/common/gui.nix
+          ./host/common/home.nix
           ./hosts/emperor
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
@@ -38,6 +39,7 @@
       macaroni = nixpkgs.lib.nixosSystem {
         modules = [
           ./hosts/common
+          ./host/common/home.nix
           ./hosts/macaroni
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
@@ -50,7 +52,9 @@
       # `sudo nixos-rebuild switch --flake .#rockhopper`
       rockhopper = nixpkgs.lib.nixosSystem {
         modules = [
+          ./hosts/common
           ./hosts/rockhopper
+          agenix.nixosModules.default
         ];
         specialArgs = inputs;
         system = "aarch64-linux";

@@ -49,7 +49,9 @@
     settings.PermitRootLogin = "no";
   };
 
-  # VSCode server
+  # System services
+  services.clamav.daemon.enable = true;
+  services.clamav.updater.enable = true;
   services.vscode-server.enable = true;
 
   # Enable Podman

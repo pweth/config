@@ -2,7 +2,7 @@
 * Common system configuration across all hosts.
 */
 
-{ config, pkgs, home-manager, ... }:
+{ config, pkgs, ... }:
 
 {
   # Environment variables
@@ -24,11 +24,6 @@
     vim
     wget
   ];
-
-  # Home manager
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-  home-manager.users.pweth = import ../../home;
 
   # UK locale settings
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -59,12 +54,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # Enable ClamAV daemon and automatic `freshclam`
-  services.clamav = {
-    daemon.enable = true;
-    updater.enable = true;
-  };
 
   # NixOS release version
   system.stateVersion = "23.05";
