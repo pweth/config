@@ -1,5 +1,5 @@
 /*
-* Home manager configuration for basic CLI programs.
+* Home manager configuration for CLI programs.
 * See ./gui.nix for GUI programs.
 */
 
