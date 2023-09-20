@@ -31,6 +31,13 @@ in
             definedAliases = [ "!c" ];
             iconUpdateURL = "https://cowyo.com/static/img/cowyo/favicon-96x96.png";
           };
+          "Nix Packages" = {
+            urls = [{
+              template = "https://search.nixos.org/packages?channel=23.05&from=0&size=50&sort=relevance&type=packages&query={searchTerms}";
+            }];
+            definedAliases = [ "!n" ];
+            iconUpdateURL = "https://nixos.org/favicon.png";
+          };
           "Amazon.co.uk".metaData.hidden = true;
           "Bing".metaData.hidden = true;
           "DuckDuckGo".metaData.hidden = true;
@@ -45,11 +52,6 @@ in
           name = "Bookmarks";
           toolbar = true;
           bookmarks = [
-            {
-              name = "NixOS";
-              keyword = "!n";
-              url = "https://search.nixos.org/packages?channel=23.05&from=0&size=50&sort=relevance&type=packages&query=%s";
-            }
             {
               name = "Fastmail";
               keyword = "!fm";
