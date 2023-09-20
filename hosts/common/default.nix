@@ -7,7 +7,7 @@
 {
   # Environment variables
   environment.sessionVariables = {
-    EDITOR = "micro";
+    EDITOR = "nvim";
     HISTTIMEFORMAT = "%F %T ";
   };
 
@@ -17,11 +17,9 @@
     dig
     git
     htop
-    micro
-    nano
     neofetch
+    neovim
     tree
-    vim
     wget
   ];
 
