@@ -53,6 +53,9 @@
         picture-uri = "file:///home/pweth/dotfiles/static/background.jpg";
         user-switch-enabled = false;
       };
+      "org/gnome/desktop/session" = {
+        idle-delay = 900;
+      };
       "org/gnome/desktop/wm/preferences" = {
         button-layout = "appmenu:minimize,close";
       };
