@@ -20,6 +20,7 @@
     keybase
     libreoffice
     obsidian
+    obs-studio
     spotify
     sqlitebrowser
     vlc
