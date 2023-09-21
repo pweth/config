@@ -12,7 +12,6 @@
   home.packages = with pkgs; [
     gnome.eog
     gnomeExtensions.blur-my-shell
-    gnomeExtensions.caffeine
     gnomeExtensions.just-perfection
     gnomeExtensions.vitals
   ];
@@ -64,8 +63,6 @@
         # `gnome-extensions list`
         enabled-extensions = [
           "blur-my-shell@aunetx"
-          "caffeine@patapon.info"
-          "gnomebedtime@ionutbortis.gmail.com"
           "just-perfection-desktop@just-perfection"
           "Vitals@CoreCoding.com"
         ];
@@ -77,12 +74,11 @@
       "org/gnome/shell/extensions/blur-my-shell/overview" = {
         blur = true;
       };
-      "org/gnome/shell/extensions/caffeine" = {
-        show-indicator = "always";
-      };
       "org/gnome/shell/extensions/just-perfection" = {
         accessibility-menu = false;
         activities-button = false;
+        app-menu = false;
+        app-menu-label = false;
         background-menu = false;
         dash = false;
         dash-separator = false;
@@ -90,6 +86,7 @@
         keyboard-layout = false;
         search = false;
         show-apps-button = false;
+        weather = false;
         window-menu-take-screenshot-button = false;
         world-clock = false;
       };
