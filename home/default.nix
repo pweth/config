@@ -36,6 +36,7 @@
     gping
     httpie
     jq
+    keybase
     killall
     lolcat
     micro

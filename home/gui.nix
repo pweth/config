@@ -17,7 +17,7 @@
     bitwarden
     emote
     gimp
-    keybase
+    keybase-gui
     libreoffice
     obsidian
     obs-studio

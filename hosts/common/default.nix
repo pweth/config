@@ -19,6 +19,7 @@
     htop
     neofetch
     neovim
+    tmux
     tree
     wget
   ];
