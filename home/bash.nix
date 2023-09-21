@@ -25,6 +25,7 @@
       ll = "ls -aFhl";
       rb = "sudo nixos-rebuild switch --flake /home/pweth/dotfiles";
       rbi = "sudo nixos-rebuild switch --flake /home/pweth/dotfiles --impure";
+      v = "nvim"; 
     };
   };
 }
