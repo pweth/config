@@ -21,7 +21,7 @@
     # Additional configuration
     extraConfig = {
       core = {
-        editor = "micro";
+        editor = "nvim";
       };
       credential = {
         # Manually ensure the correct gh package
