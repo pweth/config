@@ -19,6 +19,7 @@
       jnoortheen.nix-ide
       ms-python.python
       ms-vscode.cpptools
+      ms-vscode.cpptools-extension-pack
       ms-vscode.hexeditor
       ms-vscode-remote.remote-ssh
       rust-lang.rust-analyzer
@@ -29,9 +30,14 @@
     # settings.json values
     userSettings = {
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "editor.formatOnSave" = true;
       "explorer.confirmDelete" = false;
       "explorer.confirmDragAndDrop" = false;
+      "remote.downloadExtensionsLocally" = true;
+      "telemetry.telemetryLevel" = "off";
+      "update.mode" = "none";
       "workbench.colorTheme" = "Default Dark Modern";
+      "workbench.iconTheme" = "vscode-icons";
       "workbench.startupEditor" = "none";
     };
   };
