@@ -19,7 +19,6 @@
       jnoortheen.nix-ide
       ms-python.python
       ms-vscode.cpptools
-      ms-vscode.cpptools-extension-pack
       ms-vscode.hexeditor
       ms-vscode-remote.remote-ssh
       rust-lang.rust-analyzer
