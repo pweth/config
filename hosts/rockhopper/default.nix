@@ -7,7 +7,7 @@
 {
   imports = [
     ./hardware.nix
-    ../../services/ssh.nix
+    ../common/ssh.nix
   ];
 
   # Bootloader

@@ -5,8 +5,8 @@
 { config, pkgs, ... }:
 let
   services = [
-    { domain = "cowyo.pw.ax"; port = 44615; }
-    { domain = "status.pw.ax"; port = 58057; }
+    { domain = "cowyo.pw.ax"; address = "127.0.0.1"; port = 44615; }
+    { domain = "status.pw.ax"; address = "127.0.0.1"; port = 58057; }
   ];
 in
 {
@@ -31,7 +31,7 @@ in
     value = {
       forceSSL = true;
       locations."/" = {
-        proxyPass = "http://127.0.0.1:${builtins.toString service.port}/";
+        proxyPass = "http://${service.address}:${builtins.toString service.port}/";
         proxyWebsockets = true;
       };
       useACMEHost = service.domain;
