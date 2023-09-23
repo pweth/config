@@ -10,5 +10,8 @@
     autoStart = true;
     image = "matosama/cowyo";
     ports = [ "44615:8050" ];
+    volumes = [
+      "/home/pweth/cowyo:/data"
+    ];
   };
 }
