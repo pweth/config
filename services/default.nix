@@ -5,13 +5,15 @@
 { config, pkgs, ... }:
 let
   services = [
-    { domain = "cowyo.pw.ax"; address = "127.0.0.1"; port = 44615; }
-    { domain = "status.pw.ax"; address = "127.0.0.1"; port = 58057; }
+    { domain = "cowyo.pw.ax"; port = 44615; }
+    { domain = "grafana.pw.ax"; port = 59663; }
+    { domain = "status.pw.ax"; port = 58057; }
   ];
 in
 {
   imports = [
     ./cowyo.nix
+    ./grafana.nix
     ./uptime-kuma.nix
   ];
 
@@ -26,12 +28,12 @@ in
   }) services);
 
   # Reverse proxy hosts
-  services.nginx.virtualHosts = builtins.listToAttrs (builtins.map (service : {
+  services.nginx.virtualHosts = builtins.listToAttrs (builtins.map (service: {
     name = service.domain;
     value = {
       forceSSL = true;
       locations."/" = {
-        proxyPass = "http://${service.address}:${builtins.toString service.port}/";
+        proxyPass = "http://127.0.0.1:${builtins.toString service.port}/";
         proxyWebsockets = true;
       };
       useACMEHost = service.domain;

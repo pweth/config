@@ -5,7 +5,9 @@
 
 let
   # Personal keys
-  primary = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN2LcPpOlnOwQ67Xp6uJnuOmDj0W06Bzyr73l6xkZgtg primary@pweth.com";
+  personal = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN2LcPpOlnOwQ67Xp6uJnuOmDj0W06Bzyr73l6xkZgtg primary@pweth.com"
+  ];
 
   # Host keys
   emperor = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILqt+SLcA0kXPLvuF+mogzId9n57rB5y0PyWJ8RE0ja8 root@emperor";
@@ -13,6 +15,7 @@ let
   rockhopper = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDw/Rhr1cdwp3RIwmxTWBa1tWA3gzMyyC8YTJNMN0Fbf root@rockhopper";
 in
 {
-  "cloudflare-api.age".publicKeys = [ primary macaroni ];
-  "password-hash.age".publicKeys = [ primary emperor macaroni rockhopper ];
+  "cloudflare-api.age".publicKeys = personal ++ [ macaroni ];
+  "grafana-password.age".publicKeys = personal ++ [ macaroni ];
+  "password-hash.age".publicKeys = personal ++ [ emperor macaroni rockhopper ];
 }
