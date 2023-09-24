@@ -9,7 +9,7 @@
   age.secrets.ackee-password.file = ../secrets/ackee-password.age;
 
   services.nginx.virtualHosts."ackee.pw.ax".extraConfig = ''
-    add_header  Access-Control-Allow-Origin "https://pweth.com,https://deezstats.com" always;
+    add_header  Access-Control-Allow-Origin "*" always;
     add_header  Access-Control-Allow-Methods "POST, OPTIONS" always;
     add_header  Access-Control-Allow-Headers "Content-Type, Authorization, Time-Zone" always;
     add_header  Access-Control-Allow-Credentials "true" always;
@@ -35,5 +35,8 @@
     autoStart = true;
     image = "mongo";
     ports = [ "27017:27017" ];
+    volumes = [
+      "/home/pweth/ackee:/data/db"
+    ];
   };
 }
