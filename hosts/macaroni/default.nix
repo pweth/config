@@ -51,6 +51,7 @@
   services.clamav.updater.enable = true;
   services.vscode-server.enable = true;
 
-  # Enable Podman
-  virtualisation.podman.enable = true;
+  # Enable Docker
+  virtualisation.docker.enable = true;
+  virtualisation.oci-containers.backend = "docker";
 }

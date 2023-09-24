@@ -15,6 +15,7 @@ let
   rockhopper = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDw/Rhr1cdwp3RIwmxTWBa1tWA3gzMyyC8YTJNMN0Fbf root@rockhopper";
 in
 {
+  "ackee-password.age".publicKeys = personal ++ [ macaroni ];
   "cloudflare-api.age".publicKeys = personal ++ [ macaroni ];
   "grafana-password.age".publicKeys = personal ++ [ macaroni ];
   "password-hash.age".publicKeys = personal ++ [ emperor macaroni rockhopper ];

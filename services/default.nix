@@ -5,6 +5,7 @@
 { config, pkgs, ... }:
 let
   services = [
+    { domain = "ackee.pw.ax"; port = 42750; }
     { domain = "cowyo.pw.ax"; port = 44615; }
     { domain = "grafana.pw.ax"; port = 59663; }
     { domain = "status.pw.ax"; port = 58057; }
@@ -12,6 +13,7 @@ let
 in
 {
   imports = [
+    ./ackee.nix
     ./cowyo.nix
     ./grafana.nix
     ./uptime-kuma.nix
