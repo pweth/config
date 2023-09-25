@@ -53,6 +53,11 @@ in
           toolbar = true;
           bookmarks = [
             {
+              name = "Moodle";
+              keyword = "!m";
+              url = "https://moodle.bath.ac.uk/";
+            }
+            {
               name = "Fastmail";
               keyword = "!fm";
               url = "https://app.fastmail.com/mail/Inbox/";
@@ -78,9 +83,9 @@ in
               url = "https://sr.ht/";
             }
             {
-              name = "Moodle";
-              keyword = "!m";
-              url = "https://moodle.bath.ac.uk/";
+              name = "Tools";
+              keyword = "!t";
+              url = "https://tools.pw.ax/";
             }
             {
               name = "NextDNS";
