@@ -22,7 +22,7 @@
       gd = "git diff";
       gp = "git push";
       gs = "git status";
-      ll = "ls -aFhl";
+      ls = "exa -la";
       rb = "sudo nixos-rebuild switch --flake /home/pweth/dotfiles";
       rbi = "sudo nixos-rebuild switch --flake /home/pweth/dotfiles --impure";
       v = "nvim"; 

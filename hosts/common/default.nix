@@ -15,6 +15,7 @@
   environment.systemPackages = with pkgs; [
     curl
     dig
+    exa
     git
     htop
     neofetch
