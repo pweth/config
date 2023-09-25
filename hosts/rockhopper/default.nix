@@ -28,5 +28,18 @@
   networking = {
     hostName = "rockhopper";
     nameservers = [ "1.1.1.3" "1.0.0.3" ];
-  };  
+  };
+
+  # Home assistant
+  services.home-assistant = {
+    enable = true;
+    extraComponents = [
+      "esphome"
+      "met"
+      "radio_browser"
+    ];
+    config = {
+      default_config = {};
+    };
+  };
 }
