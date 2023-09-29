@@ -40,6 +40,11 @@
     yelp
   ]);
 
+  # Add in GNOME image viewer
+  environment.systemPackages = with pkgs; [
+    gnome.eog
+  ];
+
   # Home manager GUI packages
   home-manager.users.pweth = import ../../home/gui.nix;
 }

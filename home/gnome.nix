@@ -8,9 +8,8 @@
   # User icon
   home.file.".face".source = ../static/profile.png;
 
-  # Packages and extensions to install
+  # Extensions to install
   home.packages = with pkgs; [
-    gnome.eog
     gnomeExtensions.blur-my-shell
     gnomeExtensions.just-perfection
     gnomeExtensions.vitals
