@@ -114,6 +114,17 @@
         command = "emote";
         name = "Emote";
       };
+
+      # File explorer settings
+      "org/gnome/nautilus/list-view" = {
+        default-zoom-level = "medium";
+      };
+      "org/gnome/nautilus/preferences" = {
+        default-folder-viewer = "list-view";
+      };
+      "org/gtk/gtk4/settings/file-chooser" = {
+        sort-directories-first = true;
+      };
     };
   };
 }
