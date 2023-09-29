@@ -8,9 +8,11 @@
   # User icon
   home.file.".face".source = ../static/profile.png;
 
+  # Theme
+  home.file.".themes/pweth/gnome-shell/gnome-shell.css".source = ../static/gnome-shell.css;
+
   # Extensions to install
   home.packages = with pkgs; [
-    gnomeExtensions.just-perfection
     gnomeExtensions.vitals
   ];
 
@@ -27,10 +29,7 @@
         show-weekdate = true;
       };
       "org/gnome/desktop/input-sources" = {
-        sources = [
-          (lib.hm.gvariant.mkTuple ["xkb" "gb"])
-          (lib.hm.gvariant.mkTuple ["xkb" "gb+dvorakukp"])
-        ];
+        sources = [ (lib.hm.gvariant.mkTuple ["xkb" "gb"]) ];
       };
       "org/gnome/desktop/interface" = {
         clock-show-weekday = true;
@@ -59,11 +58,10 @@
       };
       "org/gnome/mutter" = {
         dynamic-workspaces = true;
+        workspaces-only-on-primary = true;
       };
       "org/gnome/shell" = {
-        # `gnome-extensions list`
         enabled-extensions = [
-          "just-perfection-desktop@just-perfection"
           "user-theme@gnome-shell-extensions.gcampax.github.com"
           "Vitals@CoreCoding.com"
         ];
@@ -72,21 +70,8 @@
       };
 
       # Extension settings
-      "org/gnome/shell/extensions/just-perfection" = {
-        accessibility-menu = false;
-        activities-button = false;
-        app-menu = false;
-        app-menu-label = false;
-        background-menu = false;
-        dash = false;
-        dash-separator = false;
-        events-button = false;
-        keyboard-layout = false;
-        search = false;
-        show-apps-button = false;
-        weather = false;
-        window-menu-take-screenshot-button = false;
-        world-clock = false;
+      "org/gnome/shell/extensions/user-theme" = {
+        name = "pweth";
       };
       "org/gnome/shell/extensions/vitals" = {
         alphabetize = false;

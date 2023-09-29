@@ -1,0 +1,28 @@
+#dash {
+  height: 0;
+}
+
+#panel {
+  background-color: rgba(100, 100, 100, 0.5);
+  box-shadow: none;
+}
+
+#panel:login-screen,
+#panel:overview,
+#panel:unlock-screen {
+  background-color: transparent;
+}
+
+#overview {
+  background-image: url(/home/pweth/dotfiles/static/background-blur.jpg);
+}
+
+.events-button,
+.events-button *,
+.world-clocks-button {
+  color: rgba(0, 0, 0, 0);
+  height: 0;
+  margin: 0;
+  padding: 0;
+  width: 0;
+}
