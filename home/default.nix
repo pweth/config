@@ -39,7 +39,7 @@
     keybase
     killall
     lolcat
-    micro
+    nano
     nmap
     nms
     nodejs
@@ -59,8 +59,6 @@
     sl
     sqlite
     tldr
-    unzip
     yt-dlp
-    zstd
   ];
 }

@@ -13,11 +13,9 @@
   ];
 
   home.packages = with pkgs; [
-    appimage-run
     bitwarden
     emote
     gimp
-    keybase-gui
     libreoffice
     obsidian
     obs-studio

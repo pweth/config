@@ -10,7 +10,6 @@
 
   # Extensions to install
   home.packages = with pkgs; [
-    gnomeExtensions.blur-my-shell
     gnomeExtensions.just-perfection
     gnomeExtensions.vitals
   ];
@@ -64,8 +63,8 @@
       "org/gnome/shell" = {
         # `gnome-extensions list`
         enabled-extensions = [
-          "blur-my-shell@aunetx"
           "just-perfection-desktop@just-perfection"
+          "user-theme@gnome-shell-extensions.gcampax.github.com"
           "Vitals@CoreCoding.com"
         ];
         disable-user-extensions = false;
@@ -73,9 +72,6 @@
       };
 
       # Extension settings
-      "org/gnome/shell/extensions/blur-my-shell/overview" = {
-        blur = true;
-      };
       "org/gnome/shell/extensions/just-perfection" = {
         accessibility-menu = false;
         activities-button = false;
