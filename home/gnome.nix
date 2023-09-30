@@ -61,6 +61,7 @@
         workspaces-only-on-primary = true;
       };
       "org/gnome/shell" = {
+        app-picker-layout = [];
         enabled-extensions = [
           "user-theme@gnome-shell-extensions.gcampax.github.com"
           "Vitals@CoreCoding.com"
