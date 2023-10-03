@@ -40,6 +40,7 @@
     killall
     lolcat
     nano
+    netpbm
     nmap
     nms
     nodejs
