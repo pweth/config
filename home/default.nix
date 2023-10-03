@@ -46,13 +46,17 @@
     openssl
     (python3.withPackages (ps: with ps; [
       build
+      gensim
       ipython
       jupyter
       matplotlib
+      nltk
       numpy
       pandas
       pip
+      scikit-learn
       setuptools
+      spacy
     ]))
     ripgrep
     rustup
