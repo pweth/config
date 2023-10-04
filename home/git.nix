@@ -20,18 +20,10 @@
 
     # Additional configuration
     extraConfig = {
-      core = {
-        editor = "nvim";
-      };
-      credential = {
-        # Manually ensure the correct gh package
-        "https://gist.github.com".helper = "!${pkgs.gh}/bin/gh auth git-credential";
-        "https://github.com".helper = "!${pkgs.gh}/bin/gh auth git-credentials";
-        helper = "store";
-      };
-      init = {
-        defaultBranch = "main";
-      };
+      advice.addIgnoredFile = false;
+      core.editor = "nvim";
+      credential.helper = "store";
+      init.defaultBranch = "main";
     };
   };
 }
