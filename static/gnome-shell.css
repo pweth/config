@@ -25,6 +25,17 @@
   width: 0;
 }
 
+#panelRight > * {
+  height: 0;
+  width: 0;
+}
+
+#panelRight > *:first-child,
+#panelRight > *:last-child {
+  height: auto !important;
+  width: auto !important;
+}
+
 .events-button,
 .events-button *,
 .world-clocks-button {
