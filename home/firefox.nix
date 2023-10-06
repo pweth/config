@@ -78,21 +78,6 @@ in
               url = "https://github.com/";
             }
             {
-              name = "sourcehut";
-              keyword = "!sh";
-              url = "https://sr.ht/";
-            }
-            {
-              name = "Tools";
-              keyword = "!t";
-              url = "https://tools.pw.ax/";
-            }
-            {
-              name = "NextDNS";
-              keyword = "!nd";
-              url = "https://my.nextdns.io/";
-            }
-            {
               name = "Wordle";
               url = "https://www.nytimes.com/games/wordle/index.html";
             }

@@ -11,13 +11,13 @@ My NixOS configuration flake.
 
 Dell Inc. XPS 13 9360 (i5-8250U, 8GB)
 
-- Dual-boot installation alongside Windows 11
+Dual-boot installation with Windows 11
 
 ### Macaroni
 
 Oracle Cloud VM.Standard.A1.Flex (4 OCPUs, 24GB)
 
-- nixos-infect over Ubuntu Minimal 22.04
+nixos-infect over Ubuntu Minimal 22.04
 
 ### Rockhopper
 
