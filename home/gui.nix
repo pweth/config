@@ -13,9 +13,11 @@
   ];
 
   home.packages = with pkgs; [
+    appimage-run
     bitwarden
     emote
     gimp
+    gnome.eog
     libreoffice
     obsidian
     obs-studio
