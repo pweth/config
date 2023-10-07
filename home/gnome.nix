@@ -26,7 +26,7 @@
         picture-uri-dark = "file:///home/pweth/dotfiles/static/background.jpg";
       };
       "org/gnome/desktop/calendar" = {
-        show-weekdate = true;
+        show-weekdate = false;
       };
       "org/gnome/desktop/input-sources" = {
         sources = [ (lib.hm.gvariant.mkTuple ["xkb" "gb"]) ];

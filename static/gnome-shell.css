@@ -1,7 +1,3 @@
-#dash {
-  height: 0;
-}
-
 #overview {
   background-image: url(/home/pweth/dotfiles/static/background-blur.jpg);
 }
@@ -11,23 +7,29 @@
   box-shadow: none;
 }
 
-#panel:login-screen,
-#panel:overview,
-#panel:unlock-screen {
+#panel:overview {
   background-color: transparent;
 }
 
+#dash,
 #panelLeft,
-#panelLeft * {
-  height: 0;
-  margin: 0;
-  padding: 0;
-  width: 0;
-}
-
-#panelRight > * {
-  height: 0;
-  width: 0;
+#panelLeft *,
+#panelRight > *,
+.calendar,
+.calendar-change-month-forward,
+.calendar-change-month-back,
+.calendar-day,
+.calendar-day-heading,
+.calendar-month-label,
+.datemenu-displays-box,
+.datemenu-today-button,
+.datemenu-today-button .date-label,
+.datemenu-today-button .day-label,
+.message-list-controls > *:first-child {
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 0 !important;
 }
 
 #panelRight > *:first-child,
@@ -36,12 +38,6 @@
   width: auto !important;
 }
 
-.events-button,
-.events-button *,
-.world-clocks-button {
-  color: rgba(0, 0, 0, 0);
-  height: 0;
-  margin: 0;
-  padding: 0;
-  width: 0;
+.message-list {
+  height: 400px;
 }

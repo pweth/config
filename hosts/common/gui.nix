@@ -27,6 +27,7 @@
     file-roller
     geary
     gedit
+    gnome-calendar
     gnome-characters
     gnome-contacts
     gnome-font-viewer
