@@ -19,6 +19,7 @@
     gimp
     gnome.eog
     libreoffice
+    linux-wifi-hotspot
     obsidian
     obs-studio
     spotify
