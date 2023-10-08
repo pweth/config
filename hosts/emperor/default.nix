@@ -46,4 +46,12 @@
     enable = true;
     arguments = [ "-profile" "ffa426" ];
   };
+
+  # VirtualBox
+  virtualisation.virtualbox = {
+    guest.enable = true;
+    guest.x11 = true;
+    host.enable = true;
+  };
+  users.extraGroups.vboxusers.members = [ "pweth" ];
 }
