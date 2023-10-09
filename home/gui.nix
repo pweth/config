@@ -24,6 +24,8 @@
     obs-studio
     spotify
     sqlitebrowser
+    texlive.combined.scheme-medium
+    texmaker
     vlc
   ];
 }
