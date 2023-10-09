@@ -20,6 +20,7 @@
       ms-python.python
       ms-vscode.cpptools
       ms-vscode.hexeditor
+      ms-vscode.makefile-tools
       ms-vscode-remote.remote-ssh
       rust-lang.rust-analyzer
       vscode-icons-team.vscode-icons
