@@ -25,7 +25,6 @@
     age
     cmatrix
     cowsay
-    duf
     exiftool
     ffmpeg
     file

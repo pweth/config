@@ -13,8 +13,10 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
+    bat
     curl
     dig
+    duf
     exa
     git
     htop
