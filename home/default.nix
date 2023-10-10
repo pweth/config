@@ -67,5 +67,6 @@
     tldr
     unzip
     yt-dlp
+    zip
   ];
 }
