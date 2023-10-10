@@ -8,6 +8,7 @@ let
     { domain = "ackee.pw.ax"; port = 42750; }
     { domain = "cowyo.pw.ax"; port = 44615; }
     { domain = "grafana.pw.ax"; port = 59663; }
+    { domain = "notebook.pw.ax"; port = 43067; }
     { domain = "prometheus.pw.ax"; port = 58635; }
     { domain = "uptime.pw.ax"; port = 58057; }
   ];
@@ -17,6 +18,7 @@ in
     ./ackee.nix
     ./cowyo.nix
     ./grafana.nix
+    ./jupyter.nix
     ./prometheus.nix
     ./uptime-kuma.nix
   ];
