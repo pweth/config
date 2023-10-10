@@ -31,6 +31,7 @@
     file
     gcc
     gh
+    gnumake
     gnupg
     go
     gping
