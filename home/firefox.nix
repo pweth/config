@@ -78,7 +78,13 @@ in
               url = "https://github.com/";
             }
             {
+              name = "Jupyter";
+              keyword = "!j";
+              url = "https://notebook.pw.ax/";
+            }
+            {
               name = "Wordle";
+              keyword = "!wordle";
               url = "https://www.nytimes.com/games/wordle/index.html";
             }
           ];
