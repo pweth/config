@@ -6,7 +6,7 @@
 { config, pkgs, ... }:
 
 {
-  age.secrets.ackee-password.file = ../secrets/ackee-password.age;
+  age.secrets.ackee.file = ../secrets/ackee.age;
 
   services.nginx.virtualHosts."ackee.pw.ax".extraConfig = ''
     add_header  Access-Control-Allow-Origin "*" always;
@@ -26,7 +26,7 @@
       ACKEE_PORT = "42750";
       WAIT_HOSTS = "mongo:27017";
     };
-    environmentFiles = [ config.age.secrets.ackee-password.path ];
+    environmentFiles = [ config.age.secrets.ackee.path ];
     extraOptions = [ "--network=host" ];
     image = "electerious/ackee";
   };

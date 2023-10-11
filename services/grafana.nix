@@ -6,8 +6,8 @@
 { config, pkgs, ... }:
 
 {
-  age.secrets.grafana-password = {
-    file = ../secrets/grafana-password.age;
+  age.secrets.grafana = {
+    file = ../secrets/grafana.age;
     owner = "grafana";
   };
 
@@ -22,7 +22,7 @@
       };
       security = {
         admin_user = "admin";
-        admin_password = "$__file{${config.age.secrets.grafana-password.path}}";
+        admin_password = "$__file{${config.age.secrets.grafana.path}}";
         disable_gravatar = true;
       };
       server = {

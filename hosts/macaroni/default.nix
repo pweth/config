@@ -33,7 +33,7 @@
   };
 
   # Certificates
-  age.secrets.cloudflare-api.file = ../../secrets/cloudflare-api.age;
+  age.secrets.cloudflare.file = ../../secrets/cloudflare.age;
   security.acme = {
     acceptTerms = true;
     defaults.email = "9iz5svuo@duck.com";

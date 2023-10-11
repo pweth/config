@@ -27,5 +27,10 @@
       rbi = "sudo nixos-rebuild switch --flake /home/pweth/dotfiles --impure";
       v = "nvim"; 
     };
+
+    # Functions
+    initExtra = ''
+      weather() { curl -s "wttr.in/''${1}" | head -n -1; }
+    '';
   };
 }

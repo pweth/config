@@ -27,7 +27,7 @@ in
   security.acme.certs = builtins.listToAttrs (builtins.map (service: {
     name = service.domain;
     value = {
-      credentialsFile = config.age.secrets.cloudflare-api.path;
+      credentialsFile = config.age.secrets.cloudflare.path;
       dnsProvider = "cloudflare";
       group = "nginx";
     };
