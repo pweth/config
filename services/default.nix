@@ -5,7 +5,6 @@
 { config, pkgs, ... }:
 let
   services = [
-    { domain = "ackee.pw.ax"; port = 42750; }
     { domain = "cowyo.pw.ax"; port = 44615; }
     { domain = "grafana.pw.ax"; port = 59663; }
     { domain = "notebook.pw.ax"; port = 43067; }
@@ -15,7 +14,6 @@ let
 in
 {
   imports = [
-    ./ackee.nix
     ./cowyo.nix
     ./grafana.nix
     ./jupyter.nix
