@@ -12,6 +12,7 @@ in
     enable = true;
     profiles.default = {
       id = 0;
+      isDefault = true;
 
       # Set default search engine to my themed DuckDuckGo and disable others
       search = {
@@ -47,6 +48,7 @@ in
         };
       };
 
+      # Bookmarks toolbar
       bookmarks = [
         {
           name = "Bookmarks";
@@ -129,8 +131,10 @@ in
         "extensions.htmlaboutaddons.recommendations.enabled" = false;
         "browser.discovery.enabled" = false;
 
-        # Disable specific APIs
+        # Protect/disable specific APIs
         "dom.battery.enabled" = false;
+        "dom.event.clipboardevents.enabled" = true;
+        "dom.event.contextmenu.enabled" = true;
         "dom.gamepad.enabled" = false;
 
         # Disable telemetry
@@ -169,6 +173,7 @@ in
         "browser.urlbar.trimURLs" = false;
         "browser.urlbar.quicksuggest.scenario" = "history";
         "browser.urlbar.quicksuggest.enabled" = false;
+        "browser.urlbar.speculativeConnect.enabled" = false;
         "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
         "browser.urlbar.suggest.quicksuggest.sponsored" = false;
         "browser.urlbar.suggest.bookmark" = false;
@@ -187,6 +192,7 @@ in
         # Disable autofill
         "dom.forms.autocomplete.formautofill" = false;
         "extensions.formautofill.creditCards.enabled" = false;
+        "security.ask_for_password" = 0;
         "signon.rememberSignons" = false;
         "signon.autofillForms" = false;
 
@@ -195,6 +201,9 @@ in
 
         # Delete temporary files opened in external apps
         "browser.helperApps.deleteTempFileOnExit" = true;
+
+        # Disable installed plugins list
+        "plugins.enumerable_names" = "";
 
         # TLS settings
         "dom.security.https_only_mode" = true;
@@ -218,6 +227,11 @@ in
 
         # Disable Pocket
         "extensions.pocket.enabled" = false;
+
+        # Disable experiments
+        "experiments.activeExperiment" = false;
+        "experiments.enabled" = false;
+        "experiments.supported" = false;
       };
     };
   };
