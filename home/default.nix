@@ -33,14 +33,12 @@
     gnumake
     gnupg
     go
-    gping
     httpie
     jq
     keybase
     killall
     lolcat
     nano
-    netpbm
     nmap
     nms
     nodejs
