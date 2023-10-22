@@ -50,6 +50,7 @@
     sqlite
     tldr
     unzip
+    valgrind
     yt-dlp
     zip
   ];
