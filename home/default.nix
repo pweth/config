@@ -29,6 +29,7 @@
     ffmpeg
     file
     gcc
+    gdb
     gh
     gnumake
     gnupg
