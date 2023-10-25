@@ -21,9 +21,6 @@
     agenix.packages.aarch64-linux.default
   ];
 
-  # Home manager
-  home-manager.users.pweth = import ../../home/minimal.nix;
-
   # Networking
   networking = {
     hostName = "rockhopper";

@@ -8,12 +8,6 @@
   programs.bash = {
     enable = true;
 
-    # History
-    historyControl = [ "ignoredups" ];
-    historyFileSize = 15000;
-    historySize = 10000;
-    shellOptions = [ "histappend" ];
-
     # Command aliases
     shellAliases = {
       cls = "clear";

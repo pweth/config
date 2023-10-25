@@ -21,7 +21,11 @@
   ];
 
   # Home manager
-  home-manager.users.pweth = import ../../home;
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.pweth = import ../../home;
+  };
 
   # Networking
   networking = {

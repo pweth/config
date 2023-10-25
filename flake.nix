@@ -53,7 +53,6 @@
           ./hosts/common
           ./hosts/rockhopper
           agenix.nixosModules.default
-          home-manager.nixosModules.home-manager
         ];
         specialArgs = inputs;
         system = "aarch64-linux";

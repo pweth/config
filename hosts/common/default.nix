@@ -2,13 +2,17 @@
 * Common system configuration across all hosts.
 */
 
-{ config, pkgs, home-manager, ... }:
+{ config, pkgs, ... }:
 
 {
   # Environment variables
   environment.sessionVariables = {
     EDITOR = "nvim";
+    HISTCONTROL = "ignoredups";
+    HISTSIZE = "10000";
+    HISTFILESIZE = "15000";
     HISTTIMEFORMAT = "%F %T ";
+    TZ_LIST = "America/New_York;Europe/London;Australia/Sydney";
   };
 
   # System packages
@@ -24,12 +28,9 @@
     neovim
     tmux
     tree
+    tz
     wget
   ];
-
-  # Home manager
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
 
   # UK locale settings
   i18n.defaultLocale = "en_GB.UTF-8";
