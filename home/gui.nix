@@ -27,5 +27,6 @@
     texlive.combined.scheme-medium
     texmaker
     vlc
+    wireshark
   ];
 }
