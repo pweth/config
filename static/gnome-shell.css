@@ -15,16 +15,11 @@
 #panelLeft,
 #panelLeft *,
 #panelRight > *,
-.calendar,
-.calendar-change-month-forward,
-.calendar-change-month-back,
-.calendar-day,
-.calendar-day-heading,
-.calendar-month-label,
 .datemenu-displays-box,
 .datemenu-today-button,
 .datemenu-today-button .date-label,
-.datemenu-today-button .day-label {
+.datemenu-today-button .day-label,
+.message-list-controls > *:first-child {
   height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -35,8 +30,4 @@
 #panelRight > *:last-child {
   height: auto !important;
   width: auto !important;
-}
-
-.message-list {
-  height: 400px;
 }
