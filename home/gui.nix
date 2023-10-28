@@ -24,7 +24,7 @@
     obs-studio
     spotify
     sqlitebrowser
-    texlive.combined.scheme-medium
+    texlive.combined.scheme-full
     texmaker
     vlc
     wireshark
