@@ -51,11 +51,19 @@
     arguments = [ "-profile" "ffa426" ];
   };
 
+  # Docker
+  virtualisation.docker.enable = true;
+
   # VirtualBox
   virtualisation.virtualbox = {
     guest.enable = true;
     guest.x11 = true;
     host.enable = true;
   };
-  users.extraGroups.vboxusers.members = [ "pweth" ];
+
+  # Extra groups for virtualisation
+  users.extraGroups = {
+    docker.members = [ "pweth" ];
+    vboxusers.members = [ "pweth" ];
+  };
 }
