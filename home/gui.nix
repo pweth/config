@@ -18,6 +18,7 @@
     emote
     gimp
     gnome.eog
+    jabref
     libreoffice
     linux-wifi-hotspot
     obsidian
