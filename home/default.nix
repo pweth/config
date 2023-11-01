@@ -49,6 +49,7 @@
     sl
     sqlite
     tldr
+    traceroute
     unzip
     valgrind
     yt-dlp
