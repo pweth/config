@@ -23,6 +23,10 @@
       advice.addIgnoredFile = false;
       core.editor = "nvim";
       credential.helper = "store";
+      diff.sqlite3 = {
+        binary = true;
+        textconv = "echo .dump | sqlite3"
+      };
       init.defaultBranch = "main";
     };
   };
