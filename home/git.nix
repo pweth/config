@@ -25,7 +25,7 @@
       credential.helper = "store";
       diff.sqlite3 = {
         binary = true;
-        textconv = "echo .dump | sqlite3"
+        textconv = "echo .dump | sqlite3";
       };
       init.defaultBranch = "main";
     };
