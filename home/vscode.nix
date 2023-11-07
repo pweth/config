@@ -13,7 +13,6 @@
       eamodio.gitlens
       esbenp.prettier-vscode
       golang.go
-      grapecity.gc-excelviewer
       gruntfuggly.todo-tree
       haskell.haskell
       jnoortheen.nix-ide
@@ -30,7 +29,6 @@
     # settings.json values
     userSettings = {
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      "editor.formatOnSave" = true;
       "explorer.confirmDelete" = false;
       "explorer.confirmDragAndDrop" = false;
       "remote.downloadExtensionsLocally" = true;
