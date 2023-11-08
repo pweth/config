@@ -12,8 +12,8 @@
   home.file.".themes/pweth/gnome-shell/gnome-shell.css".source = ../static/gnome-shell.css;
 
   # Extensions to install
-  home.packages = with pkgs; [
-    gnomeExtensions.vitals
+  home.packages = with pkgs.gnomeExtensions; [
+    vitals
   ];
 
   # dconf values
@@ -29,7 +29,10 @@
         show-weekdate = false;
       };
       "org/gnome/desktop/input-sources" = {
-        sources = [ (lib.hm.gvariant.mkTuple ["xkb" "gb"]) ];
+        sources = [
+	  (lib.hm.gvariant.mkTuple [ "xkb" "gb" ])
+	  (lib.hm.gvariant.mkTuple [ "xkb" "gb+dvorakukp" ])
+	];
       };
       "org/gnome/desktop/interface" = {
         clock-show-weekday = true;
