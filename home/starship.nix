@@ -12,8 +12,6 @@
       battery.disabled = true;
       cmd_duration = {
         min_time = 5000;
-        min_time_to_notify = 300000;
-        show_notifications = true;
         style = "bold";
       };
       hostname = {
