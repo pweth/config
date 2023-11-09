@@ -27,6 +27,7 @@
     exiftool
     ffmpeg
     file
+    fortune
     gcc
     gdb
     gh
@@ -34,6 +35,7 @@
     gnupg
     go
     httpie
+    inetutils
     jq
     keybase
     killall
@@ -49,7 +51,6 @@
     sl
     sqlite
     tldr
-    traceroute
     unzip
     valgrind
     yt-dlp
