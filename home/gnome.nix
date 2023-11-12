@@ -30,9 +30,9 @@
       };
       "org/gnome/desktop/input-sources" = {
         sources = [
-	  (lib.hm.gvariant.mkTuple [ "xkb" "gb" ])
-	  (lib.hm.gvariant.mkTuple [ "xkb" "gb+dvorakukp" ])
-	];
+          (lib.hm.gvariant.mkTuple [ "xkb" "gb" ])
+          (lib.hm.gvariant.mkTuple [ "xkb" "gb+dvorakukp" ])
+        ];
       };
       "org/gnome/desktop/interface" = {
         clock-show-weekday = true;
@@ -62,6 +62,11 @@
       "org/gnome/mutter" = {
         dynamic-workspaces = true;
         workspaces-only-on-primary = true;
+      };
+      "org/gnome/settings-daemon/plugins/color" = {
+        night-light-enabled = true;
+        night-light-schedule-automatic = true;
+        night-light-temperature = 1700;
       };
       "org/gnome/shell" = {
         app-picker-layout = [];
