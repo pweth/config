@@ -1,7 +1,8 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 browser {
-    margin-right: 0px; margin-bottom: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
 }
 
 #TabsToolbar {
@@ -9,8 +10,8 @@ browser {
 }
 
 #nav-bar {
-    margin-top: 0;
     margin-bottom: -42px;
+    margin-top: 0;
     z-index: -100;
 }
 
