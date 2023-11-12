@@ -7,6 +7,7 @@
 {
   # Environment variables
   environment.sessionVariables = {
+    BAT_THEME = "TwoDark";
     EDITOR = "nvim";
     HISTCONTROL = "ignoredups";
     HISTSIZE = "10000";
