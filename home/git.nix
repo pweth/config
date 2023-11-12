@@ -1,8 +1,8 @@
 /*
-* Git CLI tool configuration.
+* Git configuration.
 */
 
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
   programs.git = {

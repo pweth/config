@@ -1,0 +1,23 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+browser {
+    margin-right: 0px; margin-bottom: 0px;
+}
+
+#TabsToolbar {
+    visibility: collapse !important;
+}
+
+#nav-bar {
+    margin-top: 0;
+    margin-bottom: -42px;
+    z-index: -100;
+}
+
+#main-window[windowtype="navigator:browser"] {
+    background-color: transparent !important;
+}
+
+.tab-background[selected="true"] {
+    background: rgba(0, 0, 0, 0) !important;
+}

@@ -1,8 +1,8 @@
 /*
-* Bourne Again SHell configuration.
+* Bourne Again Shell configuration.
 */
 
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
   programs.bash = {

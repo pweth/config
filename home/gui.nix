@@ -10,6 +10,7 @@
     ./firefox.nix
     ./gnome.nix
     ./vscode.nix
+    ./web-apps.nix
   ];
 
   home.packages = with pkgs; [
@@ -19,7 +20,6 @@
     gimp
     gnome.eog
     libreoffice
-    linux-wifi-hotspot
     obsidian
     obs-studio
     spotify

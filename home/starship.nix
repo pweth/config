@@ -3,7 +3,7 @@
 * https://starship.rs/
 */
 
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
   programs.starship = {

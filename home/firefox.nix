@@ -2,7 +2,7 @@
 * Mozilla Firefox browser configuration.
 */
 
-{ config, pkgs, ... }:
+{ config, ... }:
 let
   # https://duckduckgo.com/duckduckgo-help-pages/settings/params/
   ddgSettings = "kp=1&kl=uk-en&kad=en_GB&k1=-1&kaj=m&kak=-1&kax=-1&kaq=-1&kap=-1&kao=-1&kau=-1&kae=d&k5=1";
