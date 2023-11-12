@@ -5,8 +5,7 @@
 { config, lib, ... }:
 let
   apps = [
-    { id = 1; name = "Discord"; url = "https://discord.com/app"; }
-    { id = 2; name = "WhatsApp"; url = "https://web.whatsapp.com"; }
+    { id = 1; name = "WhatsApp"; url = "https://web.whatsapp.com"; icon = null; }
   ];
 in
 {
@@ -51,6 +50,7 @@ in
         "--no-remote"
         "${app.url}"
       ]);
+      icon = app.icon;
       name = app.name;
       settings = {
         StartupWMClass = app.name;
