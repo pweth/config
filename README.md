@@ -28,7 +28,7 @@ Raspberry Pi Model 3B+ (Cortex-A53, 1GB)
 ## Notes
 
 - [How to Install NixOS on Oracle ARM machine](https://blog.digitalimmigrants.org/deploy-nixos-on-oracle-arm-machines/)
-- [Firefox Hardening Guide](https://brainfucksec.github.io/firefox-hardening-guide)
+- [Betterfox User Preferences](https://github.com/yokoffing/Betterfox)
 - [Declarative Docker Container Service in NixOS](https://www.breakds.org/post/declarative-docker-in-nixos/)
 - [NixOS on ARM/Raspberry Pi](https://nixos.wiki/wiki/NixOS_on_ARM/Raspberry_Pi)
 - [Tracking SQLite Database Changes in Git](https://garrit.xyz/posts/2023-11-01-tracking-sqlite-database-changes-in-git)
