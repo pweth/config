@@ -11,11 +11,6 @@
   # Theme
   home.file.".themes/pweth/gnome-shell/gnome-shell.css".source = ../static/gnome-shell.css;
 
-  # Extensions to install
-  home.packages = with pkgs.gnomeExtensions; [
-    vitals
-  ];
-
   # dconf values
   dconf = {
     enable = true;
@@ -72,26 +67,12 @@
         app-picker-layout = [];
         enabled-extensions = [
           "user-theme@gnome-shell-extensions.gcampax.github.com"
-          "Vitals@CoreCoding.com"
         ];
         disable-user-extensions = false;
         favorite-apps = [];
       };
-
-      # Extension settings
       "org/gnome/shell/extensions/user-theme" = {
         name = "pweth";
-      };
-      "org/gnome/shell/extensions/vitals" = {
-        alphabetize = false;
-        fixed-widths = false;
-        hide-icons = true;
-        hot-sensors = [ "_processor_usage_" "_memory_allocated_" ];
-        show-fan = false;
-        show-network = false;
-        show-system = false;
-        show-temperature = false;
-        show-voltage = false;
       };
 
       # Emote keyboard shortcut

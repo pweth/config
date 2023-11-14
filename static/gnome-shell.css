@@ -1,14 +1,10 @@
-#overview {
-  background-image: url(/home/pweth/dotfiles/static/background-blur.jpg);
+#overview, #panel:overview {
+  background-color: #222222;
 }
 
 #panel {
   background-color: rgba(0, 0, 0, 0.5);
   box-shadow: none;
-}
-
-#panel:overview {
-  background-color: transparent;
 }
 
 #dash,
@@ -26,7 +22,6 @@
   width: 0 !important;
 }
 
-#panelRight > *:first-child,
 #panelRight > *:last-child {
   height: auto !important;
   width: auto !important;
