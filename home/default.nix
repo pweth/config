@@ -37,7 +37,6 @@
     httpie
     inetutils
     jq
-    keybase
     killall
     lolcat
     nano

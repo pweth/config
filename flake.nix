@@ -14,11 +14,14 @@
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     agenix.inputs.darwin.follows = "";
 
+    # NUR
+    nur.url = "github:nix-community/NUR";
+
     # VSCode server
     vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
-  outputs = { self, nixpkgs, home-manager, agenix, vscode-server }@inputs: {
+  outputs = { self, nixpkgs, home-manager, agenix, nur, vscode-server }@inputs: {
     # NixOS configurations
     nixosConfigurations = {
       # `sudo nixos-rebuild switch --flake .#emperor`

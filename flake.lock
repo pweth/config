@@ -112,11 +112,27 @@
         "type": "indirect"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1700072577,
+        "narHash": "sha256-7jriJotHLpP/3jNoPW9Xc0mDKx2lOzOcLnwUfdpa51Y=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "49a6f64d2b6dcba38a8fb2312315c13e3fe488f1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
         "home-manager": "home-manager_2",
         "nixpkgs": "nixpkgs",
+        "nur": "nur",
         "vscode-server": "vscode-server"
       }
     },

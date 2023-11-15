@@ -41,10 +41,6 @@
   hardware.bluetooth.enable = true;
   hardware.pulseaudio.enable = true;
 
-  # System services
-  services.keybase.enable = true;
-  services.printing.enable = true;
-
   # NextDNS proxy (DNS-over-HTTPS)
   services.nextdns = {
     enable = true;

@@ -2,7 +2,7 @@
 * Common system configuration across all hosts with a GUI.
 */
 
-{ config, pkgs, home-manager, ... }:
+{ config, pkgs, home-manager, nur, ... }:
 
 {
   # GUI setup
@@ -40,6 +40,11 @@
     totem
     yelp
   ]);
+
+  # Overlay NUR packages
+  nixpkgs.overlays = [
+    nur.overlay
+  ];
 
   # Home manager GUI packages
   home-manager.users.pweth = import ../../home/gui.nix;
