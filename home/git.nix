@@ -27,6 +27,7 @@
         binary = true;
         textconv = "echo .dump | sqlite3";
       };
+      http.postBuffer = 157286400;
       init.defaultBranch = "main";
     };
   };
