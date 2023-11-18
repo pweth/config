@@ -35,6 +35,20 @@
     wget
   ];
 
+  # Fonts
+  fonts = {
+    fonts = with pkgs; [
+      hack-font
+      noto-fonts
+      noto-fonts-emoji
+    ];
+    fontconfig.defaultFonts = {
+      serif = [ "NotoSerif" ];
+      sansSerif = [ "NotoSans" ];
+      monospace = [ "Hack" ];
+    };
+  };
+
   # UK locale settings
   i18n.defaultLocale = "en_GB.UTF-8";
   i18n.extraLocaleSettings = {

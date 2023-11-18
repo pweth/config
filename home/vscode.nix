@@ -33,6 +33,7 @@
       "explorer.confirmDragAndDrop" = false;
       "remote.downloadExtensionsLocally" = true;
       "telemetry.telemetryLevel" = "off";
+      "terminal.integrated.fontFamily" = "Hack";
       "update.mode" = "none";
       "workbench.colorTheme" = "Default Dark Modern";
       "workbench.iconTheme" = "vscode-icons";

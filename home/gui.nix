@@ -28,5 +28,6 @@
     texmaker
     vlc
     wireshark
+    wl-clipboard
   ];
 }
