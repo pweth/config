@@ -26,7 +26,6 @@
     cowsay
     exiftool
     ffmpeg
-    file
     fortune
     gcc
     gdb
@@ -34,12 +33,12 @@
     gnumake
     gnupg
     go
+    home-manager
     httpie
     inetutils
     jq
     killall
     lolcat
-    nano
     nmap
     nms
     nodejs

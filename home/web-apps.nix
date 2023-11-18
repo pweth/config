@@ -5,7 +5,7 @@
 { config, lib, ... }:
 let
   apps = [
-    { id = 1; name = "WhatsApp"; url = "https://web.whatsapp.com"; icon = null; }
+    { id = 1; name = "WhatsApp"; url = "https://web.whatsapp.com"; icon = ../static/images/whatsapp.png; }
   ];
 in
 {
@@ -35,7 +35,7 @@ in
         "browser.toolbars.bookmarks.visibility" = "never";
         "network.cookie.lifetimePolicy" = 0;
       };
-      userChrome = builtins.readFile ../static/web-app.css;
+      userChrome = builtins.readFile ../static/css/web-app.css;
     };
   }) apps);
 

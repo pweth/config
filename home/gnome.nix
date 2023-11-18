@@ -6,10 +6,10 @@
 
 {
   # User icon
-  home.file.".face".source = ../static/profile.png;
+  home.file.".face".source = ../static/images/profile.png;
 
   # Theme
-  home.file.".themes/pweth/gnome-shell/gnome-shell.css".source = ../static/gnome-shell.css;
+  home.file.".themes/pweth/gnome-shell/gnome-shell.css".source = ../static/css/gnome-shell.css;
 
   # dconf values
   dconf = {
@@ -17,8 +17,8 @@
     settings = {
       # General settings
       "org/gnome/desktop/background" = {
-        picture-uri = "file:///home/pweth/dotfiles/static/background.jpg";
-        picture-uri-dark = "file:///home/pweth/dotfiles/static/background.jpg";
+        picture-uri = "file:///home/pweth/dotfiles/static/images/background.jpg";
+        picture-uri-dark = "file:///home/pweth/dotfiles/static/images/background.jpg";
       };
       "org/gnome/desktop/calendar" = {
         show-weekdate = false;

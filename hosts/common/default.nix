@@ -23,8 +23,10 @@
     dig
     duf
     exa
+    file
     git
     htop
+    nano
     neofetch
     neovim
     tmux

@@ -14,6 +14,14 @@
     libinput.enable = true;
   };
 
+  # System packages
+  environment.systemPackages = with pkgs; [
+    firefox
+    gnome.eog
+    gparted
+    vscode
+  ];
+
   # Exclude unwanted default Gnome packages
   environment.gnome.excludePackages = (with pkgs; [
     gnome-connections
