@@ -45,6 +45,7 @@
     nodejs
     openssl
     python3
+    p7zip
     ripgrep
     rustup
     sl
