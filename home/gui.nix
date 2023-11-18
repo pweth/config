@@ -15,6 +15,7 @@
 
   home.packages = with pkgs; [
     appimage-run
+    binwalk
     bitwarden
     bless
     discord
