@@ -16,6 +16,7 @@
   home.packages = with pkgs; [
     appimage-run
     bitwarden
+    bless
     discord
     emote
     gimp
