@@ -7,6 +7,7 @@
 
 {
   imports = [
+    ./desktop.nix
     ./firefox.nix
     ./gnome.nix
     ./vscode.nix
