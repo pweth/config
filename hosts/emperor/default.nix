@@ -62,4 +62,9 @@
     docker.members = [ "pweth" ];
     vboxusers.members = [ "pweth" ];
   };
+
+  # tmux
+  programs.bash.interactiveShellInit = ''
+    [[ -z "$TMUX" ]] && exec tmux
+  '';
 }

@@ -15,6 +15,7 @@ let
     numpy
     pandas
     pip
+    rich
     scikit-learn
     setuptools
     spacy
