@@ -19,6 +19,8 @@
       ls = "exa -la";
       rb = "sudo nixos-rebuild switch --flake /home/pweth/dotfiles";
       rbi = "sudo nixos-rebuild switch --flake /home/pweth/dotfiles --impure";
+      tka = "tmux kill-session -a";
+      tls = "tmux ls";
       v = "nvim"; 
     };
 

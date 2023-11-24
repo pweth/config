@@ -65,6 +65,6 @@
 
   # tmux
   programs.bash.interactiveShellInit = ''
-    [[ -z "$TMUX" ]] && exec tmux
+    [[ -z "$TMUX" ]] && exec tmux new -As0
   '';
 }

@@ -10,6 +10,7 @@
     ./bash.nix
     ./git.nix
     ./starship.nix
+    ./tmux.nix
   ];
 
   programs.home-manager.enable = true;
