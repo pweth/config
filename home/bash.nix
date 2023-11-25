@@ -26,6 +26,7 @@
 
     # Functions
     initExtra = ''
+      hg() { history | grep ''${1}; }
       weather() { curl -s "wttr.in/''${1}" | head -n -1; }
     '';
   };

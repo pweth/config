@@ -35,6 +35,11 @@
     networkmanager.enable = true;
   };
 
+  # tmux
+  programs.bash.interactiveShellInit = ''
+    [[ -z "$TMUX" ]] && exec tmux new -As0
+  '';
+
   # Sound and Bluetooth
   sound.enable = true;
   services.blueman.enable = true;
@@ -62,9 +67,4 @@
     docker.members = [ "pweth" ];
     vboxusers.members = [ "pweth" ];
   };
-
-  # tmux
-  programs.bash.interactiveShellInit = ''
-    [[ -z "$TMUX" ]] && exec tmux new -As0
-  '';
 }

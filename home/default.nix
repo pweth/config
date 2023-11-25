@@ -22,7 +22,6 @@
   };
 
   home.packages = with pkgs; [
-    age
     cmatrix
     cowsay
     exiftool
@@ -43,7 +42,6 @@
     nmap
     nms
     nodejs
-    openssl
     python3
     p7zip
     ripgrep
