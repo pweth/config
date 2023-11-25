@@ -7,6 +7,7 @@
 {
   imports = [
     ./hardware.nix
+    ../common/rclone.nix
   ];
 
   # Bootloader

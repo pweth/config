@@ -19,4 +19,5 @@ in
   "grafana.age".publicKeys = personal ++ [ macaroni ];
   "jupyter.age".publicKeys = personal ++ [ macaroni ];
   "password-hash.age".publicKeys = personal ++ [ emperor macaroni rockhopper ];
+  "rclone.age".publicKeys = personal ++ [ emperor ];
 }

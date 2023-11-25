@@ -18,7 +18,6 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
-    age
     bat
     curl
     dig
@@ -26,7 +25,6 @@
     exa
     file
     git
-    gnutar
     htop
     nano
     neofetch

@@ -22,6 +22,7 @@
   };
 
   home.packages = with pkgs; [
+    age
     cmatrix
     cowsay
     exiftool

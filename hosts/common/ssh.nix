@@ -2,7 +2,7 @@
 * The Secure Shell protocol.
 */
 
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
   services.openssh = {
