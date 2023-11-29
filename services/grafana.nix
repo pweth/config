@@ -3,7 +3,7 @@
 * https://github.com/grafana/grafana
 */
 
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
   age.secrets.grafana = {

@@ -1,5 +1,5 @@
 /*
-* The Secure Shell protocol.
+* SSH configuration.
 */
 
 { config, ... }:

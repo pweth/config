@@ -3,7 +3,7 @@
 * https://github.com/louislam/uptime-kuma
 */
 
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
   virtualisation.oci-containers.containers.uptime-kuma = {

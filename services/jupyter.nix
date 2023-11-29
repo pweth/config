@@ -19,6 +19,7 @@ let
     scikit-learn
     setuptools
     spacy
+    transformers
   ]);
 in
 {

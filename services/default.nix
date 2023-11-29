@@ -2,7 +2,7 @@
 * Container services to run on the VPS.
 */
 
-{ config, pkgs, ... }:
+{ config, ... }:
 let
   services = [
     { domain = "cowyo.pw.ax"; port = 44615; }

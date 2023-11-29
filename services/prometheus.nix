@@ -3,7 +3,7 @@
 * https://github.com/prometheus/prometheus
 */
 
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
   services.prometheus = {

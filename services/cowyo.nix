@@ -3,7 +3,7 @@
 * https://github.com/schollz/cowyo
 */
 
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
   virtualisation.oci-containers.containers.cowyo = {

@@ -27,8 +27,8 @@
       # `sudo nixos-rebuild switch --flake .#emperor`
       emperor = nixpkgs.lib.nixosSystem {
         modules = [
-          ./hosts/common
-          ./hosts/common/gui.nix
+          ./common
+          ./common/gui.nix
           ./hosts/emperor
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager
@@ -40,7 +40,7 @@
       # `sudo nixos-rebuild switch --flake .#macaroni`
       macaroni = nixpkgs.lib.nixosSystem {
         modules = [
-          ./hosts/common
+          ./common
           ./hosts/macaroni
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager
@@ -53,7 +53,7 @@
       # `sudo nixos-rebuild switch --flake .#rockhopper`
       rockhopper = nixpkgs.lib.nixosSystem {
         modules = [
-          ./hosts/common
+          ./common
           ./hosts/rockhopper
           agenix.nixosModules.default
         ];
