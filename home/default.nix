@@ -43,7 +43,9 @@
     nmap
     nms
     nodejs
-    python3
+    (python3.withPackages (ps: with ps; [
+      pygments
+    ]))
     p7zip
     ripgrep
     rustup

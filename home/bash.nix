@@ -16,7 +16,7 @@
       gd = "git diff";
       gp = "git push";
       gs = "git status";
-      ls = "exa -la";
+      ls = "eza -la";
       rb = "sudo nixos-rebuild switch --flake /home/pweth/dotfiles";
       rbi = "sudo nixos-rebuild switch --flake /home/pweth/dotfiles --impure";
       tka = "tmux kill-session -a";

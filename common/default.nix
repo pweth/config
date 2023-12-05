@@ -22,11 +22,10 @@
     curl
     dig
     duf
-    exa
+    eza
     file
     git
     htop
-    nano
     neofetch
     neovim
     openssl
@@ -39,7 +38,7 @@
 
   # Fonts
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       hack-font
       noto-fonts
       noto-fonts-emoji
@@ -82,7 +81,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # NixOS release version
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
 
   # Set time zone to London
   time.timeZone = "Europe/London";
@@ -103,5 +102,5 @@
   # Password hash
   age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
   age.secrets.password-hash.file = ../secrets/password-hash.age;
-  users.users.pweth.passwordFile = config.age.secrets.password-hash.path;
+  users.users.pweth.hashedPasswordFile = config.age.secrets.password-hash.path;
 }
