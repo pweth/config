@@ -11,6 +11,11 @@
   # Theme
   home.file.".themes/pweth/gnome-shell/gnome-shell.css".source = ../static/css/gnome-shell.css;
 
+  # Extensions
+  home.packages = with pkgs.gnomeExtensions; [
+    caffeine
+  ];
+
   # dconf values
   dconf = {
     enable = true;
@@ -66,6 +71,7 @@
       "org/gnome/shell" = {
         app-picker-layout = [];
         enabled-extensions = [
+          "caffeine@patapon.info"
           "user-theme@gnome-shell-extensions.gcampax.github.com"
         ];
         disable-user-extensions = false;
@@ -94,6 +100,13 @@
       };
       "org/gtk/gtk4/settings/file-chooser" = {
         sort-directories-first = true;
+      };
+
+      # Caffeine settings
+      "org/gnome/shell/extensions/caffeine" = {
+        enable-fullscreen = false;
+        show-indicator = "always";
+        show-notifications = false;
       };
     };
   };
