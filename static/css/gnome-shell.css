@@ -15,7 +15,8 @@
 .datemenu-today-button,
 .datemenu-today-button .date-label,
 .datemenu-today-button .day-label,
-.message-list-controls > *:first-child {
+.message-list-controls > *:first-child,
+.search-entry {
   height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;

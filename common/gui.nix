@@ -17,7 +17,6 @@
   # System packages
   environment.systemPackages = with pkgs; [
     firefox
-    gnome.eog
     gparted
     vscode
   ];
