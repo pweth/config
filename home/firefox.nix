@@ -161,6 +161,8 @@
 
         # Do not track
         "privacy.donottrackheader.enabled" = true;
+        "privacy.globalprivacycontrol.enabled" = true;
+        "privacy.globalprivacycontrol.was_ever_enabled" = true;
 
         # Language settings
         "intl.accept_languages" = "en-US, en";
@@ -230,11 +232,13 @@
         "startup.homepage_welcome_url" = "about:blank";
 
         # Disable autofill
+        "browser.formfill.enable" = false;
         "dom.forms.autocomplete.formautofill" = false;
         "extensions.formautofill.creditCards.enabled" = false;
         "security.ask_for_password" = 0;
         "signon.rememberSignons" = false;
         "signon.autofillForms" = false;
+        "signon.management.page.breach-alerts.enabled" = false;
 
         # Disable thumbnail collection
         "browser.pagethumbnails.capturing_disabled" = true;
@@ -272,6 +276,9 @@
         "experiments.activeExperiment" = false;
         "experiments.enabled" = false;
         "experiments.supported" = false;
+
+        # Disable Firefox DNS-over-HTTPS
+        "network.trr.mode" = 5;
       };
     };
   };

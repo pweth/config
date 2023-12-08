@@ -24,6 +24,7 @@
     duf
     eza
     file
+    fzf
     git
     htop
     neofetch
@@ -79,6 +80,12 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  # Enable fuzzy finder
+  programs.fzf = {
+    fuzzyCompletion = true;
+    keybindings = true;
+  };
 
   # NixOS release version
   system.stateVersion = "23.11";
