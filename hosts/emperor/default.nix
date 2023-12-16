@@ -55,17 +55,6 @@
 
   # Docker
   virtualisation.docker.enable = true;
-
-  # VirtualBox
-  virtualisation.virtualbox = {
-    guest.enable = true;
-    guest.x11 = true;
-    host.enable = true;
-  };
-
-  # Extra groups for virtualisation
-  users.extraGroups = {
-    docker.members = [ "pweth" ];
-    vboxusers.members = [ "pweth" ];
-  };
+  users.extraGroups.docker.members = [ "pweth" ];
 }
+
