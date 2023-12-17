@@ -53,8 +53,17 @@
     arguments = [ "-profile" "ffa426" ];
   };
 
+  # Auto-login on boot
+  services.xserver.displayManager.autoLogin = {
+    enable = true;
+    user = "pweth";
+  };
+  systemd.services = {
+    "autovt@tty1".enable = false;
+    "getty@tty1".enable = false;
+  };
+
   # Docker
   virtualisation.docker.enable = true;
   users.extraGroups.docker.members = [ "pweth" ];
 }
-

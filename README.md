@@ -29,34 +29,34 @@ Raspberry Pi Model 3B+ (Cortex-A53, 1GB)
 
 1. Load up a [fresh NixOS installation](https://nixos.wiki/wiki/NixOS_Installation_Guide).
 2. Update `/etc/ssh/ssh_host_ed25519_key` or generate using:
-```bash
-ssh-keygen -f /etc/ssh/ssh_host_ed25519_key -N "" -t ed25519
-```
+    ```bash
+    ssh-keygen -f /etc/ssh/ssh_host_ed25519_key -N "" -t ed25519
+    ```
 3. Download this repository:
-```bash
-nix-shell -p git --run "git clone https://github.com/pweth/dotfiles"
-```
+    ```bash
+    nix-shell -p git --run "git clone https://github.com/pweth/dotfiles"
+    ```
 4. Update `hosts/HOST/hardware.nix` using `/etc/nixos/hardware-configuration.nix`.
 5. Re-build the system using:
-```
-sudo nixos-rebuild switch --flake /home/pweth/dotfiles#HOST
-```
+    ```
+    sudo nixos-rebuild switch --flake /home/pweth/dotfiles#HOST
+    ```
 
 ### Emperor Only
 
 6. Update `~/.ssh/id_ed25519{,.pub}` then:
-```bash
-chmod 700 ~/.ssh
-chmod 600 ~/.ssh/*
-```
+    ```bash
+    chmod 700 ~/.ssh
+    chmod 600 ~/.ssh/*
+    ```
 7. Download files from object storage using:
-```bash
-sudo rclone copy backblaze-crypt: /home/pweth/Documents/ --config /run/agenix/rclone
-```
+    ```bash
+    sudo rclone copy backblaze-crypt: /home/pweth/Documents/ --config /run/agenix/rclone
+    ```
 8. Enable the rclone sync service using: 
-```bash
-touch ~/.rclone_enable
-```
+    ```bash
+    touch ~/.rclone_enable
+    ```
 
 ---
 
