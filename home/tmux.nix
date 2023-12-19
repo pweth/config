@@ -15,7 +15,7 @@
       set -g status-interval 1
       set -g status-left '''
       set -g status-position top
-      set -g status-right '#[fg=colour231, bg=colour233] #{session_name} → #(hostname) #[fg=colour0, bg=colour7] %d/%m #[fg=colour0, bg=colour15] %H:%M:%S '
+      set -g status-right '#[fg=colour231, bg=colour233] #{session_name} → #(hostname) '
       set -g status-style 'bg=default fg=colour137'
       setw -g window-status-current-format ' #I #W#F '
       setw -g window-status-current-style 'fg=colour231 bg=colour233 bold'

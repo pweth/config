@@ -13,7 +13,12 @@
     HISTSIZE = "10000";
     HISTFILESIZE = "15000";
     HISTTIMEFORMAT = "%F %T ";
-    TZ_LIST = "America/New_York;Europe/London;Australia/Sydney";
+    TZ_LIST = builtins.concatStringsSep ";" [
+      "America/New_York,New York"
+      "Europe/London,London"
+      "Asia/Kolkata,Hyderabad"
+      "Australia/Sydney,Sydney"
+    ];
   };
 
   # System packages
