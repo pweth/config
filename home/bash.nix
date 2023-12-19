@@ -26,6 +26,11 @@
 
     # Functions
     initExtra = ''
+      gl() {
+        git log --all --pretty=oneline --pretty=format:"%Cgreen%h%Creset %s" --color=always |
+        fzf --ansi --preview 'git show --pretty=medium --color=always $(echo {} | cut -d " " -f 1)' |
+        cut -d " " -f 1
+      }
       weather() { curl -s "wttr.in/''${1}" | head -n -1; }
     '';
   };
