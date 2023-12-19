@@ -26,7 +26,7 @@
         picture-uri-dark = "file:///home/pweth/dotfiles/static/images/background.jpg";
       };
       "org/gnome/desktop/calendar" = {
-        show-weekdate = false;
+        show-weekdate = true;
       };
       "org/gnome/desktop/input-sources" = {
         sources = [
@@ -40,6 +40,7 @@
         enable-hot-corners = false;
         gtk-enable-primary-paste = false;
         gtk-theme = "Adwaita-dark";
+        monospace-font-name = "Hack 11";
         show-battery-percentage = true;
         text-scaling-factor = 1.3;
       };
@@ -50,7 +51,7 @@
         show-in-lock-screen = false;
       };
       "org/gnome/desktop/screensaver" = {
-        picture-uri = "file:///home/pweth/dotfiles/static/background.jpg";
+        picture-uri = "file:///home/pweth/dotfiles/static/images/background.jpg";
         user-switch-enabled = false;
       };
       "org/gnome/desktop/session" = {
