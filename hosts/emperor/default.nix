@@ -35,6 +35,12 @@
     networkmanager.dns = "none";
     networkmanager.enable = true;
   };
+  environment.persistence."/home/pweth/Documents/Configuration" = {
+    directories = [
+      "/etc/NetworkManager/system-connections"
+    ];
+    hideMounts = true;
+  };
 
   # tmux
   programs.bash.interactiveShellInit = ''
