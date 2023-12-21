@@ -11,6 +11,7 @@
     # Command aliases
     shellAliases = {
       cls = "clear";
+      fzfb = "fzf --preview 'bat --style=numbers --color=always --line-range :200 {}'";
       ga = "git add";
       gc = "git commit";
       gd = "git diff";

@@ -60,6 +60,7 @@
   };
 
   # Auto-login on boot
+  security.pam.services.gdm.enableGnomeKeyring = true;
   services.xserver.displayManager.autoLogin = {
     enable = true;
     user = "pweth";
