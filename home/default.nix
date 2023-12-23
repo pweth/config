@@ -39,6 +39,7 @@
     inetutils
     jq
     killall
+    libheif
     lolcat
     nmap
     nms
@@ -52,6 +53,7 @@
     sl
     sqlite
     tldr
+    typescript
     unzip
     valgrind
     yt-dlp
