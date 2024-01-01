@@ -11,13 +11,6 @@
       id = 0;
       isDefault = true;
 
-      # Browser extensions
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        bitwarden
-        df-youtube
-        ublock-origin
-      ];
-
       # Set default search engine to my themed DuckDuckGo and disable others
       search = {
         default = "DuckDuckGo Themed";
@@ -83,11 +76,6 @@
               name = "GitHub";
               keyword = "!gh";
               url = "https://github.com/";
-            }
-            {
-              name = "Jupyter";
-              keyword = "!j";
-              url = "https://notebook.pw.ax/";
             }
             {
               name = "Wordle";

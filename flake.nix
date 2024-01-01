@@ -17,14 +17,11 @@
     # Impermanence
     impermanence.url = "github:nix-community/impermanence";
 
-    # NUR
-    nur.url = "github:nix-community/NUR";
-
     # VSCode server
     vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
-  outputs = { self, nixpkgs, agenix, home-manager, impermanence, nur, vscode-server }@inputs: {
+  outputs = { self, nixpkgs, agenix, home-manager, impermanence, vscode-server }@inputs: {
     # NixOS configurations
     nixosConfigurations = {
       # `sudo nixos-rebuild switch --flake .#emperor`
