@@ -18,6 +18,7 @@ in
   "cloudflare.age".publicKeys = personal ++ [ macaroni ];
   "grafana.age".publicKeys = personal ++ [ macaroni ];
   "jupyter.age".publicKeys = personal ++ [ macaroni ];
+  "nextdns.age".publicKeys = personal ++ [ emperor macaroni rockhopper ];
   "password-hash.age".publicKeys = personal ++ [ emperor macaroni rockhopper ];
   "rclone.age".publicKeys = personal ++ [ emperor ];
 }

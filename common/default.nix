@@ -2,7 +2,7 @@
 * Common system configuration across all hosts.
 */
 
-{ config, pkgs, ... }:
+{ config, pkgs, agenix, ... }:
 
 {
   # Environment variables
@@ -22,7 +22,9 @@
   };
 
   # System packages
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
+    agenix.packages."${pkgs.system}".default
+  ] ++ (with pkgs; [
     bat
     curl
     dig
@@ -40,7 +42,7 @@
     tree
     tz
     wget
-  ];
+  ]);
 
   # Fonts
   fonts = {
@@ -90,6 +92,27 @@
   programs.fzf = {
     fuzzyCompletion = true;
     keybindings = true;
+  };
+
+  # NextDNS proxy (DNS-over-HTTPS)
+  age.secrets.nextdns.file = ../secrets/nextdns.age;
+  systemd.services.nextdns = {
+    environment.SERVICE_RUN_MODE = "1";
+    startLimitBurst = 10;
+    startLimitIntervalSec = 5;
+    serviceConfig = {
+      EnvironmentFile = config.age.secrets.nextdns.path;
+      ExecStart = builtins.concatStringsSep " " [
+        "${pkgs.nextdns}/bin/nextdns run -profile"
+        "\${PROFILE}/${config.networking.hostName}"
+      ];
+      RestartSec = 120;
+      LimitMEMLOCK = "infinity";
+    };
+    after = [ "network.target" "run-agenix.d.mount" ];
+    before = [ "nss-lookup.target" ];
+    wants = [ "nss-lookup.target" "run-agenix.d.mount" ];
+    wantedBy = [ "multi-user.target" ];
   };
 
   # NixOS release version

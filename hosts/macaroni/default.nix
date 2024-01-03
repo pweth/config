@@ -2,7 +2,7 @@
 * Oracle Cloud VM system configuration.
 */
 
-{ config, pkgs, agenix, home-manager, ... }:
+{ config, pkgs, home-manager, ... }:
 
 {
   imports = [
@@ -17,11 +17,6 @@
     systemd-boot.enable = true;
   };
 
-  # agenix
-  environment.systemPackages = [
-    agenix.packages.aarch64-linux.default
-  ];
-
   # Home manager
   home-manager = {
     useGlobalPkgs = true;
@@ -33,7 +28,7 @@
   networking = {
     hostName = "macaroni";
     firewall.allowedTCPPorts = [ 443 ];
-    nameservers = [ "1.1.1.3" "1.0.0.3" ];
+    nameservers = [ "127.0.0.1" "::1" ];
   };
 
   # Certificates

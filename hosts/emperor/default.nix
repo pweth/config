@@ -2,7 +2,7 @@
 * Personal laptop system configuration.
 */
 
-{ config, pkgs, agenix, home-manager, ... }:
+{ config, pkgs, home-manager, ... }:
 
 {
   imports = [
@@ -15,11 +15,6 @@
     efi.canTouchEfiVariables = true;
     systemd-boot.enable = true;
   };
-
-  # agenix
-  environment.systemPackages = [
-    agenix.packages.x86_64-linux.default
-  ];
 
   # Home manager
   home-manager = {
@@ -52,12 +47,6 @@
   services.blueman.enable = true;
   hardware.bluetooth.enable = true;
   hardware.pulseaudio.enable = true;
-
-  # NextDNS proxy (DNS-over-HTTPS)
-  services.nextdns = {
-    enable = true;
-    arguments = [ "-profile" "ffa426" ];
-  };
 
   # Auto-login on boot
   security.pam.services.gdm.enableGnomeKeyring = true;
