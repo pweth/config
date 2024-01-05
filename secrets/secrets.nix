@@ -4,21 +4,16 @@
 */
 
 let
-  # Personal keys
-  personal = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN2LcPpOlnOwQ67Xp6uJnuOmDj0W06Bzyr73l6xkZgtg primary@pweth.com"
-  ];
-
-  # Host keys
   emperor = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILqt+SLcA0kXPLvuF+mogzId9n57rB5y0PyWJ8RE0ja8 root@emperor";
   macaroni = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDs6W94lN0Kx8hOEU4BArPlzkishQGQDVD/gLEsncAzI root@macaroni";
   rockhopper = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDw/Rhr1cdwp3RIwmxTWBa1tWA3gzMyyC8YTJNMN0Fbf root@rockhopper";
 in
 {
-  "cloudflare.age".publicKeys = personal ++ [ macaroni ];
-  "grafana.age".publicKeys = personal ++ [ macaroni ];
-  "jupyter.age".publicKeys = personal ++ [ macaroni ];
-  "nextdns.age".publicKeys = personal ++ [ emperor macaroni rockhopper ];
-  "password-hash.age".publicKeys = personal ++ [ emperor macaroni rockhopper ];
-  "rclone.age".publicKeys = personal ++ [ emperor ];
+  "cloudflare.age".publicKeys = [ macaroni ];
+  "grafana.age".publicKeys = [ macaroni ];
+  "jupyter.age".publicKeys = [ macaroni ];
+  "nextdns.age".publicKeys = [ emperor macaroni rockhopper ];
+  "password-hash.age".publicKeys = [ emperor macaroni rockhopper ];
+  "rclone.age".publicKeys = [ emperor ];
+  "wifi.age".publicKeys = [ emperor ];
 }
