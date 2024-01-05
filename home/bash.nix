@@ -32,7 +32,15 @@
         fzf --ansi --preview 'git show --pretty=medium --color=always $(echo {} | cut -d " " -f 1)' |
         cut -d " " -f 1
       }
-      weather() { curl -s "wttr.in/''${1}" | head -n -1; }
+      secret() {
+        (
+          cd /home/pweth/dotfiles/secrets &&
+          agenix -i /etc/ssh/ssh_host_ed25519_key -e ''${1}.age
+        )
+      }
+      weather() {
+        curl -s "wttr.in/''${1}" | head -n -1;
+      }
     '';
   };
 }
