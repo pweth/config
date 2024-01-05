@@ -11,7 +11,6 @@ in
 {
   "cloudflare.age".publicKeys = [ macaroni ];
   "grafana.age".publicKeys = [ macaroni ];
-  "jupyter.age".publicKeys = [ macaroni ];
   "nextdns.age".publicKeys = [ emperor macaroni rockhopper ];
   "password-hash.age".publicKeys = [ emperor macaroni rockhopper ];
   "rclone.age".publicKeys = [ emperor ];
