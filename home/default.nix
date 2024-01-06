@@ -41,9 +41,11 @@
     killall
     libheif
     lolcat
+    minicom
     nmap
     nms
     nodejs
+    picocom
     (python3.withPackages (ps: with ps; [
       pygments
     ]))
@@ -55,6 +57,7 @@
     tldr
     typescript
     unzip
+    usbutils
     valgrind
     yt-dlp
     zip

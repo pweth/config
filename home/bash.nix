@@ -35,7 +35,7 @@
       secret() {
         (
           cd /home/pweth/dotfiles/secrets &&
-          agenix -i /etc/ssh/ssh_host_ed25519_key -e ''${1}.age
+          sudo agenix -i /etc/ssh/ssh_host_ed25519_key -e ''${1}.age
         )
       }
       weather() {
