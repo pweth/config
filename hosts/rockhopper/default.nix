@@ -7,7 +7,6 @@
 {
   imports = [
     ./hardware.nix
-    ../../common/ssh.nix
   ];
 
   # Bootloader
@@ -17,8 +16,5 @@
   };
 
   # Networking
-  networking = {
-    hostName = "rockhopper";
-    nameservers = [ "127.0.0.1" "::1" ];
-  };
+  networking.hostName = "rockhopper";
 }

@@ -7,8 +7,6 @@
 {
   imports = [
     ./hardware.nix
-    ../../common/ssh.nix
-    ../../services
   ];
 
   # Bootloader
@@ -28,7 +26,6 @@
   networking = {
     hostName = "macaroni";
     firewall.allowedTCPPorts = [ 443 ];
-    nameservers = [ "127.0.0.1" "::1" ];
   };
 
   # Certificates
@@ -45,10 +42,9 @@
     recommendedTlsSettings = true;
   };
 
-  # System services
+  # ClamAV
   services.clamav.daemon.enable = true;
   services.clamav.updater.enable = true;
-  services.vscode-server.enable = true;
 
   # Enable Docker
   virtualisation.docker.enable = true;

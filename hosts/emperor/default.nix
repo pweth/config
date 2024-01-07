@@ -7,7 +7,7 @@
 {
   imports = [
     ./hardware.nix
-    ../../common/rclone.nix
+    ./rclone.nix
   ];
 
   # Bootloader
@@ -26,8 +26,6 @@
   # Networking
   networking = {
     hostName = "emperor";
-    nameservers = [ "127.0.0.1" "::1" ];
-    networkmanager.dns = "none";
     networkmanager.enable = true;
   };
   age.secrets.wifi.file = ../../secrets/wifi.age;

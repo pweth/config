@@ -11,7 +11,7 @@ let
 in
 {
   # Mount configuration
-  age.secrets.rclone.file = ../secrets/rclone.age;
+  age.secrets.rclone.file = ../../secrets/rclone.age;
 
   # Systemd sync service
   systemd.services.rclone-sync = {
@@ -39,6 +39,8 @@ in
       OnUnitActiveSec = "1h";
       Unit = "rclone-sync.service";
     };
+    after = [ "run-agenix.d.mount" ];
     wantedBy = [ "timers.target" ];
+    wants = [ "run-agenix.d.mount" ];
   };
 }
