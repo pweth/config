@@ -26,7 +26,7 @@
         disable_gravatar = true;
       };
       server = {
-        domain = "grafana.pw.ax";
+        domain = "grafana.pweth.com";
         http_port = 59663;
       };
       user = {

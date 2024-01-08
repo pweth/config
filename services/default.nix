@@ -3,7 +3,14 @@
 */
 
 { config, ... }:
-
+let
+  entrypoints = [
+    { name = "grafana.pweth.com"; value = config.services.grafana.settings.server.http_port; }
+    { name = "moo.pweth.com"; value = 44615; }
+    { name = "prometheus.pweth.com"; value = config.services.prometheus.port; }
+    { name = "uptime.pweth.com"; value = 58057; }
+  ];
+in
 {
   imports = [
     ./cowyo.nix
@@ -24,12 +31,9 @@
     tunnels = {
       "a972b5e1-8307-4574-a860-c92aaec5adce" = {
         credentialsFile = config.age.secrets.cloudflare.path;
-        ingress = {
-          "grafana.pweth.com" = "http://localhost:59663";
-          "moo.pweth.com" = "http://localhost:44615";
-          "prometheus.pweth.com" = "http://localhost:58635";
-	  "status.pweth.com" = "http://localhost:58057";
-	};
+        ingress = builtins.mapAttrs (
+          name: value: "http://localhost:${builtins.toString value}"
+        ) (builtins.listToAttrs entrypoints);
         default = "http_status:404";
       };
     };

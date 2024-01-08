@@ -25,7 +25,7 @@
           };
           "Cowyo" = {
             urls = [{
-              template = "https://wiki.pweth.com/{searchTerms}";
+              template = "https://moo.pweth.com/{searchTerms}";
             }];
             definedAliases = [ "!c" ];
             iconUpdateURL = "https://cowyo.com/static/img/cowyo/favicon-96x96.png";
