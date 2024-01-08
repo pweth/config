@@ -23,6 +23,7 @@
 
   home.packages = with pkgs; [
     age
+    cloudflared
     cmatrix
     cowsay
     exiftool

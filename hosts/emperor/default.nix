@@ -51,8 +51,4 @@
     "autovt@tty1".enable = false;
     "getty@tty1".enable = false;
   };
-
-  # Docker
-  virtualisation.docker.enable = true;
-  users.extraGroups.docker.members = [ "pweth" ];
 }
