@@ -6,6 +6,7 @@
 
 {
   imports = [
+    ./exporter.nix
     ./fonts.nix
     ./locale.nix
     ./nextdns.nix

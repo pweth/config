@@ -29,6 +29,7 @@
     texlive.combined.scheme-full
     texmaker
     vlc
+    webex
     wireshark
     wl-clipboard
   ];

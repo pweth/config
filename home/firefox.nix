@@ -78,6 +78,11 @@
               url = "https://github.com/";
             }
             {
+              name = "NextDNS";
+              keyword = "!dns";
+              url = "https://my.nextdns.io/";
+            }
+            {
               name = "Wordle";
               keyword = "!wordle";
               url = "https://www.nytimes.com/games/wordle/index.html";

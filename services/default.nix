@@ -5,10 +5,22 @@
 { config, ... }:
 let
   entrypoints = [
-    { name = "grafana.pweth.com"; value = config.services.grafana.settings.server.http_port; }
-    { name = "moo.pweth.com"; value = 44615; }
-    { name = "prometheus.pweth.com"; value = config.services.prometheus.port; }
-    { name = "uptime.pweth.com"; value = 58057; }
+    {
+      name = "grafana.pweth.com";
+      value = config.services.grafana.settings.server.http_port;
+    }
+    {
+      name = "moo.pweth.com";
+      value = 44615;
+    }
+    {
+      name = "prometheus.pweth.com";
+      value = config.services.prometheus.port;
+    }
+    {
+      name = "uptime.pweth.com";
+      value = 58057;
+    }
   ];
 in
 {

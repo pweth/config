@@ -9,15 +9,6 @@
   services.prometheus = {
     enable = true;
     port = 58635;
-
-    exporters = {
-      node = {
-        enable = true;
-        enabledCollectors = [ "systemd" ];
-        port = 58636;
-      };
-    };
-
     scrapeConfigs = [
       {
         job_name = "node";
