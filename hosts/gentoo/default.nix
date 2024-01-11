@@ -16,13 +16,6 @@
     useOSProber = true;
   };
 
-  # Home manager
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users.pweth = import ../../home;
-  };
-
   # Networking
   networking = {
     hostName = "gentoo";

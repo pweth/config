@@ -10,6 +10,7 @@
     ./fonts.nix
     ./locale.nix
     ./nextdns.nix
+    ./ssh.nix
     ./user.nix
   ];
 
@@ -52,6 +53,13 @@
     tz
     wget
   ]);
+
+  # Home manager
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.pweth = import ../home;
+  };
 
   # Automatic garbage collection
   nix.gc = {

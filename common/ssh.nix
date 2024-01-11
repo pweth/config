@@ -5,7 +5,9 @@
 { config, ... }:
 
 {
-  services.openssh = {
+  services.openssh = if
+    config.networking.hostName == "emperor" then {}
+  else {
     enable = true;
     settings = {
       ChallengeResponseAuthentication = false;

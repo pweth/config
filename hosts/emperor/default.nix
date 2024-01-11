@@ -8,19 +8,13 @@
   imports = [
     ./hardware.nix
     ./rclone.nix
+    ../../common/gui.nix
   ];
 
   # Bootloader
   boot.loader = {
     efi.canTouchEfiVariables = true;
     systemd-boot.enable = true;
-  };
-
-  # Home manager
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users.pweth = import ../../home;
   };
 
   # Networking

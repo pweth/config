@@ -7,19 +7,13 @@
 {
   imports = [
     ./hardware.nix
+    ../../services
   ];
 
   # Bootloader
   boot.loader = {
     efi.canTouchEfiVariables = true;
     systemd-boot.enable = true;
-  };
-
-  # Home manager
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users.pweth = import ../../home;
   };
 
   # Networking
