@@ -16,9 +16,9 @@
   };
 
   outputs = { self, nixpkgs, agenix, home-manager }@inputs: {
-    # NixOS configurations
+    # `sudo nixos-rebuild switch --flake .#host`
     nixosConfigurations = {
-      # `sudo nixos-rebuild switch --flake .#emperor`
+      # Dell XPS 13 9360
       emperor = nixpkgs.lib.nixosSystem {
         modules = [
           ./hosts/emperor
@@ -31,7 +31,20 @@
         system = "x86_64-linux";
       };
 
-      # `sudo nixos-rebuild switch --flake .#macaroni`
+      # Dell OptiPlex 3050 Micro
+      gentoo = nixpkgs.lib.nixosSystem {
+        modules = [
+          ./hosts/gentoo
+          ./common
+          ./common/ssh.nix
+          agenix.nixosModules.default
+          home-manager.nixosModules.home-manager
+        ];
+        specialArgs = inputs;
+        system = "x86_64-linux";
+      };
+
+      # Oracle VM.Standard.A1.Flex
       macaroni = nixpkgs.lib.nixosSystem {
         modules = [
           ./hosts/macaroni
@@ -45,7 +58,7 @@
         system = "aarch64-linux";
       };
 
-      # `sudo nixos-rebuild switch --flake .#rockhopper`
+      # Raspberry Pi Model 3B+
       rockhopper = nixpkgs.lib.nixosSystem {
         modules = [
           ./hosts/rockhopper

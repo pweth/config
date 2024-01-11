@@ -47,9 +47,6 @@
     nms
     nodejs
     picocom
-    (python3.withPackages (ps: with ps; [
-      pygments
-    ]))
     p7zip
     ripgrep
     rustup
@@ -62,5 +59,24 @@
     valgrind
     yt-dlp
     zip
+  ] ++ [
+    (python3.withPackages (ps: with ps; [
+      arrow
+      matplotlib
+      numpy
+      pandas
+      pygments
+      pytest
+      requests
+      rich
+      setuptools
+    ]))
   ];
+
+  # Disable help manuals
+  manual = {
+    html.enable = false;
+    json.enable = false;
+    manpages.enable = false;
+  };
 }

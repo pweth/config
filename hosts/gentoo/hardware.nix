@@ -1,5 +1,5 @@
 /*
-* Hardware scan for Dell XPS 13 9360.
+* Hardware scan for Dell OptiPlex 3050 Micro.
 */
 
 { config, lib, pkgs, modulesPath, ... }:
@@ -9,27 +9,27 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/71313c63-6bbd-4f7a-aa92-c951dcc1c67e";
+      device = "/dev/disk/by-uuid/333c0623-2475-4d31-ae62-87cfcec100c9";
       fsType = "ext4";
     };
     "/boot" = {
-      device = "/dev/disk/by-uuid/EE25-8184";
+      device = "/dev/disk/by-uuid/EF6D-E20B";
       fsType = "vfat";
     };
   };
 
-  boot.initrd.luks.devices."luks-be2d24fa-a7dd-4f51-ba36-5d4cccd9c16e" = {
-    device = "/dev/disk/by-uuid/be2d24fa-a7dd-4f51-ba36-5d4cccd9c16e";
-  };
-
-  swapDevices = [ ];
+  swapDevices = [
+    {
+      device = "/dev/disk/by-uuid/6e18760e-2df8-4df6-9088-c1248c131e7f";
+    }
+  ];
 
   networking.useDHCP = lib.mkDefault true;
 

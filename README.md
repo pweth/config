@@ -1,6 +1,6 @@
 <div align="center">
 <h1>🐧 Dotfiles</h1>
-Homelab configuration and NixOS flake.
+NixOS configuration flake.
 </div>
 
 ---
@@ -10,10 +10,9 @@ Homelab configuration and NixOS flake.
 | Hostname | Model |
 | --- | --- |
 | Emperor | Dell XPS 13 9360 |
+| Gentoo | Dell OptiPlex 3050 Micro |
 | Macaroni | Oracle VM.Standard.A1.Flex |
 | Rockhopper | Raspberry Pi Model 3B+ |
-| --- | --- |
-| Chinstrap | Cisco 897VA Router |
 
 ---
 
@@ -61,4 +60,3 @@ Homelab configuration and NixOS flake.
 - [NixOS on ARM/Raspberry Pi](https://nixos.wiki/wiki/NixOS_on_ARM/Raspberry_Pi)
 - [Tracking SQLite Database Changes in Git](https://garrit.xyz/posts/2023-11-01-tracking-sqlite-database-changes-in-git)
 - [Firefox Web Apps by TLATER](https://github.com/TLATER/dotfiles/blob/master/home-modules/firefox-webapp.nix)
-- [How to configure Telnet on Cisco IOS devices](https://www.letsconfig.com/how-to-configure-telnet-on-cisco-ios-devices/)
