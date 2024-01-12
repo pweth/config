@@ -11,7 +11,7 @@
     ./firefox.nix
     ./gnome.nix
     ./vscode.nix
-    ./web-apps.nix
+    ./whatsapp.nix
   ];
 
   home.packages = with pkgs; [

@@ -1,5 +1,6 @@
 /*
 * Mozilla Firefox browser configuration.
+* https://mozilla.github.io/policy-templates/
 */
 
 { config, pkgs, ... }:
@@ -7,6 +8,101 @@
 {
   programs.firefox = {
     enable = true;
+
+    policies = {
+      BlockAboutProfiles = true;
+      DisableFeedbackCommands = true;
+      DisableFirefoxAccounts = true;
+      DisableFirefoxStudies = true;
+      DisableForgetButton = true;
+      DisableFormHistory = true;
+      DisablePocket = true;
+      DisableProfileImport = true;
+      DisableSetDesktopBackground = true;
+      DisableTelemetry = true;
+      DisplayBookmarksToolbar = "always";
+      DisplayMenuBar = "never";
+      DNSOverHTTPS = {
+        Enabled = false;
+        Locked = true;
+      };
+      EnableTrackingProtection = {
+        Cryptomining = true;
+        Fingerprinting = true;
+        Locked = true;
+        Value = true;
+      };
+      ExtensionSettings = {
+        # uBlock Origin
+        "uBlock0@raymondhill.net" = {
+          default_area = "navbar";
+          installation_mode = "force_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+        };
+        # Bitwarden
+        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+          default_area = "navbar";
+          installation_mode = "force_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+        };
+      };
+      ExtensionUpdate = true;
+      FirefoxHome = {
+        Search = false;
+        TopSites = false;
+        SponsoredTopSites = false;
+        Highlights = false;
+        Pocket = false;
+        SponsoredPocket = false;
+        Snippets = false;
+        Locked = true;
+      };
+      FirefoxSuggest = {
+        WebSuggestions = false;
+        SponsoredSuggestions = false;
+        ImproveSuggest = false;
+        Locked = true;
+      };
+      Homepage = {
+        Locked = true;
+        StartPage = "homepage-locked";
+        URL = "about:blank";
+      };
+      NewTabPage = false;
+      NoDefaultBookmarks = true;
+      OfferToSaveLogins = false;
+      OverrideFirstRunPage = "";
+      OverridePostUpdatePage = "";
+      PasswordManagerEnabled = false;
+      PDFjs = {
+        Enabled = true;
+        EnablePermissions = false;
+      };
+      Permissions = {
+        Notifications = {
+          BlockNewRequests = true;
+          Locked = true;
+        };
+      };
+      Proxy = {
+        Locked = true;
+        Mode = "none";
+      };
+      RequestedLocales = "en-US,en";
+      SearchBar = "unified";
+      SearchEngines.PreventInstalls = true;
+      SearchSuggestEnabled = false;
+      UserMessaging = {
+        WhatsNew = false;
+        ExtensionRecommendations = false;
+        FeatureRecommendations = false;
+        UrlbarInterventions = false;
+        SkipOnboarding = true;
+        MoreFromMozilla = false;
+        Locked = true;
+      };
+    };
+
     profiles.default = {
       id = 0;
       isDefault = true;
@@ -93,16 +189,6 @@
 
       # about:config values
       settings = {
-        # Disable warning
-        "browser.aboutConfig.showWarning" = false;
-
-        # Set home page
-        "browser.startup.page" = 1;
-        "browser.startup.homepage" = "about:blank";
-
-        # Dark theme
-        "layout.css.prefers-color-scheme.content-override" = 0;
-
         # Speed improvements
         "content.notify.interval" = 100000;
         "gfx.canvas.accelerated.cache-items" = 4096;
@@ -130,41 +216,15 @@
         "layout.css.has-selector.enabled" = true;
         "dom.security.sanitizer.enabled" = true;
 
-        # Disable Firefox Sync
-        "identity.fxaccounts.enabled" = false;
-
         # Disable Firefox View
         "browser.tabs.firefox-view" = false;
         "browser.tabs.firefox-view-next" = false;
         "browser.firefox-view.feature-tour" = "{\"screen\":\"\",\"complete\":true}";
 
-        # Disable Activity Stream
-        "browser.newtabpage.enabled" = false;
-        "browser.newtab.preload" = false;
-        "browser.newtabpage.activity-stream.feeds.telemetry" = false;
-        "browser.newtabpage.activity-stream.telemetry" = false;
-        "browser.newtabpage.activity-stream.feeds.snippets" = false;
-        "browser.newtabpage.activity-stream.feeds.sections.topstories" = false;
-        "browser.newtabpage.activity-stream.feeds.discoverystreamfeed" = false;
-        "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
-        "browser.newtabpage.activity-stream.showSponsored" = false;
-        "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-        "browser.newtabpage.activity-stream.default.sites" = "";
-        "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
-
         # Do not track
         "privacy.donottrackheader.enabled" = true;
         "privacy.globalprivacycontrol.enabled" = true;
         "privacy.globalprivacycontrol.was_ever_enabled" = true;
-
-        # Language settings
-        "intl.accept_languages" = "en-US, en";
-        "javascript.use_us_english_locale" = true;
-
-        # Disable add-on recommendations
-        "extensions.getAddons.showPane" = false;
-        "extensions.htmlaboutaddons.recommendations.enabled" = false;
-        "browser.discovery.enabled" = false;
 
         # Protect/disable specific APIs
         "dom.battery.enabled" = false;
@@ -172,66 +232,19 @@
         "dom.event.contextmenu.enabled" = true;
         "dom.gamepad.enabled" = false;
 
-        # Disable telemetry
-        "datareporting.policy.dataSubmissionEnabled" = false;
-        "datareporting.healthreport.uploadEnabled" = false;
-        "toolkit.telemetry.enabled" = false;
-        "toolkit.telemetry.unified" = false;
-        "toolkit.telemetry.server" = "data:,";
-        "toolkit.telemetry.archive.enabled" = false;
-        "toolkit.telemetry.newProfilePing.enabled" = false;
-        "toolkit.telemetry.shutdownPingSender.enabled" = false;
-        "toolkit.telemetry.updatePing.enabled" = false;
-        "toolkit.telemetry.bhrPing.enabled" = false;
-        "toolkit.telemetry.firstShutdownPing.enabled" = false;
-        "toolkit.telemetry.coverage.opt-out" = true;
-        "toolkit.coverage.opt-out" = true;
-        "toolkit.coverage.endpoint.base" = "";
-        "browser.ping-centre.telemetry" = false;
-        "beacon.enabled" = false;
-
-        # Disable studies and Normandy/Shield
-        "app.shield.optoutstudies.enabled" = false;
-        "app.normandy.enabled" = false;
-        "app.normandy.api_url" = "";
-
-        # Disable crash reports
-        "breakpad.reportURL" = "";
-        "browser.tabs.crashReporting.sendReport" = false;
-
         # Use Punycode
         "network.IDN_show_punycode" = true;
 
         # Disable search suggestions
-        "browser.search.suggest.enabled" = false;
-        "browser.urlbar.suggest.searches" = false;
         "browser.urlbar.trimURLs" = false;
         "browser.urlbar.quicksuggest.scenario" = "history";
         "browser.urlbar.quicksuggest.enabled" = false;
         "browser.urlbar.speculativeConnect.enabled" = false;
-        "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
-        "browser.urlbar.suggest.quicksuggest.sponsored" = false;
         "browser.urlbar.suggest.bookmark" = false;
         "browser.urlbar.suggest.engines" = false;
         "browser.urlbar.suggest.history" = false;
         "browser.urlbar.suggest.openpage" = false;
         "browser.urlbar.suggest.topsites" = false;
-
-        # Bookmarks toolbar
-        "browser.toolbars.bookmarks.visibility" = "always";
-
-        # Skip Firefox welcome pages
-        "browser.aboutwelcome.enabled" = false;
-        "startup.homepage_welcome_url" = "about:blank";
-
-        # Disable autofill
-        "browser.formfill.enable" = false;
-        "dom.forms.autocomplete.formautofill" = false;
-        "extensions.formautofill.creditCards.enabled" = false;
-        "security.ask_for_password" = 0;
-        "signon.rememberSignons" = false;
-        "signon.autofillForms" = false;
-        "signon.management.page.breach-alerts.enabled" = false;
 
         # Disable thumbnail collection
         "browser.pagethumbnails.capturing_disabled" = true;
@@ -254,24 +267,6 @@
         "browser.download.useDownloadDir" = false;
         "browser.download.manager.addToRecentDocs" = false;
         "browser.download.always_ask_before_handling_new_types" = true;
-
-        # Enable ETP and RFP
-        "browser.contentblocking.category" = "strict";
-        "privacy.partition.serviceWorkers" = true;
-        "privacy.partition.always_partition_third_party_non_cookie_storage" = true;
-        "privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage" = true;
-        "privacy.resistFingerprinting" = true;
-
-        # Disable Pocket
-        "extensions.pocket.enabled" = false;
-
-        # Disable experiments
-        "experiments.activeExperiment" = false;
-        "experiments.enabled" = false;
-        "experiments.supported" = false;
-
-        # Disable Firefox DNS-over-HTTPS
-        "network.trr.mode" = 5;
       };
     };
   };
