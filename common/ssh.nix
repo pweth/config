@@ -2,12 +2,10 @@
 * SSH configuration.
 */
 
-{ config, ... }:
+{ config, hosts, ... }:
 
 {
-  services.openssh = if
-    config.networking.hostName == "emperor" then {}
-  else {
+  services.openssh = {
     enable = true;
     settings = {
       ChallengeResponseAuthentication = false;
@@ -16,6 +14,19 @@
       PasswordAuthentication = false;
       PermitRootLogin = "no";
       X11Forwarding = false;
+    };
+
+    # Add host and version control key fingerprints
+    knownHosts = (builtins.listToAttrs (builtins.attrValues (
+      builtins.mapAttrs (
+        name: host: {
+          name = "${name}.home.arpa";
+          value.publicKey = host.ed25519;
+        }
+      ) hosts
+    ))) // {
+      "github.com".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
+      "git.sr.ht".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMZvRd4EtM7R+IHVMWmDkVU3VLQTSwQDSAvW0t2Tkj60";
     };
   };
 

@@ -22,7 +22,7 @@
       ms-vscode.makefile-tools
       ms-vscode-remote.remote-ssh
       rust-lang.rust-analyzer
-      vscode-icons-team.vscode-icons
+      tamasfe.even-better-toml
       yzhang.markdown-all-in-one
     ];
 
@@ -36,7 +36,6 @@
       "terminal.integrated.fontFamily" = "Hack";
       "update.mode" = "none";
       "workbench.colorTheme" = "Default Dark Modern";
-      "workbench.iconTheme" = "vscode-icons";
       "workbench.startupEditor" = "none";
     };
   };
