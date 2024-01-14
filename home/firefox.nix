@@ -89,6 +89,17 @@
         Mode = "none";
       };
       RequestedLocales = "en-US,en";
+      SanitizeOnShutdown = {
+        Cache = true;
+        Cookies = false;
+        Downloads = true;
+        FormData = true;
+        History = false;
+        Sessions = false;
+        SiteSettings = false;
+        OfflineApps = false;
+        Locked = true;
+      };
       SearchBar = "unified";
       SearchEngines.PreventInstalls = true;
       SearchSuggestEnabled = false;
@@ -232,6 +243,9 @@
         "dom.event.contextmenu.enabled" = true;
         "dom.gamepad.enabled" = false;
 
+        # Encrypted SNI
+        "network.security.esni.enabled" = true;
+
         # Use Punycode
         "network.IDN_show_punycode" = true;
 
@@ -262,11 +276,6 @@
         # Send limited referer only if hosts match
         "network.http.referer.XOriginPolicy" = 2;
         "network.http.referer.XOriginTrimmingPolicy" = 2;
-
-        # Downloads
-        "browser.download.useDownloadDir" = false;
-        "browser.download.manager.addToRecentDocs" = false;
-        "browser.download.always_ask_before_handling_new_types" = true;
       };
     };
   };
