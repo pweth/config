@@ -5,10 +5,6 @@
 { config, pkgs, home-manager, ... }:
 
 {
-  imports = [
-    ./hardware.nix
-  ];
-
   # Bootloader
   boot.loader.grub = {
     enable = true;
@@ -16,9 +12,6 @@
     useOSProber = true;
   };
 
-  # Networking
-  networking = {
-    hostName = "gentoo";
-    networkmanager.enable = true;
-  };
+  # NetworkManager
+  networking.networkmanager.enable = true;
 }

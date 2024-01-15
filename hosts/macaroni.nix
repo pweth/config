@@ -6,8 +6,7 @@
 
 {
   imports = [
-    ./hardware.nix
-    ../../services
+    ../services
   ];
 
   # Bootloader
@@ -15,9 +14,6 @@
     efi.canTouchEfiVariables = true;
     systemd-boot.enable = true;
   };
-
-  # Networking
-  networking.hostName = "macaroni";
 
   # ClamAV
   services.clamav.daemon.enable = true;

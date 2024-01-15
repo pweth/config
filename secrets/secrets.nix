@@ -4,16 +4,14 @@
 */
 
 let
-  emperor = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILqt+SLcA0kXPLvuF+mogzId9n57rB5y0PyWJ8RE0ja8 root@emperor";
-  gentoo = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGD2oXkRjJBNZliX+yeki4a/UySHYBR6UvlU1eNnhcXz root@gentoo";
-  macaroni = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDs6W94lN0Kx8hOEU4BArPlzkishQGQDVD/gLEsncAzI root@macaroni";
-  rockhopper = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDw/Rhr1cdwp3RIwmxTWBa1tWA3gzMyyC8YTJNMN0Fbf root@rockhopper";
+  hosts = builtins.fromTOML (builtins.readFile ../hosts.toml);
+  keys = builtins.mapAttrs (name: host: host.ed25519) hosts;
 in
 {
-  "cloudflare.age".publicKeys = [ macaroni ];
-  "grafana.age".publicKeys = [ macaroni ];
-  "nextdns.age".publicKeys = [ emperor gentoo macaroni rockhopper ];
-  "password-hash.age".publicKeys = [ emperor gentoo macaroni rockhopper ];
-  "rclone.age".publicKeys = [ emperor ];
-  "wifi.age".publicKeys = [ emperor ];
+  "cloudflare.age".publicKeys = with keys; [ macaroni ];
+  "grafana.age".publicKeys = with keys; [ macaroni ];
+  "nextdns.age".publicKeys = with keys; [ emperor gentoo macaroni rockhopper ];
+  "password-hash.age".publicKeys = with keys; [ emperor gentoo macaroni rockhopper ];
+  "rclone.age".publicKeys = with keys; [ emperor ];
+  "wifi.age".publicKeys = with keys; [ emperor ];
 }

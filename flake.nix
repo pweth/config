@@ -24,15 +24,18 @@
     nixosConfigurations = builtins.mapAttrs (
       name: host: nixpkgs.lib.nixosSystem {
         modules = [
-          (./hosts + "/${name}")
+          (./hosts + "/${name}.nix")
+          (./hardware + "/${host.system}.nix")
           ./common
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager
         ];
         specialArgs = inputs // {
+          hostName = name;
           hosts = hosts;
+          host = host;
         };
-        system = host.architecture;
+        system = host.arch;
       }
     ) hosts;
   };

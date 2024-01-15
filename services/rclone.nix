@@ -11,7 +11,7 @@ let
 in
 {
   # Mount configuration
-  age.secrets.rclone.file = ../../secrets/rclone.age;
+  age.secrets.rclone.file = ../secrets/rclone.age;
 
   # Systemd sync service
   systemd.services.rclone-sync = {

@@ -28,26 +28,10 @@ NixOS configuration flake.
     nix-shell -p git
     git clone git@github.com:pweth/dotfiles.git
     ```
-4. Update `hosts/HOST/hardware.nix` using `/etc/nixos/hardware-configuration.nix`.
+4. Update `hosts.toml`, `hosts/HOST.nix` and `hardware/MODEL.nix` as required.
 5. Re-build the system using:
     ```
     sudo nixos-rebuild switch --flake /home/pweth/dotfiles#HOST
-    ```
-
-### Emperor Only
-
-6. Update `~/.ssh/id_ed25519{,.pub}` then:
-    ```bash
-    chmod 700 ~/.ssh
-    chmod 600 ~/.ssh/*
-    ```
-7. Download files from object storage using:
-    ```bash
-    sudo rclone copy backblaze-crypt: /home/pweth/Documents/ --config /run/agenix/rclone
-    ```
-8. Enable the rclone sync service using: 
-    ```bash
-    touch ~/.rclone_enable
     ```
 
 ---

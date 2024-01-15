@@ -6,9 +6,8 @@
 
 {
   imports = [
-    ./hardware.nix
-    ./rclone.nix
-    ../../common/gui.nix
+    ../common/gui.nix
+    ../services/rclone.nix
   ];
 
   # Bootloader
@@ -18,11 +17,8 @@
   };
 
   # Networking
-  networking = {
-    hostName = "emperor";
-    networkmanager.enable = true;
-  };
-  age.secrets.wifi.file = ../../secrets/wifi.age;
+  networking.networkmanager.enable = true;
+  age.secrets.wifi.file = ../secrets/wifi.age;
 
   # tmux
   programs.bash.interactiveShellInit = ''

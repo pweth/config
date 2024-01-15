@@ -1,26 +1,30 @@
-# Dell XPS 13 9360
+# Personal Laptop
 [emperor]
-id = "Aptenodytes forsteri"
-architecture = "x86_64-linux"
+name = "Aptenodytes forsteri"
+arch = "x86_64-linux"
+system = "dell-xps13-9360"
 ed25519 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILqt+SLcA0kXPLvuF+mogzId9n57rB5y0PyWJ8RE0ja8"
 
 
-# Dell OptiPlex 3050 Micro
+# Home Server
 [gentoo]
-id = "Pygoscelis papua"
-architecture = "x86_64-linux"
+name = "Pygoscelis papua"
+arch = "x86_64-linux"
+system = "dell-optiplex-3050"
 ed25519 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGD2oXkRjJBNZliX+yeki4a/UySHYBR6UvlU1eNnhcXz"
 
 
-# Oracle VM.Standard.A1.Flex
+# Oracle VM
 [macaroni]
-id = "Eudyptes chrysolophus"
-architecture = "aarch64-linux"
+name = "Eudyptes chrysolophus"
+arch = "aarch64-linux"
+system = "oracle-vm-a1-flex"
 ed25519 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDs6W94lN0Kx8hOEU4BArPlzkishQGQDVD/gLEsncAzI"
 
 
-# Raspberry Pi Model 3B+
+# Raspberry Pi
 [rockhopper]
-id = "Eudyptes moseleyi"
-architecture = "aarch64-linux"
+name = "Eudyptes moseleyi"
+arch = "aarch64-linux"
+system = "raspberry-pi-3b"
 ed25519 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDw/Rhr1cdwp3RIwmxTWBa1tWA3gzMyyC8YTJNMN0Fbf"
