@@ -185,6 +185,11 @@
               url = "https://github.com/";
             }
             {
+              name = "SourceHut";
+              keyword = "!sh";
+              url = "https://git.sr.ht/";
+            }
+            {
               name = "NextDNS";
               keyword = "!dns";
               url = "https://my.nextdns.io/";

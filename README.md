@@ -44,3 +44,4 @@ NixOS configuration flake.
 - [NixOS on ARM/Raspberry Pi](https://nixos.wiki/wiki/NixOS_on_ARM/Raspberry_Pi)
 - [Tracking SQLite Database Changes in Git](https://garrit.xyz/posts/2023-11-01-tracking-sqlite-database-changes-in-git)
 - [Firefox Web Apps by TLATER](https://github.com/TLATER/dotfiles/blob/master/home-modules/firefox-webapp.nix)
+- [Using custom package in a NixOS module ](https://mdleom.com/blog/2021/07/02/custom-package-nixos-module/)

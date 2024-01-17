@@ -8,6 +8,7 @@
 {
   imports = [
     ./bash.nix
+    ./cowyodel.nix
     ./git.nix
     ./starship.nix
     ./tmux.nix
@@ -23,6 +24,7 @@
 
   home.packages = with pkgs; [
     age
+    age-plugin-yubikey
     cloudflared
     cmatrix
     cowsay
