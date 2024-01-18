@@ -21,6 +21,12 @@ arch = "aarch64-linux"
 system = "oracle-vm-a1-flex"
 ed25519 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDs6W94lN0Kx8hOEU4BArPlzkishQGQDVD/gLEsncAzI"
 
+[macaroni.entrypoints]
+cowyo = { domain = "moo.pweth.com", port = 44615 }
+grafana = { domain = "grafana.pweth.com", port = 59663 }
+prometheus = { domain = "prometheus.pweth.com", port = 58635 }
+uptime-kuma = { domain = "uptime.pweth.com", port = 58057 }
+
 
 # Raspberry Pi
 [rockhopper]

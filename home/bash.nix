@@ -2,7 +2,7 @@
 * Bourne Again Shell configuration.
 */
 
-{ config, ... }:
+{ config, hosts, ... }:
 
 {
   programs.bash = {
@@ -16,6 +16,7 @@
       gc = "git commit";
       gd = "git diff";
       gp = "git push";
+      gr = "git reset";
       gs = "git status";
       ls = "eza -la";
       rb = "sudo nixos-rebuild switch --flake /home/pweth/dotfiles";
@@ -27,18 +28,22 @@
 
     # Functions
     initExtra = ''
-      gl() {
+      gl () {
         git log --all --pretty=oneline --pretty=format:"%Cgreen%h%Creset %s" --color=always |
         fzf --ansi --preview 'git show --pretty=medium --color=always $(echo {} | cut -d " " -f 1)' |
         cut -d " " -f 1
       }
-      secret() {
+      note () {
+        cowyodel --server "http://macaroni.home.arpa:44615" \
+        upload --store --name ''${1} | head -n 1
+      }
+      secret () {
         (
           cd /home/pweth/dotfiles/secrets &&
           sudo agenix -i /etc/ssh/ssh_host_ed25519_key -e ''${1}.age
         )
       }
-      weather() {
+      weather () {
         curl -s "wttr.in/''${1}" | head -n -1;
       }
     '';

@@ -1,28 +1,9 @@
 /*
-* Container services to run on the VPS.
+* Reverse proxy via cloudflared for services.
 */
 
-{ config, ... }:
-let
-  entrypoints = [
-    {
-      name = "grafana.pweth.com";
-      value = config.services.grafana.settings.server.http_port;
-    }
-    {
-      name = "moo.pweth.com";
-      value = 44615;
-    }
-    {
-      name = "prometheus.pweth.com";
-      value = config.services.prometheus.port;
-    }
-    {
-      name = "uptime.pweth.com";
-      value = 58057;
-    }
-  ];
-in
+{ config, host, ... }:
+
 {
   imports = [
     ./cowyo.nix
@@ -43,9 +24,12 @@ in
     tunnels = {
       "a972b5e1-8307-4574-a860-c92aaec5adce" = {
         credentialsFile = config.age.secrets.cloudflare.path;
-        ingress = builtins.mapAttrs (
-          name: value: "http://localhost:${builtins.toString value}"
-        ) (builtins.listToAttrs entrypoints);
+        ingress = builtins.listToAttrs (builtins.attrValues (builtins.mapAttrs (
+          name: value: {
+            name = value.domain;
+            value = "http://localhost:${builtins.toString value.port}";
+          }
+        ) host.entrypoints));
         default = "http_status:404";
       };
     };

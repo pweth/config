@@ -23,6 +23,7 @@
       ms-vscode-remote.remote-ssh
       rust-lang.rust-analyzer
       tamasfe.even-better-toml
+      tailscale.vscode-tailscale
       yzhang.markdown-all-in-one
     ];
 

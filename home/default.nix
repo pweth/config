@@ -22,6 +22,12 @@
     stateVersion = "22.11";
   };
 
+  manual = {
+    html.enable = false;
+    json.enable = false;
+    manpages.enable = false;
+  };
+
   home.packages = with pkgs; [
     age
     age-plugin-yubikey
@@ -53,6 +59,7 @@
     ripgrep
     rustup
     sl
+    speedtest-cli
     sqlite
     tldr
     typescript
@@ -74,11 +81,4 @@
       setuptools
     ]))
   ];
-
-  # Disable help manuals
-  manual = {
-    html.enable = false;
-    json.enable = false;
-    manpages.enable = false;
-  };
 }

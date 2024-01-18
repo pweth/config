@@ -11,6 +11,7 @@
     ./locale.nix
     ./nextdns.nix
     ./ssh.nix
+    ./tailscale.nix
     ./user.nix
   ];
 

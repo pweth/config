@@ -3,13 +3,13 @@
 * https://github.com/schollz/cowyo
 */
 
-{ config, ... }:
+{ config, host, ... }:
 
 {
   virtualisation.oci-containers.containers.cowyo = {
     autoStart = true;
     image = "matosama/cowyo";
-    ports = [ "44615:8050" ];
+    ports = [ "${builtins.toString host.entrypoints.cowyo.port}:8050" ];
     volumes = [
       "/home/pweth/cowyo:/data"
     ];

@@ -13,5 +13,6 @@ in
   "nextdns.age".publicKeys = with keys; [ emperor gentoo macaroni rockhopper ];
   "password-hash.age".publicKeys = with keys; [ emperor gentoo macaroni rockhopper ];
   "rclone.age".publicKeys = with keys; [ emperor ];
+  "tailscale.age".publicKeys = with keys; [ emperor gentoo macaroni rockhopper ];
   "wifi.age".publicKeys = with keys; [ emperor ];
 }

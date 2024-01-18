@@ -3,17 +3,19 @@
 * https://github.com/prometheus/prometheus
 */
 
-{ config, ... }:
+{ config, hosts, host, ... }:
 
 {
   services.prometheus = {
     enable = true;
-    port = 58635;
+    port = host.entrypoints.prometheus.port;
     scrapeConfigs = [
       {
         job_name = "node";
         static_configs = [{
-          targets = [ "127.0.0.1:${toString config.services.prometheus.exporters.node.port}" ];
+          targets = builtins.map (
+            name: "${name}.home.arpa:${toString config.services.prometheus.exporters.node.port}"
+          ) (builtins.attrNames hosts);
         }];
       }
     ];
