@@ -14,7 +14,7 @@
         job_name = "node";
         static_configs = [{
           targets = builtins.map (
-            name: "${name}.home.arpa:${toString config.services.prometheus.exporters.node.port}"
+            name: "${name}.home.arpa"
           ) (builtins.attrNames hosts);
         }];
       }
