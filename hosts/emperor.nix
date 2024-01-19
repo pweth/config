@@ -2,7 +2,7 @@
 * Personal laptop system configuration.
 */
 
-{ config, pkgs, home-manager, ... }:
+{ config, pkgs, home-manager, lib, ... }:
 
 {
   imports = [
@@ -42,4 +42,7 @@
     "autovt@tty1".enable = false;
     "getty@tty1".enable = false;
   };
+
+  # Disable SSH
+  services.openssh.enable = lib.mkForce false;
 }
