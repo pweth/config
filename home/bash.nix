@@ -37,6 +37,10 @@
         cowyodel --server "http://macaroni.home.arpa:44615" \
         upload --store --name ''${1} | head -n 1
       }
+      rbr () {
+        nixos-rebuild switch --flake /home/pweth/dotfiles#''${1} \
+        --target-host ''${1}.home.arpa --use-remote-sudo
+      }
       secret () {
         (
           cd /home/pweth/dotfiles/secrets &&
@@ -44,7 +48,7 @@
         )
       }
       weather () {
-        curl -s "wttr.in/''${1}" | head -n -1;
+        curl -s "wttr.in/''${1}" | head -n -1
       }
     '';
   };

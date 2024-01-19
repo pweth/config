@@ -5,6 +5,7 @@
 { config, hosts, ... }:
 
 {
+  # OpenSSH
   services.openssh = {
     enable = true;
     settings = {
@@ -13,6 +14,7 @@
       KerberosAuthentication = false;
       PasswordAuthentication = false;
       PermitRootLogin = "no";
+      StreamLocalBindUnlink = "yes";
       X11Forwarding = false;
     };
 
@@ -25,10 +27,13 @@
         }
       ) hosts
     ))) // {
-      "github.com".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
-      "git.sr.ht".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMZvRd4EtM7R+IHVMWmDkVU3VLQTSwQDSAvW0t2Tkj60";
+      "github.com".publicKey = builtins.readFile ../static/keys/github.pub;
+      "git.sr.ht".publicKey = builtins.readFile ../static/keys/sourcehut.pub;
     };
   };
+
+  # Enable passwordless sudo for remote deployments
+  security.sudo.wheelNeedsPassword = false;
 
   # Enable fail2ban with default jails
   services.fail2ban = {

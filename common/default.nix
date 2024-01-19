@@ -10,7 +10,7 @@
     ./fonts.nix
     ./locale.nix
     ./nextdns.nix
-    ./ssh.nix
+    ./security.nix
     ./tailscale.nix
     ./user.nix
   ];
