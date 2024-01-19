@@ -30,4 +30,6 @@
 
   # Enable sudo logins if using an authorized key
   security.pam.enableSSHAgentAuth = true;
+  security.pam.services.sudo.sshAgentAuth = true;
+  security.pam.services.su.requireWheel = true;
 }
