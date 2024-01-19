@@ -45,4 +45,7 @@
 
   # Disable SSH
   services.openssh.enable = lib.mkForce false;
+
+  # Enable qemu-aarch64
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 }
