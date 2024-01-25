@@ -42,7 +42,6 @@
     gnome-maps
     gnome-music
     gnome-weather
-    seahorse
     simple-scan
     totem
     yelp
