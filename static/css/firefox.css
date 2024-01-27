@@ -1,0 +1,13 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#context-bookmarkpage,
+#PanelUI-menu-button,
+#star-button-box,
+#unified-extensions-button,
+.bookmark-item > .toolbarbutton-icon {
+    display: none !important;
+}
+
+#nav-bar-customization-target {
+    padding-right: 8px;
+}

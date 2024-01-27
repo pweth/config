@@ -135,7 +135,21 @@
               template = "https://moo.pweth.com/{searchTerms}";
             }];
             definedAliases = [ "!c" ];
-            iconUpdateURL = "https://cowyo.com/static/img/cowyo/favicon-96x96.png";
+            iconUpdateURL = "https://raw.githubusercontent.com/schollz/cowyo/ed996d9e094053752664ae9b3a4156a8745bff1a/static/img/cowyo/favicon-96x96.png";
+          };
+          "Fastmail" = {
+            urls = [{
+              template = "https://app.fastmail.com/mail/search:{searchTerms}/";
+            }];
+            definedAliases = [ "!fm" ];
+            iconUpdateURL = "https://app.fastmail.com/static/favicons/icon-32x32.png";
+          };
+          "GitHub Code" = {
+            urls = [{
+              template = "https://github.com/search?q={searchTerms}&type=code";
+            }];
+            definedAliases = [ "!ghc" ];
+            iconUpdateURL = "https://github.githubassets.com/favicons/favicon.png";
           };
           "Nix Packages" = {
             urls = [{
@@ -232,10 +246,8 @@
         "layout.css.has-selector.enabled" = true;
         "dom.security.sanitizer.enabled" = true;
 
-        # Disable Firefox View
-        "browser.tabs.firefox-view" = false;
-        "browser.tabs.firefox-view-next" = false;
-        "browser.firefox-view.feature-tour" = "{\"screen\":\"\",\"complete\":true}";
+        # Enable userChrome.css
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
         # Do not track
         "privacy.donottrackheader.enabled" = true;
@@ -282,6 +294,8 @@
         "network.http.referer.XOriginPolicy" = 2;
         "network.http.referer.XOriginTrimmingPolicy" = 2;
       };
+
+      userChrome = builtins.readFile ../static/css/firefox.css;
     };
   };
 }
