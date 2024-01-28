@@ -10,7 +10,9 @@
     description = "Peter";
     extraGroups = [
       "dialout"
+      "docker"
       "networkmanager"
+      "podman"
       "wheel"
     ];
     isNormalUser = true;
