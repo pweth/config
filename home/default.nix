@@ -74,11 +74,13 @@
       matplotlib
       numpy
       pandas
+      pip
       pygments
       pytest
       requests
       rich
       setuptools
+      virtualenv
     ]))
   ];
 }

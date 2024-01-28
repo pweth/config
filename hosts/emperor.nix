@@ -46,6 +46,12 @@
   # Disable SSH
   services.openssh.enable = lib.mkForce false;
 
+  # Enable Docker
+  virtualisation = {
+    docker.enable = true;
+    oci-containers.backend = "docker";
+  };
+  
   # Enable qemu-aarch64
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 }
