@@ -40,6 +40,7 @@
     gcc
     gdb
     gh
+    gist
     gnumake
     gnupg
     go

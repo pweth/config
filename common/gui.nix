@@ -17,6 +17,7 @@
   # System packages
   environment.systemPackages = with pkgs; [
     firefox
+    gnome-multi-writer
     gparted
     vscode
   ];
