@@ -10,7 +10,6 @@ NixOS configuration flake.
 | Hostname | Model |
 | --- | --- |
 | Emperor | Dell XPS 13 9360 |
-| Gentoo | Dell OptiPlex 3050 Micro |
 | Macaroni | Oracle VM.Standard.A1.Flex |
 | Rockhopper | Raspberry Pi Model 3B+ |
 

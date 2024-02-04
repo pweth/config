@@ -174,6 +174,11 @@
           toolbar = true;
           bookmarks = [
             {
+              name = "Access";
+              keyword = "!a";
+              url = "https://pweth.cloudflareaccess.com/";
+            }
+            {
               name = "Moodle";
               keyword = "!m";
               url = "https://moodle.bath.ac.uk/login/index.php";
