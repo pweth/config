@@ -17,7 +17,6 @@
   # System packages
   environment.systemPackages = with pkgs; [
     firefox
-    gnome-multi-writer
     gparted
     vscode
   ];
@@ -38,10 +37,12 @@
     gnome-calendar
     gnome-characters
     gnome-contacts
+    gnome-disk-utility
     gnome-font-viewer
     gnome-logs
     gnome-maps
     gnome-music
+    gnome-system-monitor
     gnome-weather
     simple-scan
     totem

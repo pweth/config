@@ -20,9 +20,6 @@
   networking.networkmanager.enable = true;
   age.secrets.wifi.file = ../secrets/wifi.age;
 
-  # GitHub gist token
-  age.secrets.gist.file = ../secrets/gist.age;
-
   # tmux
   programs.bash.interactiveShellInit = ''
     [[ -z "$TMUX" ]] && exec tmux new -As0

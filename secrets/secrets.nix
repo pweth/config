@@ -9,7 +9,6 @@ let
 in
 {
   "cloudflare.age".publicKeys = with keys; [ macaroni ];
-  "gist.age".publicKeys = with keys; [ emperor ];
   "grafana.age".publicKeys = with keys; [ macaroni ];
   "nextdns.age".publicKeys = with keys; [ emperor gentoo macaroni rockhopper ];
   "password-hash.age".publicKeys = with keys; [ emperor gentoo macaroni rockhopper ];

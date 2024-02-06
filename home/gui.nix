@@ -16,7 +16,6 @@
 
   home.packages = with pkgs; [
     anki
-    appimage-run
     bitwarden
     discord
     emote
