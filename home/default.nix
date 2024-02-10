@@ -31,6 +31,7 @@
   home.packages = with pkgs; [
     age
     age-plugin-yubikey
+    backblaze-b2
     cloudflared
     cmatrix
     cowsay

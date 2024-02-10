@@ -23,6 +23,7 @@
     libreoffice
     obsidian
     obs-studio
+    spicetify-cli
     spotify
     sqlitebrowser
     texlive.combined.scheme-full
