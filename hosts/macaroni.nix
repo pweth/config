@@ -2,12 +2,15 @@
 * Oracle Cloud VM system configuration.
 */
 
-{ config, pkgs, home-manager, ... }:
+{ config, ... }:
 
 {
-  imports = [
-    ../services
-  ];
+  # imports = [
+  #   ./cowyo.nix # moo.pweth.com
+  #   ./grafana.nix # grafana.pweth.com
+  #   ./prometheus.nix # prometheus.pweth.com
+  #   ./uptime-kuma.nix # uptime.pweth.com
+  # ];
 
   # Bootloader
   boot.loader = {

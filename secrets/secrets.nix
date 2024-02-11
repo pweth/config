@@ -8,7 +8,7 @@ let
   keys = builtins.mapAttrs (name: host: host.ed25519) hosts;
 in
 {
-  "cloudflare.age".publicKeys = with keys; [ macaroni ];
+  "cf-macaroni.age".publicKeys = with keys; [ macaroni ];
   "grafana.age".publicKeys = with keys; [ macaroni ];
   "nextdns.age".publicKeys = with keys; [ emperor gentoo macaroni rockhopper ];
   "password-hash.age".publicKeys = with keys; [ emperor gentoo macaroni rockhopper ];

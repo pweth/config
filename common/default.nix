@@ -6,6 +6,7 @@
 
 {
   imports = [
+    ./cloudflared.nix
     ./exporter.nix
     ./fonts.nix
     ./locale.nix
@@ -14,6 +15,9 @@
     ./tailscale.nix
     ./user.nix
   ];
+
+  # NixOS release version
+  system.stateVersion = "23.11";
 
   # Environment variables
   environment.sessionVariables = {
@@ -87,6 +91,9 @@
     keybindings = true;
   };
 
-  # NixOS release version
-  system.stateVersion = "23.11";
+  # Enable Docker
+  virtualisation = {
+    docker.enable = true;
+    oci-containers.backend = "docker";
+  };
 }

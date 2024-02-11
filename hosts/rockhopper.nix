@@ -2,7 +2,7 @@
 * Raspberry Pi system configuration.
 */
 
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
   # Bootloader

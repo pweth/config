@@ -11,6 +11,7 @@ ed25519 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILqt+SLcA0kXPLvuF+mogzId9n57rB5y0
 name = "Eudyptes chrysolophus"
 arch = "aarch64-linux"
 system = "oracle-vm-a1-flex"
+tunnel = "a972b5e1-8307-4574-a860-c92aaec5adce"
 ed25519 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDs6W94lN0Kx8hOEU4BArPlzkishQGQDVD/gLEsncAzI"
 
 
