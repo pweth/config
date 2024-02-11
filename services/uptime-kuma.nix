@@ -3,15 +3,23 @@
 * https://github.com/louislam/uptime-kuma
 */
 
-{ config, ... }:
-
+{ config, host, ... }:
+let
+  domain = "uptime.pweth.com";
+  port = 58057;
+  storage = "/home/pweth/uptime-kuma";
+in
 {
   virtualisation.oci-containers.containers.uptime-kuma = {
     autoStart = true;
     image = "elestio/uptime-kuma";
-    ports = [ "58057:3001" ];
+    ports = [ "${builtins.toString port}:3001" ];
     volumes = [
-      "/home/pweth/uptime-kuma:/app/data"
+      "${storage}:/app/data"
     ];
+  };
+
+  services.cloudflared.tunnels."${host.tunnel}".ingress = {
+    "${domain}" = "http://localhost:${builtins.toString port}";
   };
 }

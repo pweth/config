@@ -3,12 +3,15 @@
 * https://github.com/prometheus/prometheus
 */
 
-{ config, hosts, ... }:
-
+{ config, host, hosts, ... }:
+let
+  domain = "prometheus.pweth.com";
+  port = 58635;
+in
 {
   services.prometheus = {
     enable = true;
-    port = 58635;
+    port = port;
     scrapeConfigs = [
       {
         job_name = "node";
@@ -19,5 +22,9 @@
         }];
       }
     ];
+  };
+
+  services.cloudflared.tunnels."${host.tunnel}".ingress = {
+    "${domain}" = "http://localhost:${builtins.toString port}";
   };
 }

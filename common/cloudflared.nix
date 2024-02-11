@@ -10,7 +10,7 @@ in
   config = lib.mkIf (builtins.hasAttr "tunnel" host) {
     # Credentials file
     age.secrets.cloudflare = {
-      file = ./. + "../secrets/${credentials}.age";
+      file = ./. + "/../secrets/${credentials}.age";
       owner = "cloudflared";
     };
 

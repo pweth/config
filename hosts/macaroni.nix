@@ -5,12 +5,12 @@
 { config, ... }:
 
 {
-  # imports = [
-  #   ./cowyo.nix # moo.pweth.com
-  #   ./grafana.nix # grafana.pweth.com
-  #   ./prometheus.nix # prometheus.pweth.com
-  #   ./uptime-kuma.nix # uptime.pweth.com
-  # ];
+  imports = [
+    ../services/cowyo.nix
+    ../services/grafana.nix
+    ../services/prometheus.nix
+    ../services/uptime-kuma.nix
+  ];
 
   # Bootloader
   boot.loader = {

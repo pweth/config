@@ -3,8 +3,11 @@
 * https://github.com/grafana/grafana
 */
 
-{ config, ... }:
-
+{ config, host, ... }:
+let
+  domain = "grafana.pweth.com";
+  port = 59663;
+in
 {
   age.secrets.grafana = {
     file = ../secrets/grafana.age;
@@ -26,13 +29,17 @@
         disable_gravatar = true;
       };
       server = {
-        domain = "grafana.pweth.com";
-        http_port = 59663;
+        domain = domain;
+        http_port = port;
       };
       user = {
         default_language = "en-GB";
         default_theme = "dark";
       };
     };
+  };
+
+  services.cloudflared.tunnels."${host.tunnel}".ingress = {
+    "${domain}" = "http://localhost:${builtins.toString port}";
   };
 }
