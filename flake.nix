@@ -13,9 +13,13 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # SSH keys
+    keys.url = "https://github.com/pweth.keys";
+    keys.flake = false;
   };
 
-  outputs = { self, nixpkgs, agenix, home-manager }@inputs:
+  outputs = { self, nixpkgs, agenix, home-manager, keys }@inputs:
   let
     hosts = builtins.fromTOML (builtins.readFile ./hosts.toml);
   in

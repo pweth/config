@@ -32,8 +32,13 @@
     };
   };
 
-  # Enable passwordless sudo for remote deployments
-  security.sudo.wheelNeedsPassword = false;
+  # Enable passwordless sudo for remote deployments and disable lecture
+  security.sudo = {
+    extraConfig = ''
+      Defaults lecture = never
+    '';
+    wheelNeedsPassword = false;
+  };
 
   # Enable fail2ban with default jails
   services.fail2ban = {

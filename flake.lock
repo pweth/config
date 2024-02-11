@@ -64,6 +64,18 @@
         "type": "github"
       }
     },
+    "keys": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-KqktLE7tDcQmkjN+2rNbMGzzKtMYntDhWQHCvEwDH3E=",
+        "type": "file",
+        "url": "https://github.com/pweth.keys"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/pweth.keys"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1701539137,
@@ -84,6 +96,7 @@
       "inputs": {
         "agenix": "agenix",
         "home-manager": "home-manager_2",
+        "keys": "keys",
         "nixpkgs": "nixpkgs"
       }
     }

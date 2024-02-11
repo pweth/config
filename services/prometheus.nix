@@ -3,12 +3,12 @@
 * https://github.com/prometheus/prometheus
 */
 
-{ config, hosts, host, ... }:
+{ config, hosts, ... }:
 
 {
   services.prometheus = {
     enable = true;
-    port = host.entrypoints.prometheus.port;
+    port = 58635;
     scrapeConfigs = [
       {
         job_name = "node";

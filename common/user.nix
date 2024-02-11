@@ -2,7 +2,7 @@
 * Default user configuration for `pweth`.
 */
 
-{ config, host, ... }:
+{ config, host, keys, ... }:
 
 {
   # User account
@@ -16,10 +16,7 @@
       "wheel"
     ];
     isNormalUser = true;
-    openssh.authorizedKeys.keys = [
-      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIKHts3hkSwRHwuxQYZDldRZ6Z+SDd3zXOxxX5fOmszD1AAAABHNzaDo="
-      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIKo1ORI0Ijxm+1VR5Ik5nHKisDIlQcwkZnCfr2xMJHVQAAAABHNzaDo="
-    ];
+    openssh.authorizedKeys.keyFiles = [ keys.outPath ];
   };
 
   # Message of the day

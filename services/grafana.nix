@@ -3,7 +3,7 @@
 * https://github.com/grafana/grafana
 */
 
-{ config, host, ... }:
+{ config, ... }:
 
 {
   age.secrets.grafana = {
@@ -26,8 +26,8 @@
         disable_gravatar = true;
       };
       server = {
-        domain = host.entrypoints.grafana.domain;
-        http_port = host.entrypoints.grafana.port;
+        domain = "grafana.pweth.com";
+        http_port = 59663;
       };
       user = {
         default_language = "en-GB";
