@@ -14,12 +14,15 @@
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Impermanence
+    impermanence.url = "github:nix-community/impermanence";
+
     # SSH keys
     keys.url = "https://github.com/pweth.keys";
     keys.flake = false;
   };
 
-  outputs = { self, nixpkgs, agenix, home-manager, keys }@inputs:
+  outputs = { self, nixpkgs, agenix, home-manager, impermanence, keys }@inputs:
   let
     hosts = builtins.fromTOML (builtins.readFile ./hosts.toml);
   in
@@ -33,6 +36,7 @@
           ./common
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager
+          impermanence.nixosModules.impermanence
         ];
         specialArgs = inputs // {
           hostName = name;

@@ -8,6 +8,7 @@
   imports = [
     ../common/gui.nix
     ../services/rclone.nix
+    ../services/rollback.nix
   ];
 
   # Bootloader

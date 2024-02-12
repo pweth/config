@@ -6,17 +6,21 @@
 
 {
   # User account
-  users.users.pweth = {
-    description = "Peter";
-    extraGroups = [
-      "dialout"
-      "docker"
-      "networkmanager"
-      "podman"
-      "wheel"
-    ];
-    isNormalUser = true;
-    openssh.authorizedKeys.keyFiles = [ keys.outPath ];
+  users = {
+    mutableUsers = false;
+    users.pweth = {
+      description = "Peter";
+      extraGroups = [
+        "dialout"
+        "docker"
+        "networkmanager"
+        "podman"
+        "wheel"
+      ];
+      isNormalUser = true;
+      openssh.authorizedKeys.keyFiles = [ keys.outPath ];
+      uid = 1000;
+    };
   };
 
   # Message of the day
