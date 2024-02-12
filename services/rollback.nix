@@ -32,6 +32,7 @@
     directories = [
       "/etc/NetworkManager/system-connections"
       "/var/lib/bluetooth"
+      "/var/lib/colord"
       "/var/lib/docker"
       "/var/lib/systemd/coredump"
       "/var/lib/tailscale"
