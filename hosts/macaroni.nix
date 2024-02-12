@@ -18,7 +18,8 @@
     systemd-boot.enable = true;
   };
 
-  # ClamAV
+  # ClamAV and fail2ban
   services.clamav.daemon.enable = true;
   services.clamav.updater.enable = true;
+  services.fail2ban.enable = true;
 }

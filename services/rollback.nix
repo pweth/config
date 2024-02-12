@@ -1,5 +1,5 @@
 /*
-* Rollback btrfs root subvolume to a blank slate.
+* Roll btrfs root subvolume back to a blank slate.
 */
 
 { config, pkgs, hostName, ... }: 
@@ -31,13 +31,10 @@
     hideMounts = true;
     directories = [
       "/etc/NetworkManager/system-connections"
-      "/var/lib/blueman"
       "/var/lib/bluetooth"
       "/var/lib/docker"
-      "/var/lib/NetworkManager"
       "/var/lib/systemd/coredump"
       "/var/lib/tailscale"
-      { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "750"; }
     ];
   };
 }

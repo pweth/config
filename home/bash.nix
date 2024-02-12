@@ -34,6 +34,13 @@
         fzf --ansi --preview 'git show --pretty=medium --color=always $(echo {} | cut -d " " -f 1)' |
         cut -d " " -f 1
       }
+      fs-diff () {
+        sudo mkdir -p /mnt &&
+        sudo mount -o subvol=/ /dev/mapper/enc /mnt &&
+        chmod +x /home/pweth/dotfiles/static/scripts/fs-diff.sh &&
+        /home/pweth/dotfiles/static/scripts/fs-diff.sh
+        sudo umount /mnt
+      }
       note () {
         cowyodel --server "http://macaroni.home.arpa:44615" \
         upload --store --name ''${1} | head -n 1

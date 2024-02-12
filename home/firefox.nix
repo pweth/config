@@ -10,6 +10,44 @@
     enable = true;
 
     policies = {
+      Bookmarks = [
+        {
+          Title = "Access";
+          URL = "https://pweth.cloudflareaccess.com/";
+        }
+        {
+          Title = "Moodle";
+          URL = "https://moodle.bath.ac.uk/login/index.php";
+        }
+        {
+          Title = "Fastmail";
+          URL = "https://app.fastmail.com/mail/Inbox/";
+        }
+        {
+          Title = "Outlook";
+          URL = "https://outlook.office365.com/mail/";
+        }
+        {
+          Title = "Cloudflare";
+          URL = "https://dash.cloudflare.com/";
+        }
+        {
+          Title = "GitHub";
+          URL = "https://github.com/";
+        }
+        {
+          Title = "SourceHut";
+          URL = "https://git.sr.ht/";
+        }
+        {
+          Title = "NextDNS";
+          URL = "https://my.nextdns.io/";
+        }
+        {
+          Title = "Wordle";
+          URL = "https://www.nytimes.com/games/wordle/index.html";
+        }
+      ];
       DisableFeedbackCommands = true;
       DisableFirefoxAccounts = true;
       DisableFirefoxStudies = true;
@@ -165,61 +203,6 @@
           "Wikipedia (en)".metaData.hidden = true;
         };
       };
-
-      # Bookmarks toolbar
-      bookmarks = [
-        {
-          name = "Bookmarks";
-          toolbar = true;
-          bookmarks = [
-            {
-              name = "Access";
-              keyword = "!a";
-              url = "https://pweth.cloudflareaccess.com/";
-            }
-            {
-              name = "Moodle";
-              keyword = "!m";
-              url = "https://moodle.bath.ac.uk/login/index.php";
-            }
-            {
-              name = "Fastmail";
-              keyword = "!fm";
-              url = "https://app.fastmail.com/mail/Inbox/";
-            }
-            {
-              name = "Outlook";
-              keyword = "!o";
-              url = "https://outlook.office365.com/mail/";
-            }
-            {
-              name = "Cloudflare";
-              keyword = "!cf";
-              url = "https://dash.cloudflare.com/";
-            }
-            {
-              name = "GitHub";
-              keyword = "!gh";
-              url = "https://github.com/";
-            }
-            {
-              name = "SourceHut";
-              keyword = "!sh";
-              url = "https://git.sr.ht/";
-            }
-            {
-              name = "NextDNS";
-              keyword = "!dns";
-              url = "https://my.nextdns.io/";
-            }
-            {
-              name = "Wordle";
-              keyword = "!wordle";
-              url = "https://www.nytimes.com/games/wordle/index.html";
-            }
-          ];
-        }
-      ];
 
       # about:config values
       settings = {
