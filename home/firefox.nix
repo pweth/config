@@ -10,7 +10,6 @@
     enable = true;
 
     policies = {
-      BlockAboutProfiles = true;
       DisableFeedbackCommands = true;
       DisableFirefoxAccounts = true;
       DisableFirefoxStudies = true;

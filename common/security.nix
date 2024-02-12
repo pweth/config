@@ -2,7 +2,7 @@
 * SSH configuration.
 */
 
-{ config, hosts, ... }:
+{ config, host, hosts, ... }:
 
 {
   # OpenSSH
@@ -31,6 +31,9 @@
       "git.sr.ht".publicKey = builtins.readFile ../static/keys/sourcehut.pub;
     };
   };
+
+  # Set public key for host
+  environment.etc."ssh/ssh_host_ed25519_key.pub".text = host.ed25519;
 
   # Enable passwordless sudo for remote deployments and disable lecture
   security.sudo = {

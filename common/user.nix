@@ -27,7 +27,10 @@
   users.motd = "Connected to ${host.name}.";
 
   # Password hash
-  age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+  age.identityPaths = [
+    "/etc/ssh/ssh_host_ed25519_key"
+    "/persist/etc/ssh/ssh_host_ed25519_key"
+  ];
   age.secrets.password-hash.file = ../secrets/password-hash.age;
   users.users.pweth.hashedPasswordFile = config.age.secrets.password-hash.path;
 }
