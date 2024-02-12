@@ -34,4 +34,10 @@
     wl-clipboard
     zoom-us
   ];
+
+  # Unwanted XDG base directories
+  xdg.userDirs = {
+    publicShare = null;
+    templates = null;
+  };
 }

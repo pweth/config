@@ -35,6 +35,7 @@
       "/var/lib/docker"
       "/var/lib/systemd/coredump"
       "/var/lib/tailscale"
+      "/var/log/journal"
     ];
   };
 }

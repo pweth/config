@@ -41,13 +41,6 @@
     neededForBoot = true;
   };
 
-  fileSystems."/var/log" = {
-    device = "/dev/disk/by-uuid/7865ea69-0b78-4b22-8550-db5db105e649";
-    fsType = "btrfs";
-    options = [ "subvol=log" ];
-    neededForBoot = true;
-  };
-
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/6C11-4925";
     fsType = "vfat";

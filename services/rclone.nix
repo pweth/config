@@ -6,7 +6,6 @@
 { config, pkgs, ... }:
 let
   providers = [ "backblaze" "cloudflare" ];
-  enable = "/home/pweth/.rclone_enable";
   target = "/home/pweth/Documents/";
 in
 {
@@ -16,14 +15,14 @@ in
   # Systemd sync service
   systemd.services.rclone-sync = {
     script = (builtins.concatStringsSep "\n" ([''
-      if [ ! -f "${enable}" ]; then
+      if [ ! -f "/home/pweth/.rclone_enable" ]; then
         exit 0
       fi
     ''] ++ (builtins.map (provider: ''
       ${pkgs.rclone}/bin/rclone sync ${target} ${provider}-crypt: \
         --config "${config.age.secrets.rclone.path}" \
         --exclude ".*/" \
-        --log-file /var/lib/misc/rclone-sync.log \
+        --log-file /home/pweth/.rclone_log \
         --log-level INFO
     '') providers)));
     serviceConfig = {
