@@ -72,14 +72,21 @@
   ] ++ [
     (python3.withPackages (ps: with ps; [
       arrow
+      jupyter
       matplotlib
+      nltk
+      notebook
       numpy
+      opencv4
       pandas
       pip
       pygments
+      pyjwt
       pytest
+      pyzmq
       requests
       rich
+      scikit-learn
       setuptools
       virtualenv
     ]))

@@ -23,7 +23,6 @@
 
   # Files to persist
   environment.etc = {
-    adjtime.source = "/persist/etc/adjtime";
     machine-id.source = "/persist/etc/machine-id";
     "ssh/ssh_host_ed25519_key".source = "/persist/etc/ssh/ssh_host_ed25519_key";
   };
@@ -32,7 +31,6 @@
     directories = [
       "/etc/NetworkManager/system-connections"
       "/var/lib/bluetooth"
-      "/var/lib/colord"
       "/var/lib/docker"
       "/var/lib/systemd/coredump"
       "/var/lib/tailscale"
