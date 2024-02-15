@@ -43,6 +43,8 @@
   environment.systemPackages = [
     agenix.packages."${pkgs.system}".default
   ] ++ (with pkgs; [
+    age
+    age-plugin-yubikey
     bat
     curl
     dig
@@ -52,14 +54,23 @@
     fzf
     git
     htop
+    inetutils
+    jq
+    killall
     neofetch
     neovim
     openssl
+    p7zip
     rclone
+    ripgrep
+    tldr
     tmux
     tree
     tz
+    unzip
+    usbutils
     wget
+    zip
   ]);
 
   # Home manager

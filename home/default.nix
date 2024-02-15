@@ -22,6 +22,7 @@
     stateVersion = "22.11";
   };
 
+  # Remove manual
   manual = {
     html.enable = false;
     json.enable = false;
@@ -29,8 +30,6 @@
   };
 
   home.packages = with pkgs; [
-    age
-    age-plugin-yubikey
     backblaze-b2
     cloudflared
     cmatrix
@@ -46,9 +45,6 @@
     go
     home-manager
     httpie
-    inetutils
-    jq
-    killall
     libheif
     lolcat
     minicom
@@ -56,19 +52,13 @@
     nms
     nodejs
     picocom
-    p7zip
-    ripgrep
     rustup
     sl
     speedtest-cli
     sqlite
-    tldr
     typescript
-    unzip
-    usbutils
     valgrind
     yt-dlp
-    zip
   ] ++ [
     (python3.withPackages (ps: with ps; [
       arrow
