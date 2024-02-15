@@ -82,14 +82,28 @@
         name = "pweth";
       };
 
-      # Emote keyboard shortcut
+      # Custom keyboard shortcuts
       "org/gnome/settings-daemon/plugins/media-keys" = {
-        custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" ];
+        custom-keybindings = [
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
+        ];
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
         binding = "<Super>period";
         command = "emote";
         name = "Emote";
+      };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+        binding = "<Super>Return";
+        command = "kgx";
+        name = "Console";
+      };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+        binding = "<Super>f";
+        command = "firefox";
+        name = "Firefox";
       };
 
       # Other keyboard shortcuts

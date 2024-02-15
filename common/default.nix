@@ -19,11 +19,14 @@
   # NixOS release version
   system.stateVersion = "23.11";
 
+  # Remove NixOS manual
+  documentation.nixos.enable = false;
+
   # Environment variables
   environment.sessionVariables = {
     BAT_THEME = "TwoDark";
     EDITOR = "nvim";
-    HISTCONTROL = "ignoredups";
+    HISTCONTROL = "ignoreboth";
     HISTSIZE = "10000";
     HISTFILESIZE = "15000";
     HISTTIMEFORMAT = "%F %T ";
