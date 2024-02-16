@@ -9,6 +9,7 @@
   users = {
     mutableUsers = false;
     users.pweth = {
+      createHome = true;
       description = "Peter";
       extraGroups = [
         "dialout"

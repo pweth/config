@@ -21,20 +21,8 @@
     umount /mnt
   '';
 
-  # Files to persist
   environment.etc = {
     machine-id.source = "/persist/etc/machine-id";
     "ssh/ssh_host_ed25519_key".source = "/persist/etc/ssh/ssh_host_ed25519_key";
-  };
-  environment.persistence."/persist" = {
-    hideMounts = true;
-    directories = [
-      "/etc/NetworkManager/system-connections"
-      "/var/lib/bluetooth"
-      "/var/lib/docker"
-      "/var/lib/systemd/coredump"
-      "/var/lib/tailscale"
-      "/var/log/journal"
-    ];
   };
 }

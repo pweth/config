@@ -46,4 +46,35 @@
 
   # Disable SSH
   services.openssh.enable = lib.mkForce false;
+
+  # Impermenance
+  environment.persistence."/persist" = {
+    hideMounts = true;
+    directories = [
+      "/etc/NetworkManager/system-connections"
+      "/var/lib/bluetooth"
+      "/var/lib/docker"
+      "/var/lib/systemd/coredump"
+      "/var/lib/tailscale"
+      "/var/log/journal"
+    ];
+    users.pweth = {
+      directories = [
+        "Desktop"
+        "Documents"
+        "dotfiles"
+        "Downloads"
+        "Pictures"
+        ".config"
+        ".gnupg"
+        ".local/share"
+        ".mozilla/firefox"
+        ".pki"
+        ".ssh"
+      ];
+      files = [
+        ".bash_history"
+      ];
+    };
+  };
 }

@@ -16,14 +16,12 @@
 
   home.packages = with pkgs; [
     anki
-    bitwarden
     discord
     emote
     gimp
     libreoffice
     obsidian
     obs-studio
-    spicetify-cli
     spotify
     sqlitebrowser
     texlive.combined.scheme-full
@@ -37,7 +35,11 @@
 
   # Unwanted XDG base directories
   xdg.userDirs = {
+    createDirectories = true;
+    enable = true;
+    music = null;
     publicShare = null;
     templates = null;
+    videos = null;
   };
 }
