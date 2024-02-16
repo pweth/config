@@ -73,6 +73,9 @@
     zip
   ]);
 
+  # Use hidden bind mounts
+  environment.persistence."/persist".hideMounts = true;
+
   # Home manager
   home-manager = {
     useGlobalPkgs = true;

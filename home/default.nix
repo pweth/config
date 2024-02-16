@@ -10,6 +10,7 @@
     ./bash.nix
     ./cowyodel.nix
     ./git.nix
+    ./htop.nix
     ./starship.nix
     ./tmux.nix
   ];

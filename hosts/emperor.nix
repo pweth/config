@@ -49,7 +49,6 @@
 
   # Impermenance
   environment.persistence."/persist" = {
-    hideMounts = true;
     directories = [
       "/etc/NetworkManager/system-connections"
       "/var/lib/bluetooth"
@@ -66,10 +65,8 @@
         "Downloads"
         "Pictures"
         ".config"
-        ".gnupg"
         ".local/share"
         ".mozilla/firefox"
-        ".pki"
         ".ssh"
       ];
       files = [
