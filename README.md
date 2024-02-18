@@ -1,5 +1,5 @@
 <div align="center">
-<h1>🐧 Dotfiles</h1>
+<h1>🐧 Config</h1>
 NixOS configuration flake.
 </div>
 
@@ -25,12 +25,12 @@ NixOS configuration flake.
 3. Download this repository:
     ```
     nix-shell -p git
-    git clone git@github.com:pweth/dotfiles.git
+    git clone git@github.com:pweth/config.git
     ```
 4. Update `hosts.toml`, `hosts/HOST.nix` and `hardware/MODEL.nix` as required.
 5. Re-build the system using:
     ```
-    sudo nixos-rebuild switch --flake /home/pweth/dotfiles#HOST
+    sudo nixos-rebuild switch --flake /etc/nixos/config#HOST
     ```
 
 ---

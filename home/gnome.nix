@@ -22,8 +22,8 @@
     settings = {
       # General settings
       "org/gnome/desktop/background" = {
-        picture-uri = "file:///home/pweth/dotfiles/static/images/background.jpg";
-        picture-uri-dark = "file:///home/pweth/dotfiles/static/images/background.jpg";
+        picture-uri = "file:///etc/nixos/config/static/images/background.jpg";
+        picture-uri-dark = "file:///etc/nixos/config/static/images/background.jpg";
       };
       "org/gnome/desktop/calendar" = {
         show-weekdate = true;
@@ -51,7 +51,7 @@
         show-in-lock-screen = false;
       };
       "org/gnome/desktop/screensaver" = {
-        picture-uri = "file:///home/pweth/dotfiles/static/images/background.jpg";
+        picture-uri = "file:///etc/nixos/config/static/images/background.jpg";
         user-switch-enabled = false;
       };
       "org/gnome/desktop/session" = {

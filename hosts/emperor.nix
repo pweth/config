@@ -51,6 +51,7 @@
   environment.persistence."/persist" = {
     directories = [
       "/etc/NetworkManager/system-connections"
+      "/etc/nixos/config"
       "/var/lib/bluetooth"
       "/var/lib/docker"
       "/var/lib/systemd/coredump"
@@ -61,9 +62,7 @@
       directories = [
         "Desktop"
         "Documents"
-        "dotfiles"
         "Downloads"
-        "Pictures"
         ".config"
         ".local/share"
         ".mozilla/firefox"

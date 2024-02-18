@@ -20,8 +20,8 @@
       gs = "git status";
       ls = "eza -la";
       ngc = "nix-collect-garbage -d";
-      rb = "sudo nixos-rebuild switch --flake /home/pweth/dotfiles";
-      rbi = "sudo nixos-rebuild switch --flake /home/pweth/dotfiles --impure";
+      rb = "sudo nixos-rebuild switch --flake /etc/nixos/config";
+      rbi = "sudo nixos-rebuild switch --flake /etc/nixos/config --impure";
       tka = "tmux kill-session -a";
       tls = "tmux ls";
       v = "nvim"; 
@@ -37,8 +37,8 @@
       fs-diff () {
         sudo mkdir -p /mnt &&
         sudo mount -o subvol=/ /dev/mapper/enc /mnt &&
-        chmod +x /home/pweth/dotfiles/static/scripts/fs-diff.sh &&
-        /home/pweth/dotfiles/static/scripts/fs-diff.sh
+        chmod +x /etc/nixos/config/static/scripts/fs-diff.sh &&
+        /etc/nixos/config/static/scripts/fs-diff.sh
         sudo umount /mnt
       }
       note () {
@@ -46,12 +46,12 @@
         upload --store --name ''${1} | head -n 1
       }
       rbr () {
-        nixos-rebuild switch --flake /home/pweth/dotfiles#''${1} \
+        nixos-rebuild switch --flake /etc/nixos/config#''${1} \
         --target-host ''${1}.home.arpa --use-remote-sudo
       }
       secret () {
         (
-          cd /home/pweth/dotfiles/secrets &&
+          cd /etc/nixos/config/secrets &&
           sudo agenix -i /etc/ssh/ssh_host_ed25519_key -e ''${1}.age
         )
       }

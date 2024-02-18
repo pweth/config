@@ -1,5 +1,5 @@
 {
-  description = "github.com/pweth/dotfiles";
+  description = "github.com/pweth/config";
 
   inputs = {
     # Nix packages
