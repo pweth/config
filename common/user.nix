@@ -16,6 +16,7 @@
         "docker"
         "networkmanager"
         "podman"
+        "root"
         "wheel"
       ];
       isNormalUser = true;

@@ -22,6 +22,7 @@
     libreoffice
     obsidian
     obs-studio
+    openshot-qt
     spotify
     sqlitebrowser
     texlive.combined.scheme-full
@@ -38,6 +39,7 @@
     createDirectories = true;
     enable = true;
     music = null;
+    pictures = "${config.home.homeDirectory}/Documents/Pictures";
     publicShare = null;
     templates = null;
     videos = null;
