@@ -11,6 +11,7 @@
     ./cowyodel.nix
     ./git.nix
     ./htop.nix
+    ./neofetch.nix
     ./starship.nix
     ./tmux.nix
   ];

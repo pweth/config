@@ -7,7 +7,7 @@
 let
   domain = "moo.pweth.com";
   port = 44615;
-  storage = "/home/pweth/cowyo";
+  storage = "/var/lib/cowyo";
 in
 {
   virtualisation.oci-containers.containers.cowyo = {

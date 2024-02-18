@@ -7,7 +7,7 @@
 let
   domain = "uptime.pweth.com";
   port = 58057;
-  storage = "/home/pweth/uptime-kuma";
+  storage = "/var/lib/uptime-kuma";
 in
 {
   virtualisation.oci-containers.containers.uptime-kuma = {
