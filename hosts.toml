@@ -7,7 +7,7 @@ ed25519      = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILqt+SLcA0kXPLvuF+mogzId9n57
 system       = "dell-xps13-9360"
 
 
-# Oracle VM
+# Oracle VM Flex
 [macaroni]
 species      = "Eudyptes chrysolophus"
 address      = "100.90.0.1"
@@ -15,6 +15,15 @@ architecture = "aarch64-linux"
 ed25519      = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDs6W94lN0Kx8hOEU4BArPlzkishQGQDVD/gLEsncAzI"
 system       = "oracle-vm-a1-flex"
 tunnel       = "a972b5e1-8307-4574-a860-c92aaec5adce"
+
+
+# Oracle VM Micro
+[magellanic]
+species      = "Spheniscus magellanicus"
+address      = "100.90.0.2"
+architecture = "aarch64-linux"
+ed25519      = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJSd1PUA4w1cne4kg8innCybwHZ1WPGGkNSyQEsJSWt9"
+system       = "oracle-vm-e2-1-micro"
 
 
 # Raspberry Pi

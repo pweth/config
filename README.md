@@ -7,10 +7,11 @@ NixOS configuration flake.
 
 ## Devices
 
-| Hostname | Model |
+| Hostname | System |
 | --- | --- |
 | Emperor | Dell XPS 13 9360 |
 | Macaroni | Oracle VM.Standard.A1.Flex |
+| Magellanic | Oracle VM.Standard.E2.1.Micro |
 | Rockhopper | Raspberry Pi Model 3B+ |
 
 ---

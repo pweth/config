@@ -10,9 +10,9 @@ in
 {
   "cf-macaroni.age".publicKeys = with keys; [ macaroni ];
   "grafana.age".publicKeys = with keys; [ macaroni ];
-  "nextdns.age".publicKeys = with keys; [ emperor gentoo macaroni rockhopper ];
-  "password-hash.age".publicKeys = with keys; [ emperor gentoo macaroni rockhopper ];
+  "nextdns.age".publicKeys = with keys; [ emperor macaroni magellanic rockhopper ];
+  "password-hash.age".publicKeys = with keys; [ emperor macaroni magellanic rockhopper ];
   "rclone.age".publicKeys = with keys; [ emperor ];
-  "tailscale.age".publicKeys = with keys; [ emperor gentoo macaroni rockhopper ];
+  "tailscale.age".publicKeys = with keys; [ emperor macaroni magellanic rockhopper ];
   "wifi.age".publicKeys = with keys; [ emperor ];
 }
