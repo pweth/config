@@ -64,7 +64,8 @@
         "Documents"
         "Downloads"
         ".config"
-        ".local/share"
+        ".local/share/Anki2"
+        ".local/share/keyrings"
         ".mozilla/firefox"
         ".ssh"
       ];
