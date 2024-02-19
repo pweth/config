@@ -9,7 +9,7 @@
     print_info () {
       info title
       info underline
-      prin "Species" "${host.name}"
+      prin "Species" "${host.species}"
       info "Host" model
       info "OS" distro
       info "Kernel" kernel

@@ -1,23 +1,26 @@
 # Personal Laptop
 [emperor]
-name = "Aptenodytes forsteri"
-arch = "x86_64-linux"
-system = "dell-xps13-9360"
-ed25519 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILqt+SLcA0kXPLvuF+mogzId9n57rB5y0PyWJ8RE0ja8"
+species      = "Aptenodytes forsteri"
+address      = "100.80.0.1"
+architecture = "x86_64-linux"
+ed25519      = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILqt+SLcA0kXPLvuF+mogzId9n57rB5y0PyWJ8RE0ja8"
+system       = "dell-xps13-9360"
 
 
 # Oracle VM
 [macaroni]
-name = "Eudyptes chrysolophus"
-arch = "aarch64-linux"
-system = "oracle-vm-a1-flex"
-tunnel = "a972b5e1-8307-4574-a860-c92aaec5adce"
-ed25519 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDs6W94lN0Kx8hOEU4BArPlzkishQGQDVD/gLEsncAzI"
+species      = "Eudyptes chrysolophus"
+address      = "100.90.0.1"
+architecture = "aarch64-linux"
+ed25519      = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDs6W94lN0Kx8hOEU4BArPlzkishQGQDVD/gLEsncAzI"
+system       = "oracle-vm-a1-flex"
+tunnel       = "a972b5e1-8307-4574-a860-c92aaec5adce"
 
 
 # Raspberry Pi
 [rockhopper]
-name = "Eudyptes moseleyi"
-arch = "aarch64-linux"
-system = "raspberry-pi-3b"
-ed25519 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDw/Rhr1cdwp3RIwmxTWBa1tWA3gzMyyC8YTJNMN0Fbf"
+species      = "Eudyptes moseleyi"
+address      = "100.80.0.3"
+architecture = "aarch64-linux"
+ed25519      = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDw/Rhr1cdwp3RIwmxTWBa1tWA3gzMyyC8YTJNMN0Fbf"
+system       = "raspberry-pi-3b"

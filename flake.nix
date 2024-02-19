@@ -43,7 +43,7 @@
           hosts = hosts;
           host = host;
         };
-        system = host.arch;
+        system = host.architecture;
       }
     ) hosts;
   };

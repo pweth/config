@@ -26,7 +26,7 @@
   };
 
   # Message of the day
-  users.motd = "Connected to ${host.name}.";
+  users.motd = "Connected to ${host.species}.";
 
   # Password hash
   age.identityPaths = [
