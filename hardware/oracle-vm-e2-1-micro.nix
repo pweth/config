@@ -22,4 +22,6 @@
       fsType = "vfat";
     };
   };
+
+  zramSwap.enable = true;
 }

@@ -5,6 +5,9 @@
 { config, host, hosts, ... }:
 
 {
+  # Set public key for host
+  environment.etc."ssh/ssh_host_ed25519_key.pub".text = host.ed25519;
+
   # OpenSSH
   services.openssh = {
     enable = true;
@@ -32,8 +35,8 @@
     };
   };
 
-  # Set public key for host
-  environment.etc."ssh/ssh_host_ed25519_key.pub".text = host.ed25519;
+  # fail2ban with default jails
+  services.fail2ban.enable = true;
 
   # Enable passwordless sudo for remote deployments and disable lecture
   security.sudo = {
