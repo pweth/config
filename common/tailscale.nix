@@ -23,8 +23,7 @@
   ) hosts));
 
   # Persist application data
-  environment.persistence."${host.persistent}".directories = 
-    if (builtins.hasAttr "persistent" host)
-    then [ "/var/lib/tailscale" ]
-    else [];
+  environment.persistence = lib.mkIf (builtins.hasAttr "persistent" host) {
+    "${host.persistent}".directories = [ "/var/lib/tailscale" ];
+  };
 }
