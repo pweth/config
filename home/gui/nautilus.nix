@@ -19,7 +19,7 @@
   };
 
   # Bookmarks
-  home.file.".config/gtk-3.0/bookmarks".text = ''
+  xdg.configFile."gtk-3.0/bookmarks".text = ''
     file:///etc/nixos/config
   '';
 }

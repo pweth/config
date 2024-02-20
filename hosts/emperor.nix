@@ -17,6 +17,9 @@
     systemd-boot.enable = true;
   };
 
+  # Monitor setup
+  home-manager.users.pweth.xdg.configFile."monitors.xml".source = ../static/monitors.xml;
+
   # Networking
   networking.networkmanager.enable = true;
   age.secrets.wifi.file = ../secrets/wifi.age;
@@ -57,17 +60,17 @@
       directories = [
         "Documents"
         "Downloads"
-        ".config"
-        # ".config/Code"
-        # ".config/dconf"
+        ".config/Code"
+        ".config/dconf"
+        ".config/libreoffice"
+        ".config/pulse"
+        ".config/spotify"
         ".local/share/Anki2"
         ".local/share/keyrings"
         ".mozilla/firefox"
         ".ssh"
       ];
-      files = [
-        ".bash_history"
-      ];
+      files = [ ".bash_history" ];
     };
   };
 }

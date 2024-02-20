@@ -42,4 +42,9 @@ in
     wantedBy = [ "timers.target" ];
     wants = [ "run-agenix.d.mount" ];
   };
+
+  # Persist service configuration
+  environment.persistence = lib.mkIf (builtins.hasAttr "persistent" host) {
+    "${host.persistent}".users.pweth.directories = [ ".config/rclone" ];
+  };
 }
