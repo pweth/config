@@ -29,7 +29,7 @@
       "browser.toolbars.bookmarks.visibility" = "never";
       "network.cookie.lifetimePolicy" = 0;
     };
-    userChrome = builtins.readFile ../static/css/web-app.css;
+    userChrome = builtins.readFile ../../static/css/web-app.css;
   };
 
   # Create the .desktop entry
@@ -41,7 +41,7 @@
       "--no-remote"
       "https://web.whatsapp.com"
     ]);
-    icon = ../static/images/whatsapp.png;
+    icon = ../../static/images/whatsapp.png;
     name = "WhatsApp";
     settings = {
       StartupWMClass = "WhatsApp";

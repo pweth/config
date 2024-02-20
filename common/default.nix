@@ -80,7 +80,7 @@
     extraSpecialArgs.host = host;
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.pweth = import ../home;
+    users.pweth = import ../home/cli;
   };
 
   # Hostname

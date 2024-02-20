@@ -2,7 +2,7 @@
 * GNOME .desktop entry configuration.
 */
 
-{ config, pkgs, ... }:
+{ config, ... }:
 let
   hidden = [
     "base"

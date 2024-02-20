@@ -58,6 +58,8 @@
         "Documents"
         "Downloads"
         ".config"
+        # ".config/Code"
+        # ".config/dconf"
         ".local/share/Anki2"
         ".local/share/keyrings"
         ".mozilla/firefox"

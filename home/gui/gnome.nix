@@ -6,10 +6,10 @@
 
 {
   # User icon
-  home.file.".face".source = ../static/images/profile.png;
+  home.file.".face".source = ../../static/images/profile.png;
 
   # Theme
-  home.file.".themes/pweth/gnome-shell/gnome-shell.css".source = ../static/css/gnome-shell.css;
+  home.file.".themes/pweth/gnome-shell/gnome-shell.css".source = ../../static/css/gnome-shell.css;
 
   # Extensions
   home.packages = with pkgs.gnomeExtensions; [
@@ -131,17 +131,6 @@
         switch-to-application-2 = [];
         switch-to-application-3 = [];
         switch-to-application-4 = [];
-      };
-
-      # File explorer settings
-      "org/gnome/nautilus/list-view" = {
-        default-zoom-level = "medium";
-      };
-      "org/gnome/nautilus/preferences" = {
-        default-folder-viewer = "list-view";
-      };
-      "org/gtk/gtk4/settings/file-chooser" = {
-        sort-directories-first = true;
       };
 
       # Caffeine settings

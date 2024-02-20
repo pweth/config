@@ -17,6 +17,7 @@
       haskell.haskell
       jnoortheen.nix-ide
       ms-python.python
+      ms-toolsai.jupyter
       ms-vscode.cpptools
       ms-vscode.hexeditor
       ms-vscode.makefile-tools

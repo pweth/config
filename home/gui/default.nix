@@ -1,6 +1,6 @@
 /*
 * Home manager configuration for GUI programs.
-* See ./default.nix for CLI programs.
+* See ../cli/default.nix for CLI programs.
 */
 
 { config, pkgs, ... }:
@@ -10,8 +10,10 @@
     ./desktop.nix
     ./firefox.nix
     ./gnome.nix
+    ./nautilus.nix
     ./vscode.nix
     ./whatsapp.nix
+    ./xdg.nix
   ];
 
   home.packages = with pkgs; [
@@ -33,16 +35,4 @@
     wl-clipboard
     zoom-us
   ];
-
-  # Unwanted XDG base directories
-  xdg.userDirs = {
-    createDirectories = true;
-    enable = true;
-    desktop = null;
-    music = null;
-    pictures = "${config.home.homeDirectory}/Documents/Pictures";
-    publicShare = null;
-    templates = null;
-    videos = null;
-  };
 }
