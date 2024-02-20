@@ -2,7 +2,7 @@
 * Personal laptop system configuration.
 */
 
-{ config, lib, ... }:
+{ config, lib, host, ... }:
 
 {
   imports = [
@@ -48,19 +48,13 @@
   services.openssh.enable = lib.mkForce false;
 
   # Impermenance
-  environment.persistence."/persist" = {
+  environment.persistence."${host.persistent}" = {
     directories = [
       "/etc/NetworkManager/system-connections"
-      "/etc/nixos/config"
       "/var/lib/bluetooth"
-      "/var/lib/docker"
-      "/var/lib/systemd/coredump"
-      "/var/lib/tailscale"
-      "/var/log/journal"
     ];
     users.pweth = {
       directories = [
-        "Desktop"
         "Documents"
         "Downloads"
         ".config"

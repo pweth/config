@@ -10,6 +10,7 @@
 
     # Command aliases
     shellAliases = {
+      cat = "bat";
       cls = "clear";
       fzfb = "fzf --preview 'bat --style=numbers --color=always --line-range :200 {}'";
       ga = "git add";

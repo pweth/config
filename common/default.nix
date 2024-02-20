@@ -7,8 +7,10 @@
 {
   imports = [
     ./cloudflared.nix
+    ./docker.nix
     ./exporter.nix
     ./fonts.nix
+    ./impermanence.nix
     ./locale.nix
     ./nextdns.nix
     ./security.nix
@@ -73,9 +75,6 @@
     zip
   ]);
 
-  # Use hidden bind mounts
-  environment.persistence."/persist".hideMounts = true;
-
   # Home manager
   home-manager = {
     extraSpecialArgs.host = host;
@@ -107,11 +106,5 @@
   programs.fzf = {
     fuzzyCompletion = true;
     keybindings = true;
-  };
-
-  # Enable Docker
-  virtualisation = {
-    docker.enable = true;
-    oci-containers.backend = "docker";
   };
 }

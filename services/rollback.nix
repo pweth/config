@@ -2,7 +2,7 @@
 * Roll btrfs root subvolume back to a blank slate.
 */
 
-{ config, pkgs, hostName, ... }: 
+{ config, pkgs, ... }: 
 
 {
   boot.initrd.postDeviceCommands = pkgs.lib.mkBefore ''
@@ -20,9 +20,4 @@
     btrfs subvolume snapshot /mnt/root-blank /mnt/root
     umount /mnt
   '';
-
-  environment.etc = {
-    machine-id.source = "/persist/etc/machine-id";
-    "ssh/ssh_host_ed25519_key".source = "/persist/etc/ssh/ssh_host_ed25519_key";
-  };
 }

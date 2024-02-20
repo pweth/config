@@ -38,6 +38,7 @@
   xdg.userDirs = {
     createDirectories = true;
     enable = true;
+    desktop = null;
     music = null;
     pictures = "${config.home.homeDirectory}/Documents/Pictures";
     publicShare = null;

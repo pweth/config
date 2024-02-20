@@ -2,7 +2,7 @@
 * Tailscale configuration.
 */
 
-{ config, hosts, ... }:
+{ config, lib, host, hosts, ... }:
 
 {
   # Mount authentication key
@@ -21,4 +21,10 @@
       value = [ "${name}.home.arpa" ];
     }
   ) hosts));
+
+  # Persist application data
+  environment.persistence."${host.persistent}".directories = 
+    if (builtins.hasAttr "persistent" host)
+    then [ "/var/lib/tailscale" ]
+    else [];
 }
