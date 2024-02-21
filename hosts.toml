@@ -8,7 +8,7 @@ persistent   = "/persist"
 system       = "dell-xps13-9360"
 
 
-# Oracle VM Flex
+# Oracle VM - Monitoring
 [macaroni]
 species      = "Eudyptes chrysolophus"
 address      = "100.90.0.1"
@@ -18,7 +18,7 @@ system       = "oracle-vm-e2-1-micro"
 tunnel       = "a972b5e1-8307-4574-a860-c92aaec5adce"
 
 
-# Oracle VM Micro
+# Oracle VM
 [magellanic]
 species      = "Spheniscus magellanicus"
 address      = "100.90.0.2"
