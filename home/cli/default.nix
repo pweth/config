@@ -36,7 +36,6 @@
     cloudflared
     cmatrix
     cowsay
-    element
     exiftool
     ffmpeg
     fortune

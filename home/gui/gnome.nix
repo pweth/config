@@ -2,7 +2,7 @@
 * GNOME desktop environment configuration.
 */
 
-{ config, pkgs, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   # User icon

@@ -2,7 +2,7 @@
 * Personal laptop system configuration.
 */
 
-{ config, lib, host, ... }:
+{ config, lib, pkgs, host, ... }:
 
 {
   imports = [
@@ -61,16 +61,18 @@
         "Documents"
         "Downloads"
         ".config/Code"
-        ".config/dconf"
         ".config/libreoffice"
         ".config/pulse"
         ".config/spotify"
         ".local/share/Anki2"
+        ".local/share/Emote"
         ".local/share/keyrings"
         ".mozilla/firefox"
         ".ssh"
       ];
-      files = [ ".bash_history" ];
+      files = [
+        ".bash_history"
+      ];
     };
   };
 }

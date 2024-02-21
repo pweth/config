@@ -3,7 +3,7 @@
 * To initiate the service: `touch ~/.config/rclone/.enable`
 */
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, host, ... }:
 let
   providers = [ "backblaze" "cloudflare" ];
   target = "/home/pweth/Documents/";

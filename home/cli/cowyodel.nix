@@ -2,7 +2,7 @@
 * Cowyodel Go module derivation.
 */
 
-{ config, pkgs, lib, ... }:
+{ config, lib, pkgs, ... }:
 let
   cowyodel = pkgs.buildGoModule {
     name = "cowyodel";
