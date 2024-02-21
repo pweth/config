@@ -4,15 +4,23 @@
 */
 
 let
+  # Load in host information
   hosts = builtins.fromTOML (builtins.readFile ../hosts.toml);
   keys = builtins.mapAttrs (name: host: host.ed25519) hosts;
+  master = builtins.readFile ../static/keys/age-primary.pub;
+
+  # Secret to host mappings
+  secrets = with keys; {
+    "grafana.age"         = [ macaroni ];
+    "nextdns.age"         = [ emperor macaroni magellanic rockhopper ];
+    "paperless.age"       = [ emperor ];
+    "password-hash.age"   = [ emperor macaroni magellanic rockhopper ];
+    "rclone.age"          = [ emperor ];
+    "tailscale.age"       = [ emperor macaroni magellanic rockhopper ];
+    "tunnel-macaroni.age" = [ macaroni ];
+    "wifi.age"            = [ emperor ];
+  };
 in
-{
-  "cf-macaroni.age".publicKeys = with keys; [ macaroni ];
-  "grafana.age".publicKeys = with keys; [ macaroni ];
-  "nextdns.age".publicKeys = with keys; [ emperor macaroni magellanic rockhopper ];
-  "password-hash.age".publicKeys = with keys; [ emperor macaroni magellanic rockhopper ];
-  "rclone.age".publicKeys = with keys; [ emperor ];
-  "tailscale.age".publicKeys = with keys; [ emperor macaroni magellanic rockhopper ];
-  "wifi.age".publicKeys = with keys; [ emperor ];
-}
+builtins.mapAttrs (name: hostKeys: {
+  publicKeys = hostKeys ++ [ master ];
+}) secrets

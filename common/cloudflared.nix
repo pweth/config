@@ -4,7 +4,7 @@
 
 { config, lib, hostName, host, ... }:
 let
-  credentials = "cf-${hostName}";
+  credentials = "tunnel-${hostName}";
 in
 {
   config = lib.mkIf (builtins.hasAttr "tunnel" host) {
