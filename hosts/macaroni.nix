@@ -6,15 +6,13 @@
 
 {
   imports = [
-    ../services/cowyo.nix
-    ../services/grafana.nix
-    ../services/prometheus.nix
     ../services/uptime-kuma.nix
   ];
 
   # Bootloader
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-    systemd-boot.enable = true;
-  }; 
+  boot.loader.grub = {
+    device = "nodev";
+    efiInstallAsRemovable = true;
+    efiSupport = true;
+  };
 }
