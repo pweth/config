@@ -8,6 +8,15 @@ persistent   = "/persist"
 system       = "dell-xps13-9360"
 
 
+# Home Server
+[humboldt]
+species      = "Spheniscus humboldti"
+address      = "100.80.0.2"
+architecture = "x86_64-linux"
+ed25519      = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICZDBxFQIZaazAOgPCd9+eLxu7NAg+5a6ZwPmoI2eNGc"
+system       = "dell-optiplex-3050"
+
+
 # Oracle VM - Monitoring
 [macaroni]
 species      = "Eudyptes chrysolophus"
