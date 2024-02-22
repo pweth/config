@@ -12,11 +12,11 @@ let
   # Secret to host mappings
   secrets = with keys; {
     "grafana.age"         = [ macaroni ];
-    "nextdns.age"         = [ emperor macaroni magellanic rockhopper ];
+    "nextdns.age"         = [ emperor humboldt macaroni magellanic rockhopper ];
     "paperless.age"       = [ emperor ];
-    "password-hash.age"   = [ emperor macaroni magellanic rockhopper ];
+    "password-hash.age"   = [ emperor humboldt macaroni magellanic rockhopper ];
     "rclone.age"          = [ emperor ];
-    "tailscale.age"       = [ emperor macaroni magellanic rockhopper ];
+    "tailscale.age"       = [ emperor humboldt macaroni magellanic rockhopper ];
     "tunnel-macaroni.age" = [ macaroni ];
     "wifi.age"            = [ emperor ];
   };
