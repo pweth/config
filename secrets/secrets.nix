@@ -13,10 +13,11 @@ let
   secrets = with keys; {
     "grafana.age"         = [ macaroni ];
     "nextdns.age"         = [ emperor humboldt macaroni magellanic rockhopper ];
-    "paperless.age"       = [ emperor ];
+    "paperless.age"       = [ humboldt ];
     "password-hash.age"   = [ emperor humboldt macaroni magellanic rockhopper ];
     "rclone.age"          = [ emperor ];
     "tailscale.age"       = [ emperor humboldt macaroni magellanic rockhopper ];
+    "tunnel-humboldt.age" = [ humboldt ];
     "tunnel-macaroni.age" = [ macaroni ];
     "wifi.age"            = [ emperor ];
   };

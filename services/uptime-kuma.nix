@@ -3,13 +3,14 @@
 * https://github.com/louislam/uptime-kuma
 */
 
-{ config, host, ... }:
+{ config, lib, host, ... }:
 let
   domain = "uptime.pweth.com";
   port = 58057;
   storage = "/var/lib/uptime-kuma";
 in
 {
+  # Docker container
   virtualisation.oci-containers.containers.uptime-kuma = {
     autoStart = true;
     image = "elestio/uptime-kuma";
@@ -19,7 +20,13 @@ in
     ];
   };
 
+  # Cloudflare tunnel
   services.cloudflared.tunnels."${host.tunnel}".ingress = {
     "${domain}" = "http://localhost:${builtins.toString port}";
+  };
+
+  # Persist service configuration
+  environment.persistence = lib.mkIf (builtins.hasAttr "persistent" host) {
+    "${host.persistent}".directories = [ "/var/lib/uptime-kuma" ];
   };
 }

@@ -24,6 +24,7 @@ in
     ];
   };
 
+  # Cloudflare tunnel
   services.cloudflared.tunnels."${host.tunnel}".ingress = {
     "${domain}" = "http://localhost:${builtins.toString port}";
   };
