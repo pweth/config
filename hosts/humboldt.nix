@@ -7,6 +7,7 @@
 {
   imports = [
     ../services/cowyo.nix
+    ../services/home-assistant.nix
     ../services/paperless.nix
     ../services/rollback.nix
   ];

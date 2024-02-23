@@ -62,7 +62,6 @@
         "Downloads"
         ".config/Code"
         ".config/libreoffice"
-        ".config/pulse"
         ".config/spotify"
         ".local/share/Anki2"
         ".local/share/Emote"
