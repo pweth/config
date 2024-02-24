@@ -2,7 +2,7 @@
 * Common system configuration across all hosts.
 */
 
-{ config, pkgs, agenix, hostName, host, ... }:
+{ config, pkgs, agenix, host, user, ... }:
 
 {
   imports = [
@@ -77,14 +77,17 @@
 
   # Home manager
   home-manager = {
-    extraSpecialArgs.host = host;
+    extraSpecialArgs = {
+      host = host;
+      user = user;
+    };
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.pweth = import ../home/cli;
+    users."${user}" = import ../home/cli;
   };
 
   # Hostname
-  networking.hostName = hostName;
+  networking.hostName = host.name;
 
   # Automatic garbage collection
   nix.gc = {

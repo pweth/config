@@ -3,10 +3,10 @@
 * To initiate the service: `touch ~/.config/rclone/.enable`
 */
 
-{ config, lib, pkgs, host, ... }:
+{ config, lib, pkgs, host, user, ... }:
 let
   providers = [ "backblaze" "cloudflare" ];
-  target = "/home/pweth/Documents/";
+  target = "/home/${user}/Documents/";
 in
 {
   # Mount configuration
@@ -15,14 +15,14 @@ in
   # Systemd sync service
   systemd.services.rclone-sync = {
     script = (builtins.concatStringsSep "\n" ([''
-      if [ ! -f "/home/pweth/.config/rclone/.enable" ]; then
+      if [ ! -f "/home/${user}/.config/rclone/.enable" ]; then
         exit 0
       fi
     ''] ++ (builtins.map (provider: ''
       ${pkgs.rclone}/bin/rclone sync ${target} ${provider}-crypt: \
         --config "${config.age.secrets.rclone.path}" \
         --exclude ".*/" \
-        --log-file /home/pweth/.config/rclone/sync.log \
+        --log-file /home/${user}/.config/rclone/sync.log \
         --log-level INFO
     '') providers)));
     serviceConfig = {
@@ -45,6 +45,6 @@ in
 
   # Persist service configuration
   environment.persistence = lib.mkIf (builtins.hasAttr "persistent" host) {
-    "${host.persistent}".users.pweth.directories = [ ".config/rclone" ];
+    "${host.persistent}".users."${user}".directories = [ ".config/rclone" ];
   };
 }

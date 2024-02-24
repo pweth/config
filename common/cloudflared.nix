@@ -2,9 +2,9 @@
 * Cloudflare tunnel configuration.
 */
 
-{ config, lib, hostName, host, ... }:
+{ config, lib, host, ... }:
 let
-  credentials = "tunnel-${hostName}";
+  credentials = "tunnel-${host.name}";
 in
 {
   config = lib.mkIf (builtins.hasAttr "tunnel" host) {

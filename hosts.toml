@@ -1,5 +1,6 @@
 # Personal Laptop
 [emperor]
+name         = "emperor"
 species      = "Aptenodytes forsteri"
 address      = "100.80.0.1"
 architecture = "x86_64-linux"
@@ -10,6 +11,7 @@ system       = "dell-xps13-9360"
 
 # Home Server
 [humboldt]
+name         = "humboldt"
 species      = "Spheniscus humboldti"
 address      = "100.80.0.2"
 architecture = "x86_64-linux"
@@ -21,6 +23,7 @@ tunnel       = "d611dc07-8084-4fad-a1b2-7d6d23d87922"
 
 # Oracle VM - Monitoring
 [macaroni]
+name         = "macaroni"
 species      = "Eudyptes chrysolophus"
 address      = "100.90.0.1"
 architecture = "x86_64-linux"
@@ -31,6 +34,7 @@ tunnel       = "a972b5e1-8307-4574-a860-c92aaec5adce"
 
 # Oracle VM
 [magellanic]
+name         = "magellanic"
 species      = "Spheniscus magellanicus"
 address      = "100.90.0.2"
 architecture = "x86_64-linux"
@@ -40,6 +44,7 @@ system       = "oracle-vm-e2-1-micro"
 
 # Raspberry Pi
 [rockhopper]
+name         = "rockhopper"
 species      = "Eudyptes moseleyi"
 address      = "100.80.0.3"
 architecture = "aarch64-linux"

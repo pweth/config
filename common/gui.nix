@@ -2,7 +2,7 @@
 * Common system configuration across all hosts with a GUI.
 */
 
-{ config, pkgs, home-manager, ... }:
+{ config, pkgs, home-manager, user, ... }:
 
 {
   # GUI setup
@@ -50,5 +50,5 @@
   ]);
 
   # Home manager GUI packages
-  home-manager.users.pweth = import ../home/gui;
+  home-manager.users."${user}" = import ../home/gui;
 }

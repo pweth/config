@@ -1,16 +1,16 @@
 /*
-* Default user configuration for `pweth`.
+* Default user configuration.
 */
 
-{ config, host, keys, ... }:
+{ config, host, user, keys, ... }:
 
 {
   # User account
   users = {
     mutableUsers = false;
-    users.pweth = {
+    users."${user}" = {
       createHome = true;
-      description = "Peter";
+      description = user;
       extraGroups = [
         "dialout"
         "docker"
@@ -27,9 +27,4 @@
 
   # Message of the day
   users.motd = "Connected to ${host.species}.";
-
-  # Password hash
-  age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-  age.secrets.password-hash.file = ../secrets/password-hash.age;
-  users.users.pweth.hashedPasswordFile = config.age.secrets.password-hash.path;
 }

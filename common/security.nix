@@ -2,7 +2,7 @@
 * SSH configuration.
 */
 
-{ config, host, hosts, ... }:
+{ config, host, hosts, user, ... }:
 
 {
   # Set public key for host
@@ -45,4 +45,9 @@
     '';
     wheelNeedsPassword = false;
   };
+
+  # Password hash
+  age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+  age.secrets.password-hash.file = ../secrets/password-hash.age;
+  users.users."${user}".hashedPasswordFile = config.age.secrets.password-hash.path;
 }

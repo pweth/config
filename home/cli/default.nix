@@ -3,7 +3,7 @@
 * See ../gui/default.nix for GUI programs.
 */
 
-{ config, pkgs, ... }:
+{ config, pkgs, user, ... }:
 
 {
   imports = [
@@ -19,8 +19,8 @@
   programs.home-manager.enable = true;
 
   home = {
-    username = "pweth";
-    homeDirectory = "/home/pweth";
+    username = user;
+    homeDirectory = "/home/${user}";
     stateVersion = "22.11";
   };
 

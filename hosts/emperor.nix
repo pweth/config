@@ -2,7 +2,7 @@
 * Personal laptop system configuration.
 */
 
-{ config, lib, pkgs, host, ... }:
+{ config, lib, pkgs, host, user, ... }:
 
 {
   imports = [
@@ -18,7 +18,7 @@
   };
 
   # Monitor setup
-  home-manager.users.pweth.xdg.configFile."monitors.xml".source = ../static/monitors.xml;
+  home-manager.users."${user}".xdg.configFile."monitors.xml".source = ../static/monitors.xml;
 
   # Networking
   networking.networkmanager.enable = true;
@@ -40,7 +40,7 @@
   services.pcscd.enable = true;
   services.xserver.displayManager.autoLogin = {
     enable = true;
-    user = "pweth";
+    user = user;
   };
   systemd.services = {
     "autovt@tty1".enable = false;
@@ -56,7 +56,7 @@
       "/etc/NetworkManager/system-connections"
       "/var/lib/bluetooth"
     ];
-    users.pweth = {
+    users."${user}" = {
       directories = [
         "Documents"
         "Downloads"

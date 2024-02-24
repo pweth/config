@@ -2,7 +2,7 @@
 * NextDNS proxy (DNS-over-HTTPS) configuration.
 */
 
-{ config, pkgs, ... }:
+{ config, pkgs, host, ... }:
 
 {
   # Mount profile ID
@@ -20,7 +20,7 @@
       EnvironmentFile = config.age.secrets.nextdns.path;
       ExecStart = builtins.concatStringsSep " " [
         "${pkgs.nextdns}/bin/nextdns run -profile"
-        "\${PROFILE}/${config.networking.hostName}"
+        "\${PROFILE}/${host.name}"
       ];
       RestartSec = 120;
       LimitMEMLOCK = "infinity";

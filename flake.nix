@@ -39,9 +39,9 @@
           impermanence.nixosModules.impermanence
         ];
         specialArgs = inputs // {
-          hostName = name;
           hosts = hosts;
           host = host;
+          user = "pweth";
         };
         system = host.architecture;
       }

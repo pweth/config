@@ -2,14 +2,14 @@
 * GNOME desktop environment configuration.
 */
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, user, ... }:
 
 {
   # User icon
   home.file.".face".source = ../../static/images/profile.png;
 
   # Theme
-  home.file.".themes/pweth/gnome-shell/gnome-shell.css".source = ../../static/css/gnome-shell.css;
+  home.file.".themes/${user}/gnome-shell/gnome-shell.css".source = ../../static/css/gnome-shell.css;
 
   # Extensions
   home.packages = with pkgs.gnomeExtensions; [
@@ -79,7 +79,7 @@
         favorite-apps = [];
       };
       "org/gnome/shell/extensions/user-theme" = {
-        name = "pweth";
+        name = user;
       };
 
       # Custom keyboard shortcuts

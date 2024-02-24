@@ -12,7 +12,6 @@
     ./gnome.nix
     ./nautilus.nix
     ./vscode.nix
-    ./whatsapp.nix
     ./xdg.nix
   ];
 
