@@ -16,6 +16,7 @@
       gruntfuggly.todo-tree
       haskell.haskell
       jnoortheen.nix-ide
+      ms-azuretools.vscode-docker
       ms-python.python
       ms-toolsai.jupyter
       ms-vscode.cpptools
