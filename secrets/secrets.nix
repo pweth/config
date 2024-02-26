@@ -11,15 +11,17 @@ let
 
   # Secret to host mappings
   secrets = with keys; {
+    # Common
+    "nextdns.age"       = builtins.attrValues keys;
+    "password-hash.age" = builtins.attrValues keys;
+    "tailscale.age"     = builtins.attrValues keys;
+
+    # Services
     "grafana.age"         = [ macaroni ];
-    "nextdns.age"         = [ emperor humboldt macaroni magellanic rockhopper ];
     "paperless.age"       = [ humboldt ];
-    "password-hash.age"   = [ emperor humboldt macaroni magellanic rockhopper ];
-    "rclone.age"          = [ emperor ];
-    "tailscale.age"       = [ emperor humboldt macaroni magellanic rockhopper ];
+    "restic-emperor.age"  = [ emperor ];
     "tunnel-humboldt.age" = [ humboldt ];
     "tunnel-macaroni.age" = [ macaroni ];
-    "wifi.age"            = [ emperor ];
   };
 in
 builtins.mapAttrs (name: hostKeys: {

@@ -53,7 +53,10 @@
       secret () {
         (
           cd /etc/nixos/config/secrets &&
-          sudo agenix -i /etc/ssh/ssh_host_ed25519_key -e ''${1}.age
+          sudo agenix \
+          -i /etc/ssh/ssh_host_ed25519_key \
+          -i /etc/nixos/config/static/keys/age-primary-identity \
+          -e ''${1}.age
         )
       }
       weather () {

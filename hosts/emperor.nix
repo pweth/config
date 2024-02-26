@@ -7,7 +7,7 @@
 {
   imports = [
     ../common/gui.nix
-    ../services/rclone.nix
+    ../services/restic.nix
     ../services/rollback.nix
   ];
 
@@ -20,9 +20,8 @@
   # Monitor setup
   home-manager.users."${user}".xdg.configFile."monitors.xml".source = ../static/monitors.xml;
 
-  # Networking
+  # Network manager
   networking.networkmanager.enable = true;
-  age.secrets.wifi.file = ../secrets/wifi.age;
 
   # tmux
   programs.bash.interactiveShellInit = ''
