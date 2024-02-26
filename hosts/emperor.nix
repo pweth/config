@@ -51,34 +51,16 @@
   services.openssh.enable = lib.mkForce false;
 
   # Impermenance
-  environment.persistence."${host.persistent}" = {
-    directories = [
-      "/etc/NetworkManager/system-connections"
-      "/var/lib/bluetooth"
-    ];
-    users."${user}" = {
-      directories = [
-        "Documents"
-        "Downloads"
-        ".config/Code"
-        ".config/libreoffice"
-        ".config/spotify"
-        ".local/share/Anki2"
-        ".local/share/Emote"
-        ".local/share/keyrings"
-        ".mozilla/firefox/default/extensions"
-        ".mozilla/firefox/default/gmp-gmpopenh264" # Cisco H264 WebRTC plugin
-        ".mozilla/firefox/default/storage/default/moz-extension+++35b124d1-b5b4-420f-8b13-59cb01336768^userContextId=4294967295" # uBlock Origin
-        ".mozilla/firefox/default/storage/default/moz-extension+++bd411188-494b-4537-bbe3-22a0ff87bde8^userContextId=4294967295" # Bitwarden
-        ".ssh"
-      ];
-      files = [
-        ".bash_history"
-        ".mozilla/firefox/default/addonStartup.json.lz4"
-        ".mozilla/firefox/default/cookies.sqlite"
-        ".mozilla/firefox/default/prefs.js"
-        ".mozilla/firefox/default/storage.sqlite"
-      ];
-    };
-  };
+  environment.persistence."${host.persistent}".users."${user}".directories = [
+    "Documents"
+    "Downloads"
+    ".config/Code"
+    ".config/libreoffice"
+    ".config/spotify"
+    ".local/share/Anki2"
+    ".local/share/Emote"
+    ".local/share/keyrings"
+    ".mozilla/firefox/default"
+    ".ssh"
+  ];
 }

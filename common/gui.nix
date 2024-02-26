@@ -44,6 +44,7 @@
     gnome-music
     gnome-system-monitor
     gnome-weather
+    seahorse
     simple-scan
     totem
     yelp

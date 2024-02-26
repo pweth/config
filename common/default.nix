@@ -64,6 +64,7 @@
     openssl
     p7zip
     rclone
+    restic
     ripgrep
     tldr
     tmux

@@ -2,7 +2,7 @@
 * Common configuration across all hosts that use impermanence.
 */
 
-{ config, lib, host, ... }:
+{ config, lib, host, user, ... }:
 
 {
   config = lib.mkIf (builtins.hasAttr "persistent" host) {
@@ -15,14 +15,23 @@
       "ssh/ssh_host_ed25519_key".source = "${host.persistent}/etc/ssh/ssh_host_ed25519_key";
     };
     
-    # Persist system logs and use hidden bind mounts
+    # Use hidden bind mounts and persist required directories
     environment.persistence."${host.persistent}" = {
-      directories = [
-        "/etc/nixos/config"
-        "/var/lib/systemd/coredump"
-        "/var/log/journal"
-      ];
       hideMounts = true;
+      directories = lib.mkMerge [
+        [
+          "/etc/nixos/config"
+          "/var/lib/systemd/coredump"
+          "/var/log/journal"
+        ]
+        (lib.mkIf config.networking.networkmanager.enable [
+          "/etc/NetworkManager/system-connections"
+        ])
+        (lib.mkIf config.hardware.bluetooth.enable [
+          "/var/lib/bluetooth"
+        ])
+      ];
+      users."${user}".files = [ ".bash_history" ];
     };
-  };  
+  };
 }
