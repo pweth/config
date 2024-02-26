@@ -53,6 +53,7 @@
     nmap
     nms
     nodejs
+    passage
     picocom
     rustup
     sl

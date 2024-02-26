@@ -7,7 +7,10 @@ let
   # Load in host information
   hosts = builtins.fromTOML (builtins.readFile ../hosts.toml);
   keys = builtins.mapAttrs (name: host: host.ed25519) hosts;
-  master = builtins.readFile ../static/keys/age-primary.pub;
+  masters = [
+    (builtins.readFile ../static/keys/age-primary.pub)
+    (builtins.readFile ../static/keys/age-secondary.pub)
+  ];
 
   # Secret to host mappings
   secrets = with keys; {
@@ -25,5 +28,5 @@ let
   };
 in
 builtins.mapAttrs (name: hostKeys: {
-  publicKeys = hostKeys ++ [ master ];
+  publicKeys = hostKeys ++ masters;
 }) secrets

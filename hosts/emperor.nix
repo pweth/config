@@ -60,6 +60,7 @@
     ".local/share/Emote"
     ".local/share/keyrings"
     ".mozilla/firefox/default"
+    ".passage"
     ".ssh"
   ];
 }
