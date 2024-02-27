@@ -7,7 +7,6 @@
 {
   imports = [
     ./cloudflared.nix
-    ./docker.nix
     ./exporter.nix
     ./fonts.nix
     ./impermanence.nix
