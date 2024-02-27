@@ -23,6 +23,7 @@ let
     "grafana.age"         = [ macaroni ];
     "paperless.age"       = [ humboldt ];
     "restic-emperor.age"  = [ emperor ];
+    "restic-humboldt.age" = [ humboldt ];
     "tunnel-humboldt.age" = [ humboldt ];
     "tunnel-macaroni.age" = [ macaroni ];
   };

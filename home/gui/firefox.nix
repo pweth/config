@@ -44,6 +44,10 @@
           URL = "https://my.nextdns.io/";
         }
         {
+          Title = "Paperless";
+          URL = "https://docs.pweth.com/dashboard";
+        }
+        {
           Title = "Wordle";
           URL = "https://www.nytimes.com/games/wordle/index.html";
         }

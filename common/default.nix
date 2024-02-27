@@ -111,4 +111,10 @@
     fuzzyCompletion = true;
     keybindings = true;
   };
+
+  # Enable Docker
+  virtualisation = {
+    docker.enable = true;
+    oci-containers.backend = "docker";
+  };
 }
