@@ -1,5 +1,5 @@
 /*
-* Monitoring host system configuration.
+* Oracle VM system configuration.
 */
 
 { config, ... }:

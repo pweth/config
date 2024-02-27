@@ -22,7 +22,6 @@
         [
           "/etc/nixos/config"
           "/var/lib/systemd/coredump"
-          "/var/log/journal"
         ]
         (lib.mkIf config.networking.networkmanager.enable [
           "/etc/NetworkManager/system-connections"
