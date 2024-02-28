@@ -5,7 +5,7 @@
 
 { config, lib, host, ... }:
 let
-  domain = "home.pweth.com";
+  domain = "assistant.home.arpa";
   port = 8123;
   storage = "/var/lib/home-assistant";
 in
@@ -24,12 +24,18 @@ in
     ];
   };
 
-  # Cloudflare tunnel
-  services.cloudflared.tunnels."${host.tunnel}".ingress = {
-    "${domain}" = "http://localhost:${builtins.toString port}";
+  # Internal domain
+  services.nginx.virtualHosts."${domain}" = {
+    forceSSL = true;
+    locations."/" = {
+      proxyPass = "http://localhost:${builtins.toString port}";
+      proxyWebsockets = true;
+    };
+    sslCertificate = config.age.secrets.internal-cert.path;
+    sslCertificateKey = config.age.secrets.internal-key.path;
   };
 
-  # Persist service configuration
+  # Persist service data
   environment.persistence = lib.mkIf (builtins.hasAttr "persistent" host) {
     "${host.persistent}".directories = [ "/var/lib/home-assistant" ];
   };

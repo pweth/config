@@ -5,7 +5,7 @@
 
 { config, lib, host, ... }:
 let
-  domain = "docs.pweth.com";
+  domain = "paperless.home.arpa";
   port = 36095;
 in
 {
@@ -27,12 +27,18 @@ in
     port = port;
   };
 
-  # Cloudflare tunnel
-  services.cloudflared.tunnels."${host.tunnel}".ingress = {
-    "${domain}" = "http://localhost:${builtins.toString port}";
+  # Internal domain
+  services.nginx.virtualHosts."${domain}" = {
+    forceSSL = true;
+    locations."/" = {
+      proxyPass = "http://localhost:${builtins.toString port}";
+      proxyWebsockets = true;
+    };
+    sslCertificate = config.age.secrets.internal-cert.path;
+    sslCertificateKey = config.age.secrets.internal-key.path;
   };
 
-  # Persist service configuration
+  # Persist service data
   environment.persistence = lib.mkIf (builtins.hasAttr "persistent" host) {
     "${host.persistent}".directories = [ "/var/lib/paperless" ];
   };

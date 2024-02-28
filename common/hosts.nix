@@ -14,7 +14,9 @@
   ) hosts)) // {
     # Service DNS entries
     "${hosts.humboldt.address}" = [
+      "assistant.home.arpa"
       "grafana.home.arpa"
+      "paperless.home.arpa"
       "prometheus.home.arpa"
     ];
   };

@@ -12,10 +12,6 @@
     policies = {
       Bookmarks = [
         {
-          Title = "Access";
-          URL = "https://pweth.cloudflareaccess.com/";
-        }
-        {
           Title = "Moodle";
           URL = "https://moodle.bath.ac.uk/login/index.php";
         }
@@ -45,7 +41,7 @@
         }
         {
           Title = "Paperless";
-          URL = "https://docs.pweth.com/dashboard";
+          URL = "https://paperless.home.arpa/dashboard";
         }
         {
           Title = "Wordle";

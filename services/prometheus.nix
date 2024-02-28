@@ -35,4 +35,9 @@ in
     sslCertificate = config.age.secrets.internal-cert.path;
     sslCertificateKey = config.age.secrets.internal-key.path;
   };
+
+  # Persist service data
+  environment.persistence = lib.mkIf (builtins.hasAttr "persistent" host) {
+    "${host.persistent}".directories = [ "/var/lib/${config.services.prometheus.stateDir}" ];
+  };
 }

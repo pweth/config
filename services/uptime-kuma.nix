@@ -25,7 +25,7 @@ in
     "${domain}" = "http://localhost:${builtins.toString port}";
   };
 
-  # Persist service configuration
+  # Persist service data
   environment.persistence = lib.mkIf (builtins.hasAttr "persistent" host) {
     "${host.persistent}".directories = [ "/var/lib/uptime-kuma" ];
   };
