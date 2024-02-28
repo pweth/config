@@ -3,7 +3,7 @@
 * https://github.com/grafana/grafana
 */
 
-{ config, host, ... }:
+{ config, lib, host, ... }:
 let
   domain = "grafana.home.arpa";
   port = 59663;
