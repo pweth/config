@@ -14,11 +14,11 @@
     authKeyFile = config.age.secrets.tailscale.path;
   };
 
-  # Create host.home.arpa DNS entries
+  # Create host.ipn.home.arpa DNS entries
   networking.hosts = builtins.listToAttrs (builtins.attrValues (builtins.mapAttrs (
     name: value: {
       name = value.address;
-      value = [ "${name}.home.arpa" ];
+      value = [ "${name}.ipn.home.arpa" ];
     }
   ) hosts));
 

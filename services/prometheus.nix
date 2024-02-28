@@ -17,7 +17,7 @@ in
         job_name = "node";
         static_configs = [{
           targets = builtins.map (
-            name: "${name}.home.arpa:12345"
+            name: "${name}.ipn.home.arpa:12345"
           ) (builtins.attrNames hosts);
         }];
       }

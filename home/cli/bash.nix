@@ -11,6 +11,7 @@
     # Command aliases
     shellAliases = {
       cat = "bat";
+      cf = "cd /etc/nixos/config";
       cls = "clear";
       fzfb = "fzf --preview 'bat --style=numbers --color=always --line-range :200 {}'";
       ga = "git add";
@@ -41,14 +42,6 @@
         chmod +x /etc/nixos/config/static/scripts/fs-diff.sh &&
         /etc/nixos/config/static/scripts/fs-diff.sh
         sudo umount /mnt
-      }
-      note () {
-        cowyodel --server "http://macaroni.home.arpa:44615" \
-        upload --store --name ''${1} | head -n 1
-      }
-      rbr () {
-        nixos-rebuild switch --flake /etc/nixos/config#''${1} \
-        --target-host ''${1}.home.arpa --use-remote-sudo
       }
       secret () {
         (

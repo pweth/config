@@ -8,7 +8,6 @@
 {
   imports = [
     ./bash.nix
-    ./cowyodel.nix
     ./git.nix
     ./htop.nix
     ./neofetch.nix
