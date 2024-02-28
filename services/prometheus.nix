@@ -3,7 +3,7 @@
 * https://github.com/prometheus/prometheus
 */
 
-{ config, lib, hosts, ... }:
+{ config, lib, host, hosts, ... }:
 let
   domain = "prometheus.home.arpa";
   port = 58635;
