@@ -5,7 +5,7 @@
 
 { config, host, ... }:
 let
-  domain = "grafana.pweth.com";
+  domain = "grafana.home.arpa";
   port = 59663;
 in
 {
@@ -39,8 +39,14 @@ in
     };
   };
 
-  # Cloudflare tunnel
-  services.cloudflared.tunnels."${host.tunnel}".ingress = {
-    "${domain}" = "http://localhost:${builtins.toString port}";
+  # Internal domain
+  services.nginx.virtualHosts."${domain}" = {
+    forceSSL = true;
+    locations."/" = {
+      proxyPass = "http://localhost:${builtins.toString port}";
+      proxyWebsockets = true;
+    };
+    sslCertificate = config.age.secrets.internal-cert.path;
+    sslCertificateKey = config.age.secrets.internal-key.path;
   };
 }
