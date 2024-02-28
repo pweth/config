@@ -7,6 +7,7 @@
 {
   imports = [
     ../services/cowyo.nix
+    ../services/grafana.nix
     ../services/home-assistant.nix
     ../services/paperless.nix
     ../services/prometheus.nix

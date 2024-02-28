@@ -6,7 +6,6 @@
 
 {
   imports = [
-    ../services/grafana.nix
     ../services/uptime-kuma.nix
   ];
 

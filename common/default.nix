@@ -9,6 +9,7 @@
     ./cloudflared.nix
     ./exporter.nix
     ./fonts.nix
+    ./hosts.nix
     ./impermanence.nix
     ./locale.nix
     ./nextdns.nix
