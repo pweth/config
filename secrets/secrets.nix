@@ -15,6 +15,8 @@ let
   # Secret to host mappings
   secrets = with keys; {
     # Common
+    "internal-cert.age" = builtins.attrValues keys;
+    "internal-key.age"  = builtins.attrValues keys;
     "nextdns.age"       = builtins.attrValues keys;
     "password-hash.age" = builtins.attrValues keys;
     "tailscale.age"     = builtins.attrValues keys;

@@ -8,6 +8,20 @@
   # Set public key for host
   environment.etc."ssh/ssh_host_ed25519_key.pub".text = host.ed25519;
 
+  # Add internal CA
+  security.pki.certificateFiles = [ ../static/keys/internal-ca.crt ];
+  
+  # Enable passwordless sudo for remote deployments and disable lecture
+  security.sudo = {
+    extraConfig = ''
+      Defaults lecture = never
+    '';
+    wheelNeedsPassword = false;
+  };
+
+  # fail2ban with default jails
+  services.fail2ban.enable = true;
+
   # OpenSSH
   services.openssh = {
     enable = true;
@@ -33,17 +47,6 @@
       "github.com".publicKey = builtins.readFile ../static/keys/github.pub;
       "git.sr.ht".publicKey = builtins.readFile ../static/keys/sourcehut.pub;
     };
-  };
-
-  # fail2ban with default jails
-  services.fail2ban.enable = true;
-
-  # Enable passwordless sudo for remote deployments and disable lecture
-  security.sudo = {
-    extraConfig = ''
-      Defaults lecture = never
-    '';
-    wheelNeedsPassword = false;
   };
 
   # Password hash

@@ -9,6 +9,7 @@
     ../services/cowyo.nix
     ../services/home-assistant.nix
     ../services/paperless.nix
+    ../services/prometheus.nix
     ../services/restic.nix
     ../services/rollback.nix
   ];
