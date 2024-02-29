@@ -14,12 +14,8 @@
   };
 
   # Mount internal certificates
-  age.secrets.internal-cert = {
-    file = ../secrets/internal-cert.age;
-    owner = "nginx";
-  };
-  age.secrets.internal-key = {
-    file = ../secrets/internal-key.age;
+  age.secrets.home-arpa-key = {
+    file = ../secrets/home-arpa-key.age;
     owner = "nginx";
   };
 
@@ -41,8 +37,8 @@
           proxyPass = "http://localhost:${builtins.toString config.services.prometheus.exporters.node.port}";
           proxyWebsockets = true;
         };
-        sslCertificate = config.age.secrets.internal-cert.path;
-        sslCertificateKey = config.age.secrets.internal-key.path;
+        sslCertificate = ../static/keys/home-arpa.crt;
+        sslCertificateKey = config.age.secrets.home-arpa-key.path;
       };
       "default" = {
         default = true;
