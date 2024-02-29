@@ -5,7 +5,7 @@
 
 { config, lib, host, ... }:
 let
-  domain = "grafana.home.arpa";
+  domain = "grafana.pweth.com";
   port = 59663;
 in
 {
@@ -41,13 +41,13 @@ in
 
   # Internal domain
   services.nginx.virtualHosts."${domain}" = {
+    acmeRoot = null;
+    enableACME = true;
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://localhost:${builtins.toString port}";
       proxyWebsockets = true;
     };
-    sslCertificate = config.age.secrets.internal-cert.path;
-    sslCertificateKey = config.age.secrets.internal-key.path;
   };
 
   # Persist service data

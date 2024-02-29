@@ -20,4 +20,16 @@
     enable = true;
     device = "/dev/sda";
   };
+
+  # ACME
+  age.secrets.dns-01.file = ../secrets/dns-01.age;
+  security.acme = {
+    acceptTerms = true;
+    defaults = {
+      dnsPropagationCheck = false;
+      dnsProvider = "cloudflare";
+      email = "9iz5svuo@duck.com";
+      environmentFile = config.age.secrets.dns-01.path;
+    };
+  };
 }

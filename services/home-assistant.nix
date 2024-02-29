@@ -5,7 +5,7 @@
 
 { config, lib, host, ... }:
 let
-  domain = "assistant.home.arpa";
+  domain = "home.pweth.com";
   port = 8123;
   storage = "/var/lib/home-assistant";
 in
@@ -26,13 +26,13 @@ in
 
   # Internal domain
   services.nginx.virtualHosts."${domain}" = {
+    acmeRoot = null;
+    enableACME = true;
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://localhost:${builtins.toString port}";
       proxyWebsockets = true;
     };
-    sslCertificate = config.age.secrets.internal-cert.path;
-    sslCertificateKey = config.age.secrets.internal-key.path;
   };
 
   # Persist service data

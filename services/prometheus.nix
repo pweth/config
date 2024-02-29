@@ -5,7 +5,7 @@
 
 { config, lib, host, hosts, ... }:
 let
-  domain = "prometheus.home.arpa";
+  domain = "prometheus.pweth.com";
   port = 58635;
 in
 {
@@ -27,13 +27,13 @@ in
 
   # Internal domain
   services.nginx.virtualHosts."${domain}" = {
+    acmeRoot = null;
+    enableACME = true;
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://localhost:${builtins.toString port}";
       proxyWebsockets = true;
     };
-    sslCertificate = config.age.secrets.internal-cert.path;
-    sslCertificateKey = config.age.secrets.internal-key.path;
   };
 
   # Persist service data

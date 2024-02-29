@@ -22,6 +22,7 @@ let
     "tailscale.age"     = builtins.attrValues keys;
 
     # Services
+    "dns-01.age"          = [ humboldt ];
     "grafana.age"         = [ humboldt ];
     "paperless.age"       = [ humboldt ];
     "restic-emperor.age"  = [ emperor ];

@@ -41,7 +41,7 @@
         }
         {
           Title = "Paperless";
-          URL = "https://paperless.home.arpa/dashboard";
+          URL = "https://docs.pweth.com/dashboard";
         }
         {
           Title = "Wordle";
