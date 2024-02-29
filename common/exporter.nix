@@ -34,15 +34,21 @@
     recommendedTlsSettings = true;
 
     # IPN hostname for metrics
-    virtualHosts."${host.name}.ipn.home.arpa" = {
-      default = true;
-      forceSSL = true;
-      locations."/" = {
-        proxyPass = "http://localhost:${builtins.toString config.services.prometheus.exporters.node.port}";
-        proxyWebsockets = true;
+    virtualHosts = {
+      "${host.name}.home.arpa" = {
+        forceSSL = true;
+        locations."/" = {
+          proxyPass = "http://localhost:${builtins.toString config.services.prometheus.exporters.node.port}";
+          proxyWebsockets = true;
+        };
+        sslCertificate = config.age.secrets.internal-cert.path;
+        sslCertificateKey = config.age.secrets.internal-key.path;
       };
-      sslCertificate = config.age.secrets.internal-cert.path;
-      sslCertificateKey = config.age.secrets.internal-key.path;
+      "default" = {
+        default = true;
+        locations."/".return = "444";
+        rejectSSL = true;
+      };
     };
   };
 }

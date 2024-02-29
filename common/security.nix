@@ -39,7 +39,7 @@
     knownHosts = (builtins.listToAttrs (builtins.attrValues (
       builtins.mapAttrs (
         name: host: {
-          name = "${name}.ipn.home.arpa";
+          name = "${name}.home.arpa";
           value.publicKey = host.ed25519;
         }
       ) hosts
