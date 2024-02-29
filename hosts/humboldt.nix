@@ -7,7 +7,7 @@
 {
   imports = [
     ../services/acme.nix
-    ../services/cowyo.nix
+    ../services/flatnotes.nix
     ../services/grafana.nix
     ../services/home-assistant.nix
     ../services/paperless.nix

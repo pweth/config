@@ -22,6 +22,7 @@ let
 
     # Services
     "dns-01.age"          = [ humboldt ];
+    "flatnotes.age"       = [ humboldt ];
     "grafana.age"         = [ humboldt ];
     "paperless.age"       = [ humboldt ];
     "restic-emperor.age"  = [ emperor ];

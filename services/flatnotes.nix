@@ -1,20 +1,24 @@
 /*
-* A feature-rich wiki for minimalists.
-* https://github.com/schollz/cowyo
+* A self-hosted, database-less note taking web app.
+* https://github.com/Dullage/flatnotes
 */
 
 { config, lib, host, ... }:
 let
-  domain = "moo.pweth.com";
+  domain = "notes.pweth.com";
   port = 44615;
-  storage = "/var/lib/cowyo";
+  storage = "/var/lib/flatnotes";
 in
 {
+  # Mount environment file
+  age.secrets.flatnotes.file = ../secrets/flatnotes.age;
+
   # Docker container
-  virtualisation.oci-containers.containers.cowyo = {
+  virtualisation.oci-containers.containers.flatnotes = {
     autoStart = true;
-    image = "schollz/cowyo";
-    ports = [ "${builtins.toString port}:8050" ];
+    environmentFiles = [ config.age.secrets.flatnotes.path ];
+    image = "dullage/flatnotes:latest";
+    ports = [ "${builtins.toString port}:8080" ];
     volumes = [
       "${storage}:/data"
     ];
