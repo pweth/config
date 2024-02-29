@@ -16,6 +16,7 @@ in
     environment = {
       DOMAIN = "https://${domain}";
       SHOW_PASSWORD_HINT = "false";
+      SIGNUPS_ALLOWED = "false";
     };
     image = "vaultwarden/server:latest";
     ports = [ "${builtins.toString port}:80" ];
