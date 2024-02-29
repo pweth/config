@@ -27,6 +27,6 @@ in
 
   # Persist service data
   environment.persistence = lib.mkIf (builtins.hasAttr "persistent" host) {
-    "${host.persistent}".directories = [ "/var/lib/cowyo" ];
+    "${host.persistent}".directories = [ storage ];
   };
 }

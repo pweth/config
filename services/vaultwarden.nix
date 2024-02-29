@@ -1,26 +1,26 @@
 /*
-* A feature-rich wiki for minimalists.
-* https://github.com/schollz/cowyo
+* Unofficial Bitwarden compatible server written in Rust.
+* https://github.com/dani-garcia/vaultwarden
 */
 
 { config, lib, host, ... }:
 let
-  domain = "home.pweth.com";
-  port = 8123;
-  storage = "/var/lib/home-assistant";
+  domain = "vault.pweth.com";
+  port = 22918;
+  storage = "/var/lib/vaultwarden";
 in
 {
   # Docker container
-  virtualisation.oci-containers.containers.home-assistant = {
+  virtualisation.oci-containers.containers.vaultwarden = {
     autoStart = true;
-    image = "homeassistant/home-assistant:latest";
-    extraOptions = [
-      "--network=host"
-      "--privileged"
-    ];
+    environment = {
+      DOMAIN = "https://${domain}";
+      SHOW_PASSWORD_HINT = "false";
+    };
+    image = "vaultwarden/server:latest";
+    ports = [ "${builtins.toString port}:80" ];
     volumes = [
-      "${storage}:/config"
-      "/etc/localtime:/etc/localtime:ro"
+      "${storage}:/data"
     ];
   };
 
