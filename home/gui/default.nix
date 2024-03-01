@@ -21,9 +21,7 @@
     emote
     gimp
     libreoffice
-    obsidian
     obs-studio
-    openshot-qt
     spotify
     sqlitebrowser
     texlive.combined.scheme-full
