@@ -22,4 +22,7 @@
     enable = true;
     device = "/dev/sda";
   };
+
+  # VSCode server
+  services.vscode-server.enable = true;
 }

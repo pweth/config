@@ -20,9 +20,12 @@
     # SSH keys
     keys.url = "https://github.com/pweth.keys";
     keys.flake = false;
+
+    # VSCode Server
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
-  outputs = { self, nixpkgs, agenix, home-manager, impermanence, keys }@inputs:
+  outputs = { self, nixpkgs, agenix, home-manager, impermanence, keys, vscode-server }@inputs:
   let
     hosts = builtins.fromTOML (builtins.readFile ./hosts.toml);
   in
@@ -35,8 +38,9 @@
           (./hardware + "/${host.system}.nix")
           ./common
           agenix.nixosModules.default
-          home-manager.nixosModules.home-manager
+          home-manager.nixosModules.default
           impermanence.nixosModules.impermanence
+          vscode-server.nixosModules.default
         ];
         specialArgs = inputs // {
           hosts = hosts;
