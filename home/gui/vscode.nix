@@ -35,6 +35,9 @@
       "explorer.confirmDelete" = false;
       "explorer.confirmDragAndDrop" = false;
       "remote.downloadExtensionsLocally" = true;
+      "remote.SSH.defaultExtensions" = [
+        "jnoortheen.nix-ide"
+      ];
       "telemetry.telemetryLevel" = "off";
       "terminal.integrated.fontFamily" = "Hack";
       "update.mode" = "none";

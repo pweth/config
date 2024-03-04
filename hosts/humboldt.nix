@@ -10,6 +10,7 @@
     ../services/flatnotes.nix
     ../services/grafana.nix
     ../services/home-assistant.nix
+    ../services/jellyfin.nix
     ../services/paperless.nix
     ../services/prometheus.nix
     ../services/restic.nix

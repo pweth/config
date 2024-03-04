@@ -20,6 +20,7 @@
     discord
     emote
     gimp
+    handbrake
     libreoffice
     obs-studio
     spotify
