@@ -2,7 +2,7 @@
 * ACME configuration for internal TLS certificates.
 */
 
-{ config, ... }:
+{ config, lib, host, ... }:
 
 {
   # Mount API key for DNS-01 challenge
@@ -17,5 +17,10 @@
       email = "9iz5svuo@duck.com";
       environmentFile = config.age.secrets.dns-01.path;
     };
+  };
+
+  # Persist service data
+  environment.persistence = lib.mkIf (builtins.hasAttr "persistent" host) {
+    "${host.persistent}".directories = [ "/var/lib/acme" ];
   };
 }
