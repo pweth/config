@@ -7,18 +7,19 @@
 {
   xdg = {
     # `Open with...` defaults
-    mimeApps = {
+    mimeApps = let
+      defaultApps = {
+        "application/pdf" = "firefox.desktop";
+        "image/jpeg" = "org.gnome.Loupe.desktop";
+        "image/png" = "org.gnome.Loupe.desktop";
+        "video/matroska" = "vlc.desktop";
+        "video/mp4" = "vlc.desktop";
+      };
+    in
+    {
       enable = true;
-      associations.added = {
-        "application/pdf" = "firefox.desktop";
-        "image/jpeg" = "org.gnome.Loupe.desktop";
-        "image/png" = "org.gnome.Loupe.desktop";
-      };
-      defaultApplications = {
-        "application/pdf" = "firefox.desktop";
-        "image/jpeg" = "org.gnome.Loupe.desktop";
-        "image/png" = "org.gnome.Loupe.desktop";
-      };
+      associations.added = defaultApps;
+      defaultApplications = defaultApps;
     };
 
     userDirs = {

@@ -24,6 +24,7 @@ let
     "dns-01.age"          = [ humboldt ];
     "flatnotes.age"       = [ humboldt ];
     "grafana.age"         = [ humboldt ];
+    "masked-email.age"    = [ humboldt ];
     "paperless.age"       = [ humboldt ];
     "restic-emperor.age"  = [ emperor ];
     "restic-humboldt.age" = [ humboldt ];

@@ -11,6 +11,7 @@
     ../services/grafana.nix
     ../services/home-assistant.nix
     ../services/jellyfin.nix
+    ../services/masked-email.nix
     ../services/paperless.nix
     ../services/prometheus.nix
     ../services/restic.nix
