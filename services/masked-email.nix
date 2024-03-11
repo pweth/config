@@ -6,6 +6,9 @@
 let
   domain = "mask.pweth.com";
   port = 40368;
+  python = pkgs.python3.withPackages (ps: with ps; [
+    requests
+  ]);
 in
 {
   # Mount environment file
@@ -14,7 +17,7 @@ in
   # Systemd service
   systemd.services.masked-email = {
     serviceConfig = {
-      ExecStart = "${pkgs.python3}/bin/python ${config.age.secrets.masked-email.path}";
+      ExecStart = "${python}/bin/python ${config.age.secrets.masked-email.path}";
       RestartSec = 120;
     };
 
