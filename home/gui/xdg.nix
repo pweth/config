@@ -12,8 +12,9 @@
         "application/pdf" = "firefox.desktop";
         "image/jpeg" = "org.gnome.Loupe.desktop";
         "image/png" = "org.gnome.Loupe.desktop";
-        "video/matroska" = "vlc.desktop";
+        "video/avi" = "vlc.desktop";
         "video/mp4" = "vlc.desktop";
+        "video/x-matroska" = "vlc.desktop";
       };
     in
     {

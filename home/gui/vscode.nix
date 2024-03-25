@@ -34,6 +34,7 @@
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "explorer.confirmDelete" = false;
       "explorer.confirmDragAndDrop" = false;
+      "jupyter.askForKernelRestart" = false;
       "remote.downloadExtensionsLocally" = true;
       "remote.SSH.defaultExtensions" = [
         "jnoortheen.nix-ide"
