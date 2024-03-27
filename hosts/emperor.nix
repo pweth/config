@@ -54,6 +54,7 @@
     "Documents"
     "Downloads"
     ".config/Code"
+    ".config/discord"
     ".config/libreoffice"
     ".config/spotify"
     ".local/share/Anki2"
