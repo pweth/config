@@ -19,10 +19,10 @@
     anki
     discord
     emote
-    gimp
     handbrake
     libreoffice
     obs-studio
+    pinta
     spotify
     sqlitebrowser
     texlive.combined.scheme-full

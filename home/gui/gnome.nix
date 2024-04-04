@@ -138,6 +138,7 @@
         enable-fullscreen = false;
         show-indicator = "always";
         show-notifications = false;
+        toggle-shortcut = [ "<Super>w" ];
         toggle-state = true;
         user-enabled = true;
       };
