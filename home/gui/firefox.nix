@@ -10,56 +10,6 @@
     enable = true;
 
     policies = {
-      Bookmarks = [
-        {
-          Title = "Cloudflare";
-          URL = "https://dash.cloudflare.com/";
-        }
-        {
-          Title = "Fastmail";
-          URL = "https://app.fastmail.com/mail/Inbox/";
-        }
-        {
-          Title = "GitHub";
-          URL = "https://github.com/";
-        }
-        {
-          Title = "Grafana";
-          URL = "https://grafana.pweth.com/";
-        }
-        {
-          Title = "Jellyfin";
-          URL = "https://jellyfin.pweth.com/";
-        }
-        {
-          Title = "Moodle";
-          URL = "https://moodle.bath.ac.uk/login/index.php";
-        }
-        {
-          Title = "NextDNS";
-          URL = "https://my.nextdns.io/";
-        }
-        {
-          Title = "Notes";
-          URL = "https://notes.pweth.com/";
-        }
-        {
-          Title = "Outlook";
-          URL = "https://outlook.office365.com/mail/";
-        }
-        {
-          Title = "Paperless";
-          URL = "https://docs.pweth.com/dashboard";
-        }
-        {
-          Title = "SourceHut";
-          URL = "https://git.sr.ht/";
-        }
-        {
-          Title = "Uptime";
-          URL = "https://uptime.pweth.com/";
-        }
-      ];
       DisableFeedbackCommands = true;
       DisableFirefoxAccounts = true;
       DisableFirefoxStudies = true;
@@ -240,7 +190,6 @@
 
         # Disable search suggestions
         "browser.urlbar.trimURLs" = false;
-        "browser.urlbar.quicksuggest.scenario" = "history";
         "browser.urlbar.quicksuggest.enabled" = false;
         "browser.urlbar.speculativeConnect.enabled" = false;
         "browser.urlbar.suggest.bookmark" = false;
