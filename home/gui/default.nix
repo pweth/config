@@ -23,6 +23,7 @@
     libreoffice
     obs-studio
     pinta
+    shotcut
     spotify
     sqlitebrowser
     texlive.combined.scheme-full
