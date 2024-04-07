@@ -27,3 +27,7 @@
   height: auto !important;
   width: auto !important;
 }
+
+#searchResultsContent {
+  padding-top: 50px;
+}

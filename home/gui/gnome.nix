@@ -37,7 +37,7 @@
       "org/gnome/desktop/interface" = {
         clock-show-weekday = true;
         color-scheme = "prefer-dark";
-        enable-hot-corners = false;
+        enable-hot-corners = true;
         gtk-enable-primary-paste = false;
         gtk-theme = "Adwaita-dark";
         monospace-font-name = "Hack 11";
@@ -54,6 +54,9 @@
         picture-uri = "file:///etc/nixos/config/static/images/leaves.jpg";
         user-switch-enabled = false;
       };
+      "org/gnome/desktop/search-providers" = {
+        disable-external = true;
+      };
       "org/gnome/desktop/session" = {
         idle-delay = 900;
       };
@@ -62,6 +65,7 @@
       };
       "org/gnome/mutter" = {
         dynamic-workspaces = true;
+        edge-tiling = true;
         workspaces-only-on-primary = true;
       };
       "org/gnome/settings-daemon/plugins/color" = {
@@ -107,15 +111,19 @@
       };
 
       # Other keyboard shortcuts
-      "org/gnome/desktop/vm/keybindings" = {
+      "org/gnome/desktop/wm/keybindings" = {
         move-to-workspace-1 = [ "<Shift><Super>1" ];
         move-to-workspace-2 = [ "<Shift><Super>2" ];
         move-to-workspace-3 = [ "<Shift><Super>3" ];
         move-to-workspace-4 = [ "<Shift><Super>4" ];
+        move-to-workspace-left = [ "<Shift><Control><Alt>Left" ];
+        move-to-workspace-right = [ "<Shift><Control><Alt>Right" ];
         switch-to-workspace-1 = [ "<Super>1" ];
         switch-to-workspace-2 = [ "<Super>2" ];
         switch-to-workspace-3 = [ "<Super>3" ];
         switch-to-workspace-4 = [ "<Super>4" ];
+        switch-to-workspace-left = [ "<Control><Alt>Left" ];
+        switch-to-workspace-right = [ "<Control><Alt>Right" ];
       };
       "org/gnome/mutter/wayland/keybindings" = {
         restore-shortcuts = [];
