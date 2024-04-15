@@ -15,4 +15,7 @@
     efiInstallAsRemovable = true;
     efiSupport = true;
   };
+
+  # VSCode server
+  services.vscode-server.enable = true;
 }

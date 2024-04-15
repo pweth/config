@@ -46,6 +46,7 @@
     go
     home-manager
     httpie
+    imagemagick
     libheif
     lolcat
     minicom

@@ -14,6 +14,7 @@
   # Extensions
   home.packages = with pkgs.gnomeExtensions; [
     caffeine
+    noannoyance-fork
   ];
 
   # dconf values
@@ -77,6 +78,7 @@
         app-picker-layout = [];
         enabled-extensions = [
           "caffeine@patapon.info"
+          "noannoyance-fork@vrba.dev"
           "user-theme@gnome-shell-extensions.gcampax.github.com"
         ];
         disable-user-extensions = false;
@@ -141,7 +143,7 @@
         switch-to-application-4 = [];
       };
 
-      # Caffeine settings
+      # Extension settings
       "org/gnome/shell/extensions/caffeine" = {
         enable-fullscreen = false;
         show-indicator = "always";
@@ -149,6 +151,9 @@
         toggle-shortcut = [ "<Super>w" ];
         toggle-state = true;
         user-enabled = true;
+      };
+      "org/gnome/shell/extensions/noannoyance" = {
+        enable-ignorelist = false;
       };
     };
   };

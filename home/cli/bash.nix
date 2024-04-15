@@ -23,7 +23,6 @@
       ls = "eza -la";
       ngc = "nix-collect-garbage -d";
       rb = "sudo nixos-rebuild switch --flake /etc/nixos/config";
-      rbi = "sudo nixos-rebuild switch --flake /etc/nixos/config --impure";
       tka = "tmux kill-session -a";
       tls = "tmux ls";
       v = "nvim"; 
