@@ -172,6 +172,7 @@
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
         # Do not track
+        "browser.pagethumbnails.capturing_disabled" = true;
         "privacy.donottrackheader.enabled" = true;
         "privacy.globalprivacycontrol.enabled" = true;
         "privacy.globalprivacycontrol.was_ever_enabled" = true;
@@ -181,6 +182,7 @@
         "dom.event.clipboardevents.enabled" = true;
         "dom.event.contextmenu.enabled" = true;
         "dom.gamepad.enabled" = false;
+        "plugins.enumerable_names" = "";
 
         # Encrypted SNI
         "network.security.esni.enabled" = true;
@@ -198,14 +200,9 @@
         "browser.urlbar.suggest.openpage" = false;
         "browser.urlbar.suggest.topsites" = false;
 
-        # Disable thumbnail collection
-        "browser.pagethumbnails.capturing_disabled" = true;
-
-        # Delete temporary files opened in external apps
-        "browser.helperApps.deleteTempFileOnExit" = true;
-
-        # Disable installed plugins list
-        "plugins.enumerable_names" = "";
+        # Download settings
+        "browser.download.useDownloadDir" = false;
+        "browser.helperApps.deleteTempFileOnExit" = true;        
 
         # TLS settings
         "dom.security.https_only_mode" = true;
