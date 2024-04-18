@@ -34,6 +34,7 @@
           (lib.hm.gvariant.mkTuple [ "xkb" "gb" ])
           (lib.hm.gvariant.mkTuple [ "xkb" "gb+dvorakukp" ])
         ];
+        xkb-options = [ "caps:escape" ];
       };
       "org/gnome/desktop/interface" = {
         clock-show-weekday = true;

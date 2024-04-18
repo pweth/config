@@ -17,6 +17,12 @@
     systemd-boot.enable = true;
   };
 
+  # Logitech peripherals
+  hardware.logitech.wireless = {
+    enable = true;
+    enableGraphical = true;
+  };
+
   # Monitor setup
   home-manager.users."${user}".xdg.configFile."monitors.xml".source = ../static/monitors.xml;
 

@@ -5,7 +5,8 @@
 #PersonalToolbar,
 #star-button-box,
 #unified-extensions-button,
-.bookmark-item > .toolbarbutton-icon {
+.bookmark-item > .toolbarbutton-icon,
+.tab-context-line {
     display: none !important;
 }
 

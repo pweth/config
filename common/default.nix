@@ -72,6 +72,7 @@
     unzip
     usbutils
     wget
+    xclip
     zip
   ]);
 

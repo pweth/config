@@ -31,7 +31,6 @@
     vlc
     webex
     wireshark
-    wl-clipboard
     zoom-us
   ];
 }

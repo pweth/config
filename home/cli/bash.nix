@@ -10,21 +10,24 @@
 
     # Command aliases
     shellAliases = {
-      cat = "bat";
       cf = "cd /etc/nixos/config";
       cls = "clear";
-      fzfb = "fzf --preview 'bat --style=numbers --color=always --line-range :200 {}'";
+      c = "xclip -selection clipboard";
+      df = "df -h";
+      files = "fzf --preview 'bat --style=numbers --color=always --line-range :200 {}'";
       ga = "git add";
       gc = "git commit";
       gd = "git diff";
+      gg = "git pull";
       gp = "git push";
       gr = "git reset";
       gs = "git status";
       ls = "eza -la";
+      mkdir = "mkdir -p";
+      nano = "nvim";
       ngc = "nix-collect-garbage -d";
+      p = "xclip -o -selection clipboard";
       rb = "sudo nixos-rebuild switch --flake /etc/nixos/config";
-      tka = "tmux kill-session -a";
-      tls = "tmux ls";
       v = "nvim"; 
     };
 
