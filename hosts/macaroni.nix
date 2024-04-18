@@ -5,10 +5,6 @@
 { config, ... }:
 
 {
-  imports = [
-    ../services/uptime-kuma.nix
-  ];
-
   # Bootloader
   boot.loader.grub = {
     device = "nodev";
@@ -16,6 +12,9 @@
     efiSupport = true;
   };
 
-  # VSCode server
-  services.vscode-server.enable = true;
+  # Tailscale exit node
+  services.tailscale = {
+    extraUpFlags = [ "--advertise-exit-node" ];
+    useRoutingFeatures = "server";
+  };
 }

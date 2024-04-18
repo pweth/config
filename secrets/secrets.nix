@@ -28,7 +28,6 @@ let
     "paperless.age"       = [ humboldt ];
     "restic-emperor.age"  = [ emperor ];
     "restic-humboldt.age" = [ humboldt ];
-    "tunnel-macaroni.age" = [ macaroni ];
   };
 in
 builtins.mapAttrs (name: hostKeys: {

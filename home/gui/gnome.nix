@@ -15,6 +15,7 @@
   home.packages = with pkgs.gnomeExtensions; [
     caffeine
     noannoyance-fork
+    tailscale-qs
   ];
 
   # dconf values

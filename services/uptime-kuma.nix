@@ -20,9 +20,15 @@ in
     ];
   };
 
-  # Cloudflare tunnel
-  services.cloudflared.tunnels."${host.tunnel}".ingress = {
-    "${domain}" = "http://localhost:${builtins.toString port}";
+  # Internal domain
+  services.nginx.virtualHosts."${domain}" = {
+    acmeRoot = null;
+    enableACME = true;
+    forceSSL = true;
+    locations."/" = {
+      proxyPass = "http://localhost:${builtins.toString port}";
+      proxyWebsockets = true;
+    };
   };
 
   # Persist service data

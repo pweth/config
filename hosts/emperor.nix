@@ -55,6 +55,12 @@
   # Disable SSH
   services.openssh.enable = lib.mkForce false;
 
+  # Tailscale client
+  services.tailscale = {
+    extraUpFlags = [ "--operator=${user}" ];
+    useRoutingFeatures = "client";
+  };
+
   # Impermenance
   environment.persistence."${host.persistent}".users."${user}".directories = [
     "Documents"
