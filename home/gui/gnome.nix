@@ -39,7 +39,7 @@
       "org/gnome/desktop/interface" = {
         clock-show-weekday = true;
         color-scheme = "prefer-dark";
-        enable-hot-corners = true;
+        enable-hot-corners = false;
         gtk-enable-primary-paste = false;
         gtk-theme = "Adwaita-dark";
         monospace-font-name = "Hack 11";
