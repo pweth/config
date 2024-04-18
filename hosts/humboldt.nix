@@ -17,6 +17,7 @@
     ../services/prometheus.nix
     ../services/restic.nix
     ../services/rollback.nix
+    ../services/uptime.nix
     ../services/vaultwarden.nix
   ];
   

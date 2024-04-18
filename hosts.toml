@@ -28,7 +28,6 @@ address      = "100.90.0.1"
 architecture = "x86_64-linux"
 ed25519      = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDs6W94lN0Kx8hOEU4BArPlzkishQGQDVD/gLEsncAzI"
 system       = "oracle-vm-e2-1-micro"
-tunnel       = "a972b5e1-8307-4574-a860-c92aaec5adce"
 
 
 # Raspberry Pi

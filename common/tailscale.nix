@@ -12,6 +12,7 @@
   services.tailscale = {
     enable = true;
     authKeyFile = config.age.secrets.tailscale.path;
+    extraUpFlags = [ "--accept-dns=false" ];
   };
 
   # host.home.arpa DNS entries
