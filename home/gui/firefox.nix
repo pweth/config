@@ -131,7 +131,7 @@
           "DuckDuckGo Themed" = {
             urls = [{
               # https://duckduckgo.com/duckduckgo-help-pages/settings/params/
-              template = "https://duckduckgo.com/?q={searchTerms}&kp=1&kl=uk-en&kad=en_GB&k1=-1&kaj=m&kak=-1&kax=-1&kaq=-1&kap=-1&kao=-1&kau=-1&kae=d&k5=1";
+              template = "https://duckduckgo.com/?q={searchTerms}&kp=1&kl=uk-en&kad=en_GB&k1=-1&kaj=m&kak=-1&kax=-1&kaq=-1&kap=-1&kao=-1&kau=-1&kae=d&k5=1&kpsb=-1&kav=1";
             }];
             iconUpdateURL = "https://duckduckgo.com/favicon.png";
           };

@@ -20,11 +20,17 @@
     ../services/uptime-kuma.nix
     ../services/vaultwarden.nix
   ];
-  
+
   # Bootloader
   boot.loader.grub = {
     enable = true;
     device = "/dev/sda";
+  };
+
+  # Tailscale exit node
+  services.tailscale = {
+    extraUpFlags = [ "--advertise-exit-node" ];
+    useRoutingFeatures = "server";
   };
 
   # VSCode server
