@@ -44,12 +44,6 @@
           installation_mode = "force_installed";
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
         };
-        # Multi-Account Containers
-        "@testpilot-containers" = {
-          default_area = "navbar";
-          installation_mode = "force_installed";
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi";
-        };
       };
       ExtensionUpdate = true;
       FirefoxHome = {
@@ -94,17 +88,7 @@
         Mode = "none";
       };
       RequestedLocales = "en-US,en";
-      SanitizeOnShutdown = {
-        Cache = true;
-        Cookies = false;
-        Downloads = true;
-        FormData = true;
-        History = false;
-        Sessions = false;
-        SiteSettings = false;
-        OfflineApps = false;
-        Locked = true;
-      };
+      SanitizeOnShutdown = true;
       SearchBar = "unified";
       SearchEngines.PreventInstalls = true;
       SearchSuggestEnabled = false;
