@@ -24,7 +24,7 @@
   };
 
   # Monitor setup
-  home-manager.users."${user}".xdg.configFile."monitors.xml".source = ../static/monitors.xml;
+  home-manager.users."${user}".xdg.configFile."monitors.xml".source = ../static/misc/monitors.xml;
 
   # Network manager
   networking.networkmanager.enable = true;

@@ -31,3 +31,7 @@
 #searchResultsContent {
   padding-top: 50px;
 }
+
+.quick-toggle-menu .header .icon {
+  background-color: #333333;
+}

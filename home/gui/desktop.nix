@@ -9,6 +9,7 @@ let
     "blueman-manager"
     "draw"
     "htop"
+    "jupyterlab"
     "math"
     "nvim"
     "startcenter"

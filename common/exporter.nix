@@ -37,7 +37,7 @@
           proxyPass = "http://localhost:${builtins.toString config.services.prometheus.exporters.node.port}";
           proxyWebsockets = true;
         };
-        sslCertificate = ../static/keys/home-arpa.crt;
+        sslCertificate = ../keys/certificates/home-arpa.crt;
         sslCertificateKey = config.age.secrets.home-arpa-key.path;
       };
       "default" = {

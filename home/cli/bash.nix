@@ -41,8 +41,8 @@
       fs-diff () {
         sudo mkdir -p /mnt &&
         sudo mount -o subvol=/ /dev/mapper/enc /mnt &&
-        chmod +x /etc/nixos/config/static/scripts/fs-diff.sh &&
-        /etc/nixos/config/static/scripts/fs-diff.sh
+        chmod +x /etc/nixos/config/static/misc/fs-diff.sh &&
+        /etc/nixos/config/static/misc/fs-diff.sh
         sudo umount /mnt
       }
       secret () {
@@ -50,7 +50,7 @@
           cd /etc/nixos/config/secrets &&
           sudo agenix \
           -i /etc/ssh/ssh_host_ed25519_key \
-          -i /etc/nixos/config/static/keys/age-primary-identity \
+          -i /etc/nixos/config/keys/age/sedimentary.identity \
           -e ''${1}.age
         )
       }

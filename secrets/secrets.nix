@@ -6,10 +6,11 @@
 let
   # Load in host information
   hosts = builtins.fromTOML (builtins.readFile ../hosts.toml);
-  keys = builtins.mapAttrs (name: host: host.ed25519) hosts;
+  keys = builtins.mapAttrs (name: host: builtins.readFile (../keys/ssh + "/${name}.pub")) hosts;
   masters = [
-    (builtins.readFile ../static/keys/age-primary.pub)
-    (builtins.readFile ../static/keys/age-secondary.pub)
+    (builtins.readFile ../keys/age/igneous.pub)
+    (builtins.readFile ../keys/age/metamorphic.pub)
+    (builtins.readFile ../keys/age/sedimentary.pub)
   ];
 
   # Secret to host mappings

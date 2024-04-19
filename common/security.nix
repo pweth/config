@@ -6,10 +6,10 @@
 
 {
   # Set public key for host
-  environment.etc."ssh/ssh_host_ed25519_key.pub".text = host.ed25519;
+  environment.etc."ssh/ssh_host_ed25519_key.pub".source = ../keys/ssh + "/${host.name}.pub";
 
   # Add internal CA
-  security.pki.certificateFiles = [ ../static/keys/internal-ca.crt ];
+  security.pki.certificateFiles = [ ../keys/certificates/internal-ca.crt ];
   
   # Enable passwordless sudo for remote deployments and disable lecture
   security.sudo = {
@@ -40,12 +40,12 @@
       builtins.mapAttrs (
         name: host: {
           name = "${name}.home.arpa";
-          value.publicKey = host.ed25519;
+          value.publicKey = builtins.readFile (../keys/ssh + "/${name}.pub");
         }
       ) hosts
     ))) // {
-      "github.com".publicKey = builtins.readFile ../static/keys/github.pub;
-      "git.sr.ht".publicKey = builtins.readFile ../static/keys/sourcehut.pub;
+      "github.com".publicKey = builtins.readFile ../keys/ssh/github.pub;
+      "git.sr.ht".publicKey = builtins.readFile ../keys/ssh/sourcehut.pub;
     };
   };
 

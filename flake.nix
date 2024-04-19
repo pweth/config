@@ -17,15 +17,11 @@
     # Impermanence
     impermanence.url = "github:nix-community/impermanence";
 
-    # SSH keys
-    keys.url = "https://github.com/pweth.keys";
-    keys.flake = false;
-
     # VSCode Server
     vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
-  outputs = { self, nixpkgs, agenix, home-manager, impermanence, keys, vscode-server }@inputs:
+  outputs = { self, nixpkgs, agenix, home-manager, impermanence, vscode-server }@inputs:
   let
     hosts = builtins.fromTOML (builtins.readFile ./hosts.toml);
   in
