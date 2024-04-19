@@ -21,9 +21,9 @@
       ];
       isNormalUser = true;
       openssh.authorizedKeys.keyFiles = [
-        (builtins.readFile ../keys/ssh/igneous.pub)
-        (builtins.readFile ../keys/ssh/metamorphic.pub)
-        (builtins.readFile ../keys/ssh/sedimentary.pub)
+        ../keys/ssh/igneous.pub
+        ../keys/ssh/metamorphic.pub
+        ../keys/ssh/sedimentary.pub
       ];
       uid = 1000;
     };
