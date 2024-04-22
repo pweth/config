@@ -140,7 +140,14 @@
             definedAliases = [ "!ghc" ];
             iconUpdateURL = "https://github.githubassets.com/favicons/favicon.png";
           };
-          "Nix Packages" = {
+          "Home Manager" = {
+            urls = [{
+              template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master";
+            }];
+            definedAliases = [ "!hm" ];
+            iconUpdateURL = "https://nixos.org/favicon.png";
+          };
+          "NixOS" = {
             urls = [{
               template = "https://search.nixos.org/packages?channel=23.11&from=0&size=50&sort=relevance&type=packages&query={searchTerms}";
             }];
