@@ -148,7 +148,10 @@
 
       # Extension settings
       "org/gnome/shell/extensions/caffeine" = {
+        countdown-timer = 0;
         enable-fullscreen = false;
+        indicator-position = 3;
+        indicator-position-index = 16;
         show-indicator = "always";
         show-notifications = false;
         toggle-shortcut = [ "<Super>w" ];
