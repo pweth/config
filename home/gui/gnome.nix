@@ -15,7 +15,6 @@
   home.packages = with pkgs.gnomeExtensions; [
     caffeine
     noannoyance-fork
-    tailscale-qs
   ];
 
   # dconf values
@@ -81,7 +80,6 @@
         enabled-extensions = [
           "caffeine@patapon.info"
           "noannoyance-fork@vrba.dev"
-          "tailscale@joaophi.github.com"
           "user-theme@gnome-shell-extensions.gcampax.github.com"
         ];
         disable-user-extensions = false;

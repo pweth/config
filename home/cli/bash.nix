@@ -12,7 +12,7 @@
     shellAliases = {
       cf = "cd /etc/nixos/config";
       cls = "clear";
-      c = "xclip -selection clipboard";
+      copy = "xclip -selection clipboard";
       df = "df -h";
       files = "fzf --preview 'bat --style=numbers --color=always --line-range :200 {}'";
       ga = "git add";
@@ -26,7 +26,7 @@
       mkdir = "mkdir -p";
       nano = "nvim";
       ngc = "nix-collect-garbage -d";
-      p = "xclip -o -selection clipboard";
+      paste = "xclip -o -selection clipboard";
       rb = "sudo nixos-rebuild switch --flake /etc/nixos/config";
       v = "nvim"; 
     };
@@ -54,8 +54,22 @@
           -e ''${1}.age
         )
       }
+      vpn () {
+        tailscale set --exit-node=$(
+          tailscale exit-node list | tail -n +3 | head -n -2 |
+          awk -F '[[:space:]][[:space:]]+' '{print $2, "("$4",", $3")"}' |
+          fzf |
+          awk '{print $1}'
+        )
+        whereami
+      }
       weather () {
         curl -s "wttr.in/''${1}" | head -n -1
+      }
+      whereami () {
+        tailscale status --json |
+        jq -r '."ExitNodeStatus"."TailscaleIPs"[0] // "nowhere"' |
+        awk '{print "Connected to", $1 ". Safe travels!"}'
       }
     '';
   };
