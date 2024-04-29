@@ -7,8 +7,8 @@
 {
   imports = [
     ../services/acme.nix
-    ../services/cgit.nix
     ../services/flatnotes.nix
+    ../services/forgejo.nix
     ../services/grafana.nix
     ../services/home-assistant.nix
     ../services/jellyfin.nix
