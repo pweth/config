@@ -8,6 +8,7 @@ let
     "base"
     "blueman-manager"
     "draw"
+    "emote"
     "htop"
     "jupyterlab"
     "jupyter-notebook"

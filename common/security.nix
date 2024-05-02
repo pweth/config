@@ -46,6 +46,7 @@
     ))) // {
       "github.com".publicKey = builtins.readFile ../keys/ssh/github.pub;
       "git.sr.ht".publicKey = builtins.readFile ../keys/ssh/sourcehut.pub;
+      "git.pweth.com".publicKey = builtins.readFile ../keys/ssh/humboldt.pub;
     };
   };
 

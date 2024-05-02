@@ -21,6 +21,7 @@
       gg = "git pull";
       gp = "git push";
       gr = "git reset";
+      grrr = "git reset --hard";
       gs = "git status";
       ls = "eza -la";
       mkdir = "mkdir -p";
