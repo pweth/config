@@ -26,8 +26,6 @@
     shotcut
     spotify
     sqlitebrowser
-    texlive.combined.scheme-full
-    texmaker
     vlc
     webex
     wireshark
