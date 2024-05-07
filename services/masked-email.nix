@@ -11,7 +11,7 @@ let
   ]);
 in
 {
-  # Mount environment file
+  # Masked email Python script
   age.secrets.masked-email.file = ../secrets/masked-email.age;
 
   # Systemd service
@@ -31,12 +31,11 @@ in
 
   # Internal domain
   services.nginx.virtualHosts."${domain}" = {
-    acmeRoot = null;
-    enableACME = true;
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://localhost:${builtins.toString port}";
       proxyWebsockets = true;
     };
+    useACMEHost = "pweth.com";
   };
 }

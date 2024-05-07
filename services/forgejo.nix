@@ -51,8 +51,6 @@ in
 
   # Internal domain
   services.nginx.virtualHosts."${domain}" = {
-    acmeRoot = null;
-    enableACME = true;
     extraConfig = ''
       client_max_body_size 512M;
     '';
@@ -61,6 +59,7 @@ in
       proxyPass = "http://localhost:${builtins.toString port}";
       proxyWebsockets = true;
     };
+    useACMEHost = "pweth.com";
   };
 
   # Persist service data
