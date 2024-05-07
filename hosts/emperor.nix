@@ -52,6 +52,10 @@
     "getty@tty1".enable = false;
   };
 
+  # Dell XPS optimisations
+  boot.blacklistedKernelModules = [ "psmouse" ];
+  services.thermald.enable = true;
+
   # Disable SSH
   services.openssh.enable = lib.mkForce false;
 
