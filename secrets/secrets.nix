@@ -17,7 +17,6 @@ let
   secrets = with keys; {
     # Common
     "home-arpa-key.age" = builtins.attrValues keys;
-    "nextdns.age"       = builtins.attrValues keys;
     "password-hash.age" = builtins.attrValues keys;
     "tailscale.age"     = builtins.attrValues keys;
 

@@ -10,7 +10,7 @@
     ./fonts.nix
     ./impermanence.nix
     ./locale.nix
-    ./nextdns.nix
+    ./networking.nix
     ./security.nix
     ./tailscale.nix
     ./user.nix
@@ -85,9 +85,6 @@
     useUserPackages = true;
     users."${user}" = import ../home/cli;
   };
-
-  # Hostname
-  networking.hostName = host.name;
 
   # Automatic garbage collection
   nix.gc = {
