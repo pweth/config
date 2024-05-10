@@ -7,6 +7,7 @@
 {
   imports = [
     ../common/gui.nix
+    ../services/local-dns.nix
     ../services/restic.nix
     ../services/rollback.nix
   ];

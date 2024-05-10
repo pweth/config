@@ -36,12 +36,14 @@
   # Configuration files
   environment.etc = {
     blocklist.source = lib.mkIf (builtins.hasAttr "persistent" host) "${host.persistent}/etc/blocklist";
-    cloaking.text = ''
-      *.pweth.com ${hosts.humboldt.address}
-    '';
+    cloaking.text = builtins.concatStringsSep "\n" ([
+      "*.pweth.com ${hosts.humboldt.address}"
+    ] ++ (builtins.map (
+      host: "${host.name}.home.arpa ${host.address}"
+    ) (builtins.attrValues hosts)));
   };
 
-  # Systemd service for daily blocklist update
+  # Systemd services for daily blocklist update
   systemd = {
     services.update-blocklist = {
       script = ''

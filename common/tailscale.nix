@@ -15,14 +15,6 @@
     extraUpFlags = [ "--accept-dns=false" ];
   };
 
-  # host.home.arpa DNS entries
-  networking.hosts = builtins.listToAttrs (builtins.attrValues (builtins.mapAttrs (
-    name: value: {
-      name = value.address;
-      value = [ "${name}.home.arpa" ];
-    }
-  ) hosts));
-
   # Persist application data
   environment.persistence = lib.mkIf (builtins.hasAttr "persistent" host) {
     "${host.persistent}".directories = [ "/var/lib/tailscale" ];

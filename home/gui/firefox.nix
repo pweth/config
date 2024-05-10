@@ -23,7 +23,6 @@
       DisplayMenuBar = "never";
       DNSOverHTTPS = {
         Enabled = false;
-        Locked = true;
       };
       EnableTrackingProtection = {
         Cryptomining = true;

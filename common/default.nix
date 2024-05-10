@@ -52,6 +52,7 @@
     eza
     file
     fzf
+    gawk
     git
     htop
     inetutils
