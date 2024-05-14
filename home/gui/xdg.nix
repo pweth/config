@@ -10,6 +10,8 @@
     mimeApps = let
       defaultApps = {
         "application/pdf" = "firefox.desktop";
+        "application/vnd.ms-excel" = "calc.desktop";
+        "application/vnd.oasis.opendocument.spreadsheet" = "calc.desktop";
         "image/jpeg" = "org.gnome.Loupe.desktop";
         "image/png" = "org.gnome.Loupe.desktop";
         "video/avi" = "vlc.desktop";

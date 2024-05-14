@@ -21,14 +21,10 @@
       block_ipv6 = true;
       blocked_names.blocked_names_file = "/etc/blocklist";
       cloaking_rules = "/etc/cloaking";
-      ipv6_servers = false;
       listen_addresses = [ "127.0.0.1:53" ];
       require_dnssec = true;
-      server_names = [
-        "cloudflare"
-        "mullvad-doh"
-        "nextdns"
-      ];
+      require_nofilter = true;
+      require_nolog = true;
     };
     upstreamDefaults = true;
   };
@@ -37,7 +33,7 @@
   environment.etc = {
     blocklist.source = lib.mkIf (builtins.hasAttr "persistent" host) "${host.persistent}/etc/blocklist";
     cloaking.text = builtins.concatStringsSep "\n" ([
-      "*.pweth.com ${hosts.humboldt.address}"
+      "[a-z]*.pweth.com humboldt.home.arpa"
     ] ++ (builtins.map (
       host: "${host.name}.home.arpa ${host.address}"
     ) (builtins.attrValues hosts)));

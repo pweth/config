@@ -32,6 +32,7 @@
 
   home.packages = with pkgs; [
     backblaze-b2
+    bottom
     cloudflared
     cmatrix
     cowsay

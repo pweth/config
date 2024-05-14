@@ -10,7 +10,6 @@
     ../services/flatnotes.nix
     ../services/forgejo.nix
     ../services/grafana.nix
-    ../services/home-assistant.nix
     ../services/jellyfin.nix
     ../services/masked-email.nix
     ../services/paperless.nix
