@@ -22,7 +22,10 @@
       DisplayBookmarksToolbar = "always";
       DisplayMenuBar = "never";
       DNSOverHTTPS = {
-        Enabled = false;
+        Enabled = true;
+        Fallback = false;
+        Locked = true;
+        ProviderURL = "https://127.0.0.1:44214";
       };
       EnableTrackingProtection = {
         Cryptomining = true;

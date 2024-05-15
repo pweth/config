@@ -20,11 +20,13 @@ let
     "password-hash.age" = builtins.attrValues keys;
     "tailscale.age"     = builtins.attrValues keys;
 
+    # GUI
+    "localhost-key.age"   = [ emperor ];
+
     # Services
     "dns-01.age"          = [ humboldt ];
     "flatnotes.age"       = [ humboldt ];
     "grafana.age"         = [ humboldt ];
-    "localhost-key.age"   = [ emperor ];
     "masked-email.age"    = [ humboldt ];
     "paperless.age"       = [ humboldt ];
     "restic-emperor.age"  = [ emperor ];

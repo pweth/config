@@ -39,7 +39,7 @@
     ) (builtins.attrValues hosts)));
   };
 
-  # Systemd services for daily blocklist update
+  # Systemd blocklist update service
   systemd = {
     services.update-blocklist = {
       script = ''
@@ -54,7 +54,7 @@
     };
     timers.update-blocklist = {
       timerConfig = {
-        OnCalendar = "daily";
+        OnCalendar = "weekly";
         Persistent = true;
         Unit = "update-blocklist.service";
       };
