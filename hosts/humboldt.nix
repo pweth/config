@@ -16,7 +16,6 @@
     ../services/prometheus.nix
     ../services/restic.nix
     ../services/rollback.nix
-    ../services/vaultwarden.nix
   ];
 
   # Bootloader

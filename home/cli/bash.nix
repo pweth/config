@@ -58,6 +58,7 @@
       vpn () {
         tailscale set --exit-node=$(
           tailscale exit-node list | tail -n +3 | head -n -2 |
+          sed -e s/.adelie-monitor.ts.net// |
           awk -F '[[:space:]][[:space:]]+' '{print $2, "("$4",", $3")"}' |
           fzf |
           awk '{print $1}'
