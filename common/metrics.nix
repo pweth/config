@@ -13,7 +13,7 @@
     port = 12345;
   };
 
-  # Mount internal certificates
+  # Mount internal certificate
   age.secrets.home-arpa-key = {
     file = ../secrets/home-arpa-key.age;
     owner = "nginx";

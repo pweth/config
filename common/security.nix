@@ -36,14 +36,12 @@
     };
 
     # Add host and version control key fingerprints
-    knownHosts = (builtins.listToAttrs (builtins.attrValues (
-      builtins.mapAttrs (
-        name: host: {
-          name = "${name}.home.arpa";
-          value.publicKey = builtins.readFile (../keys/ssh + "/${name}.pub");
-        }
-      ) hosts
-    ))) // {
+    knownHosts = (builtins.listToAttrs (builtins.concatMap (
+        name: [
+          { name = "${name}.home.arpa"; value.publicKey = builtins.readFile (../keys/ssh + "/${name}.pub"); }
+          { name = name; value.publicKey = builtins.readFile (../keys/ssh + "/${name}.pub"); }
+        ]
+    ) (builtins.attrNames hosts))) // {
       "github.com".publicKey = builtins.readFile ../keys/ssh/github.pub;
       "git.sr.ht".publicKey = builtins.readFile ../keys/ssh/sourcehut.pub;
       "git.pweth.com".publicKey = builtins.readFile ../keys/ssh/humboldt.pub;

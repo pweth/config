@@ -6,10 +6,10 @@
 
 {
   imports = [
-    ./exporter.nix
     ./fonts.nix
     ./impermanence.nix
     ./locale.nix
+    ./metrics.nix
     ./networking.nix
     ./security.nix
     ./tailscale.nix

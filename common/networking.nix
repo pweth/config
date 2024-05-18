@@ -35,7 +35,10 @@
     cloaking.text = builtins.concatStringsSep "\n" ([
       "[a-z]*.pweth.com humboldt.home.arpa"
     ] ++ (builtins.map (
-      host: "${host.name}.home.arpa ${host.address}"
+      host: "
+        ${host.name}.home.arpa ${host.address}
+        ${host.name} ${host.address}
+      "
     ) (builtins.attrValues hosts)));
   };
 
