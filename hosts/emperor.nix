@@ -73,6 +73,7 @@
     ".config/discord"
     ".config/libreoffice"
     ".config/spotify"
+    ".config/Standard Notes"
     ".local/share/Anki2"
     ".local/share/Emote"
     ".local/share/keyrings"

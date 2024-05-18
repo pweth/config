@@ -23,7 +23,7 @@
       DisplayMenuBar = "never";
       DNSOverHTTPS = {
         Enabled = true;
-        Fallback = false;
+        Fallback = true;
         Locked = true;
         ProviderURL = "https://127.0.0.1:44214";
       };
