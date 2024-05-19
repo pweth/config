@@ -16,15 +16,11 @@ let
   # Secret to host mappings
   secrets = with keys; {
     # Common
-    "home-arpa-key.age" = builtins.attrValues keys;
+    "dns-01.age"        = builtins.attrValues keys;
     "password-hash.age" = builtins.attrValues keys;
     "tailscale.age"     = builtins.attrValues keys;
 
-    # GUI
-    "localhost-key.age"   = [ emperor ];
-
     # Services
-    "dns-01.age"          = [ humboldt ];
     "flatnotes.age"       = [ humboldt ];
     "grafana.age"         = [ humboldt ];
     "masked-email.age"    = [ humboldt ];

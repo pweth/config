@@ -23,9 +23,9 @@
       DisplayMenuBar = "never";
       DNSOverHTTPS = {
         Enabled = true;
-        Fallback = true;
+        Fallback = false;
         Locked = true;
-        ProviderURL = "https://127.0.0.1:44214";
+        ProviderURL = "https://dns.pweth.com";
       };
       EnableTrackingProtection = {
         Cryptomining = true;

@@ -33,13 +33,12 @@
   environment.etc = {
     blocklist.source = lib.mkIf (builtins.hasAttr "persistent" host) "${host.persistent}/etc/blocklist";
     cloaking.text = builtins.concatStringsSep "\n" ([
-      "[a-z]*.pweth.com humboldt.home.arpa"
-    ] ++ (builtins.map (
-      host: "
-        ${host.name}.home.arpa ${host.address}
-        ${host.name} ${host.address}
-      "
-    ) (builtins.attrValues hosts)));
+      "[a-z]*.pweth.com humboldt.ipn.pw"
+      "dns.pweth.com localhost"
+    ] ++ (builtins.concatMap (host: [
+      "${host.name}.ipn.pw ${host.address}"
+      "${host.name} ${host.address}"
+    ]) (builtins.attrValues hosts)));
   };
 
   # Systemd blocklist update service

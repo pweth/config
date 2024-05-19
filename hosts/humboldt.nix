@@ -6,7 +6,6 @@
 
 {
   imports = [
-    ../services/acme.nix
     ../services/flatnotes.nix
     ../services/forgejo.nix
     ../services/grafana.nix

@@ -26,9 +26,6 @@
   # Monitor setup
   home-manager.users."${user}".xdg.configFile."monitors.xml".source = ../static/misc/monitors.xml;
 
-  # Network manager
-  networking.networkmanager.enable = true;
-
   # tmux
   programs.bash.interactiveShellInit = ''
     [[ -z "$TMUX" ]] && exec tmux new -As0
@@ -69,16 +66,6 @@
   environment.persistence."${host.persistent}".users."${user}".directories = [
     "Documents"
     "Downloads"
-    ".config/Code"
-    ".config/discord"
-    ".config/libreoffice"
-    ".config/spotify"
-    ".config/Standard Notes"
-    ".local/share/Anki2"
-    ".local/share/Emote"
-    ".local/share/keyrings"
-    ".mozilla/firefox/default"
     ".passage"
-    ".ssh"
   ];
 }

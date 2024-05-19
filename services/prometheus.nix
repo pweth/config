@@ -18,7 +18,7 @@ in
         scheme = "https";
         static_configs = [{
           targets = builtins.map (
-            name: "${name}.home.arpa"
+            name: "${name}.ipn.pw"
           ) (builtins.attrNames hosts);
         }];
       }
@@ -32,7 +32,7 @@ in
       proxyPass = "http://localhost:${builtins.toString port}";
       proxyWebsockets = true;
     };
-    useACMEHost = "pweth.com";
+    useACMEHost = "internal";
   };
 
   # Persist service data

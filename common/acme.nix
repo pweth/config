@@ -11,14 +11,15 @@
   # ACME settings
   security.acme = {
     acceptTerms = true;
-
-    certs."pweth.com" = {
-      domain = "*.pweth.com";
+    certs.internal = {
       dnsPropagationCheck = true;
       dnsProvider = "cloudflare";
       dnsResolver = "1.1.1.1:53";
+      domain = "${host.name}.ipn.pw";
       email = "9iz5svuo@duck.com";
       environmentFile = config.age.secrets.dns-01.path;
+      extraDomainNames = [ "*.pweth.com" ];
+      validMinDays = 90;
     };
   };
 

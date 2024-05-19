@@ -6,11 +6,13 @@
 
 {
   imports = [
+    ./acme.nix
     ./fonts.nix
     ./impermanence.nix
     ./locale.nix
     ./metrics.nix
     ./networking.nix
+    ./nginx.nix
     ./security.nix
     ./tailscale.nix
     ./user.nix

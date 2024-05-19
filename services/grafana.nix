@@ -46,7 +46,7 @@ in
       proxyPass = "http://localhost:${builtins.toString port}";
       proxyWebsockets = true;
     };
-    useACMEHost = "pweth.com";
+    useACMEHost = "internal";
   };
 
   # Persist service data

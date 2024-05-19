@@ -2,7 +2,7 @@
 * Common configuration across all hosts that use impermanence.
 */
 
-{ config, lib, host, user, ... }:
+{ config, lib, pkgs, host, user, ... }:
 
 {
   config = lib.mkIf (builtins.hasAttr "persistent" host) {
@@ -15,7 +15,7 @@
       "ssh/ssh_host_ed25519_key".source = "${host.persistent}/etc/ssh/ssh_host_ed25519_key";
     };
     
-    # Use hidden bind mounts and persist required directories
+    # Use hidden bind mounts to persist required directories
     environment.persistence."${host.persistent}" = {
       hideMounts = true;
       directories = lib.mkMerge [
@@ -30,7 +30,25 @@
           "/var/lib/bluetooth"
         ])
       ];
-      users."${user}".files = [ ".bash_history" ];
+      users."${user}" = {
+        directories = lib.mkMerge [
+          [ ".ssh" ]
+
+          # Only persist on GUI systems
+          (lib.mkIf config.services.xserver.enable [
+            ".config/Code"
+            ".config/discord"
+            ".config/libreoffice"
+            ".config/spotify"
+            ".config/Standard Notes"
+            ".local/share/Anki2"
+            ".local/share/Emote"
+            ".local/share/keyrings"
+            ".mozilla/firefox/default"
+          ])
+        ];
+        files = [ ".bash_history" ];
+      };
     };
   };
 }
