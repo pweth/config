@@ -23,7 +23,7 @@
       DisplayMenuBar = "never";
       DNSOverHTTPS = {
         Enabled = true;
-        Fallback = false;
+        Fallback = true;
         Locked = true;
         ProviderURL = "https://dns.${domain}";
       };

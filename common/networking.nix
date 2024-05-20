@@ -42,6 +42,7 @@
   systemd = {
     services.update-blocklist = {
       script = ''
+        touch /etc/blocklist
         ${pkgs.curl}/bin/curl https://big.oisd.nl/domainswild > /etc/blocklist
         ${pkgs.curl}/bin/curl https://nsfw.oisd.nl/domainswild >> /etc/blocklist
       '';
