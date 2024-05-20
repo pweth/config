@@ -16,4 +16,7 @@
     efiInstallAsRemovable = true;
     efiSupport = true;
   };
+
+  # Allow DNS requests from phone
+  services.dnscrypt-proxy2.settings.listen_addresses = [ "0.0.0.0:53" ];
 }

@@ -61,4 +61,10 @@
     extraUpFlags = [ "--operator=${user}" ];
     useRoutingFeatures = "client";
   };
+
+  # Enable Docker
+  virtualisation = {
+    docker.enable = true;
+    oci-containers.backend = "docker";
+  };
 }
