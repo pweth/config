@@ -9,9 +9,7 @@
     ../services/forgejo.nix
     ../services/grafana.nix
     ../services/jellyfin.nix
-    ../services/masked-email.nix
     ../services/paperless.nix
-    ../services/prometheus.nix
     ../services/restic.nix
     ../services/rollback.nix
   ];

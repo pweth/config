@@ -31,8 +31,13 @@
 
   # Cloaking configuration
   environment.etc.cloaking.text = builtins.concatStringsSep "\n" ([
-    "[a-z]*.${domain} humboldt.ipn.${domain}"
     "dns.${domain} localhost"
+    "docs.${domain} humboldt.ipn.${domain}"
+    "git.${domain} humboldt.ipn.${domain}"
+    "grafana.${domain} humboldt.ipn.${domain}"
+    "jellyfin.${domain} humboldt.ipn.${domain}"
+    "mask.${domain} macaroni.ipn.${domain}"
+    "prometheus.${domain} macaroni.ipn.${domain}"
   ] ++ (builtins.concatMap (host: [
     "${host.name}.ipn.${domain} ${host.address}"
     "${host.name} ${host.address}"

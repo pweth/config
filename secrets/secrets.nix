@@ -23,7 +23,7 @@ let
     # Services
     "flatnotes.age"       = [ humboldt ];
     "grafana.age"         = [ humboldt ];
-    "masked-email.age"    = [ humboldt ];
+    "masked-email.age"    = [ macaroni ];
     "paperless.age"       = [ humboldt ];
     "restic-emperor.age"  = [ emperor ];
     "restic-humboldt.age" = [ humboldt ];
