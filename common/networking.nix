@@ -29,17 +29,14 @@
     upstreamDefaults = true;
   };
 
-  # Configuration files
-  environment.etc = {
-    blocklist.source = lib.mkIf (builtins.hasAttr "persistent" host) "${host.persistent}/etc/blocklist";
-    cloaking.text = builtins.concatStringsSep "\n" ([
-      "[a-z]*.${domain} humboldt.ipn.${domain}"
-      "dns.${domain} localhost"
-    ] ++ (builtins.concatMap (host: [
-      "${host.name}.ipn.${domain} ${host.address}"
-      "${host.name} ${host.address}"
-    ]) (builtins.attrValues hosts)));
-  };
+  # Cloaking configuration
+  environment.etc.cloaking.text = builtins.concatStringsSep "\n" ([
+    "[a-z]*.${domain} humboldt.ipn.${domain}"
+    "dns.${domain} localhost"
+  ] ++ (builtins.concatMap (host: [
+    "${host.name}.ipn.${domain} ${host.address}"
+    "${host.name} ${host.address}"
+  ]) (builtins.attrValues hosts)));
 
   # Systemd blocklist update service
   systemd = {

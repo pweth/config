@@ -9,8 +9,9 @@
     # Add persistent key path to agenix
     age.identityPaths = [ "${host.persistent}/etc/ssh/ssh_host_ed25519_key" ];
 
-    # Essential /etc files
+    # /etc files
     environment.etc = {
+      blocklist.source = "${host.persistent}/etc/blocklist";
       machine-id.source = "${host.persistent}/etc/machine-id";
       "ssh/ssh_host_ed25519_key".source = "${host.persistent}/etc/ssh/ssh_host_ed25519_key";
     };
