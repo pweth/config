@@ -6,7 +6,6 @@
 
 {
   imports = [
-    ../services/flatnotes.nix
     ../services/forgejo.nix
     ../services/grafana.nix
     ../services/jellyfin.nix

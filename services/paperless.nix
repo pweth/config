@@ -3,9 +3,9 @@
 * https://github.com/paperless-ngx/paperless-ngx
 */
 
-{ config, lib, host, ... }:
+{ config, lib, domain, host, ... }:
 let
-  domain = "docs.pweth.com";
+  subdomain = "docs.${domain}";
   port = 36095;
 in
 {
@@ -28,13 +28,13 @@ in
   };
 
   # Internal domain
-  services.nginx.virtualHosts."${domain}" = {
+  services.nginx.virtualHosts."${subdomain}" = {
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://localhost:${builtins.toString port}";
       proxyWebsockets = true;
     };
-    useACMEHost = "pweth.com";
+    useACMEHost = "internal";
   };
 
   # Persist service data

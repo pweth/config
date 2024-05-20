@@ -2,7 +2,7 @@
 * Personal laptop system configuration.
 */
 
-{ config, lib, pkgs, host, user, ... }:
+{ config, lib, user, ... }:
 
 {
   imports = [
@@ -61,11 +61,4 @@
     extraUpFlags = [ "--operator=${user}" ];
     useRoutingFeatures = "client";
   };
-
-  # Impermenance
-  environment.persistence."${host.persistent}".users."${user}".directories = [
-    "Documents"
-    "Downloads"
-    ".passage"
-  ];
 }

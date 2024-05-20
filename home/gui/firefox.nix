@@ -3,7 +3,7 @@
 * https://mozilla.github.io/policy-templates/
 */
 
-{ config, pkgs, ... }:
+{ config, pkgs, domain, ... }:
 
 {
   programs.firefox = {
@@ -25,7 +25,7 @@
         Enabled = true;
         Fallback = false;
         Locked = true;
-        ProviderURL = "https://dns.pweth.com";
+        ProviderURL = "https://dns.${domain}";
       };
       EnableTrackingProtection = {
         Cryptomining = true;
@@ -120,13 +120,6 @@
               template = "https://duckduckgo.com/?q={searchTerms}&kp=1&kl=uk-en&kad=en_GB&k1=-1&kaj=m&kak=-1&kax=-1&kaq=-1&kap=-1&kao=-1&kau=-1&kae=d&k5=1&kpsb=-1&kav=1";
             }];
             iconUpdateURL = "https://duckduckgo.com/favicon.png";
-          };
-          "Notes" = {
-            urls = [{
-              template = "https://notes.pweth.com/search?term={searchTerms}";
-            }];
-            definedAliases = [ "!c" ];
-            iconUpdateURL = "https://raw.githubusercontent.com/dullage/flatnotes/develop/client/assets/favicon-32x32.png";
           };
           "Fastmail" = {
             urls = [{

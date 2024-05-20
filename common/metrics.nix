@@ -3,7 +3,7 @@
 * https://github.com/prometheus/node_exporter
 */
 
-{ config, host, ... }:
+{ config, domain, host, ... }:
 
 {
   # Node exporter
@@ -14,7 +14,7 @@
   };
 
   # IPN hostname for metrics
-  services.nginx.virtualHosts."${host.name}.ipn.pw" = {
+  services.nginx.virtualHosts."${host.name}.ipn.${domain}" = {
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://localhost:${builtins.toString config.services.prometheus.exporters.node.port}";

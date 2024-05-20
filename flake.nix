@@ -39,8 +39,9 @@
           vscode-server.nixosModules.default
         ];
         specialArgs = inputs // {
-          hosts = hosts;
+          domain = "pweth.com";
           host = host;
+          hosts = hosts;
           user = "pweth";
         };
         system = host.architecture;

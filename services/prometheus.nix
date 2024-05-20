@@ -3,9 +3,9 @@
 * https://github.com/prometheus/prometheus
 */
 
-{ config, lib, host, hosts, ... }:
+{ config, lib, domain, host, hosts, ... }:
 let
-  domain = "prometheus.pweth.com";
+  subdomain = "prometheus.${domain}";
   port = 58635;
 in
 {
@@ -18,7 +18,7 @@ in
         scheme = "https";
         static_configs = [{
           targets = builtins.map (
-            name: "${name}.ipn.pw"
+            name: "${name}.ipn.${domain}"
           ) (builtins.attrNames hosts);
         }];
       }
@@ -26,7 +26,7 @@ in
   };
 
   # Internal domain
-  services.nginx.virtualHosts."${domain}" = {
+  services.nginx.virtualHosts."${subdomain}" = {
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://localhost:${builtins.toString port}";

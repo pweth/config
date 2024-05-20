@@ -2,7 +2,7 @@
 * Common configuration across all hosts that use impermanence.
 */
 
-{ config, lib, pkgs, host, user, ... }:
+{ config, lib, host, user, ... }:
 
 {
   config = lib.mkIf (builtins.hasAttr "persistent" host) {
@@ -32,10 +32,12 @@
       ];
       users."${user}" = {
         directories = lib.mkMerge [
-          [ ".ssh" ]
+          [ ".passage" ".ssh" ]
 
           # Only persist on GUI systems
           (lib.mkIf config.services.xserver.enable [
+            "Documents"
+            "Downloads"
             ".config/Code"
             ".config/discord"
             ".config/libreoffice"

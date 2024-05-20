@@ -2,7 +2,7 @@
 * Networking and DNS configuration.
 */
 
-{ config, lib, pkgs, host, hosts, ... }:
+{ config, lib, pkgs, domain, host, hosts, ... }:
 
 { 
   networking = {
@@ -33,10 +33,10 @@
   environment.etc = {
     blocklist.source = lib.mkIf (builtins.hasAttr "persistent" host) "${host.persistent}/etc/blocklist";
     cloaking.text = builtins.concatStringsSep "\n" ([
-      "[a-z]*.pweth.com humboldt.ipn.pw"
-      "dns.pweth.com localhost"
+      "[a-z]*.${domain} humboldt.ipn.${domain}"
+      "dns.${domain} localhost"
     ] ++ (builtins.concatMap (host: [
-      "${host.name}.ipn.pw ${host.address}"
+      "${host.name}.ipn.${domain} ${host.address}"
       "${host.name} ${host.address}"
     ]) (builtins.attrValues hosts)));
   };

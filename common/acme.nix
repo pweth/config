@@ -2,7 +2,7 @@
 * ACME configuration for internal TLS certificates.
 */
 
-{ config, lib, host, ... }:
+{ config, lib, domain, host, ... }:
 
 {
   # Mount API key for DNS-01 challenge
@@ -15,10 +15,10 @@
       dnsPropagationCheck = true;
       dnsProvider = "cloudflare";
       dnsResolver = "1.1.1.1:53";
-      domain = "${host.name}.ipn.pw";
+      domain = "${host.name}.ipn.${domain}";
       email = "9iz5svuo@duck.com";
       environmentFile = config.age.secrets.dns-01.path;
-      extraDomainNames = [ "*.pweth.com" ];
+      extraDomainNames = [ "*.${domain}" ];
       validMinDays = 90;
     };
   };

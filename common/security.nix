@@ -2,7 +2,7 @@
 * SSH configuration.
 */
 
-{ config, host, hosts, user, ... }:
+{ config, domain, host, hosts, user, ... }:
 
 {
   # Set public key for host
@@ -35,13 +35,13 @@
     # Add host and version control key fingerprints
     knownHosts = (builtins.listToAttrs (builtins.concatMap (
         name: [
-          { name = "${name}.ipn.pw"; value.publicKey = builtins.readFile (../keys/ssh + "/${name}.pub"); }
+          { name = "${name}.ipn.${domain}"; value.publicKey = builtins.readFile (../keys/ssh + "/${name}.pub"); }
           { name = name; value.publicKey = builtins.readFile (../keys/ssh + "/${name}.pub"); }
         ]
     ) (builtins.attrNames hosts))) // {
       "github.com".publicKey = builtins.readFile ../keys/ssh/github.pub;
       "git.sr.ht".publicKey = builtins.readFile ../keys/ssh/sourcehut.pub;
-      "git.pweth.com".publicKey = builtins.readFile ../keys/ssh/humboldt.pub;
+      "git.${domain}".publicKey = builtins.readFile ../keys/ssh/humboldt.pub;
     };
   };
 

@@ -2,9 +2,9 @@
 * Custom Python web service for generating FastMail email aliases.
 */
 
-{ config, pkgs, ... }:
+{ config, pkgs, domain, ... }:
 let
-  domain = "mask.pweth.com";
+  subdomain = "mask.${domain}";
   port = 40368;
   python = pkgs.python3.withPackages (ps: with ps; [
     requests
@@ -30,7 +30,7 @@ in
   };
 
   # Internal domain
-  services.nginx.virtualHosts."${domain}" = {
+  services.nginx.virtualHosts."${subdomain}" = {
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://localhost:${builtins.toString port}";

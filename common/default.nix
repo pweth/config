@@ -2,7 +2,7 @@
 * Common system configuration across all hosts.
 */
 
-{ config, pkgs, agenix, host, user, ... }:
+{ config, pkgs, agenix, domain, host, user, ... }:
 
 {
   imports = [
@@ -81,6 +81,7 @@
   # Home manager
   home-manager = {
     extraSpecialArgs = {
+      domain = domain;
       host = host;
       user = user;
     };

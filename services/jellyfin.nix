@@ -3,9 +3,9 @@
 * https://github.com/jellyfin/jellyfin
 */
 
-{ config, lib, host, hosts, ... }:
+{ config, lib, domain, host, hosts, ... }:
 let
-  domain = "jellyfin.pweth.com";
+  subdomain = "jellyfin.${domain}";
   port = 8096;
 in
 {
@@ -15,7 +15,7 @@ in
   };
 
   # Internal domain
-  services.nginx.virtualHosts."${domain}" = {
+  services.nginx.virtualHosts."${subdomain}" = {
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://localhost:${builtins.toString port}";
