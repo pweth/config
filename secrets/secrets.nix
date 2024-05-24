@@ -16,17 +16,16 @@ let
   # Secret to host mappings
   secrets = with keys; {
     # Common
-    "dns-01.age"        = builtins.attrValues keys;
-    "password-hash.age" = builtins.attrValues keys;
-    "tailscale.age"     = builtins.attrValues keys;
+    # "dns-01.age"        = builtins.attrValues keys;
+    # "password-hash.age" = builtins.attrValues keys;
+    # "tailscale.age"     = builtins.attrValues keys;
 
     # Services
-    "flatnotes.age"       = [ humboldt ];
-    "grafana.age"         = [ humboldt ];
-    "masked-email.age"    = [ macaroni ];
-    "paperless.age"       = [ humboldt ];
-    "restic-emperor.age"  = [ emperor ];
-    "restic-humboldt.age" = [ humboldt ];
+    "grafana.age"         = [ macaroni ];
+    # "masked-email.age"    = [ macaroni ];
+    # "paperless.age"       = [ humboldt ];
+    # "restic-emperor.age"  = [ emperor ];
+    # "restic-humboldt.age" = [ humboldt ];
   };
 in
 builtins.mapAttrs (name: hostKeys: {
