@@ -7,7 +7,6 @@
 {
   imports = [
     ../services/forgejo.nix
-    ../services/grafana.nix
     ../services/jellyfin.nix
     ../services/paperless.nix
     ../services/restic.nix

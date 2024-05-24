@@ -34,7 +34,7 @@
     "dns.${domain} localhost"
     "docs.${domain} humboldt.ipn.${domain}"
     "git.${domain} humboldt.ipn.${domain}"
-    "grafana.${domain} humboldt.ipn.${domain}"
+    "grafana.${domain} macaroni.ipn.${domain}"
     "jellyfin.${domain} humboldt.ipn.${domain}"
     "mask.${domain} macaroni.ipn.${domain}"
     "prometheus.${domain} macaroni.ipn.${domain}"

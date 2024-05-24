@@ -23,8 +23,13 @@ in
         feedback_links_enabled = false;
         reporting_enabled = false;
       };
+      "auth.anonymous" = {
+        enabled = true;
+        org_name = "Main Org.";
+        org_role = "Viewer";
+      };
       security = {
-        admin_user = "admin";
+        admin_user = "pweth";
         admin_password = "$__file{${config.age.secrets.grafana.path}}";
         disable_gravatar = true;
       };

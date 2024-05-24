@@ -6,6 +6,7 @@
 
 {
   imports = [
+    ../services/grafana.nix
     ../services/masked-email.nix
     ../services/prometheus.nix
   ];

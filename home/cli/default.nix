@@ -74,6 +74,7 @@
       opencv4
       pandas
       pip
+      pydantic
       pygments
       pyjwt
       pytest
