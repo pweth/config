@@ -1,5 +1,5 @@
 {
-  description = "github.com/pweth/config";
+  description = "github:pweth/config";
 
   inputs = {
     # Nix packages
@@ -17,11 +17,14 @@
     # Impermanence
     impermanence.url = "github:nix-community/impermanence";
 
+    # Hardware optimisation
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     # VSCode Server
     vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
-  outputs = { self, nixpkgs, agenix, home-manager, impermanence, vscode-server }@inputs:
+  outputs = { self, nixpkgs, agenix, home-manager, impermanence, nixos-hardware, vscode-server }@inputs:
   let
     hosts = builtins.fromTOML (builtins.readFile ./hosts.toml);
   in

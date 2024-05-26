@@ -54,6 +54,13 @@
     yelp
   ]);
 
+  # OpenGL
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+
   # Home manager GUI packages
   home-manager.users."${user}" = import ../home/gui;
 

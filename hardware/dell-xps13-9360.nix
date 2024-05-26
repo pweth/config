@@ -2,10 +2,11 @@
 * Hardware scan for Dell XPS 13 9360.
 */
 
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, modulesPath, nixos-hardware, ... }:
 
 {
   imports = [
+    nixos-hardware.nixosModules.dell-xps-13-9360
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
