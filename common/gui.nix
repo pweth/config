@@ -23,6 +23,7 @@
     firefox
     gparted
     vscode
+    xvkbd
   ];
 
   # Exclude unwanted default Gnome packages
@@ -66,4 +67,15 @@
 
   # NetworkManager
   networking.networkmanager.enable = true;
+
+  # Input remapper
+  services.input-remapper.enable = true;
+  systemd.services.input-remapper-autoload = {
+    serviceConfig = {
+      ExecStart = "${pkgs.input-remapper}/bin/input-remapper-control --command autoload";
+      Type = "oneshot";
+      User = user;
+    };
+    wantedBy = [ "multi-user.target" ];
+  };
 }

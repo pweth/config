@@ -8,6 +8,7 @@
 {
   imports = [
     ./desktop.nix
+    ./emote.nix
     ./firefox.nix
     ./gnome.nix
     ./nautilus.nix
@@ -19,7 +20,6 @@
     anki
     discord
     dolphin-emu
-    emote
     handbrake
     libreoffice
     obs-studio

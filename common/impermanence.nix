@@ -42,6 +42,7 @@
             ".config/Code"
             ".config/discord"
             ".config/dolphin-emu"
+            ".config/input-remapper"
             ".config/libreoffice"
             ".config/spotify"
             ".config/Standard Notes"
