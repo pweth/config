@@ -18,6 +18,7 @@
 
   home.packages = with pkgs; [
     anki
+    bottles
     discord
     dolphin-emu
     handbrake
