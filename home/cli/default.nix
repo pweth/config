@@ -65,6 +65,7 @@
     yt-dlp
   ] ++ [
     (python3.withPackages (ps: with ps; [
+      aiohttp
       arrow
       jupyter
       matplotlib

@@ -18,6 +18,7 @@
   home.packages = with pkgs; [
     anki
     discord
+    dolphin-emu
     emote
     handbrake
     libreoffice
