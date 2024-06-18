@@ -40,7 +40,7 @@
   # Auto-login on boot
   security.pam.services.gdm.enableGnomeKeyring = true;
   services.pcscd.enable = true;
-  services.xserver.displayManager.autoLogin = {
+  services.displayManager.autoLogin = {
     enable = true;
     user = user;
   };

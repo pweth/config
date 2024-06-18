@@ -10,12 +10,12 @@
   ];
 
   # GUI setup
+  services.libinput.enable = true;
   services.xserver = {
     desktopManager.gnome.enable = true;
     displayManager.gdm.enable = true;
     enable = true;
     excludePackages = [ pkgs.xterm ];
-    libinput.enable = true;
   };
 
   # System packages
@@ -28,6 +28,7 @@
 
   # Exclude unwanted default Gnome packages
   environment.gnome.excludePackages = (with pkgs; [
+    gedit
     gnome-connections
     gnome-photos
     gnome-text-editor
@@ -38,7 +39,6 @@
     evince
     file-roller
     geary
-    gedit
     gnome-calendar
     gnome-characters
     gnome-contacts

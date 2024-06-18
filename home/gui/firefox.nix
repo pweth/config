@@ -144,7 +144,7 @@
           };
           "NixOS" = {
             urls = [{
-              template = "https://search.nixos.org/packages?channel=23.11&from=0&size=50&sort=relevance&type=packages&query={searchTerms}";
+              template = "https://search.nixos.org/packages?channel=24.05&from=0&size=50&sort=relevance&type=packages&query={searchTerms}";
             }];
             definedAliases = [ "!n" ];
             iconUpdateURL = "https://nixos.org/favicon.png";
