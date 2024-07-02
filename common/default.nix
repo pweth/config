@@ -2,7 +2,7 @@
 * Common system configuration across all hosts.
 */
 
-{ config, pkgs, agenix, domain, host, user, ... }:
+{ config, pkgs, agenix, domain, host, nixpkgs-unstable, user, ... }:
 
 {
   imports = [
@@ -103,8 +103,18 @@
   # Nix subcommands and flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  # Allow unfree and overlay unstable packages
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      (final: prev: {
+        unstable = import nixpkgs-unstable {
+          config.allowUnfree = true;
+          system = prev.system;
+        };
+      })
+    ];
+  };
 
   # Enable fuzzy finder
   programs.fzf = {

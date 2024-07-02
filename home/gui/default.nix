@@ -18,9 +18,7 @@
 
   home.packages = with pkgs; [
     anki
-    bottles
     discord
-    dolphin-emu
     handbrake
     libreoffice
     obs-studio
@@ -33,5 +31,7 @@
     webex
     wireshark
     zoom-us
-  ];
+  ] ++ (with pkgs.unstable; [
+    lutris
+  ]);
 }

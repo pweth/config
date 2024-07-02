@@ -39,17 +39,17 @@
           (lib.mkIf config.services.xserver.enable [
             "Documents"
             "Downloads"
+            "Games"
             ".config/Code"
             ".config/discord"
-            ".config/dolphin-emu"
             ".config/input-remapper"
             ".config/libreoffice"
             ".config/spotify"
             ".config/Standard Notes"
             ".local/share/Anki2"
-            ".local/share/dolphin-emu"
             ".local/share/Emote"
             ".local/share/keyrings"
+            ".local/share/lutris"
             ".mozilla/firefox/default"
           ])
         ];

@@ -21,7 +21,6 @@ let
   ];
   rename = with pkgs; [
     { name = "calc"; pkg = libreoffice; from = "LibreOffice 7.5 Calc"; to = "Excel"; }
-    { name = "dolphin-emu"; pkg = dolphin-emu; from = "Dolphin Emulator"; to = "Dolphin"; }
     { name = "impress"; pkg = libreoffice; from = "LibreOffice 7.5 Impress"; to = "PowerPoint"; }
     { name = "sqlitebrowser"; pkg = sqlitebrowser; from = "DB Browser for SQLite"; to = "DB Browser"; }
     { name = "standard-notes"; pkg = standardnotes; from = "Standard Notes"; to = "Notes"; }

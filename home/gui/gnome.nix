@@ -14,7 +14,6 @@
   # Extensions
   home.packages = with pkgs.gnomeExtensions; [
     caffeine
-    noannoyance-fork
   ];
 
   # dconf values
@@ -41,7 +40,7 @@
         color-scheme = "prefer-dark";
         enable-hot-corners = false;
         gtk-enable-primary-paste = false;
-        gtk-theme = "Adwaita-dark";
+        gtk-theme = "Adwaita";
         monospace-font-name = "Hack 11";
         show-battery-percentage = true;
         text-scaling-factor = 1.3;
@@ -79,7 +78,6 @@
         app-picker-layout = [];
         enabled-extensions = [
           "caffeine@patapon.info"
-          "noannoyance-fork@vrba.dev"
           "user-theme@gnome-shell-extensions.gcampax.github.com"
         ];
         disable-user-extensions = false;
@@ -155,9 +153,6 @@
         toggle-shortcut = [ "<Super>w" ];
         toggle-state = true;
         user-enabled = true;
-      };
-      "org/gnome/shell/extensions/noannoyance" = {
-        enable-ignorelist = false;
       };
     };
   };
