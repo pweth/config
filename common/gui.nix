@@ -70,12 +70,4 @@
 
   # Input remapper
   services.input-remapper.enable = true;
-  systemd.services.input-remapper-autoload = {
-    serviceConfig = {
-      ExecStart = "${pkgs.input-remapper}/bin/input-remapper-control --command autoload";
-      Type = "oneshot";
-      User = user;
-    };
-    wantedBy = [ "multi-user.target" ];
-  };
 }
