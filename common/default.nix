@@ -49,6 +49,7 @@
     age-plugin-yubikey
     bat
     curl
+    diff-pdf
     dig
     duf
     eza
@@ -116,9 +117,12 @@
     ];
   };
 
-  # Enable fuzzy finder
+  # Fuzzy finder
   programs.fzf = {
     fuzzyCompletion = true;
     keybindings = true;
   };
+
+  # Java
+  programs.java.enable = true;
 }
