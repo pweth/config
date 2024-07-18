@@ -5,19 +5,19 @@
 { config, lib, host, user, ... }:
 
 {
-  config = lib.mkIf (builtins.hasAttr "persistent" host) {
+  config = lib.mkIf host.impermanent {
     # Add persistent key path to agenix
-    age.identityPaths = [ "${host.persistent}/etc/ssh/ssh_host_ed25519_key" ];
+    age.identityPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
 
     # /etc files
     environment.etc = {
-      blocklist.source = "${host.persistent}/etc/blocklist";
-      machine-id.source = "${host.persistent}/etc/machine-id";
-      "ssh/ssh_host_ed25519_key".source = "${host.persistent}/etc/ssh/ssh_host_ed25519_key";
+      blocklist.source = "/persist/etc/blocklist";
+      machine-id.source = "/persist/etc/machine-id";
+      "ssh/ssh_host_ed25519_key".source = "/persist/etc/ssh/ssh_host_ed25519_key";
     };
-    
+
     # Use hidden bind mounts to persist required directories
-    environment.persistence."${host.persistent}" = {
+    environment.persistence."/persist" = {
       hideMounts = true;
       directories = lib.mkMerge [
         [
@@ -42,7 +42,6 @@
             "Games"
             ".config/Code"
             ".config/discord"
-            ".config/input-remapper"
             ".config/libreoffice"
             ".config/spotify"
             ".config/Standard Notes"

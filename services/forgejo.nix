@@ -63,7 +63,7 @@ in
   };
 
   # Persist service data
-  environment.persistence = lib.mkIf (builtins.hasAttr "persistent" host) {
-    "${host.persistent}".directories = [ storage ];
+  environment.persistence = lib.mkIf host.impermanent {
+    "/persist".directories = [ storage ];
   };
 }

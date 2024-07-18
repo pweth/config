@@ -16,7 +16,7 @@
   };
 
   # Persist application data
-  environment.persistence = lib.mkIf (builtins.hasAttr "persistent" host) {
-    "${host.persistent}".directories = [ "/var/lib/tailscale" ];
+  environment.persistence = lib.mkIf host.impermanent {
+    "/persist".directories = [ "/var/lib/tailscale" ];
   };
 }

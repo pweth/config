@@ -46,15 +46,6 @@
         /etc/nixos/config/static/misc/fs-diff.sh
         sudo umount /mnt
       }
-      secret () {
-        (
-          cd /etc/nixos/config/secrets &&
-          sudo agenix \
-          -i /etc/ssh/ssh_host_ed25519_key \
-          -i /etc/nixos/config/keys/age/sedimentary.identity \
-          -e ''${1}.age
-        )
-      }
       vpn () {
         tailscale set --exit-node=$(
           tailscale exit-node list | tail -n +3 | head -n -2 |

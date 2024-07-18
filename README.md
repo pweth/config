@@ -23,12 +23,12 @@ NixOS configuration flake.
     ```
     ssh-keygen -f /etc/ssh/ssh_host_ed25519_key -N "" -t ed25519
     ```
-3. Download this repository:
+3. Clone this repository:
     ```
     nix-shell -p git
     git clone git@github.com:pweth/config.git
     ```
-4. Update `hosts.toml`, `hosts/HOST.nix`, `hardware/MODEL.nix` and `keys/ssh/HOST.pub` as required.
+4. Update `attrs/hosts.toml` and `hosts/HOST.nix` as required.
 5. Re-build the system using:
     ```
     sudo nixos-rebuild switch --flake /etc/nixos/config#HOST

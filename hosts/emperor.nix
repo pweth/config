@@ -58,9 +58,6 @@
     useRoutingFeatures = "client";
   };
 
-  # Override timezone to Sydney
-  time.timeZone = lib.mkForce "Australia/Sydney";
-
   # Enable Docker
   virtualisation = {
     docker.enable = true;

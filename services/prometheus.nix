@@ -36,7 +36,7 @@ in
   };
 
   # Persist service data
-  environment.persistence = lib.mkIf (builtins.hasAttr "persistent" host) {
-    "${host.persistent}".directories = [ "/var/lib/${config.services.prometheus.stateDir}" ];
+  environment.persistence = lib.mkIf host.impermanent {
+    "/persist".directories = [ "/var/lib/${config.services.prometheus.stateDir}" ];
   };
 }

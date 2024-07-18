@@ -27,7 +27,7 @@
 
   outputs = { self, nixpkgs, nixpkgs-unstable, agenix, home-manager, impermanence, nixos-hardware, vscode-server }@inputs:
   let
-    hosts = builtins.fromTOML (builtins.readFile ./hosts.toml);
+    hosts = builtins.fromTOML (builtins.readFile ./attrs/hosts.toml);
   in
   {
     # `sudo nixos-rebuild switch --flake .#host`
@@ -35,7 +35,7 @@
       name: host: nixpkgs.lib.nixosSystem {
         modules = [
           (./hosts + "/${name}.nix")
-          (./hardware + "/${host.system}.nix")
+          (./hardware + "/${host.hardware}.nix")
           ./common
           agenix.nixosModules.default
           home-manager.nixosModules.default

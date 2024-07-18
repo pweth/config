@@ -4,30 +4,29 @@
 */
 
 let
-  # Load in host information
-  hosts = builtins.fromTOML (builtins.readFile ../hosts.toml);
-  keys = builtins.mapAttrs (name: host: builtins.readFile (../keys/ssh + "/${name}.pub")) hosts;
-  masters = [
-    (builtins.readFile ../keys/age/igneous.pub)
-    (builtins.readFile ../keys/age/metamorphic.pub)
-    (builtins.readFile ../keys/age/sedimentary.pub)
-  ];
+  # Load in SSH keys
+  hosts = builtins.mapAttrs (
+    name: host: host.key
+  ) (builtins.fromTOML (builtins.readFile ../attrs/hosts.toml));
+  keys = builtins.mapAttrs (
+    name: key: key.ssh
+  ) (builtins.fromTOML (builtins.readFile ../attrs/keys.toml));
 
   # Secret to host mappings
   secrets = with keys; {
     # Common
-    "dns-01.age"        = builtins.attrValues keys;
-    "password-hash.age" = builtins.attrValues keys;
-    "tailscale.age"     = builtins.attrValues keys;
+    "dns-01.age"        = builtins.attrValues hosts;
+    "password-hash.age" = builtins.attrValues hosts;
+    "tailscale.age"     = builtins.attrValues hosts;
 
     # Services
-    "grafana.age"         = [ macaroni ];
-    "masked-email.age"    = [ macaroni ];
-    "paperless.age"       = [ humboldt ];
-    "restic-emperor.age"  = [ emperor ];
-    "restic-humboldt.age" = [ humboldt ];
+    "grafana.age"         = [ hosts.macaroni ];
+    "masked-email.age"    = [ hosts.macaroni ];
+    "paperless.age"       = [ hosts.humboldt ];
+    "restic-emperor.age"  = [ hosts.emperor ];
+    "restic-humboldt.age" = [ hosts.humboldt ];
   };
 in
 builtins.mapAttrs (name: hostKeys: {
-  publicKeys = hostKeys ++ masters;
+  publicKeys = hostKeys ++ builtins.attrValues keys;
 }) secrets

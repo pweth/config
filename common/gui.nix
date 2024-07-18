@@ -67,7 +67,4 @@
 
   # NetworkManager
   networking.networkmanager.enable = true;
-
-  # Input remapper
-  services.input-remapper.enable = true;
 }

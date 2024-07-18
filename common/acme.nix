@@ -27,7 +27,7 @@
   users.users.nginx.extraGroups = [ "acme" ];
 
   # Persist service data
-  environment.persistence = lib.mkIf (builtins.hasAttr "persistent" host) {
-    "${host.persistent}".directories = [ "/var/lib/acme" ];
+  environment.persistence = lib.mkIf host.impermanent {
+    "/persist".directories = [ "/var/lib/acme" ];
   };
 }

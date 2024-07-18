@@ -27,7 +27,7 @@
         # Backup if appropriate
         if [ $LAST_SNAPSHOT == "null" ] || [ $TODAY > $LAST_DATE ] && [ $TODAY != $LAST_DATE ]; then
           echo "[$(date)] Creating snapshot for $TODAY." >>$LOG_FILE
-          ${pkgs.restic}/bin/restic backup ${host.persistent} >>$LOG_FILE
+          ${pkgs.restic}/bin/restic backup /persist >>$LOG_FILE
           echo "[$(date)] Backup complete." >>$LOG_FILE
         else
           echo "[$(date)] Snapshot already exists for $TODAY, skipping." >>$LOG_FILE
@@ -52,7 +52,7 @@
   };
 
   # Persist service configuration
-  environment.persistence = lib.mkIf (builtins.hasAttr "persistent" host) {
-    "${host.persistent}".users."${user}".directories = [ ".config/backup" ];
+  environment.persistence = lib.mkIf host.impermanent {
+    "/persist".users."${user}".directories = [ ".config/backup" ];
   };
 }
