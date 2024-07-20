@@ -6,7 +6,6 @@
 
 {
   imports = [
-    ./acme.nix
     ./fonts.nix
     ./impermanence.nix
     ./locale.nix
@@ -122,7 +121,4 @@
     fuzzyCompletion = true;
     keybindings = true;
   };
-
-  # Java
-  programs.java.enable = true;
 }

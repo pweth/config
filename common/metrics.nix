@@ -20,6 +20,7 @@
       proxyPass = "http://localhost:${builtins.toString config.services.prometheus.exporters.node.port}";
       proxyWebsockets = true;
     };
-    useACMEHost = "internal";
+    sslCertificate = ../static/misc/pweth.crt;
+    sslCertificateKey = config.age.secrets.certificate.path;
   };
 }

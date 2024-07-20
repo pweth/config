@@ -31,7 +31,5 @@
     webex
     wireshark
     zoom-us
-  ] ++ (with pkgs.unstable; [
-    lutris
-  ]);
+  ];
 }

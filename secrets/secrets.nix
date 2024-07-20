@@ -9,13 +9,13 @@ let
     name: host: host.key
   ) (builtins.fromTOML (builtins.readFile ../attrs/hosts.toml));
   keys = builtins.mapAttrs (
-    name: key: key.ssh
+    name: key: key.age
   ) (builtins.fromTOML (builtins.readFile ../attrs/keys.toml));
 
   # Secret to host mappings
   secrets = with keys; {
     # Common
-    "dns-01.age"        = builtins.attrValues hosts;
+    "certificate.age"   = builtins.attrValues hosts;
     "password-hash.age" = builtins.attrValues hosts;
     "tailscale.age"     = builtins.attrValues hosts;
 

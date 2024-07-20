@@ -16,12 +16,11 @@
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
     recommendedZstdSettings = true;
+  };
 
-    # Reject requests by default
-    virtualHosts.default = {
-      default = true;
-      locations."/".return = "444";
-      rejectSSL = true;
-    };
+  # Mount TLS certificate key
+  age.secrets.certificate = {
+    file = ../secrets/certificate.age;
+    owner = "nginx";
   };
 }

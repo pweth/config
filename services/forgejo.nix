@@ -59,7 +59,8 @@ in
       proxyPass = "http://localhost:${builtins.toString port}";
       proxyWebsockets = true;
     };
-    useACMEHost = "internal";
+    sslCertificate = ../static/misc/pweth.crt;
+    sslCertificateKey = config.age.secrets.certificate.path;
   };
 
   # Persist service data

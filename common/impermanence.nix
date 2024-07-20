@@ -48,7 +48,6 @@
             ".local/share/Anki2"
             ".local/share/Emote"
             ".local/share/keyrings"
-            ".local/share/lutris"
             ".mozilla/firefox/default"
           ])
         ];
