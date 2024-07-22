@@ -9,7 +9,6 @@
     ./fonts.nix
     ./impermanence.nix
     ./locale.nix
-    ./metrics.nix
     ./networking.nix
     ./nginx.nix
     ./security.nix
@@ -48,7 +47,6 @@
     age-plugin-yubikey
     bat
     curl
-    diff-pdf
     dig
     duf
     eza
@@ -56,18 +54,14 @@
     fzf
     gawk
     git
-    htop
     inetutils
     jq
     killall
-    neofetch
     neovim
     openssl
     p7zip
     rclone
     restic
-    ripgrep
-    tldr
     tmux
     tree
     tz
@@ -120,5 +114,12 @@
   programs.fzf = {
     fuzzyCompletion = true;
     keybindings = true;
+  };
+
+  # Node exporter
+  services.prometheus.exporters.node = {
+    enable = true;
+    enabledCollectors = [ "systemd" ];
+    port = 12345;
   };
 }

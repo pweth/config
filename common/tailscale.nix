@@ -2,7 +2,7 @@
 * Tailscale configuration.
 */
 
-{ config, lib, host, hosts, ... }:
+{ config, lib, host, user, ... }:
 
 {
   # Mount authentication key
@@ -12,7 +12,10 @@
   services.tailscale = {
     enable = true;
     authKeyFile = config.age.secrets.tailscale.path;
-    extraUpFlags = [ "--accept-dns=false" ];
+    extraUpFlags = [
+      "--accept-dns=false"
+      "--operator=${user}"
+    ];
   };
 
   # Persist application data

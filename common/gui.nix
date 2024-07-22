@@ -5,18 +5,15 @@
 { config, pkgs, home-manager, user, ... }:
 
 {
-  imports = [
-    ./gaming.nix
-    ../services/doh-proxy.nix
-  ];
-
   # GUI setup
-  services.libinput.enable = true;
-  services.xserver = {
-    desktopManager.gnome.enable = true;
-    displayManager.gdm.enable = true;
-    enable = true;
-    excludePackages = [ pkgs.xterm ];
+  services = {
+    libinput.enable = true;
+    xserver = {
+      enable = true;
+      desktopManager.gnome.enable = true;
+      displayManager.gdm.enable = true;
+      excludePackages = [ pkgs.xterm ];
+    };
   };
 
   # System packages
@@ -24,20 +21,21 @@
     firefox
     gparted
     vscode
-    xvkbd
   ];
 
-  # Exclude unwanted default Gnome packages
+  # Exclude optional GNOME packages
   environment.gnome.excludePackages = (with pkgs; [
+    baobab
+    epiphany
+    evince
     gedit
     gnome-connections
     gnome-photos
     gnome-text-editor
     gnome-tour
+    simple-scan
+    yelp
   ]) ++ (with pkgs.gnome; [
-    baobab
-    epiphany
-    evince
     file-roller
     geary
     gnome-calendar
@@ -51,14 +49,9 @@
     gnome-system-monitor
     gnome-weather
     seahorse
-    simple-scan
     totem
-    yelp
   ]);
 
   # Home manager GUI packages
   home-manager.users."${user}" = import ../home/gui;
-
-  # NetworkManager
-  networking.networkmanager.enable = true;
 }

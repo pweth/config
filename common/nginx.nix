@@ -3,10 +3,15 @@
 * https://nginx.org/
 */
 
-{ config, ... }:
+{ config, domain, host, ... }:
 
 {
-  # Reverse proxy
+  # Mount TLS certificate key
+  age.secrets.certificate = {
+    file = ../secrets/certificate.age;
+    owner = "nginx";
+  };
+
   services.nginx = {
     enable = true;
 
@@ -16,11 +21,13 @@
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
     recommendedZstdSettings = true;
-  };
 
-  # Mount TLS certificate key
-  age.secrets.certificate = {
-    file = ../secrets/certificate.age;
-    owner = "nginx";
+    # IPN hostname for metrics
+    virtualHosts."${host.name}.ipn.${domain}" = {
+      forceSSL = true;
+      locations."/".proxyPass = "http://localhost:${builtins.toString config.services.prometheus.exporters.node.port}";
+      sslCertificate = ../static/misc/pweth.crt;
+      sslCertificateKey = config.age.secrets.certificate.path;
+    };
   };
 }

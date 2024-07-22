@@ -11,6 +11,7 @@
     ./git.nix
     ./htop.nix
     ./neofetch.nix
+    ./python.nix
     ./starship.nix
     ./tmux.nix
   ];
@@ -36,6 +37,7 @@
     cloudflared
     cmatrix
     cowsay
+    diff-pdf
     exiftool
     ffmpeg
     fortune
@@ -48,6 +50,7 @@
     home-manager
     httpie
     imagemagick
+    lego
     libheif
     lolcat
     minicom
@@ -56,35 +59,14 @@
     nodejs
     passage
     picocom
+    ripgrep
     rustup
     sl
     speedtest-cli
     sqlite
+    tldr
     typescript
     valgrind
     yt-dlp
-  ] ++ [
-    (python3.withPackages (ps: with ps; [
-      aiohttp
-      arrow
-      jupyter
-      matplotlib
-      nltk
-      notebook
-      numpy
-      opencv4
-      pandas
-      pip
-      pydantic
-      pygments
-      pyjwt
-      pytest
-      pyzmq
-      requests
-      rich
-      scikit-learn
-      setuptools
-      virtualenv
-    ]))
   ];
 }

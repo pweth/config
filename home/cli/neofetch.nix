@@ -2,9 +2,13 @@
 * Neofetch configuration.
 */
 
-{ config, host, ... }:
+{ config, pkgs, host, ... }:
 
 {
+  home.packages = with pkgs; [
+    neofetch
+  ];
+
   xdg.configFile."neofetch/config.conf".text = ''
     print_info () {
       info title

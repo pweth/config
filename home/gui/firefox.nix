@@ -22,10 +22,8 @@
       DisplayBookmarksToolbar = "always";
       DisplayMenuBar = "never";
       DNSOverHTTPS = {
-        Enabled = true;
-        Fallback = true;
+        Enabled = false;
         Locked = true;
-        ProviderURL = "https://dns.${domain}";
       };
       EnableTrackingProtection = {
         Cryptomining = true;

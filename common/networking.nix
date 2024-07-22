@@ -11,7 +11,12 @@
 
     # Set DNS servers to localhost
     nameservers = [ "127.0.0.1" ];
-    networkmanager.dns = "none";
+
+    # NetworkManager
+    networkmanager = {
+      enable = true;
+      dns = "none";
+    };
   };
 
   # Encrypted DNS
@@ -21,7 +26,7 @@
       block_ipv6 = true;
       blocked_names.blocked_names_file = "/etc/blocklist";
       cloaking_rules = "/etc/cloaking";
-      listen_addresses = [ "127.0.0.1:53" ];
+      listen_addresses = [ "0.0.0.0:53" ];
       require_dnssec = true;
       require_nofilter = true;
       require_nolog = true;
@@ -31,7 +36,6 @@
 
   # Cloaking configuration
   environment.etc.cloaking.text = builtins.concatStringsSep "\n" ([
-    "dns.${domain} 127.0.0.1"
     "docs.${domain} ${hosts.humboldt.address}"
     "git.${domain} ${hosts.humboldt.address}"
     "grafana.${domain} ${hosts.macaroni.address}"

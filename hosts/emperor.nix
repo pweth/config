@@ -53,10 +53,7 @@
   services.openssh.enable = lib.mkForce false;
 
   # Tailscale client
-  services.tailscale = {
-    extraUpFlags = [ "--operator=${user}" ];
-    useRoutingFeatures = "client";
-  };
+  services.tailscale.useRoutingFeatures = "client";
 
   # Enable Docker
   virtualisation = {
