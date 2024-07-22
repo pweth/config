@@ -39,7 +39,6 @@
           (lib.mkIf config.services.xserver.enable [
             "Documents"
             "Downloads"
-            "Games"
             ".config/Code"
             ".config/discord"
             ".config/libreoffice"
