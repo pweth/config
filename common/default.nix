@@ -16,8 +16,8 @@
     ./user.nix
   ];
 
-  # NixOS release version
-  system.stateVersion = "23.11";
+  # Release version
+  system.stateVersion = "24.05";
 
   # Remove NixOS manual
   documentation.nixos.enable = false;
