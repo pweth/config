@@ -25,7 +25,6 @@
     dmenu
     emote
     firefox
-    gnome.gnome-keyring
     gparted
     st
     vscode
