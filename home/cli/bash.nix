@@ -42,8 +42,8 @@
       fs-diff () {
         sudo mkdir -p /mnt &&
         sudo mount -o subvol=/ /dev/mapper/enc /mnt &&
-        chmod +x /etc/nixos/config/static/misc/fs-diff.sh &&
-        /etc/nixos/config/static/misc/fs-diff.sh
+        chmod +x /etc/nixos/config/static/fs-diff.sh &&
+        /etc/nixos/config/static/fs-diff.sh
         sudo umount /mnt
       }
       vpn () {

@@ -7,11 +7,7 @@
 
 {
   imports = [
-    ./desktop.nix
-    ./emote.nix
     ./firefox.nix
-    ./gnome.nix
-    ./nautilus.nix
     ./vscode.nix
     ./xdg.nix
   ];
@@ -19,6 +15,7 @@
   home.packages = with pkgs; [
     anki
     discord
+    gnome.eog
     handbrake
     libreoffice
     obs-studio
@@ -32,4 +29,10 @@
     wireshark
     zoom-us
   ];
+
+  # GTK dark theme
+  xdg.configFile."gtk-3.0/settings.ini".text = ''
+    [Settings]
+    gtk-application-prefer-dark-theme=1
+  '';
 }

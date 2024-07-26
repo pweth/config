@@ -26,7 +26,7 @@
     virtualHosts."${host.name}.ipn.${domain}" = {
       forceSSL = true;
       locations."/".proxyPass = "http://localhost:${builtins.toString config.services.prometheus.exporters.node.port}";
-      sslCertificate = ../static/misc/pweth.crt;
+      sslCertificate = ../static/pweth.crt;
       sslCertificateKey = config.age.secrets.certificate.path;
     };
   };

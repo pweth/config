@@ -24,12 +24,7 @@
   };
 
   # Monitor setup
-  home-manager.users."${user}".xdg.configFile."monitors.xml".source = ../static/misc/monitors.xml;
-
-  # tmux
-  programs.bash.interactiveShellInit = ''
-    [[ -z "$TMUX" ]] && exec tmux new -As0
-  '';
+  home-manager.users."${user}".xdg.configFile."monitors.xml".source = ../static/monitors.xml;
 
   # Sound and Bluetooth
   sound.enable = true;
@@ -37,27 +32,9 @@
   hardware.bluetooth.enable = true;
   hardware.pulseaudio.enable = true;
 
-  # Auto-login on boot
-  security.pam.services.gdm.enableGnomeKeyring = true;
-  services.pcscd.enable = true;
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = user;
-  };
-  systemd.services = {
-    "autovt@tty1".enable = false;
-    "getty@tty1".enable = false;
-  };
-
   # Disable SSH
   services.openssh.enable = lib.mkForce false;
 
   # Tailscale client
   services.tailscale.useRoutingFeatures = "client";
-
-  # Enable Docker
-  virtualisation = {
-    docker.enable = true;
-    oci-containers.backend = "docker";
-  };
 }

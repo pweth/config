@@ -18,6 +18,7 @@
       ms-azuretools.vscode-docker
       ms-python.python
       ms-toolsai.jupyter
+      ms-vscode.cpptools-extension-pack
       ms-vscode.hexeditor
       ms-vscode.makefile-tools
       ms-vscode-remote.remote-ssh

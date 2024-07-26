@@ -21,7 +21,7 @@
       hideMounts = true;
       directories = lib.mkMerge [
         [
-          "/etc/nixos/config"
+          "/etc/nixos"
           "/var/lib/systemd/coredump"
         ]
         (lib.mkIf config.networking.networkmanager.enable [
@@ -39,6 +39,7 @@
           (lib.mkIf config.services.xserver.enable [
             "Documents"
             "Downloads"
+            "Pictures"
             ".config/Code"
             ".config/discord"
             ".config/libreoffice"

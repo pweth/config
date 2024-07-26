@@ -21,7 +21,7 @@ in
       proxyPass = "http://localhost:${builtins.toString port}";
       proxyWebsockets = true;
     };
-    sslCertificate = ../static/misc/pweth.crt;
+    sslCertificate = ../static/pweth.crt;
     sslCertificateKey = config.age.secrets.certificate.path;
   };
 

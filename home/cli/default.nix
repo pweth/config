@@ -34,6 +34,7 @@
   home.packages = with pkgs; [
     backblaze-b2
     bottom
+    cbonsai
     cloudflared
     cmatrix
     cowsay
@@ -64,6 +65,7 @@
     sl
     speedtest-cli
     sqlite
+    termdown
     tldr
     typescript
     valgrind
