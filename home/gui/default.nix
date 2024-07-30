@@ -31,6 +31,18 @@
     zoom-us
   ];
 
+  # Symlink GUI scripts
+  home.file = {
+    ".local/bin/bt" = {
+      executable = true;
+      source = ../../static/scripts/bluetooth.sh;
+    };
+    ".local/bin/wp" = {
+      executable = true;
+      source = ../../static/scripts/wallpaper.sh;
+    };
+  };
+
   # GTK dark theme
   xdg.configFile."gtk-3.0/settings.ini".text = ''
     [Settings]

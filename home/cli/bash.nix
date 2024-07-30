@@ -39,13 +39,6 @@
         fzf --ansi --preview 'git show --pretty=medium --color=always $(echo {} | cut -d " " -f 1)' |
         cut -d " " -f 1
       }
-      fs-diff () {
-        sudo mkdir -p /mnt &&
-        sudo mount -o subvol=/ /dev/mapper/enc /mnt &&
-        chmod +x /etc/nixos/config/static/fs-diff.sh &&
-        /etc/nixos/config/static/fs-diff.sh
-        sudo umount /mnt
-      }
       vpn () {
         tailscale set --exit-node=$(
           tailscale exit-node list | tail -n +3 | head -n -2 |

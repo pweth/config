@@ -24,7 +24,9 @@
   environment.systemPackages = with pkgs; [
     dmenu
     emote
+    feh
     firefox
+    flameshot
     gparted
     st
     vscode
@@ -33,12 +35,18 @@
   # Home manager GUI packages
   home-manager.users."${user}" = import ../home/gui;
 
-  # Override dwm source
+  # Override suckless package sources
   nixpkgs.overlays = [
     (final: prev: {
+      dmenu = prev.dmenu.overrideAttrs (old: {
+        src = /etc/nixos/suckless/dmenu;
+      });
       dwm = prev.dwm.overrideAttrs (old: {
-        src = /etc/nixos/dwm;
+        src = /etc/nixos/suckless/dwm;
       });
     })
   ];
+
+  # Lock screen
+  programs.slock.enable = true;
 }

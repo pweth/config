@@ -2,18 +2,20 @@
 * SSH configuration.
 */
 
-{ config, domain, host, hosts, user, ... }:
+{ config, pkgs, domain, host, hosts, user, ... }:
 
 {
   # Set public key for host
   environment.etc."ssh/ssh_host_ed25519_key.pub".text = host.key;
 
-  # Enable passwordless sudo for remote deployments
-  security.sudo = {
-    extraConfig = ''
-      Defaults lecture = never
-    '';
-    wheelNeedsPassword = false;
+  security = {
+    # Enable passwordless sudo for remote deployments
+    sudo = {
+      extraConfig = ''
+        Defaults lecture = never
+      '';
+      wheelNeedsPassword = false;
+    };
   };
 
   # SSH agent
@@ -47,6 +49,9 @@
       X11Forwarding = false;
     };
   };
+
+  # Smart card daemon for Yubikeys
+  services.pcscd.enable = true;
 
   # Password hash
   age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];

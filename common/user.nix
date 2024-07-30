@@ -29,6 +29,9 @@
     };
   };
 
+  # Add ~/.local/bin to path
+  environment.localBinInPath = true;
+
   # Message of the day
   users.motd = "Connected to ${host.species}.";
 }

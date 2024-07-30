@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Mount the encrypted btrfs partition
+sudo mkdir -p /mnt
+sudo mount -o subvol=/ /dev/mapper/enc /mnt
+
 OLD_TRANSID=$(sudo btrfs subvolume find-new /mnt/root-blank 9999999)
 OLD_TRANSID=${OLD_TRANSID#transid marker was }
 
@@ -19,3 +23,6 @@ while read path; do
     echo "$path"
   fi
 done
+
+# Unmount the partition
+sudo umount /mnt
