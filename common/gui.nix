@@ -14,7 +14,12 @@
     libinput.enable = true;
     xserver = {
       enable = true;
-      displayManager.lightdm.enable = true;
+      displayManager = {
+        lightdm.enable = true;
+        sessionCommands = ''
+          ${pkgs.feh}/bin/feh --bg-scale $(cat /home/${user}/.wallpaper)
+        '';
+      };
       excludePackages = [ pkgs.xterm ];
       windowManager.dwm.enable = true;
     };
@@ -49,4 +54,23 @@
 
   # Lock screen
   programs.slock.enable = true;
+
+  # Emote and dwm status bar daemons
+  systemd.user.services = {
+    emote = {
+      partOf = [ "graphical-session.target" ];
+      serviceConfig.ExecStart = "${pkgs.emote}/bin/emote";
+      wantedBy = [ "graphical-session.target" ];
+    };
+    status-bar = {
+      partOf = [ "graphical-session.target" ];
+      path = with pkgs; [
+        gawk
+        networkmanager
+        xorg.xsetroot
+      ];
+      script = "exec ${../static/scripts/status-bar.sh}";
+      wantedBy = [ "graphical-session.target" ];
+    };
+  };
 }

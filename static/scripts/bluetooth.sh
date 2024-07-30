@@ -9,7 +9,7 @@ if [[ $DEVICE_COUNT = 1 ]]; then
 	MAC=$(bluetoothctl devices | awk {'print $2'})
 		[ -z $MAC ] && MAC=NoDeviceFound # Prevents accidental disconnect error
 else
-	DEVICE=$(bluetoothctl devices | awk {'print $3'} | dmenu -l 10 -fn Monospace-13)
+	DEVICE=$(bluetoothctl devices | awk {'print $3'} | dmenu -l 10)
 	MAC=$(bluetoothctl devices | grep $DEVICE | awk {'print $2'}) 
 		[ -z $MAC ] && MAC=NoDeviceFound # Prevents accidental disconnect error
 fi

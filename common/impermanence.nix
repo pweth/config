@@ -51,7 +51,10 @@
             ".mozilla/firefox/default"
           ])
         ];
-        files = [ ".bash_history" ];
+        files = [
+          ".bash_history"
+          ".wallpaper"
+        ];
       };
     };
   };

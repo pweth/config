@@ -14,6 +14,7 @@
       set -g pane-active-border-style 'bg=default fg=colour239'
       set -g pane-border-style 'bg=default fg=colour236'
       set -g set-clipboard off
+      set -g set-titles on
       set -g status-interval 1
       set -g status-left '''
       set -g status-position top

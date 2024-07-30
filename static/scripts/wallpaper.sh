@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-BACKGROUND=$(ls /etc/nixos/config/static/images | dmenu -l 10 -fn Monospace-13)
+FOLDER="/etc/nixos/config/static/images"
+
+BACKGROUND=$(ls $FOLDER | dmenu -l 10)
 
 if [[ $? = 0 ]]; then
-    feh --bg-scale /etc/nixos/config/static/images/$BACKGROUND
+    feh --bg-scale $FOLDER/$BACKGROUND
+    echo $FOLDER/$BACKGROUND > ~/.wallpaper
 fi

@@ -7,7 +7,6 @@
 
 {
   imports = [
-    ./emote.nix
     ./firefox.nix
     ./vscode.nix
     ./xdg.nix
