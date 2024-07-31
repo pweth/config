@@ -26,7 +26,7 @@
       ls = "eza -la";
       mkdir = "mkdir -p";
       nano = "nvim";
-      ngc = "nix-collect-garbage -d";
+      ngc = "sudo nix-env --delete-generations --profile /nix/var/nix/profiles/system old && nix-collect-garbage -d";
       paste = "xclip -o -selection clipboard";
       rb = "sudo nixos-rebuild switch --flake /etc/nixos/config";
       v = "nvim"; 
