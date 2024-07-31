@@ -49,6 +49,9 @@
       dwm = prev.dwm.overrideAttrs (old: {
         src = /etc/nixos/suckless/dwm;
       });
+      st = prev.st.overrideAttrs (old: {
+        src = /etc/nixos/suckless/st;
+      });
     })
   ];
 
