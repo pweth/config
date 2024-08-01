@@ -1,12 +1,14 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
+#alltabs-button,
 #context-bookmarkpage,
 #PanelUI-menu-button,
 #PersonalToolbar,
 #star-button-box,
 #unified-extensions-button,
 .bookmark-item > .toolbarbutton-icon,
-.titlebar-buttonbox-container {
+.titlebar-buttonbox-container,
+.titlebar-spacer {
     display: none !important;
 }
 

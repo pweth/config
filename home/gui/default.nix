@@ -31,15 +31,15 @@
   ];
 
   # Symlink GUI scripts
-  home.file = {
-    ".local/bin/bt" = {
+  home.file = builtins.mapAttrs (
+    name: value: {
       executable = true;
-      source = ../../static/scripts/bluetooth.sh;
-    };
-    ".local/bin/wp" = {
-      executable = true;
-      source = ../../static/scripts/wallpaper.sh;
-    };
+      source = ../../static/scripts + "/${value}";
+    }
+  ) {
+    ".local/bin/bt" = "bluetooth.sh";
+    ".local/bin/vpn" = "exit-node.sh";
+    ".local/bin/wallpaper" = "wallpaper.sh";
   };
 
   # GTK dark theme

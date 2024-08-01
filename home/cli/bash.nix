@@ -39,23 +39,8 @@
         fzf --ansi --preview 'git show --pretty=medium --color=always $(echo {} | cut -d " " -f 1)' |
         cut -d " " -f 1
       }
-      vpn () {
-        tailscale set --exit-node=$(
-          tailscale exit-node list | tail -n +3 | head -n -2 |
-          sed -e s/.adelie-monitor.ts.net// |
-          awk -F '[[:space:]][[:space:]]+' '{print $2, "("$4",", $3")"}' |
-          fzf |
-          awk '{print $1}'
-        )
-        whereami
-      }
       weather () {
         curl -s "wttr.in/''${1}" | head -n -1
-      }
-      whereami () {
-        tailscale status --json |
-        jq -r '."ExitNodeStatus"."TailscaleIPs"[0] // "nowhere"' |
-        awk '{print "Connected to", $1 ". Safe travels!"}'
       }
     '';
   };

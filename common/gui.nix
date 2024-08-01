@@ -69,7 +69,9 @@
       partOf = [ "graphical-session.target" ];
       path = with pkgs; [
         gawk
+        jq
         networkmanager
+        tailscale
         xorg.xsetroot
       ];
       script = "exec ${../static/scripts/status-bar.sh}";
