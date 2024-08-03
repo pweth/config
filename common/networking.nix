@@ -27,9 +27,11 @@
       blocked_names.blocked_names_file = "/etc/blocklist";
       cloaking_rules = "/etc/cloaking";
       listen_addresses = [ "0.0.0.0:53" ];
-      require_dnssec = true;
-      require_nofilter = true;
-      require_nolog = true;
+      sources = {};
+      static = {
+        cloudflare.stamp = "sdns://AgcAAAAAAAAABzEuMC4wLjEAEmRucy5jbG91ZGZsYXJlLmNvbQovZG5zLXF1ZXJ5";
+        mullvad.stamp = "sdns://AgcAAAAAAAAACzE5NC4yNDIuMi4yAA9kbnMubXVsbHZhZC5uZXQKL2Rucy1xdWVyeQ";
+      };
     };
     upstreamDefaults = true;
   };
