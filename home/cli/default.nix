@@ -55,6 +55,7 @@
     libheif
     lolcat
     minicom
+    mitmproxy
     nmap
     nms
     nodejs
