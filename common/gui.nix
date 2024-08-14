@@ -71,6 +71,7 @@
         gawk
         jq
         networkmanager
+        playerctl
         tailscale
         xorg.xsetroot
       ];

@@ -21,6 +21,7 @@
     libreoffice
     obs-studio
     pinta
+    playerctl
     shotcut
     spotify
     sqlitebrowser
