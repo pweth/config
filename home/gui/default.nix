@@ -15,6 +15,7 @@
   home.packages = with pkgs; [
     anki
     discord
+    galculator
     gnome.eog
     handbrake
     libreoffice

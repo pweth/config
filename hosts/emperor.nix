@@ -32,8 +32,9 @@
   hardware.bluetooth.enable = true;
   hardware.pulseaudio.enable = true;
 
-  # Disable SSH
+  # Disable SSH and fail2ban
   services.openssh.enable = lib.mkForce false;
+  services.fail2ban.enable = lib.mkForce false;
 
   # Tailscale client
   services.tailscale.useRoutingFeatures = "client";
