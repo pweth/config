@@ -7,6 +7,7 @@
 let
   subdomain = "prometheus.${domain}";
   port = 58635;
+  blackbox_port = 58636;
 in
 {
   services.prometheus = {
@@ -23,6 +24,12 @@ in
         }];
       }
     ];
+
+    # Enable blackbox exporter for probing endpoints
+    exporters.blackbox = {
+      enable = true;
+      port = blackbox_port;
+    };
   };
 
   # Internal domain
