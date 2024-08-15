@@ -18,6 +18,7 @@
     galculator
     gnome.eog
     handbrake
+    libnotify
     libreoffice
     obs-studio
     pinta
@@ -42,6 +43,9 @@
     ".local/bin/vpn" = "exit-node.sh";
     ".local/bin/wallpaper" = "wallpaper.sh";
   };
+
+  # Desktop notifications
+  services.dunst.enable = true;
 
   # GTK dark theme
   xdg.configFile."gtk-3.0/settings.ini".text = ''

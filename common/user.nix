@@ -2,7 +2,7 @@
 * Default user configuration.
 */
 
-{ config, host, user, ... }:
+{ config, host, keys, user, ... }:
 
 {
   # User account
@@ -20,10 +20,10 @@
         "wheel"
       ];
       isNormalUser = true;
-      openssh.authorizedKeys.keyFiles = [
-        ../keys/ssh/igneous.pub
-        ../keys/ssh/metamorphic.pub
-        ../keys/ssh/sedimentary.pub
+      openssh.authorizedKeys.keys = [
+        keys.igneous.ssh
+        keys.metamorphic.ssh
+        keys.sedimentary.ssh
       ];
       uid = 1000;
     };

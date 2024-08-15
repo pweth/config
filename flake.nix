@@ -28,6 +28,7 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, agenix, home-manager, impermanence, nixos-hardware, vscode-server }@inputs:
   let
     hosts = builtins.fromTOML (builtins.readFile ./attrs/hosts.toml);
+    keys = builtins.fromTOML (builtins.readFile ./attrs/keys.toml);
   in
   {
     # `sudo nixos-rebuild switch --flake .#host`
@@ -46,6 +47,7 @@
           domain = "pweth.com";
           host = host;
           hosts = hosts;
+          keys = keys;
           user = "pweth";
         };
         system = host.architecture;
