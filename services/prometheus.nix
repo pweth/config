@@ -28,6 +28,7 @@ in
     # Enable blackbox exporter for probing endpoints
     exporters.blackbox = {
       enable = true;
+      configFile = ../static/blackbox.yaml;
       port = blackbox_port;
     };
   };
