@@ -33,7 +33,9 @@ while true; do
     if [[ -f "$BATTERY_FILE" ]]; then
         BATTERY=$(cat "$BATTERY_FILE")
         if [[ $BATTERY = "214" ]] || [[ $BATTERY = "100" ]]; then
-            SYSTEM_INFO+=("🔋")
+            SYSTEM_INFO+=("🔋 100%")
+        elif [[ $BATTERY -gt 25 ]]; then
+            SYSTEM_INFO+=("🔋 $BATTERY%")
         else
             SYSTEM_INFO+=("🪫 $BATTERY%")
         fi

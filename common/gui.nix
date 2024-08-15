@@ -33,6 +33,7 @@
     firefox
     flameshot
     gparted
+    playerctl
     st
     vscode
   ];
