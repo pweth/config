@@ -3,7 +3,7 @@ while true; do
     declare -a SYSTEM_INFO=()
 
     # Jan 1 12:34
-    DATETIME=$(date "+%b %_d %H:%M")
+    DATETIME=$(date "+%b %-d %H:%M")
 
     # Music player
     MUSIC_STATUS=$(playerctl status)
