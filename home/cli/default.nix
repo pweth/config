@@ -38,6 +38,7 @@
     cloudflared
     cmatrix
     cowsay
+    dasel
     diff-pdf
     exiftool
     ffmpeg
@@ -50,6 +51,7 @@
     go
     home-manager
     httpie
+    hwatch
     imagemagick
     lego
     libheif
