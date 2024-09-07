@@ -40,10 +40,8 @@
   environment.etc.cloaking.text = builtins.concatStringsSep "\n" ([
     "docs.${domain} ${hosts.humboldt.address}"
     "git.${domain} ${hosts.humboldt.address}"
-    "grafana.${domain} ${hosts.macaroni.address}"
     "jellyfin.${domain} ${hosts.humboldt.address}"
-    "mask.${domain} ${hosts.macaroni.address}"
-    "prometheus.${domain} ${hosts.macaroni.address}"
+    "mask.${domain} ${hosts.emperor.address}"
   ] ++ (builtins.concatMap (host: [
     "${host.name}.ipn.${domain} ${host.address}"
     "${host.name} ${host.address}"

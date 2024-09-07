@@ -20,8 +20,8 @@ let
     "tailscale.age"     = builtins.attrValues hosts;
 
     # Services
-    "grafana.age"         = [ hosts.macaroni ];
-    "masked-email.age"    = [ hosts.macaroni ];
+    "grafana.age"         = [ hosts.humboldt ];
+    "masked-email.age"    = [ hosts.emperor ];
     "paperless.age"       = [ hosts.humboldt ];
     "restic-emperor.age"  = [ hosts.emperor ];
     "restic-humboldt.age" = [ hosts.humboldt ];

@@ -7,6 +7,7 @@
 {
   imports = [
     ../common/gui.nix
+    ../services/masked-email.nix
     ../services/restic.nix
     ../services/rollback.nix
   ];

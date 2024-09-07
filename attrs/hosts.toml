@@ -9,7 +9,7 @@ impermanent  = true
 key          = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILqt+SLcA0kXPLvuF+mogzId9n57rB5y0PyWJ8RE0ja8"
 
 
-# Home Server
+# Application Server
 [humboldt]
 name         = "humboldt"
 species      = "Spheniscus humboldti"
@@ -18,17 +18,6 @@ architecture = "x86_64-linux"
 hardware     = "dell-optiplex-3050"
 impermanent  = true
 key          = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICZDBxFQIZaazAOgPCd9+eLxu7NAg+5a6ZwPmoI2eNGc"
-
-
-# Oracle VM
-[macaroni]
-name         = "macaroni"
-species      = "Eudyptes chrysolophus"
-address      = "100.90.0.1"
-architecture = "x86_64-linux"
-hardware     = "oracle-vm-e2-1-micro"
-impermanent  = false
-key          = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDs6W94lN0Kx8hOEU4BArPlzkishQGQDVD/gLEsncAzI"
 
 
 # Raspberry Pi
