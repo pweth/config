@@ -9,7 +9,7 @@
     ./fonts.nix
     ./impermanence.nix
     ./locale.nix
-    ./networking.nix
+    ./nextdns.nix
     ./nginx.nix
     ./security.nix
     ./tailscale.nix
@@ -82,6 +82,16 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users."${user}" = import ../home/cli;
+  };
+
+  # Networking
+  networking = {
+    hostName = host.name;
+    nameservers = [ "127.0.0.1" ];
+    networkmanager = {
+      enable = true;
+      dns = "none";
+    };
   };
 
   # Automatic garbage collection

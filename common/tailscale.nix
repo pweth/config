@@ -13,7 +13,7 @@
     enable = true;
     authKeyFile = config.age.secrets.tailscale.path;
     extraUpFlags = [
-      "--accept-dns=false"
+      "--accept-dns=true"
       "--operator=${user}"
     ];
   };

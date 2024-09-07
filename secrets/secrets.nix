@@ -16,6 +16,7 @@ let
   secrets = with keys; {
     # Common
     "certificate.age"   = builtins.attrValues hosts;
+    "nextdns.age"       = builtins.attrValues hosts;
     "password-hash.age" = builtins.attrValues hosts;
     "tailscale.age"     = builtins.attrValues hosts;
 
