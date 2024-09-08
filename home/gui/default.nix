@@ -32,8 +32,8 @@
     zoom-us
   ];
 
-  # Symlink GUI scripts
-  home.file = builtins.mapAttrs (
+  home.file = (builtins.mapAttrs (
+    # Symlink GUI scripts
     name: value: {
       executable = true;
       source = ../../static/scripts + "/${value}";
@@ -42,6 +42,9 @@
     ".local/bin/bt" = "bluetooth.sh";
     ".local/bin/vpn" = "exit-node.sh";
     ".local/bin/wallpaper" = "wallpaper.sh";
+  }) // {
+    # Citrix EULA
+    ".ICAClient/.eula_accepted".text = "yes";
   };
 
   # GTK dark theme
