@@ -10,7 +10,11 @@ while true; do
     if [[ $MUSIC_STATUS = "Playing" ]] then
         SONG=$(playerctl metadata title)
         ARTIST=$(playerctl metadata artist)
-        SYSTEM_INFO+=("🎶 $SONG ($ARTIST) ")
+        if [ -n $ARTIST ]; then
+            SYSTEM_INFO+=("🎶 $SONG ($ARTIST) ")
+        else
+            SYSTEM_INFO+=("🎶 $SONG ")
+        fi
     fi
 
     # Connection status
