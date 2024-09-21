@@ -10,6 +10,7 @@
     ./bash.nix
     ./git.nix
     ./htop.nix
+    ./key-files.nix
     ./neofetch.nix
     ./python.nix
     ./starship.nix

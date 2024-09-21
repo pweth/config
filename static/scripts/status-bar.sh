@@ -18,8 +18,8 @@ while true; do
     fi
 
     # Connection status
-    NETWORK_STATUS=$(nmcli general status | tail -n 1 | awk '{print $1}')
-    if [[ $NETWORK_STATUS = "connected" ]] then
+    NETWORK_STATUS=$(nmcli -f "CONNECTIVITY" -t general status)
+    if [[ $NETWORK_STATUS = "full" ]] then
         SYSTEM_INFO+=("🔗")
     else
         SYSTEM_INFO+=("🚫")
@@ -36,7 +36,7 @@ while true; do
     BATTERY_FILE="/sys/class/power_supply/BAT0/capacity"
     if [[ -f "$BATTERY_FILE" ]]; then
         BATTERY=$(cat "$BATTERY_FILE")
-        if [[ $BATTERY = "214" ]] || [[ $BATTERY = "100" ]]; then
+        if [[ $BATTERY = "214" ]]; then
             SYSTEM_INFO+=("🔋 100%")
         elif [[ $BATTERY -gt 25 ]]; then
             SYSTEM_INFO+=("🔋 $BATTERY%")

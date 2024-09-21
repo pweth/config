@@ -20,6 +20,7 @@
           ${pkgs.feh}/bin/feh --bg-scale $(cat /home/${user}/.wallpaper)
         '';
       };
+      dpi = 120;
       excludePackages = [ pkgs.xterm ];
       windowManager.dwm.enable = true;
     };

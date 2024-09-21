@@ -2,7 +2,7 @@
 * Common system configuration across all hosts.
 */
 
-{ config, pkgs, agenix, domain, host, nixpkgs-unstable, user, ... }:
+{ config, pkgs, agenix, domain, host, keys, nixpkgs-unstable, user, ... }:
 
 {
   imports = [
@@ -77,6 +77,7 @@
     extraSpecialArgs = {
       domain = domain;
       host = host;
+      keys = keys;
       user = user;
     };
     useGlobalPkgs = true;
