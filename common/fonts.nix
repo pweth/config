@@ -10,12 +10,16 @@
     packages = with pkgs; [
       hack-font
       noto-fonts
-      noto-fonts-emoji
+      noto-fonts-color-emoji
     ];
-    fontconfig.defaultFonts = {
-      serif = [ "NotoSerif" ];
-      sansSerif = [ "NotoSans" ];
-      monospace = [ "Hack" ];
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        emoji = [ "NotoColorEmoji" ];
+        sansSerif = [ "NotoSans" ];
+        serif = [ "NotoSerif" ];
+        monospace = [ "Hack" ];
+      };
     };
   };
 }

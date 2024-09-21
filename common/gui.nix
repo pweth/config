@@ -5,6 +5,10 @@
 { config, pkgs, home-manager, user, ... }:
 
 {
+  imports = [
+    ./suckless.nix
+  ];
+
   # GUI setup
   services = {
     displayManager.autoLogin = {
@@ -28,39 +32,19 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
-    dmenu
     emote
     feh
     firefox
     flameshot
     gparted
     playerctl
-    st
     vscode
   ];
 
   # Home manager GUI packages
   home-manager.users."${user}" = import ../home/gui;
 
-  # Override suckless package sources
-  nixpkgs.overlays = [
-    (final: prev: {
-      dmenu = prev.dmenu.overrideAttrs (old: {
-        src = /etc/nixos/suckless/dmenu;
-      });
-      dwm = prev.dwm.overrideAttrs (old: {
-        src = /etc/nixos/suckless/dwm;
-      });
-      st = prev.st.overrideAttrs (old: {
-        src = /etc/nixos/suckless/st;
-      });
-    })
-  ];
-
-  # Lock screen
-  programs.slock.enable = true;
-
-  # Emote and dwm status bar daemons
+  # Emote and status bar daemons
   systemd.user.services = {
     emote = {
       partOf = [ "graphical-session.target" ];
