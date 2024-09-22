@@ -22,7 +22,6 @@
       directories = lib.mkMerge [
         [
           "/etc/nixos"
-          "/var/lib/nixos"
           "/var/lib/systemd/coredump"
         ]
         (lib.mkIf config.networking.networkmanager.enable [
