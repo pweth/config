@@ -18,8 +18,8 @@ while true; do
     fi
 
     # Connection status
-    NETWORK_STATUS=$(nmcli -f "CONNECTIVITY" -t general status)
-    if [[ $NETWORK_STATUS = "full" ]] then
+    NETWORK_STATUS=$(nmcli general status | tail -n 1 | awk '{print $1}')
+    if [[ $NETWORK_STATUS = "connected" ]] then
         SYSTEM_INFO+=("🔗")
     else
         SYSTEM_INFO+=("🚫")
