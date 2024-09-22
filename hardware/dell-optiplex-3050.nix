@@ -17,38 +17,33 @@
   fileSystems."/" = {
     device = "none";
     fsType = "tmpfs";
-    options = [ "defaults" "size=25%" "mode=755" ];
+    options = [ "defaults" "size=2G" "mode=755" ];
   };
 
-  boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/edeac7b4-70d4-457c-a29d-2f0d2220c070";
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/boot";
+    fsType = "vfat";
+    options = [ "fmask=0022" "dmask=0022" ];
+  };
+
+  boot.initrd.luks.devices."luks".device = "/dev/disk/by-label/encrypted";
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/fb3851f9-8107-49a2-9643-bced576a9497";
+    device = "/dev/disk/by-label/data";
     fsType = "btrfs";
     options = [ "subvol=nix" "compress=zstd" "noatime" ];
   };
 
   fileSystems."/persist" = {
-    device = "/dev/disk/by-uuid/fb3851f9-8107-49a2-9643-bced576a9497";
+    device = "/dev/disk/by-label/data";
     fsType = "btrfs";
     options = [ "subvol=persist" "compress=zstd" "noatime" ];
     neededForBoot = true;
   };
 
-  fileSystems."/data" = {
-    device = "/dev/disk/by-uuid/fb3851f9-8107-49a2-9643-bced576a9497";
-    fsType = "btrfs";
-    options = [ "subvol=data" "compress=zstd" "noatime" ];
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/00944f6b-c604-45a3-9551-994c6de989b9";
-    fsType = "ext2";
-  };
-
-  swapDevices = [
-    { device = "/dev/disk/by-uuid/f099c486-2d8b-49c3-9814-d1d9098ca62e"; }
-  ];
+  swapDevices = [{
+    device = "/dev/disk/by-label/swap"; 
+  }];
 
   networking.useDHCP = lib.mkDefault true;
 
