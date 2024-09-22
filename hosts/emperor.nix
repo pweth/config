@@ -7,7 +7,6 @@
 {
   imports = [
     ../common/gui.nix
-    ../services/masked-email.nix
     ../services/restic.nix
     ../services/rollback.nix
   ];
@@ -26,6 +25,12 @@
 
   # Monitor setup
   home-manager.users."${user}".xdg.configFile."monitors.xml".source = ../static/monitors.xml;
+
+  # NetworkManager
+  networking.networkmanager = {
+    enable = true;
+    dns = "none";
+  };
 
   # Sound and Bluetooth
   sound.enable = true;

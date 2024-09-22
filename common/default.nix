@@ -2,7 +2,7 @@
 * Common system configuration across all hosts.
 */
 
-{ config, pkgs, agenix, domain, host, keys, nixpkgs-unstable, user, ... }:
+{ config, pkgs, agenix, domain, host, keys, user, ... }:
 
 {
   imports = [
@@ -58,6 +58,7 @@
     jq
     killall
     neovim
+    networkmanager
     openssl
     p7zip
     rclone
@@ -89,10 +90,6 @@
   networking = {
     hostName = host.name;
     nameservers = [ "127.0.0.1" ];
-    networkmanager = {
-      enable = true;
-      dns = "none";
-    };
   };
 
   # Automatic garbage collection
@@ -108,18 +105,8 @@
   # Nix subcommands and flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Allow unfree and overlay unstable packages
-  nixpkgs = {
-    config.allowUnfree = true;
-    overlays = [
-      (final: prev: {
-        unstable = import nixpkgs-unstable {
-          config.allowUnfree = true;
-          system = prev.system;
-        };
-      })
-    ];
-  };
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
   # Fuzzy finder
   programs.fzf = {

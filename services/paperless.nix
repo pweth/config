@@ -19,12 +19,12 @@ in
   services.paperless = {
     enable = true;
     address = "0.0.0.0";
-    extraConfig = {
+    passwordFile = config.age.secrets.paperless.path;
+    port = port;
+    settings = {
       PAPERLESS_APP_TITLE = "Paperless";
       PAPERLESS_DATE_ORDER = "DMY";
     };
-    passwordFile = config.age.secrets.paperless.path;
-    port = port;
   };
 
   # Internal domain

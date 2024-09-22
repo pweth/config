@@ -15,9 +15,9 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/fb3851f9-8107-49a2-9643-bced576a9497";
-    fsType = "btrfs";
-    options = [ "subvol=root" "compress=zstd" "noatime" ];
+    device = "none";
+    fsType = "tmpfs";
+    options = [ "defaults" "size=25%" "mode=755" ];
   };
 
   boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/edeac7b4-70d4-457c-a29d-2f0d2220c070";

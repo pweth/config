@@ -34,7 +34,12 @@
       ];
       users."${user}" = {
         directories = lib.mkMerge [
-          [ ".passage" ".ssh" ]
+          [
+            ".config/nvim"
+            ".local/share/nvim"
+            ".passage"
+            ".ssh"
+          ]
 
           # Only persist on GUI systems
           (lib.mkIf config.services.xserver.enable [

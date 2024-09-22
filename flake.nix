@@ -4,7 +4,6 @@
   inputs = {
     # Nix packages
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # agenix
     agenix.url = "github:ryantm/agenix";
@@ -25,7 +24,7 @@
     vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, agenix, home-manager, impermanence, nixos-hardware, vscode-server }@inputs:
+  outputs = { self, nixpkgs, agenix, home-manager, impermanence, nixos-hardware, vscode-server }@inputs:
   let
     hosts = builtins.fromTOML (builtins.readFile ./attrs/hosts.toml);
     keys = builtins.fromTOML (builtins.readFile ./attrs/keys.toml);
