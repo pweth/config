@@ -25,7 +25,6 @@
     shotcut
     spotify
     sqlitebrowser
-    standardnotes
     vlc
     webex
     wireshark
