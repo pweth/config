@@ -1,6 +1,6 @@
 /*
 * Home manager configuration for GUI programs.
-* See ../cli/default.nix for CLI programs.
+* See ../home/home.nix for CLI programs.
 */
 
 { config, pkgs, ... }:
@@ -35,7 +35,7 @@
     # Symlink GUI scripts
     name: value: {
       executable = true;
-      source = ../../static/scripts + "/${value}";
+      source = ../static/scripts + "/${value}";
     }
   ) {
     ".local/bin/bt" = "bluetooth.sh";

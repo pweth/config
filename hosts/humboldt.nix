@@ -8,6 +8,7 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     nixos-hardware.nixosModules.dell-optiplex-3050
+    ../home
     ../services/forgejo.nix
     ../services/grafana.nix
     ../services/jellyfin.nix

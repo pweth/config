@@ -73,19 +73,6 @@
     zip
   ]);
 
-  # Home manager
-  home-manager = {
-    extraSpecialArgs = {
-      domain = domain;
-      host = host;
-      keys = keys;
-      user = user;
-    };
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users."${user}" = import ../home/cli;
-  };
-
   # Networking
   networking = {
     hostName = host.name;
@@ -93,12 +80,8 @@
     useDHCP = lib.mkDefault true;
   };
 
-  # Automatic garbage collection
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
+  # Garbage collection
+  nix.gc.automatic = true;
 
   # Automatic `nix store optimise`
   nix.settings.auto-optimise-store = true;
@@ -106,11 +89,11 @@
   # Nix subcommands and flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Allow unfree packages and set platform
-  nixpkgs = {
-    config.allowUnfree = true;
-    hostPlatform = lib.mkDefault host.architecture;
-  };
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  # Platform
+  nixpkgs.hostPlatform = lib.mkDefault host.architecture;
 
   # Fuzzy finder
   programs.fzf = {

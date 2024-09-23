@@ -42,7 +42,7 @@
   ];
 
   # Home manager GUI packages
-  home-manager.users."${user}" = import ../home/gui;
+  home-manager.users."${user}" = import ./home.nix;
 
   # Emote and status bar daemons
   systemd.user.services = {

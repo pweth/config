@@ -8,7 +8,8 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     nixos-hardware.nixosModules.dell-xps-13-9360
-    ../common/gui.nix
+    ../gui
+    ../home
     ../services/restic.nix
     ../services/rollback.nix
   ];

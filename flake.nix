@@ -37,7 +37,6 @@
           (./hosts + "/${name}.nix")
           ./common
           agenix.nixosModules.default
-          home-manager.nixosModules.default
           impermanence.nixosModules.impermanence
           vscode-server.nixosModules.default
         ];
