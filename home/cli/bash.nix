@@ -30,6 +30,10 @@
       paste = "xclip -o -selection clipboard";
       rb = "sudo nixos-rebuild switch --flake /etc/nixos/config";
       src = "source";
+      ta = "tmux attach";
+      tkill = "tmux kill-session";
+      tls = "tmux list-sessions";
+      tn = "tmux new-session";
       v = "nvim"; 
     };
 

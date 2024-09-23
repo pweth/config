@@ -3,7 +3,7 @@ set -euo pipefail
 
 # Mount the encrypted btrfs partition
 sudo mkdir -p /mnt
-sudo mount -o subvol=/ /dev/mapper/enc /mnt
+sudo mount -o subvol=/ /dev/mapper/luks /mnt
 
 OLD_TRANSID=$(sudo btrfs subvolume find-new /mnt/root-blank 9999999)
 OLD_TRANSID=${OLD_TRANSID#transid marker was }

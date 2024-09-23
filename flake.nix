@@ -35,7 +35,6 @@
       name: host: nixpkgs.lib.nixosSystem {
         modules = [
           (./hosts + "/${name}.nix")
-          (./hardware + "/${host.hardware}.nix")
           ./common
           agenix.nixosModules.default
           home-manager.nixosModules.default

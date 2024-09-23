@@ -2,7 +2,7 @@
 * Common system configuration across all hosts.
 */
 
-{ config, pkgs, agenix, domain, host, keys, user, ... }:
+{ config, lib, pkgs, agenix, domain, host, keys, user, ... }:
 
 {
   imports = [
@@ -90,6 +90,7 @@
   networking = {
     hostName = host.name;
     nameservers = [ "127.0.0.1" ];
+    useDHCP = lib.mkDefault true;
   };
 
   # Automatic garbage collection
@@ -105,8 +106,11 @@
   # Nix subcommands and flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  # Allow unfree packages and set platform
+  nixpkgs = {
+    config.allowUnfree = true;
+    hostPlatform = lib.mkDefault host.architecture;
+  };
 
   # Fuzzy finder
   programs.fzf = {

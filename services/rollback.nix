@@ -7,7 +7,7 @@
 {
   boot.initrd.postDeviceCommands = pkgs.lib.mkBefore ''
     mkdir -p /mnt
-    mount -o subvol=/ /dev/mapper/enc /mnt
+    mount -o subvol=/ /dev/mapper/luks /mnt
     btrfs subvolume list -o /mnt/root |
       cut -f 9 -d ' ' |
       while read subvolume; do
