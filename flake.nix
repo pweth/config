@@ -19,12 +19,9 @@
 
     # Hardware optimisation
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
-    # VSCode server
-    vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
-  outputs = { self, nixpkgs, agenix, home-manager, impermanence, nixos-hardware, vscode-server }@inputs:
+  outputs = { self, nixpkgs, agenix, home-manager, impermanence, nixos-hardware }@inputs:
   let
     hosts = builtins.fromTOML (builtins.readFile ./attrs/hosts.toml);
     keys = builtins.fromTOML (builtins.readFile ./attrs/keys.toml);
@@ -38,7 +35,6 @@
           ./common
           agenix.nixosModules.default
           impermanence.nixosModules.impermanence
-          vscode-server.nixosModules.default
         ];
         specialArgs = inputs // {
           domain = "pweth.com";
