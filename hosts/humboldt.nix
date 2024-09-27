@@ -9,6 +9,7 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     nixos-hardware.nixosModules.dell-optiplex-3050
     ../home
+    ../services/adguard.nix
     ../services/forgejo.nix
     ../services/grafana.nix
     ../services/jellyfin.nix
@@ -58,7 +59,7 @@
 
   # Swap space
   swapDevices = [{
-    device = "/dev/disk/by-label/swap"; 
+    device = "/dev/disk/by-label/swap";
   }];
 
   # Hardware adjustments

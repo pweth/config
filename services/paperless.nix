@@ -3,7 +3,7 @@
 * https://github.com/paperless-ngx/paperless-ngx
 */
 
-{ config, lib, domain, host, ... }:
+{ config, domain, ... }:
 let
   subdomain = "docs.${domain}";
   port = 36095;
@@ -18,7 +18,7 @@ in
   # Service configuration
   services.paperless = {
     enable = true;
-    address = "0.0.0.0";
+    address = "127.0.0.1";
     passwordFile = config.age.secrets.paperless.path;
     port = port;
     settings = {
@@ -39,7 +39,5 @@ in
   };
 
   # Persist service data
-  environment.persistence = lib.mkIf host.impermanent {
-    "/persist".directories = [ "/var/lib/paperless" ];
-  };
+  environment.persistence."/persist".directories = [ "/var/lib/paperless" ];
 }

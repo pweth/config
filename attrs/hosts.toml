@@ -1,28 +1,25 @@
 # Personal Laptop
 [emperor]
 name         = "emperor"
-species      = "Aptenodytes forsteri"
 address      = "100.80.0.1"
 architecture = "x86_64-linux"
-impermanent  = true
-key          = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILqt+SLcA0kXPLvuF+mogzId9n57rB5y0PyWJ8RE0ja8"
+species      = "Aptenodytes forsteri"
+ssh-key      = "AAAAC3NzaC1lZDI1NTE5AAAAILqt+SLcA0kXPLvuF+mogzId9n57rB5y0PyWJ8RE0ja8"
 
 
 # Application Server
 [humboldt]
 name         = "humboldt"
-species      = "Spheniscus humboldti"
 address      = "100.80.0.2"
 architecture = "x86_64-linux"
-impermanent  = true
-key          = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICZDBxFQIZaazAOgPCd9+eLxu7NAg+5a6ZwPmoI2eNGc"
+species      = "Spheniscus humboldti"
+ssh-key      = "AAAAC3NzaC1lZDI1NTE5AAAAICZDBxFQIZaazAOgPCd9+eLxu7NAg+5a6ZwPmoI2eNGc"
 
 
 # Raspberry Pi
 [rockhopper]
 name         = "rockhopper"
-species      = "Eudyptes moseleyi"
 address      = "100.80.0.3"
 architecture = "aarch64-linux"
-impermanent  = false
-key          = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDw/Rhr1cdwp3RIwmxTWBa1tWA3gzMyyC8YTJNMN0Fbf"
+species      = "Eudyptes moseleyi"
+ssh-key      = "AAAAC3NzaC1lZDI1NTE5AAAAIDw/Rhr1cdwp3RIwmxTWBa1tWA3gzMyyC8YTJNMN0Fbf"

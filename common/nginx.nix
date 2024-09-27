@@ -29,5 +29,13 @@
       sslCertificate = ../static/pweth.crt;
       sslCertificateKey = config.age.secrets.certificate.path;
     };
+
+    # Return 444 for unrecognised hostnames
+    virtualHosts."_" = {
+      forceSSL = true;
+      extraConfig = "return 444;";
+      sslCertificate = ../static/pweth.crt;
+      sslCertificateKey = config.age.secrets.certificate.path;
+    };
   };
 }

@@ -27,7 +27,7 @@ NixOS configuration flake.
     nix-shell -p git
     git clone git@github.com:pweth/config.git
     ```
-4. Update `attrs/hosts.toml` and `hosts/HOST.nix` as required.
+4. Update `flake.nix` and `hosts/HOST.nix` as required.
 5. Re-build the system using:
     ```
     sudo nixos-rebuild switch --flake /etc/nixos/config#HOST

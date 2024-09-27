@@ -2,63 +2,65 @@
 * Common configuration across all hosts that use impermanence.
 */
 
-{ config, lib, host, user, ... }:
+{ config, lib, impermanence, user, ... }:
 
 {
-  config = lib.mkIf host.impermanent {
-    # Add persistent key path to agenix
-    age.identityPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
+  imports = [
+    impermanence.nixosModules.impermanence
+  ];
 
-    # /etc files
-    environment.etc = {
-      machine-id.source = "/persist/etc/machine-id";
-      "ssh/ssh_host_ed25519_key".source = "/persist/etc/ssh/ssh_host_ed25519_key";
-    };
+  # Add persistent key path to agenix
+  age.identityPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
 
-    # Use hidden bind mounts to persist required directories
-    environment.persistence."/persist" = {
-      hideMounts = true;
+  # /etc files
+  environment.etc = {
+    machine-id.source = "/persist/etc/machine-id";
+    "ssh/ssh_host_ed25519_key".source = "/persist/etc/ssh/ssh_host_ed25519_key";
+  };
+
+  # Use hidden bind mounts to persist required directories
+  environment.persistence."/persist" = {
+    hideMounts = true;
+    directories = lib.mkMerge [
+      [
+        "/etc/nixos"
+        "/var/lib/nixos"
+        "/var/lib/systemd/coredump"
+      ]
+      (lib.mkIf config.networking.networkmanager.enable [
+        "/etc/NetworkManager/system-connections"
+      ])
+      (lib.mkIf config.hardware.bluetooth.enable [
+        "/var/lib/bluetooth"
+      ])
+    ];
+    users."${user}" = {
       directories = lib.mkMerge [
         [
-          "/etc/nixos"
-          "/var/lib/systemd/coredump"
+          ".config/nvim"
+          ".local/share/nvim"
+          ".passage"
+          ".ssh"
         ]
-        (lib.mkIf config.networking.networkmanager.enable [
-          "/etc/NetworkManager/system-connections"
-        ])
-        (lib.mkIf config.hardware.bluetooth.enable [
-          "/var/lib/bluetooth"
+
+        # Only persist on GUI systems
+        (lib.mkIf config.services.xserver.enable [
+          "Documents"
+          "Downloads"
+          "Pictures"
+          ".config/Code"
+          ".config/discord"
+          ".config/libreoffice"
+          ".config/spotify"
+          ".local/share/Anki2"
+          ".local/share/Emote"
+          ".local/share/keyrings"
+          ".mozilla/firefox/default"
         ])
       ];
-      users."${user}" = {
-        directories = lib.mkMerge [
-          [
-            ".config/nvim"
-            ".local/share/nvim"
-            ".passage"
-            ".ssh"
-          ]
-
-          # Only persist on GUI systems
-          (lib.mkIf config.services.xserver.enable [
-            "Documents"
-            "Downloads"
-            "Pictures"
-            ".config/Code"
-            ".config/discord"
-            ".config/libreoffice"
-            ".config/spotify"
-            ".local/share/Anki2"
-            ".local/share/Emote"
-            ".local/share/keyrings"
-            ".mozilla/firefox/default"
-          ])
-        ];
-        files = [
-          ".bash_history"
-          ".wallpaper"
-        ];
-      };
+      files = [
+        ".bash_history"
+      ];
     };
   };
 }

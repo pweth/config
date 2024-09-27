@@ -3,7 +3,7 @@
 * https://forgejo.org/
 */
 
-{ config, lib, domain, host, ... }:
+{ config, domain, ... }:
 let
   subdomain = "git.${domain}";
   port = 23784;
@@ -64,7 +64,5 @@ in
   };
 
   # Persist service data
-  environment.persistence = lib.mkIf host.impermanent {
-    "/persist".directories = [ storage ];
-  };
+  environment.persistence."/persist".directories = [ storage ];
 }

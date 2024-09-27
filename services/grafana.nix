@@ -3,7 +3,7 @@
 * https://github.com/grafana/grafana
 */
 
-{ config, lib, domain, host, ... }:
+{ config, domain, ... }:
 let
   subdomain = "grafana.${domain}";
   port = 59663;
@@ -56,7 +56,5 @@ in
   };
 
   # Persist service data
-  environment.persistence = lib.mkIf host.impermanent {
-    "/persist".directories = [ config.services.grafana.dataDir ];
-  };
+  environment.persistence."/persist".directories = [ config.services.grafana.dataDir ];
 }

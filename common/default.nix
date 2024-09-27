@@ -9,7 +9,6 @@
     ./fonts.nix
     ./impermanence.nix
     ./locale.nix
-    ./nextdns.nix
     ./nginx.nix
     ./security.nix
     ./tailscale.nix
@@ -54,6 +53,7 @@
     fzf
     gawk
     git
+    htop
     inetutils
     jq
     killall
@@ -76,7 +76,6 @@
   # Networking
   networking = {
     hostName = host.name;
-    nameservers = [ "127.0.0.1" ];
     useDHCP = lib.mkDefault true;
   };
 

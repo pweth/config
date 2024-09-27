@@ -40,7 +40,6 @@
   ) {
     ".local/bin/bt" = "bluetooth.sh";
     ".local/bin/vpn" = "exit-node.sh";
-    ".local/bin/wallpaper" = "wallpaper.sh";
   }) // {
     # Citrix EULA
     ".ICAClient/.eula_accepted".text = "yes";

@@ -21,7 +21,7 @@
       displayManager = {
         lightdm.enable = true;
         sessionCommands = ''
-          ${pkgs.feh}/bin/feh --bg-scale $(cat /home/${user}/.wallpaper)
+          ${pkgs.feh}/bin/feh --bg-scale ${../static/background.jpg}
         '';
       };
       dpi = 120;

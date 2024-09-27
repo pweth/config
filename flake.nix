@@ -34,7 +34,6 @@
           (./hosts + "/${name}.nix")
           ./common
           agenix.nixosModules.default
-          impermanence.nixosModules.impermanence
         ];
         specialArgs = inputs // {
           domain = "pweth.com";

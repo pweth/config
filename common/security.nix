@@ -6,7 +6,7 @@
 
 {
   # Set public key for host
-  environment.etc."ssh/ssh_host_ed25519_key.pub".text = host.key;
+  environment.etc."ssh/ssh_host_ed25519_key.pub".text = "ssh-ed25519 ${host.ssh-key}";
 
   security = {
     # Enable passwordless sudo for remote deployments
@@ -22,13 +22,13 @@
   programs.ssh = {
     knownHosts = (builtins.listToAttrs (builtins.concatLists (builtins.attrValues (builtins.mapAttrs (
         name: host: [
-          { name = "${name}.ipn.${domain}"; value.publicKey = host.key; }
-          { name = name; value.publicKey = host.key; }
+          { name = "${name}.ipn.${domain}"; value.publicKey = "ssh-ed25519 ${host.ssh-key}"; }
+          { name = name; value.publicKey = "ssh-ed25519 ${host.ssh-key}"; }
         ]
     ) hosts)))) // {
       "github.com".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
       "git.sr.ht".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMZvRd4EtM7R+IHVMWmDkVU3VLQTSwQDSAvW0t2Tkj60";
-      "git.${domain}".publicKey = hosts.humboldt.key;
+      "git.${domain}".publicKey = "ssh-ed25519 ${hosts.humboldt.ssh-key}";
     };
     startAgent = true;
   };

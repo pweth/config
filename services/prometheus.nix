@@ -3,7 +3,7 @@
 * https://github.com/prometheus/prometheus
 */
 
-{ config, lib, domain, host, hosts, ... }:
+{ config, domain, hosts, ... }:
 let
   subdomain = "prometheus.${domain}";
   port = 58635;
@@ -37,7 +37,5 @@ in
   };
 
   # Persist service data
-  environment.persistence = lib.mkIf host.impermanent {
-    "/persist".directories = [ "/var/lib/${config.services.prometheus.stateDir}" ];
-  };
+  environment.persistence."/persist".directories = [ "/var/lib/${config.services.prometheus.stateDir}" ];
 }

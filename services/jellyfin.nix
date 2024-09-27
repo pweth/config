@@ -3,7 +3,7 @@
 * https://github.com/jellyfin/jellyfin
 */
 
-{ config, lib, domain, host, hosts, ... }:
+{ config, domain, ... }:
 let
   subdomain = "jellyfin.${domain}";
   port = 8096;
@@ -26,7 +26,5 @@ in
   };
 
   # Persist service data
-  environment.persistence = lib.mkIf host.impermanent {
-    "/persist".directories = [ "/var/lib/jellyfin" ];
-  };
+  environment.persistence."/persist".directories = [ "/var/lib/jellyfin" ];
 }

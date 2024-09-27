@@ -3,7 +3,7 @@
 * To initiate the service: `touch ~/.config/backup/.enable`
 */
 
-{ config, lib, pkgs, host, user, ... }:
+{ config, pkgs, host, user, ... }:
 
 {
   # Mount environment file
@@ -52,7 +52,5 @@
   };
 
   # Persist service configuration
-  environment.persistence = lib.mkIf host.impermanent {
-    "/persist".users."${user}".directories = [ ".config/backup" ];
-  };
+  environment.persistence."/persist".users."${user}".directories = [ ".config/backup" ];
 }
