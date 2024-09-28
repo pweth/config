@@ -22,9 +22,6 @@ let
     # Services
     "grafana.age"         = [ hosts.humboldt ];
     "masked-email.age"    = [ hosts.humboldt ];
-    "paperless.age"       = [ hosts.humboldt ];
-    "restic-emperor.age"  = [ hosts.emperor ];
-    "restic-humboldt.age" = [ hosts.humboldt ];
   };
 in
 builtins.mapAttrs (name: hostKeys: {
