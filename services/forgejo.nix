@@ -39,9 +39,6 @@ in
         LANDING_PAGE = "login";
         ROOT_URL = "https://${subdomain}/"; 
       };
-      service = {
-        DISABLE_REGISTRATION = true;
-      };
       ui = {
         DEFAULT_THEME = "forgejo-dark";
         SHOW_USER_EMAIL = false;
