@@ -1,7 +1,16 @@
-# Personal Laptop
+# Desktop
+[adelie]
+name         = "adelie"
+address      = "100.80.0.1"
+architecture = "x86_64-linux"
+species      = "Pygoscelis adeliae"
+ssh-key      = "AAAAC3NzaC1lZDI1NTE5AAAAIALl6nmhTzqES2qmootEZ6x8DuomSvJCzYTormEevq4y"
+
+
+# Laptop
 [emperor]
 name         = "emperor"
-address      = "100.80.0.1"
+address      = "100.80.0.10"
 architecture = "x86_64-linux"
 species      = "Aptenodytes forsteri"
 ssh-key      = "AAAAC3NzaC1lZDI1NTE5AAAAILqt+SLcA0kXPLvuF+mogzId9n57rB5y0PyWJ8RE0ja8"

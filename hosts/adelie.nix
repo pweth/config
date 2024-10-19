@@ -1,0 +1,87 @@
+/*
+* Desktop system configuration.
+*/
+
+{ config, lib, modulesPath, user, ... }:
+
+{
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+    ../gui
+    ../home
+  ];
+
+  # Boot settings
+  boot = {
+    initrd = {
+      availableKernelModules = [ "vmd" "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
+      luks.devices.luks = {
+        device = "/dev/disk/by-label/encrypted";
+        preLVM = true;
+      };
+    };
+    kernelModules = [ "dm-snapshot" ];
+    loader = {
+      efi.canTouchEfiVariables = true;
+      systemd-boot.enable = true;
+    };
+  };
+
+  fileSystems."/" =
+    { device = "none";
+      fsType = "tmpfs";
+      options = [ "defaults" "size=2G" "mode=755" ];
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/569E-5413";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
+
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/c074b94a-1664-4ec9-8269-c5d0efdf82c6";
+      fsType = "btrfs";
+      options = [ "subvol=nix" ];
+    };
+
+  fileSystems."/persist" =
+    { device = "/dev/disk/by-uuid/c074b94a-1664-4ec9-8269-c5d0efdf82c6";
+      fsType = "btrfs";
+      neededForBoot = true;
+      options = [ "subvol=persist" ];
+    };
+
+  # Swap space
+  swapDevices = [{
+    device = "/dev/disk/by-label/swap";
+  }];
+
+  # Hardware adjustments
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  # Logitech peripherals
+  hardware.logitech.wireless = {
+    enable = true;
+    enableGraphical = true;
+  };
+
+  # NetworkManager
+  networking.networkmanager = {
+    enable = true;
+    dns = "none";
+  };
+
+  # Sound and Bluetooth
+  sound.enable = true;
+  services.blueman.enable = true;
+  hardware.bluetooth.enable = true;
+  hardware.pulseaudio.enable = true;
+
+  # Disable SSH and fail2ban
+  services.openssh.enable = lib.mkForce false;
+  services.fail2ban.enable = lib.mkForce false;
+
+  # Tailscale client
+  services.tailscale.useRoutingFeatures = "client";
+}
