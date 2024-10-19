@@ -24,7 +24,6 @@
       ms-vscode-remote.remote-ssh
       rust-lang.rust-analyzer
       tamasfe.even-better-toml
-      vscodevim.vim
       yzhang.markdown-all-in-one
     ];
 

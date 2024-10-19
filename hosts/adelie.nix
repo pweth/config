@@ -27,30 +27,29 @@
     };
   };
 
-  fileSystems."/" =
-    { device = "none";
+  # Filesystem mounts
+  fileSystems = {
+    "/" = {
+      device = "none";
       fsType = "tmpfs";
       options = [ "defaults" "size=2G" "mode=755" ];
     };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/569E-5413";
+    "/boot" = {
+      device = "/dev/disk/by-label/boot";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
-
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/c074b94a-1664-4ec9-8269-c5d0efdf82c6";
+    "/nix" = { device = "/dev/disk/by-label/data";
       fsType = "btrfs";
-      options = [ "subvol=nix" ];
+      options = [ "subvol=nix" "compress=zstd" "noatime" ];
     };
-
-  fileSystems."/persist" =
-    { device = "/dev/disk/by-uuid/c074b94a-1664-4ec9-8269-c5d0efdf82c6";
+    "/persist" = {
+      device = "/dev/disk/by-label/data";
       fsType = "btrfs";
       neededForBoot = true;
-      options = [ "subvol=persist" ];
+      options = [ "subvol=persist" "compress=zstd" "noatime" ];
     };
+  };
 
   # Swap space
   swapDevices = [{
