@@ -10,7 +10,6 @@
     nixos-hardware.nixosModules.dell-xps-13-9360
     ../gui
     ../home
-    ../services/rollback.nix
   ];
 
   # Boot settings
