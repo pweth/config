@@ -133,6 +133,13 @@
             definedAliases = [ "!ghc" ];
             iconUpdateURL = "https://github.githubassets.com/favicons/favicon.png";
           };
+          "Hacker News" = {
+            urls = [{
+              template = "https://hn.algolia.com/?q={searchTerms}";
+            }];
+            definedAliases = [ "!hn" ];
+            iconUpdateURL = "https://news.ycombinator.com/y18.svg";
+          };
           "Home Manager" = {
             urls = [{
               template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master";
@@ -142,7 +149,7 @@
           };
           "NixOS" = {
             urls = [{
-              template = "https://search.nixos.org/packages?channel=24.05&from=0&size=50&sort=relevance&type=packages&query={searchTerms}";
+              template = "https://search.nixos.org/packages?query={searchTerms}";
             }];
             definedAliases = [ "!n" ];
             iconUpdateURL = "https://nixos.org/favicon.png";
