@@ -65,6 +65,19 @@
     enableGraphical = true;
   };
 
+  # Graphics card
+  hardware.nvidia = {
+    modesetting.enable = true;
+    nvidiaSettings = true;
+    open = false;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    powerManagement.enable = false;
+  };
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  # OpenGL
+  hardware.opengl.enable = true;
+
   # NetworkManager
   networking.networkmanager = {
     enable = true;

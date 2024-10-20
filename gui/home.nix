@@ -8,6 +8,7 @@
 {
   imports = [
     ./firefox.nix
+    ./hyprland.nix
     ./vscode.nix
     ./xdg.nix
   ];
@@ -31,19 +32,8 @@
     zoom-us
   ];
 
-  home.file = (builtins.mapAttrs (
-    # Symlink GUI scripts
-    name: value: {
-      executable = true;
-      source = ../static/scripts + "/${value}";
-    }
-  ) {
-    ".local/bin/bt" = "bluetooth.sh";
-    ".local/bin/vpn" = "exit-node.sh";
-  }) // {
-    # Citrix EULA
-    ".ICAClient/.eula_accepted".text = "yes";
-  };
+  # Citrix EULA
+  home.file.".ICAClient/.eula_accepted".text = "yes";
 
   # GTK dark theme
   xdg.configFile."gtk-3.0/settings.ini".text = ''

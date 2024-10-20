@@ -40,7 +40,7 @@
       "telemetry.telemetryLevel" = "off";
       "terminal.integrated.fontFamily" = "Hack";
       "update.mode" = "none";
-      "window.zoomLevel" = 1;
+      "window.zoomLevel" = 0.9;
       "workbench.colorTheme" = "Default Dark Modern";
       "workbench.startupEditor" = "none";
     };

@@ -9,7 +9,7 @@ SELECTION=$(
     awk -F '[[:space:]][[:space:]]+' '{print $2, "("$4",", $3")"}' |
     sed -e "s/(-, -)//" |
     (echo "Offline"; cat -) |
-    dmenu -i -l 10 |
+    wofi -i -l 10 |
     awk '{print $1}'
 )
 
