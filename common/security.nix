@@ -20,6 +20,7 @@
 
   # SSH agent
   programs.ssh = {
+    enableAskPassword = false;
     knownHosts = (builtins.listToAttrs (builtins.concatLists (builtins.attrValues (builtins.mapAttrs (
         name: host: [
           { name = "${name}.ipn.${domain}"; value.publicKey = "ssh-ed25519 ${host.ssh-key}"; }

@@ -9,11 +9,9 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
+      debug.disable_logs = false;
       cursor.no_hardware_cursors = true;
-      exec-once = [
-        "waybar &"
-        "swww-daemon && swww img /etc/nixos/config/static/background.jpg &"
-      ];
+      decoration.rounding = 5;
       env = [
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "GBM_BACKEND,nvidia-drm"
@@ -21,15 +19,18 @@
         "XDG_SESSION_TYPE,wayland"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
       ];
+      exec-once = [
+        "hyprpaper"
+      ];
       general = {
+        allow_tearing = false;
+        border_size = 0;
         gaps_in = 5;
         gaps_out = 10;
-        border_size = 3;
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
-        resize_on_border = true;
-        allow_tearing = false;
+        hover_icon_on_border = false;
         layout = "dwindle";
+        no_border_on_floating = true;
+        resize_on_border = true;
       };
       gestures.workspace_swipe = true;
       input = {
@@ -57,6 +58,7 @@
       };
       monitor = [
         "Unknown-1, disable"
+        "DP-3, preferred, auto, 1.3"
       ];
       bind = [
         # Core
@@ -81,6 +83,7 @@
         "SUPER, Right, movefocus, r"
         "SUPER, Up, movefocus, u"
 
+        # Workspaces
         "SUPER, 1, workspace, 1"
         "SUPER, 2, workspace, 2"
         "SUPER, 3, workspace, 3"
@@ -90,7 +93,6 @@
         "SUPER, 7, workspace, 7"
         "SUPER, 8, workspace, 8"
         "SUPER, 9, workspace, 9"
-
         "SUPER SHIFT, 1, movetoworkspace, 1"
         "SUPER SHIFT, 2, movetoworkspace, 2"
         "SUPER SHIFT, 3, movetoworkspace, 3"
@@ -100,12 +102,11 @@
         "SUPER SHIFT, 7, movetoworkspace, 7"
         "SUPER SHIFT, 8, movetoworkspace, 8"
         "SUPER SHIFT, 9, movetoworkspace, 9"
+        ", mouse:275, workspace, e-1"
+        ", mouse:276, workspace, e+1"
 
         "SUPER, SPACE, togglespecialworkspace, bottomSheet"
         "SUPER SHIFT, SPACE, movetoworkspace, special:bottomSheet"
-
-        "SUPER, mouse_left, workspace, e-1"
-        "SUPER, mouse_right, workspace, e+1"
       ];
       bindm = [
         "SUPER, mouse:273, movewindow"
@@ -120,6 +121,13 @@
       windowrulev2 = [
         "float, class:galculator"
       ];
+      xwayland.force_zero_scaling = true;
     };
   };
+
+  # Wallpaper configuration
+  xdg.configFile."hypr/hyprpaper.conf".text = ''
+    preload = ${../static/background.jpg}
+    wallpaper = , ${../static/background.jpg}
+  '';
 }

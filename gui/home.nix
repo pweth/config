@@ -10,6 +10,7 @@
     ./firefox.nix
     ./hyprland.nix
     ./vscode.nix
+    ./waybar.nix
     ./xdg.nix
   ];
 

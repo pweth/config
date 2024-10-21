@@ -15,7 +15,6 @@
     xserver = {
       enable = true;
       excludePackages = [ pkgs.xterm ];
-      dpi = 110;
     };
   };
 
@@ -25,22 +24,26 @@
     xwayland.enable = true;
   };
   programs.hyprlock.enable = true;
+  services.hypridle.enable = true;
 
   # System packages
   environment.systemPackages = with pkgs; [
     brightnessctl
     firefox
     gparted
+    hyprpaper
     hyprshot
     kitty
     playerctl
-    swww
     vscode
-    waybar
+    wev
     wl-clipboard
     wofi
     wofi-emoji
   ];
+
+  # Ozone Wayland support in Electron apps
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Home manager GUI packages
   home-manager.users."${user}" = import ./home.nix;
