@@ -9,7 +9,6 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      debug.disable_logs = false;
       cursor.no_hardware_cursors = true;
       decoration.rounding = 5;
       env = [
@@ -21,12 +20,13 @@
       ];
       exec-once = [
         "hyprpaper"
+        "[workspace special:terminal silent] kitty tmux"
       ];
       general = {
         allow_tearing = false;
         border_size = 0;
-        gaps_in = 5;
-        gaps_out = 10;
+        gaps_in = 10;
+        gaps_out = 20;
         hover_icon_on_border = false;
         layout = "dwindle";
         no_border_on_floating = true;
@@ -58,7 +58,7 @@
       };
       monitor = [
         "Unknown-1, disable"
-        "DP-3, preferred, auto, 1.3"
+        "DP-3, preferred, auto, 1.25"
       ];
       bind = [
         # Core
@@ -68,20 +68,16 @@
 
         # Programs
         "SUPER, C, exec, galculator"
-        "SUPER, E, exec, wofi-emoji"
+        "SUPER, E, exec, pcmanfm"
         "SUPER, F, exec, firefox"
         "SUPER, L, exec, hyprlock"
-        "SUPER, M, togglefloating"
         "SUPER SHIFT, S, exec, hyprshot -m region"
         ", Print, exec, hyprshot -m region"
-        ", XF86EmojiPicker, exec, wofi-emoji"
+        "SUPER, PERIOD, exec, wofi-emoji"
 
         # Navigation
-        "SUPER, Down, movefocus, d"
-        "SUPER, Left, movefocus, l"
+        "SUPER, M, togglefloating"
         "SUPER, O, togglesplit"
-        "SUPER, Right, movefocus, r"
-        "SUPER, Up, movefocus, u"
 
         # Workspaces
         "SUPER, 1, workspace, 1"
@@ -105,8 +101,12 @@
         ", mouse:275, workspace, e-1"
         ", mouse:276, workspace, e+1"
 
-        "SUPER, SPACE, togglespecialworkspace, bottomSheet"
-        "SUPER SHIFT, SPACE, movetoworkspace, special:bottomSheet"
+        "SUPER, SPACE, togglespecialworkspace, terminal"
+        "SUPER SHIFT, SPACE, movetoworkspace, special:terminal"
+
+        # Power control
+        "CTRL SUPER SHIFT, P, exec, shutdown now"
+        "CTRL SUPER SHIFT, R, exec, shutdown now --reboot"
       ];
       bindm = [
         "SUPER, mouse:273, movewindow"
@@ -119,7 +119,12 @@
         ", XF86MonBrightnessUp, exec, brightnessctl set 10%+"
       ];
       windowrulev2 = [
+        "float, class:blueman-manager"
         "float, class:galculator"
+        "float, class:nm-connection-editor"
+        "float, class:pcmanfm"
+        "size 960 720, class:pcmanfm"
+        "float, title:(Open File|Open Folder)"
       ];
       xwayland.force_zero_scaling = true;
     };

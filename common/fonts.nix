@@ -8,8 +8,7 @@
   # Default font packages
   fonts = {
     packages = with pkgs; [
-      hack-font
-      jetbrains-mono
+      (nerdfonts.override { fonts = [ "Hack" ]; })
       noto-fonts
       noto-fonts-color-emoji
     ];
@@ -19,8 +18,9 @@
         emoji = [ "NotoColorEmoji" ];
         sansSerif = [ "NotoSans" ];
         serif = [ "NotoSerif" ];
-        monospace = [ "Hack" ];
+        monospace = [ "Hack Nerd Font" ];
       };
     };
+    fontDir.enable = true;
   };
 }

@@ -30,6 +30,7 @@
     # settings.json values
     userSettings = {
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "editor.fontFamily" = "Hack Nerd Font";
       "explorer.confirmDelete" = false;
       "explorer.confirmDragAndDrop" = false;
       "jupyter.askForKernelRestart" = false;
@@ -38,7 +39,7 @@
         "jnoortheen.nix-ide"
       ];
       "telemetry.telemetryLevel" = "off";
-      "terminal.integrated.fontFamily" = "Hack";
+      "terminal.integrated.fontFamily" = "Hack Nerd Font";
       "update.mode" = "none";
       "window.zoomLevel" = 0.9;
       "workbench.colorTheme" = "Default Dark Modern";

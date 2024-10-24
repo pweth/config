@@ -34,6 +34,8 @@
     hyprpaper
     hyprshot
     kitty
+    networkmanagerapplet
+    pcmanfm
     playerctl
     vscode
     wev

@@ -52,6 +52,7 @@
           ".config/Code"
           ".config/discord"
           ".config/libreoffice"
+          ".config/pcmanfm/default"
           ".config/spotify"
           ".local/share/Anki2"
           ".local/share/Emote"
