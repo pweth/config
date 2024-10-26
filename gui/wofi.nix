@@ -10,31 +10,42 @@
     enable = true;
     settings = {
       gtk_dark = true;
+      height = "40px";
       hide_scroll = true;
       hide_search = true;
       insensitive = true;
-      lines = 10;
+      location = "top";
+      mode = "dmenu";
       no_actions = true;
-      prompt = "";
-      sort_order = "alphabetical";
+      orientation = "horizontal";
+      width = "160%";
+      yoffset = "-41px";
     };
     style = ''
       * {
         font-family: "Hack Nerd Font", monospace;
-        font-size: 14px;
+        font-size: 16px;
       }
       #window, #outer-box {
-        border-radius: 5px;
-      }
-      #outer-box {
-        padding: 5px;
+        border-radius: 0;
       }
       #outer-box, #inner-box, #input, #entry {
         background: #111111;
+        text-align: left;
+      }
+      #input {
+        display: none;
+      }
+      #entry, #entry:selected {
+        border: none;
+        border-top: solid 2px #111111;
+        outline: none;
+        padding: 10px 15px;
+        width: fit-content;
       }
       #entry:selected {
         background: #000000;
-        outline: none;
+        border-color: #ffffff;
       }
     '';
   };

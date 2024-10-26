@@ -21,6 +21,7 @@
       exec-once = [
         "hyprpaper"
         "[workspace special:terminal silent] kitty tmux"
+        "[workspace special:music silent] spotify"
       ];
       general = {
         allow_tearing = false;
@@ -63,7 +64,7 @@
       bind = [
         # Core
         "SUPER SHIFT, RETURN, exec, kitty"
-        "SUPER, P, exec, wofi --show run"
+        "SUPER, P, exec, eval $(compgen -ac | sort | uniq | grep -E '^[0-9A-Za-z]+' | wofi)"
         "SUPER, W, killactive"
 
         # Programs
@@ -117,6 +118,9 @@
         ", XF86AudioRaiseVolume, exec, amixer set Master 5%+"
         ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
         ", XF86MonBrightnessUp, exec, brightnessctl set 10%+"
+      ];
+      layerrule = [
+        "noanim, ^(wofi)$"
       ];
       windowrulev2 = [
         "float, class:blueman-manager"

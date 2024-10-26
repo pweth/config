@@ -8,12 +8,12 @@ SELECTION=$(
     sed -e "s/.adelie-monitor.ts.net//" |
     awk -F '[[:space:]][[:space:]]+' '{print $2, "("$4",", $3")"}' |
     sed -e "s/(-, -)//" |
-    (echo "Offline"; cat -) |
-    wofi -i -l 10 |
+    (echo "offline"; cat -) |
+    wofi |
     awk '{print $1}'
 )
 
-if [[ $SELECTION = "Offline" ]] then
+if [[ $SELECTION = "offline" ]]; then
     tailscale set --exit-node=
 else
     tailscale set --exit-node=$SELECTION

@@ -7,7 +7,6 @@
 let
   subdomain = "photos.${domain}";
   port = 27839;
-  storage = "/persist/media";
 in
 {
   # Docker container
@@ -17,9 +16,8 @@ in
     image = "xemle/home-gallery";
     ports = [ "${builtins.toString port}:3000" ];
     volumes = [
-      "${storage}/Photos/config.yml:/data/config/gallery.config.yml"
-      "${storage}/Photos:/data/Pictures"
-      "${storage}/Thumbnails:/data/storage"
+      "/persist/data/home-gallery:/data"
+      "/persist/media/Photos:/data/Pictures"      
     ];
   };
 

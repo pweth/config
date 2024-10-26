@@ -18,6 +18,7 @@
       ];
       modules-right = [
         "idle_inhibitor"
+        "custom/media"
         "bluetooth"
         "network"
       ];
@@ -35,6 +36,12 @@
       "clock" = {
         format = "{:%a %d %b %H:%M}";
         tooltip = false;
+      };
+      "custom/media" = {
+        interval = 1;
+        on-click = "hyprctl dispatch togglespecialworkspace music";
+        on-click-right = "playerctl play-pause";
+        exec = ../static/scripts/media.sh;
       };
       "hyprland/workspaces" = {
         persistent-workspaces = {
@@ -73,7 +80,7 @@
       }
 
       window#waybar {
-        background: rgba(17, 17, 17, 1);
+        background: #111111;
         border: none;
         color: white;
       }
@@ -87,7 +94,7 @@
         background: transparent;
         border: none;
         border-radius: 0;
-        border-top: solid 2px #000000;
+        border-top: solid 2px #111111;
         box-shadow: none;
         padding: 10px 8px;
       }
@@ -101,52 +108,54 @@
       }
 
       #workspaces button:not(.empty).active {
-        border-color: #ffffff;
+        border-color: #FFFFFF;
       }
 
-      #bluetooth, #clock, #idle_inhibitor, #network {
+      #bluetooth, #clock, #custom-media, #idle_inhibitor, #network {
         background: transparent;
-        border-top: solid 2px #000000;
+        border-top: solid 2px #111111;
         padding: 10px 15px;
       }
 
-      #bluetooth, #idle_inhibitor, #network {
+      #bluetooth, #custom-media, #idle_inhibitor, #network {
         background-color: transparent;
         background-position: center;
         background-repeat: no-repeat;
         background-size: 16px;
+        border-color: #777777;
+      }
+
+      #bluetooth:hover, #custom-media:hover, #idle_inhibitor:hover, #network:hover {
+        background-color: #000000;
+      }
+
+      #bluetooth.connected,
+      #custom-media.activated,
+      #idle_inhibitor.activated,
+      #network.ethernet,
+      #network.linked,
+      #network.wifi {
+        border-color: #FFFFFF;
       }
 
       #bluetooth {
         background-image: url("${../static/icons/bluetooth.png}");
-        border-color: #777777;
       }
 
-      #bluetooth.connected {
-        border-color: #ffffff;
+      #custom-media {
+        background-image: url("${../static/icons/media.png}");
       }
 
       #idle_inhibitor {
         background-image: url("${../static/icons/idle-deactivated.png}");
-        border-color: #777777;
       }
 
       #idle_inhibitor.activated {
         background-image: url("${../static/icons/idle-activated.png}");
-        border-color: #ffffff;
       }
 
       #network {
         background-image: url("${../static/icons/network.png}");
-        border-color: #777777;
-      }
-
-      #network.ethernet, #network.linked, #network.wifi {
-        border-color: #ffffff;
-      }
-
-      #bluetooth:hover, #idle_inhibitor:hover, #network:hover {
-        background-color: #000000;
       }
     '';
   };

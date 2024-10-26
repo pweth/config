@@ -17,7 +17,6 @@
       };
       background = [{
         blur_passes = 2;
-        color = "rgb(42, 101, 87)";
         path = "${../static/background.jpg}";
       }];
       input-field = [{
@@ -34,10 +33,10 @@
         color = "rgb(255, 255, 255)";
         font_family = "Hack Nerd Font";
         font_size = 96;
-        text_align = "center";
         halign = "center";
-        valign = "center";
         position = "0, 160";
+        text_align = "center";
+        valign = "center";
       }];
     };
   };
