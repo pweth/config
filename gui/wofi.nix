@@ -12,12 +12,12 @@
       gtk_dark = true;
       height = "40px";
       hide_scroll = true;
-      hide_search = true;
       insensitive = true;
       location = "top";
       mode = "dmenu";
       no_actions = true;
       orientation = "horizontal";
+      prompt = "";
       width = "160%";
       yoffset = "-41px";
     };
@@ -33,8 +33,10 @@
         background: #111111;
         text-align: left;
       }
-      #input {
-        display: none;
+      #input, #input:focus {
+        border: none;
+        box-shadow: none;
+        outline: none;
       }
       #entry, #entry:selected {
         border: none;

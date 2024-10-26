@@ -37,9 +37,10 @@ in
         domain = subdomain;
         http_port = port;
       };
-      user = {
+      users = {
         default_language = "en-GB";
         default_theme = "dark";
+        home_page = "/d/rYdddlPWk/linux-devices";
       };
     };
   };
