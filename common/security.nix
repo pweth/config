@@ -2,7 +2,7 @@
 * SSH configuration.
 */
 
-{ config, pkgs, domain, host, hosts, user, ... }:
+{ config, pkgs, domain, host, hosts, keys, user, ... }:
 
 {
   # Set public key for host
@@ -21,6 +21,9 @@
   # SSH agent
   programs.ssh = {
     enableAskPassword = false;
+    extraConfig = builtins.concatStringsSep "\n" (builtins.map (
+      key: "IdentityFile /home/${user}/.ssh/${key}"
+    ) (builtins.attrNames keys));
     knownHosts = (builtins.listToAttrs (builtins.concatLists (builtins.attrValues (builtins.mapAttrs (
         name: host: [
           { name = "${name}.ipn.${domain}"; value.publicKey = "ssh-ed25519 ${host.ssh-key}"; }
