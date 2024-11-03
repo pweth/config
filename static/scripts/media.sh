@@ -2,7 +2,7 @@
 
 # Check player status
 MUSIC_STATUS=$(playerctl status)
-if [ $? -eq 1 ]; then
+if [[ $? -eq 1 ]]; then
     echo " "; echo "Not Playing"; echo "deactivated"
     exit
 fi
@@ -10,7 +10,7 @@ fi
 # Determine metadata for tooltip
 TITLE=$(playerctl metadata title)
 ARTIST=$(playerctl metadata artist)
-if [ -n $ARTIST ]; then
+if [[ -n $ARTIST ]]; then
     TOOLTIP="$TITLE ($ARTIST)"
 else
     TOOLTIP="$TITLE"

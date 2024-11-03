@@ -10,6 +10,7 @@
     nixos-hardware.nixosModules.dell-optiplex-3050
     ../home
     ../services/adguard.nix
+    ../services/anki-sync.nix
     ../services/forgejo.nix
     ../services/grafana.nix
     ../services/home-gallery.nix

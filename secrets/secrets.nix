@@ -20,8 +20,9 @@ let
     "tailscale.age"     = builtins.attrValues hosts;
 
     # Services
-    "grafana.age"         = [ hosts.humboldt ];
-    "masked-email.age"    = [ hosts.humboldt ];
+    "anki.age"         = [ hosts.humboldt ];
+    "grafana.age"      = [ hosts.humboldt ];
+    "masked-email.age" = [ hosts.humboldt ];
   };
 in
 builtins.mapAttrs (name: hostKeys: {
