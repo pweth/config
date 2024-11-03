@@ -21,7 +21,7 @@
       exec-once = [
         "hyprpaper"
         "[workspace special:terminal silent] kitty tmux"
-        "[workspace special:music silent] spotify"
+        "[workspace special:music silent] sleep 5; spotify"
       ];
       general = {
         allow_tearing = false;
@@ -58,8 +58,8 @@
         middle_click_paste = false;
       };
       monitor = [
+        ", preferred, auto, 1.25"
         "Unknown-1, disable"
-        "DP-3, preferred, auto, 1.25"
       ];
       bind = [
         # Core
