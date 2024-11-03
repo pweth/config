@@ -53,7 +53,4 @@ in
     sslCertificate = ../static/pweth.crt;
     sslCertificateKey = config.age.secrets.certificate.path;
   };
-
-  # Persist service data
-  environment.persistence."/persist".directories = [ "/var/lib/AdGuardHome" ];
 }

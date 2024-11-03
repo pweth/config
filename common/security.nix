@@ -21,9 +21,14 @@
   # SSH agent
   programs.ssh = {
     enableAskPassword = false;
+    startAgent = true;
+
+    # Add private keys to ssh-agent
     extraConfig = builtins.concatStringsSep "\n" (builtins.map (
       key: "IdentityFile /home/${user}/.ssh/${key}"
     ) (builtins.attrNames keys));
+
+    # Pre-populate known hosts
     knownHosts = (builtins.listToAttrs (builtins.concatLists (builtins.attrValues (builtins.mapAttrs (
         name: host: [
           { name = "${name}.ipn.${domain}"; value.publicKey = "ssh-ed25519 ${host.ssh-key}"; }
@@ -34,7 +39,6 @@
       "git.sr.ht".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMZvRd4EtM7R+IHVMWmDkVU3VLQTSwQDSAvW0t2Tkj60";
       "git.${domain}".publicKey = "ssh-ed25519 ${hosts.humboldt.ssh-key}";
     };
-    startAgent = true;
   };
 
   # fail2ban with default jails

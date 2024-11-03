@@ -18,7 +18,7 @@
       no_actions = true;
       orientation = "horizontal";
       prompt = "";
-      width = "160%";
+      width = "2570px";
       yoffset = "-41px";
     };
     style = ''
