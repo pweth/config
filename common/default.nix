@@ -59,6 +59,7 @@
     killall
     neovim
     networkmanager
+    ncdu
     openssl
     p7zip
     rclone

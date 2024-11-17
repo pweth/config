@@ -16,12 +16,13 @@
         "GBM_BACKEND,nvidia-drm"
         "LIBVA_DRIVER_NAME,nvidia"
         "XDG_SESSION_TYPE,wayland"
+        "__GL_THREADED_OPTIMIZATIONS,0"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
       ];
       exec-once = [
         "hyprpaper"
         "[workspace special:terminal silent] kitty tmux"
-        "[workspace special:music silent] sleep 5; spotify"
+        "[workspace special:music silent] sleep 30; spotify"
       ];
       general = {
         allow_tearing = false;

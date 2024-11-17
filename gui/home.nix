@@ -21,11 +21,14 @@
     citrix_workspace
     discord
     galculator
+    glfw-wayland-minecraft
     gnome.eog
     handbrake
     libreoffice
     obs-studio
     pinta
+    prismlauncher
+    qFlipper
     shotcut
     spotify
     sqlitebrowser

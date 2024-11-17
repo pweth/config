@@ -57,6 +57,8 @@
           ".local/share/Anki2"
           ".local/share/Emote"
           ".local/share/keyrings"
+          ".local/share/PrismLauncher"
+          ".local/share/Steam"
           ".mozilla/firefox/default"
         ])
       ];
