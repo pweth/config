@@ -27,7 +27,6 @@
     libreoffice
     obs-studio
     pinta
-    prismlauncher
     qFlipper
     shotcut
     spotify

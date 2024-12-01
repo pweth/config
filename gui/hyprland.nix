@@ -21,8 +21,9 @@
       ];
       exec-once = [
         "hyprpaper"
+        "[workspace special:browser silent] firefox"
+        "[workspace special:media silent] sleep 15; spotify"
         "[workspace special:terminal silent] kitty tmux"
-        "[workspace special:music silent] sleep 30; spotify"
       ];
       general = {
         allow_tearing = false;
@@ -42,9 +43,9 @@
       };
       animations = {
         enabled = true;
-        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+        bezier = "curve, 0.05, 0.9, 0.1, 1.05";
         animation = [
-          "windows, 1, 4, myBezier"
+          "windows, 1, 4, curve"
           "windowsOut, 1, 4, default, popin 80%"
           "border, 1, 4, default"
           "borderangle, 1, 4, default"
@@ -64,7 +65,7 @@
       ];
       bind = [
         # Core
-        "SUPER SHIFT, RETURN, exec, kitty"
+        "SUPER SHIFT, RETURN, exec, kitty tmux"
         "SUPER, P, exec, eval $(compgen -ac | sort | uniq | grep -E '^[0-9A-Za-z]+' | wofi)"
         "SUPER, W, killactive"
 
@@ -104,6 +105,7 @@
         ", mouse:276, workspace, e+1"
 
         "SUPER, SPACE, togglespecialworkspace, terminal"
+        "SUPER, S, togglespecialworkspace, media"
         "SUPER SHIFT, SPACE, movetoworkspace, special:terminal"
 
         # Power control
