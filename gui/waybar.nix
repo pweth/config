@@ -41,7 +41,7 @@
         interval = 1;
         on-click = "hyprctl dispatch togglespecialworkspace music";
         on-click-right = "playerctl play-pause";
-        exec = ../static/scripts/media.sh;
+        exec = ../static/media.sh;
       };
       "hyprland/workspaces" = {
         persistent-workspaces = {

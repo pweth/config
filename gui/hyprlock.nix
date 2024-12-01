@@ -21,8 +21,12 @@
       }];
       input-field = [{
         check_color = "rgba(0, 0, 0, 0)";
+        dots_fade_time = 0;
+        fade_timeout = 0;
         fail_color = "rgba(0, 0, 0, 0)";
-        font_color = "rgba(0, 0, 0, 0)";
+        fail_timeout = 0;
+        fail_transition = 0;
+        font_color = "rgb(255, 255, 255)";
         inner_color = "rgba(0, 0, 0, 0)";
         outer_color = "rgba(0, 0, 0, 0)";
         fail_text = "";
