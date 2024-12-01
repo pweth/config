@@ -20,9 +20,8 @@
     anki
     citrix_workspace
     discord
+    eog
     galculator
-    glfw-wayland-minecraft
-    gnome.eog
     handbrake
     libreoffice
     obs-studio

@@ -71,10 +71,8 @@
   };
 
   # Sound and Bluetooth
-  sound.enable = true;
   services.blueman.enable = true;
   hardware.bluetooth.enable = true;
-  hardware.pulseaudio.enable = true;
 
   # Disable SSH and fail2ban
   services.openssh.enable = lib.mkForce false;

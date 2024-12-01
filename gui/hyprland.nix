@@ -14,6 +14,7 @@
       env = [
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "GBM_BACKEND,nvidia-drm"
+        "LIBGL_ALWAYS_SOFTWARE=1"
         "LIBVA_DRIVER_NAME,nvidia"
         "XDG_SESSION_TYPE,wayland"
         "__GL_THREADED_OPTIMIZATIONS,0"
