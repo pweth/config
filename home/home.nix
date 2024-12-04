@@ -41,6 +41,7 @@
     cowsay
     dasel
     diff-pdf
+    dive
     exiftool
     ffmpeg
     fortune

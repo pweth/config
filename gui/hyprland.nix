@@ -22,6 +22,7 @@
       ];
       exec-once = [
         "hyprpaper"
+        "hyprctl setcursor Adwaita 24"
         "[workspace special:browser silent] firefox"
         "[workspace special:media silent] sleep 15; spotify"
         "[workspace special:terminal silent] kitty tmux"
