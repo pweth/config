@@ -2,7 +2,7 @@
 * Common system configuration across all hosts.
 */
 
-{ config, lib, pkgs, agenix, domain, host, keys, user, ... }:
+{ config, lib, pkgs, agenix, domain, host, keys, user, version, ... }:
 
 {
   imports = [
@@ -16,7 +16,7 @@
   ];
 
   # Release version
-  system.stateVersion = "24.11";
+  system.stateVersion = version;
 
   # Remove NixOS manual
   documentation.nixos.enable = false;
@@ -49,6 +49,7 @@
     dig
     duf
     eza
+    fastfetch
     file
     fzf
     gawk
@@ -80,14 +81,14 @@
     useDHCP = lib.mkDefault true;
   };
 
-  # Garbage collection
-  nix.gc.automatic = true;
-
-  # Automatic `nix store optimise`
-  nix.settings.auto-optimise-store = true;
-
-  # Nix subcommands and flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # Nix settings
+  nix = {
+    gc.automatic = true;
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes" ];
+    };
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

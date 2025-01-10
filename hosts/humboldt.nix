@@ -13,7 +13,7 @@
     ../services/anki-sync.nix
     ../services/forgejo.nix
     ../services/grafana.nix
-    ../services/home-gallery.nix
+    ../services/immich.nix
     ../services/jellyfin.nix
     ../services/masked-email.nix
     ../services/prometheus.nix

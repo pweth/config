@@ -18,7 +18,7 @@ in
         scheme = "https";
         static_configs = [{
           targets = builtins.map (
-            name: "${name}.ipn.${domain}"
+            name: "${name}.${domain}"
           ) (builtins.attrNames hosts);
         }];
       }

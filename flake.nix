@@ -41,6 +41,7 @@
           hosts = hosts;
           keys = keys;
           user = "pweth";
+          version = "24.11";
         };
         system = host.architecture;
       }

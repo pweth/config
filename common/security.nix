@@ -31,12 +31,11 @@
     # Pre-populate known hosts
     knownHosts = (builtins.listToAttrs (builtins.concatLists (builtins.attrValues (builtins.mapAttrs (
         name: host: [
-          { name = "${name}.ipn.${domain}"; value.publicKey = "ssh-ed25519 ${host.ssh-key}"; }
+          { name = "${name}.${domain}"; value.publicKey = "ssh-ed25519 ${host.ssh-key}"; }
           { name = name; value.publicKey = "ssh-ed25519 ${host.ssh-key}"; }
         ]
     ) hosts)))) // {
       "github.com".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
-      "git.sr.ht".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMZvRd4EtM7R+IHVMWmDkVU3VLQTSwQDSAvW0t2Tkj60";
       "git.${domain}".publicKey = "ssh-ed25519 ${hosts.humboldt.ssh-key}";
     };
   };

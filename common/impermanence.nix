@@ -50,7 +50,6 @@
           "Downloads"
           "Pictures"
           ".config/Code"
-          ".config/discord"
           ".config/libreoffice"
           ".config/pcmanfm/default"
           ".config/spotify"

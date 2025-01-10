@@ -6,14 +6,12 @@
 { config, domain, user, ... }:
 let
   subdomain = "anki.${domain}";
-  port = 27751;
 in
 {
   age.secrets.anki.file = ../secrets/anki.age;
 
   services.anki-sync-server = {
     enable = true;
-    port = port;
     users = [{
       username = user;
       passwordFile = config.age.secrets.anki.path;
@@ -24,7 +22,7 @@ in
   services.nginx.virtualHosts."${subdomain}" = {
     forceSSL = true;
     locations."/" = {
-      proxyPass = "http://localhost:${builtins.toString port}";
+      proxyPass = "http://localhost:${builtins.toString config.services.anki-sync-server.port}";
       proxyWebsockets = true;
     };
     sslCertificate = ../static/pweth.crt;

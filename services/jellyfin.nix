@@ -4,10 +4,7 @@
 */
 
 { config, domain, ... }:
-let
-  subdomain = "jellyfin.${domain}";
-  port = 8096;
-in
+
 {
   services.jellyfin = {
     enable = true;
@@ -15,10 +12,10 @@ in
   };
 
   # Internal domain
-  services.nginx.virtualHosts."${subdomain}" = {
+  services.nginx.virtualHosts."jellyfin.${domain}" = {
     forceSSL = true;
     locations."/" = {
-      proxyPass = "http://localhost:${builtins.toString port}";
+      proxyPass = "http://localhost:${builtins.toString 8096}";
       proxyWebsockets = true;
     };
     sslCertificate = ../static/pweth.crt;
@@ -26,5 +23,7 @@ in
   };
 
   # Persist service data
-  environment.persistence."/persist".directories = [ "/var/lib/jellyfin" ];
+  environment.persistence."/persist".directories = [
+    config.services.jellyfin.dataDir
+  ];
 }

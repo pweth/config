@@ -9,6 +9,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
+      animations.enabled = false;
       cursor.no_hardware_cursors = true;
       decoration.rounding = 5;
       env = [
@@ -24,7 +25,7 @@
         "hyprpaper"
         "hyprctl setcursor Adwaita 24"
         "[workspace special:browser silent] firefox"
-        "[workspace special:media silent] sleep 15; spotify"
+        "[workspace special:media silent] sleep 60; spotify"
         "[workspace special:terminal silent] kitty tmux"
       ];
       general = {
@@ -42,19 +43,6 @@
         kb_layout = "gb";
         kb_options = "caps:escape";
         follow_mouse = 0;
-      };
-      animations = {
-        enabled = true;
-        bezier = "curve, 0.05, 0.9, 0.1, 1.05";
-        animation = [
-          "windows, 1, 4, curve"
-          "windowsOut, 1, 4, default, popin 80%"
-          "border, 1, 4, default"
-          "borderangle, 1, 4, default"
-          "fade, 1, 4, default"
-          "workspaces, 1, 5, default"
-          "specialWorkspace, 1, 5, default, slidevert"
-        ];
       };
       misc = {
         disable_hyprland_logo = true;
@@ -90,19 +78,11 @@
         "SUPER, 3, workspace, 3"
         "SUPER, 4, workspace, 4"
         "SUPER, 5, workspace, 5"
-        "SUPER, 6, workspace, 6"
-        "SUPER, 7, workspace, 7"
-        "SUPER, 8, workspace, 8"
-        "SUPER, 9, workspace, 9"
         "SUPER SHIFT, 1, movetoworkspace, 1"
         "SUPER SHIFT, 2, movetoworkspace, 2"
         "SUPER SHIFT, 3, movetoworkspace, 3"
         "SUPER SHIFT, 4, movetoworkspace, 4"
         "SUPER SHIFT, 5, movetoworkspace, 5"
-        "SUPER SHIFT, 6, movetoworkspace, 6"
-        "SUPER SHIFT, 7, movetoworkspace, 7"
-        "SUPER SHIFT, 8, movetoworkspace, 8"
-        "SUPER SHIFT, 9, movetoworkspace, 9"
         ", mouse:275, workspace, e-1"
         ", mouse:276, workspace, e+1"
 
@@ -123,9 +103,6 @@
         ", XF86AudioRaiseVolume, exec, amixer set Master 5%+"
         ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
         ", XF86MonBrightnessUp, exec, brightnessctl set 10%+"
-      ];
-      layerrule = [
-        "noanim, ^(wofi)$"
       ];
       windowrulev2 = [
         "float, class:blueman-manager"

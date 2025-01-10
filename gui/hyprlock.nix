@@ -26,14 +26,14 @@
         fail_color = "rgba(0, 0, 0, 0)";
         fail_timeout = 0;
         fail_transition = 0;
-        font_color = "rgb(255, 255, 255)";
+        font_color = "rgba(255, 255, 255, 0.5)";
         inner_color = "rgba(0, 0, 0, 0)";
         outer_color = "rgba(0, 0, 0, 0)";
         fail_text = "";
         placeholder_text = "";
       }];
       label = [{
-        text = "$TIME";
+        text = "󰜗 $TIME";
         color = "rgb(255, 255, 255)";
         font_family = "Hack Nerd Font";
         font_size = 96;

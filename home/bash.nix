@@ -16,6 +16,7 @@
       df = "df -h";
       files = "fzf --preview 'bat --style=numbers --color=always --line-range :200 {}'";
       ga = "git add";
+      gb = "git branch";
       gc = "git commit";
       gd = "git diff";
       gg = "git pull";
@@ -28,10 +29,12 @@
       nano = "nvim";
       ngc = "sudo nix-env --delete-generations --profile /nix/var/nix/profiles/system old && nix-collect-garbage -d";
       paste = "xclip -o -selection clipboard";
+      pi = "pip install .";
       rb = "sudo nixos-rebuild switch --flake /etc/nixos/config";
       src = "source";
       ta = "tmux attach";
-      tkill = "tmux kill-session";
+      tcls = "tmux kill-session -a";
+      tkill = "tmux kill-server";
       tls = "tmux list-sessions";
       tn = "tmux new-session";
       v = "nvim"; 
@@ -45,7 +48,7 @@
         cut -d " " -f 1
       }
       weather () {
-        curl -s "wttr.in/''${1}" | head -n -1
+        curl -s wttr.in/$(jq -rn --arg x "$*" '$x|@uri') | head -n -1
       }
     '';
   };

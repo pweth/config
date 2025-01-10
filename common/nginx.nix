@@ -16,14 +16,15 @@
     enable = true;
 
     # Use recommended settings
+    clientMaxBodySize = "0";
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
     recommendedZstdSettings = true;
 
-    # IPN hostname for metrics
-    virtualHosts."${host.name}.ipn.${domain}" = {
+    # Hostname for metrics
+    virtualHosts."${host.name}.${domain}" = {
       forceSSL = true;
       locations."/".proxyPass = "http://localhost:${builtins.toString config.services.prometheus.exporters.node.port}";
       sslCertificate = ../static/pweth.crt;

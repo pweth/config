@@ -3,7 +3,7 @@
 * See ../gui/home.nix for GUI programs.
 */
 
-{ config, pkgs, user, ... }:
+{ config, pkgs, user, version, ... }:
 
 {
   imports = [
@@ -11,7 +11,6 @@
     ./git.nix
     ./htop.nix
     ./key-files.nix
-    ./neofetch.nix
     ./python.nix
     ./starship.nix
     ./tmux.nix
@@ -22,7 +21,7 @@
   home = {
     username = user;
     homeDirectory = "/home/${user}";
-    stateVersion = "24.11";
+    stateVersion = version;
   };
 
   # Remove manual
@@ -55,6 +54,7 @@
     httpie
     hwatch
     imagemagick
+    immich-cli
     lego
     libheif
     lolcat

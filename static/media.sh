@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Check player status
-MUSIC_STATUS=$(playerctl status)
+MUSIC_STATUS=$(playerctl status 2>/dev/null)
 if [[ $? -eq 1 ]]; then
     echo " "; echo "Not Playing"; echo "deactivated"
     exit

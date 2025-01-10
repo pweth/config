@@ -33,7 +33,7 @@ in
         { domain = "*.pweth.com"; answer = hosts.humboldt.address; }
         { domain = "www.pweth.com"; answer = "pweth.com"; }
       ] ++ (builtins.map (
-        host: { domain = "${host.name}.ipn.pweth.com"; answer = host.address; }
+        host: { domain = "${host.name}.pweth.com"; answer = host.address; }
       ) (builtins.attrValues hosts));
       statistics = {
         enabled = true;

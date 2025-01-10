@@ -2,7 +2,7 @@
 * Home manager configuration entrypoint.
 */
 
-{ config, home-manager, domain, host, keys, user, ... }:
+{ config, home-manager, domain, host, keys, user, version, ... }:
 
 {
   imports = [
@@ -15,6 +15,7 @@
       host = host;
       keys = keys;
       user = user;
+      version = version;
     };
     useGlobalPkgs = true;
     useUserPackages = true;

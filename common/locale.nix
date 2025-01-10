@@ -29,7 +29,6 @@ in
     options = "caps:escape";
   };
 
-
   # Set time zone to London
   time.timeZone = "Europe/London";
 }

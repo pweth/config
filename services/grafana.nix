@@ -5,7 +5,6 @@
 
 { config, domain, ... }:
 let
-  subdomain = "grafana.${domain}";
   port = 59663;
 in
 {
@@ -14,6 +13,7 @@ in
     owner = "grafana";
   };
 
+  # Service configuration
   services.grafana = {
     enable = true;
     settings = {
@@ -34,7 +34,7 @@ in
         disable_gravatar = true;
       };
       server = {
-        domain = subdomain;
+        domain = "grafana.${domain}";
         http_port = port;
       };
       users = {
@@ -46,10 +46,10 @@ in
   };
 
   # Internal domain
-  services.nginx.virtualHosts."${subdomain}" = {
+  services.nginx.virtualHosts."grafana.${domain}" = {
     forceSSL = true;
     locations."/" = {
-      proxyPass = "http://localhost:${builtins.toString port}";
+      proxyPass = "http://localhost:${builtins.toString config.services.grafana.settings.server.http_port}";
       proxyWebsockets = true;
     };
     sslCertificate = ../static/pweth.crt;
@@ -57,5 +57,7 @@ in
   };
 
   # Persist service data
-  environment.persistence."/persist".directories = [ config.services.grafana.dataDir ];
+  environment.persistence."/persist".directories = [
+    config.services.grafana.dataDir
+  ];
 }
