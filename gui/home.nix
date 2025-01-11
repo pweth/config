@@ -13,7 +13,6 @@
     ./vscode.nix
     ./waybar.nix
     ./wofi.nix
-    ./xdg.nix
   ];
 
   home.packages = with pkgs; [
@@ -44,4 +43,15 @@
     [Settings]
     gtk-application-prefer-dark-theme=1
   '';
+
+  # User base directories
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+    desktop = null;
+    music = null;
+    publicShare = null;
+    templates = null;
+    videos = null;
+  };
 }
