@@ -210,7 +210,7 @@
         "network.http.referer.XOriginTrimmingPolicy" = 2;
       };
 
-      userChrome = builtins.readFile ../static/firefox.css;
+      userChrome = builtins.readFile ../static/styles/firefox.css;
     };
   };
 }

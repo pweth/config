@@ -1,0 +1,84 @@
+* {
+    font-family: "Hack Nerd Font";
+    font-size: 16px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #111111;
+    border: none;
+    color: white;
+}
+
+#workspaces {
+    background: transparent;
+    padding: 0;
+}
+
+#workspaces button {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    border-top: solid 2px #111111;
+    box-shadow: none;
+    padding: 10px 8px;
+}
+
+#workspaces button.active, #workspaces button:hover {
+    background: #000000;
+}
+
+#workspaces button:not(.empty) {
+    border-color: #777777;
+}
+
+#workspaces button:not(.empty).active {
+    border-color: #FFFFFF;
+}
+
+#bluetooth, #clock, #custom-media, #idle_inhibitor, #network {
+    background: transparent;
+    border-top: solid 2px #111111;
+    padding: 10px 15px;
+}
+
+#bluetooth, #custom-media, #idle_inhibitor, #network {
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    border-color: #777777;
+}
+
+#bluetooth:hover, #custom-media:hover, #idle_inhibitor:hover, #network:hover {
+    background-color: #000000;
+}
+
+#bluetooth.connected,
+#custom-media.activated,
+#idle_inhibitor.activated,
+#network.ethernet,
+#network.linked,
+#network.wifi {
+    border-color: #FFFFFF;
+}
+
+#bluetooth {
+    background-image: url("ICONS/bluetooth.png");
+}
+
+#custom-media {
+    background-image: url("ICONS/media.png");
+}
+
+#idle_inhibitor {
+    background-image: url("ICONS/idle-deactivated.png");
+}
+
+#idle_inhibitor.activated {
+    background-image: url("ICONS/idle-activated.png");
+}
+
+#network {
+    background-image: url("ICONS/network.png");
+}

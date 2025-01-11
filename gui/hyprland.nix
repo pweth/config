@@ -15,7 +15,7 @@
       env = [
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "GBM_BACKEND,nvidia-drm"
-        "LIBGL_ALWAYS_SOFTWARE=1"
+        "LIBGL_ALWAYS_SOFTWARE,1"
         "LIBVA_DRIVER_NAME,nvidia"
         "XDG_SESSION_TYPE,wayland"
         "__GL_THREADED_OPTIMIZATIONS,0"
@@ -25,7 +25,7 @@
         "hyprpaper"
         "hyprctl setcursor Adwaita 24"
         "[workspace special:browser silent] firefox"
-        "[workspace special:media silent] sleep 60; spotify"
+        "[workspace special:media silent] spotify"
         "[workspace special:terminal silent] kitty tmux"
       ];
       general = {
