@@ -9,7 +9,17 @@ fi
 
 # Determine metadata for tooltip
 TITLE=$(playerctl metadata title)
+if [[ $? -eq 1 ]]; then
+    echo " "; echo "Not Playing"; echo "deactivated"
+    exit
+fi
+
 ARTIST=$(playerctl metadata artist)
+if [[ $? -eq 1 ]]; then
+    echo " "; echo "Not Playing"; echo "deactivated"
+    exit
+fi
+
 if [[ -n $ARTIST ]]; then
     TOOLTIP="$TITLE ($ARTIST)"
 else

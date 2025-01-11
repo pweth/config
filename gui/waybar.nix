@@ -42,7 +42,7 @@
       };
       "custom/media" = {
         interval = 1;
-        on-click = "hyprctl dispatch togglespecialworkspace music";
+        on-click = "hyprctl dispatch togglespecialworkspace media";
         on-click-right = "playerctl play-pause";
         exec = ../static/media.sh;
       };
