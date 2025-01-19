@@ -20,11 +20,11 @@
         "clock"
       ];
       modules-right = [
-        "idle_inhibitor"
         "custom/media"
-        "bluetooth"
         "network"
         "custom/vpn"
+        "bluetooth"
+        "idle_inhibitor"
       ];
 
       # Module configuration
@@ -50,7 +50,8 @@
       "custom/vpn" = {
         interval = 1;
         on-click = ''
-          tailscale up --accept-dns --exit-node=$(tailscale exit-node list |
+          tailscale up --accept-dns --exit-node=$(tailscale exit-node \
+            list --filter="UK" |
             grep "London" |
             awk '{ print $2 }' |
             shuf -n 1
