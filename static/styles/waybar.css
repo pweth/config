@@ -36,13 +36,13 @@ window#waybar {
     border-color: #FFFFFF;
 }
 
-#bluetooth, #clock, #custom-media, #idle_inhibitor, #network {
+#bluetooth, #clock, #custom-media, #custom-vpn, #idle_inhibitor, #network {
     background: transparent;
     border-top: solid 2px #111111;
     padding: 10px 15px;
 }
 
-#bluetooth, #custom-media, #idle_inhibitor, #network {
+#bluetooth, #custom-media, #custom-vpn, #idle_inhibitor, #network {
     background-color: transparent;
     background-position: center;
     background-repeat: no-repeat;
@@ -50,12 +50,13 @@ window#waybar {
     border-color: #777777;
 }
 
-#bluetooth:hover, #custom-media:hover, #idle_inhibitor:hover, #network:hover {
+#bluetooth:hover, #custom-media:hover, #custom-vpn:hover, #idle_inhibitor:hover, #network:hover {
     background-color: #000000;
 }
 
 #bluetooth.connected,
 #custom-media.activated,
+#custom-vpn.activated,
 #idle_inhibitor.activated,
 #network.ethernet,
 #network.linked,
@@ -69,6 +70,14 @@ window#waybar {
 
 #custom-media {
     background-image: url("ICONS/media.png");
+}
+
+#custom-vpn {
+    background-image: url("ICONS/vpn-deactivated.png");
+}
+
+#custom-vpn.activated {
+    background-image: url("ICONS/vpn-activated.png");
 }
 
 #idle_inhibitor {

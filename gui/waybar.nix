@@ -24,6 +24,7 @@
         "custom/media"
         "bluetooth"
         "network"
+        "custom/vpn"
       ];
 
       # Module configuration
@@ -45,6 +46,18 @@
         on-click = "hyprctl dispatch togglespecialworkspace media";
         on-click-right = "playerctl play-pause";
         exec = ../static/media.sh;
+      };
+      "custom/vpn" = {
+        interval = 1;
+        on-click = ''
+          tailscale up --accept-dns --exit-node=$(tailscale exit-node list |
+            grep "London" |
+            awk '{ print $2 }' |
+            shuf -n 1
+          )
+        '';
+        on-click-right = "tailscale up --accept-dns --exit-node=";
+        exec = ../static/vpn.sh;
       };
       "hyprland/workspaces" = {
         persistent-workspaces = {
