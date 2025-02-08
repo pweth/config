@@ -33,7 +33,7 @@
         placeholder_text = "";
       }];
       label = [{
-        text = "󰜗 $TIME";
+        text = "$TIME";
         color = "rgb(255, 255, 255)";
         font_family = "Hack Nerd Font";
         font_size = 96;

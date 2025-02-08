@@ -8,6 +8,7 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     nixos-hardware.nixosModules.raspberry-pi-3
+    ../services/cage.nix
   ];
 
   # Boot settings

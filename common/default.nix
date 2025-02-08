@@ -29,7 +29,6 @@
     HISTSIZE = "10000";
     HISTFILESIZE = "15000";
     HISTTIMEFORMAT = "%F %T ";
-    MINICOM = "-con";
     TZ_LIST = builtins.concatStringsSep ";" [
       "America/New_York,New York"
       "Europe/London,London"
@@ -65,6 +64,7 @@
     p7zip
     rclone
     restic
+    screen
     tmux
     tree
     tz
@@ -87,6 +87,7 @@
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
+      trusted-users = [ user ];
     };
   };
 

@@ -27,6 +27,9 @@
     };
   };
 
+  # Allow cross-architecture builds
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   # Filesystem mounts
   fileSystems = {
     "/" = {

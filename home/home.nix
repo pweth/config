@@ -58,14 +58,12 @@
     lego
     libheif
     lolcat
-    minicom
     mitmproxy
     multitime
     nmap
     nms
     nodejs
     passage
-    picocom
     ripgrep
     rustup
     sl
