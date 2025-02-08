@@ -1,8 +1,12 @@
-/*
-* Common system configuration across all hosts with a GUI.
-*/
+# * Common system configuration across all hosts with a GUI.
 
-{ config, pkgs, home-manager, user, ... }:
+{
+  config,
+  pkgs,
+  home-manager,
+  user,
+  ...
+}:
 
 {
   # GUI setup

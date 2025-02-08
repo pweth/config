@@ -1,8 +1,17 @@
-/*
-* Common system configuration across all hosts.
-*/
+# * Common system configuration across all hosts.
 
-{ config, lib, pkgs, agenix, domain, host, keys, user, version, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  agenix,
+  domain,
+  host,
+  keys,
+  user,
+  version,
+  ...
+}:
 
 {
   imports = [
@@ -38,42 +47,42 @@
   };
 
   # System packages
-  environment.systemPackages = [
-    agenix.packages."${pkgs.system}".default
-  ] ++ (with pkgs; [
-    age
-    age-plugin-yubikey
-    bat
-    curl
-    dig
-    duf
-    eza
-    fastfetch
-    file
-    fzf
-    gawk
-    git
-    htop
-    inetutils
-    jq
-    killall
-    neovim
-    networkmanager
-    ncdu
-    openssl
-    p7zip
-    rclone
-    restic
-    screen
-    tmux
-    tree
-    tz
-    unzip
-    usbutils
-    wget
-    xclip
-    zip
-  ]);
+  environment.systemPackages =
+    [ agenix.packages."${pkgs.system}".default ]
+    ++ (with pkgs; [
+      age
+      age-plugin-yubikey
+      bat
+      curl
+      dig
+      duf
+      eza
+      fastfetch
+      file
+      fzf
+      gawk
+      git
+      htop
+      inetutils
+      jq
+      killall
+      neovim
+      networkmanager
+      ncdu
+      openssl
+      p7zip
+      rclone
+      restic
+      screen
+      tmux
+      tree
+      tz
+      unzip
+      usbutils
+      wget
+      xclip
+      zip
+    ]);
 
   # Networking
   networking = {
@@ -86,7 +95,10 @@
     gc.automatic = true;
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       trusted-users = [ user ];
     };
   };

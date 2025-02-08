@@ -1,6 +1,6 @@
 /*
-* Hyprland configuration.
-* https://hyprland.org
+  * Hyprland configuration.
+  * https://hyprland.org
 */
 
 { config, ... }:
@@ -94,9 +94,7 @@
         "CTRL SUPER SHIFT, P, exec, shutdown now"
         "CTRL SUPER SHIFT, R, exec, shutdown now --reboot"
       ];
-      bindm = [
-        "SUPER, mouse:273, movewindow"
-      ];
+      bindm = [ "SUPER, mouse:273, movewindow" ];
       bindel = [
         ", XF86AudioLowerVolume, exec, amixer set Master 5%-"
         ", XF86AudioMute, exec, amixer set Master toggle"

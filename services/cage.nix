@@ -1,9 +1,14 @@
 /*
-* Wayland-based kiosk service.
-* https://github.com/cage-kiosk/cage
+  * Wayland-based kiosk service.
+  * https://github.com/cage-kiosk/cage
 */
 
-{ config, pkgs, user, ... }:
+{
+  config,
+  pkgs,
+  user,
+  ...
+}:
 
 {
   # Cage configuration

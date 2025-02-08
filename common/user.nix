@@ -1,8 +1,12 @@
-/*
-* Default user configuration.
-*/
+# * Default user configuration.
 
-{ config, host, keys, user, ... }:
+{
+  config,
+  host,
+  keys,
+  user,
+  ...
+}:
 
 {
   # User account

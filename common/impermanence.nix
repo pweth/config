@@ -1,13 +1,15 @@
-/*
-* Common configuration across all hosts that use impermanence.
-*/
-
-{ config, lib, impermanence, user, ... }:
+# * Common configuration across all hosts that use impermanence.
 
 {
-  imports = [
-    impermanence.nixosModules.impermanence
-  ];
+  config,
+  lib,
+  impermanence,
+  user,
+  ...
+}:
+
+{
+  imports = [ impermanence.nixosModules.impermanence ];
 
   # Add persistent key path to agenix
   age.identityPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
@@ -28,12 +30,8 @@
         "/var/lib/systemd/coredump"
         "/var/log/journal"
       ]
-      (lib.mkIf config.networking.networkmanager.enable [
-        "/etc/NetworkManager/system-connections"
-      ])
-      (lib.mkIf config.hardware.bluetooth.enable [
-        "/var/lib/bluetooth"
-      ])
+      (lib.mkIf config.networking.networkmanager.enable [ "/etc/NetworkManager/system-connections" ])
+      (lib.mkIf config.hardware.bluetooth.enable [ "/var/lib/bluetooth" ])
     ];
     users."${user}" = {
       directories = lib.mkMerge [
@@ -59,9 +57,7 @@
           ".mozilla/firefox/default"
         ])
       ];
-      files = [
-        ".bash_history"
-      ];
+      files = [ ".bash_history" ];
     };
   };
 }

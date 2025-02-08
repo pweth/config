@@ -1,9 +1,15 @@
 /*
-* Network-wide ads and trackers blocking DNS server.
-* https://github.com/AdguardTeam/AdGuardHome
+  * Network-wide ads and trackers blocking DNS server.
+  * https://github.com/AdguardTeam/AdGuardHome
 */
 
-{ config, domain, host, hosts, ... }:
+{
+  config,
+  domain,
+  host,
+  hosts,
+  ...
+}:
 let
   subdomain = "dns.${domain}";
   port = 3000;
@@ -26,15 +32,34 @@ in
         ];
       };
       filters = [
-        { enabled = true; id = 1; name = "OISD Big"; url = "https://big.oisd.nl/"; }
-        { enabled = true; id = 2; name = "OISD NSFW"; url = "https://nsfw.oisd.nl/"; }
+        {
+          enabled = true;
+          id = 1;
+          name = "OISD Big";
+          url = "https://big.oisd.nl/";
+        }
+        {
+          enabled = true;
+          id = 2;
+          name = "OISD NSFW";
+          url = "https://nsfw.oisd.nl/";
+        }
       ];
-      filtering.rewrites = [
-        { domain = "*.pweth.com"; answer = hosts.humboldt.address; }
-        { domain = "www.pweth.com"; answer = "pweth.com"; }
-      ] ++ (builtins.map (
-        host: { domain = "${host.name}.pweth.com"; answer = host.address; }
-      ) (builtins.attrValues hosts));
+      filtering.rewrites =
+        [
+          {
+            domain = "*.pweth.com";
+            answer = hosts.humboldt.address;
+          }
+          {
+            domain = "www.pweth.com";
+            answer = "pweth.com";
+          }
+        ]
+        ++ (builtins.map (host: {
+          domain = "${host.name}.pweth.com";
+          answer = host.address;
+        }) (builtins.attrValues hosts));
       statistics = {
         enabled = true;
         interval = "2160h";

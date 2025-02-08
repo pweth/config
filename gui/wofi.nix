@@ -1,6 +1,6 @@
 /*
-* Wofi configuration.
-* https://hg.sr.ht/~scoopta/wofi
+  * Wofi configuration.
+  * https://hg.sr.ht/~scoopta/wofi
 */
 
 { config, ... }:

@@ -47,3 +47,4 @@ NixOS configuration flake.
 - [Using custom package in a NixOS module ](https://mdleom.com/blog/2021/07/02/custom-package-nixos-module/)
 - [Encypted Btrfs Root with Opt-in State on NixOS](https://mt-caret.github.io/blog/posts/2020-06-29-optin-state.html)
 - [NixOS as a server, part 1: Impermanence](https://guekka.github.io/nixos-server-1/)
+- [[RFC 0166] Nix formatting](https://github.com/NixOS/rfcs/pull/166)

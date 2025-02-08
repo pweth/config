@@ -1,8 +1,15 @@
-/*
-* SSH configuration.
-*/
+# * SSH configuration.
 
-{ config, pkgs, domain, host, hosts, keys, user, ... }:
+{
+  config,
+  pkgs,
+  domain,
+  host,
+  hosts,
+  keys,
+  user,
+  ...
+}:
 
 {
   # Set public key for host
@@ -24,20 +31,33 @@
     startAgent = true;
 
     # Add private keys to ssh-agent
-    extraConfig = builtins.concatStringsSep "\n" (builtins.map (
-      key: "IdentityFile /home/${user}/.ssh/${key}"
-    ) (builtins.attrNames keys));
+    extraConfig = builtins.concatStringsSep "\n" (
+      builtins.map (key: "IdentityFile /home/${user}/.ssh/${key}") (builtins.attrNames keys)
+    );
 
     # Pre-populate known hosts
-    knownHosts = (builtins.listToAttrs (builtins.concatLists (builtins.attrValues (builtins.mapAttrs (
-        name: host: [
-          { name = "${name}.${domain}"; value.publicKey = "ssh-ed25519 ${host.ssh-key}"; }
-          { name = name; value.publicKey = "ssh-ed25519 ${host.ssh-key}"; }
-        ]
-    ) hosts)))) // {
-      "github.com".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
-      "git.${domain}".publicKey = "ssh-ed25519 ${hosts.humboldt.ssh-key}";
-    };
+    knownHosts =
+      (builtins.listToAttrs (
+        builtins.concatLists (
+          builtins.attrValues (
+            builtins.mapAttrs (name: host: [
+              {
+                name = "${name}.${domain}";
+                value.publicKey = "ssh-ed25519 ${host.ssh-key}";
+              }
+              {
+                name = name;
+                value.publicKey = "ssh-ed25519 ${host.ssh-key}";
+              }
+            ]) hosts
+          )
+        )
+      ))
+      // {
+        "github.com".publicKey =
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
+        "git.${domain}".publicKey = "ssh-ed25519 ${hosts.humboldt.ssh-key}";
+      };
   };
 
   # fail2ban with default jails

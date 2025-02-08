@@ -1,16 +1,16 @@
 /*
-* Used by the agenix CLI tool to know which public keys to use for encryption.
-* Not imported into the NixOS configuration.
+  * Used by the agenix CLI tool to know which public keys to use for encryption.
+  * Not imported into the NixOS configuration.
 */
 
 let
   # Load in SSH keys
-  hosts = builtins.mapAttrs (
-    name: host: "ssh-ed25519 ${host.ssh-key}"
-  ) (builtins.fromTOML (builtins.readFile ../attrs/hosts.toml));
-  keys = builtins.mapAttrs (
-    name: key: key.age
-  ) (builtins.fromTOML (builtins.readFile ../attrs/keys.toml));
+  hosts = builtins.mapAttrs (name: host: "ssh-ed25519 ${host.ssh-key}") (
+    builtins.fromTOML (builtins.readFile ../attrs/hosts.toml)
+  );
+  keys = builtins.mapAttrs (name: key: key.age) (
+    builtins.fromTOML (builtins.readFile ../attrs/keys.toml)
+  );
 
   # Secret to host mappings
   secrets = with keys; {

@@ -1,9 +1,14 @@
 /*
-* Mozilla Firefox browser configuration.
-* https://mozilla.github.io/policy-templates/
+  * Mozilla Firefox browser configuration.
+  * https://mozilla.github.io/policy-templates/
 */
 
-{ config, pkgs, domain, ... }:
+{
+  config,
+  pkgs,
+  domain,
+  ...
+}:
 
 {
   programs.firefox = {
@@ -113,44 +118,38 @@
         force = true;
         engines = {
           "DuckDuckGo Themed" = {
-            urls = [{
-              # https://duckduckgo.com/duckduckgo-help-pages/settings/params/
-              template = "https://duckduckgo.com/?q={searchTerms}&kp=1&kl=uk-en&kad=en_GB&k1=-1&kaj=m&kak=-1&kax=-1&kaq=-1&kap=-1&kao=-1&kau=-1&kae=d&k5=1&kpsb=-1&kav=1";
-            }];
+            urls = [
+              {
+                # https://duckduckgo.com/duckduckgo-help-pages/settings/params/
+                template = "https://duckduckgo.com/?q={searchTerms}&kp=1&kl=uk-en&kad=en_GB&k1=-1&kaj=m&kak=-1&kax=-1&kaq=-1&kap=-1&kao=-1&kau=-1&kae=d&k5=1&kpsb=-1&kav=1";
+              }
+            ];
             iconUpdateURL = "https://duckduckgo.com/favicon.png";
           };
           "Fastmail" = {
-            urls = [{
-              template = "https://app.fastmail.com/mail/search:{searchTerms}/";
-            }];
+            urls = [ { template = "https://app.fastmail.com/mail/search:{searchTerms}/"; } ];
             definedAliases = [ "!fm" ];
             iconUpdateURL = "https://app.fastmail.com/static/favicons/icon-32x32.png";
           };
           "GitHub Code" = {
-            urls = [{
-              template = "https://github.com/search?q={searchTerms}&type=code";
-            }];
+            urls = [ { template = "https://github.com/search?q={searchTerms}&type=code"; } ];
             definedAliases = [ "!ghc" ];
             iconUpdateURL = "https://github.githubassets.com/favicons/favicon.png";
           };
           "Hacker News" = {
-            urls = [{
-              template = "https://hn.algolia.com/?q={searchTerms}";
-            }];
+            urls = [ { template = "https://hn.algolia.com/?q={searchTerms}"; } ];
             definedAliases = [ "!hn" ];
             iconUpdateURL = "https://news.ycombinator.com/y18.svg";
           };
           "Home Manager" = {
-            urls = [{
-              template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master";
-            }];
+            urls = [
+              { template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master"; }
+            ];
             definedAliases = [ "!hm" ];
             iconUpdateURL = "https://nixos.org/favicon.png";
           };
           "NixOS" = {
-            urls = [{
-              template = "https://search.nixos.org/packages?query={searchTerms}";
-            }];
+            urls = [ { template = "https://search.nixos.org/packages?query={searchTerms}"; } ];
             definedAliases = [ "!n" ];
             iconUpdateURL = "https://nixos.org/favicon.png";
           };
@@ -199,7 +198,7 @@
 
         # Download settings
         "browser.download.useDownloadDir" = false;
-        "browser.helperApps.deleteTempFileOnExit" = true;        
+        "browser.helperApps.deleteTempFileOnExit" = true;
 
         # TLS settings
         "dom.security.https_only_mode" = true;

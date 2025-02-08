@@ -1,8 +1,12 @@
-/*
-* Tailscale configuration.
-*/
+# * Tailscale configuration.
 
-{ config, lib, host, user, ... }:
+{
+  config,
+  lib,
+  host,
+  user,
+  ...
+}:
 
 {
   # Mount authentication key

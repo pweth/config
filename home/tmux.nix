@@ -1,6 +1,4 @@
-/*
-* tmux configuration.
-*/
+# * tmux configuration.
 
 { config, ... }:
 

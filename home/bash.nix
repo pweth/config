@@ -1,6 +1,4 @@
-/*
-* Bourne Again Shell configuration.
-*/
+# * Bourne Again Shell configuration.
 
 { config, hosts, ... }:
 
@@ -37,7 +35,7 @@
       tkill = "tmux kill-server";
       tls = "tmux list-sessions";
       tn = "tmux new-session";
-      v = "nvim"; 
+      v = "nvim";
     };
 
     # Functions

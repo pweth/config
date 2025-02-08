@@ -1,8 +1,12 @@
-/*
-* Raspberry Pi system configuration.
-*/
+# * Raspberry Pi system configuration.
 
-{ config, lib, modulesPath, nixos-hardware, ... }:
+{
+  config,
+  lib,
+  modulesPath,
+  nixos-hardware,
+  ...
+}:
 
 {
   imports = [

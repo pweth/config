@@ -1,14 +1,15 @@
-/*
-* Custom Python web service for generating FastMail email aliases.
-*/
+# * Custom Python web service for generating FastMail email aliases.
 
-{ config, pkgs, domain, ... }:
+{
+  config,
+  pkgs,
+  domain,
+  ...
+}:
 let
   subdomain = "mask.${domain}";
   port = 40368;
-  python = pkgs.python3.withPackages (ps: with ps; [
-    requests
-  ]);
+  python = pkgs.python3.withPackages (ps: with ps; [ requests ]);
 in
 {
   # Masked email Python script

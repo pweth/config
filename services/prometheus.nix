@@ -1,9 +1,14 @@
 /*
-* Monitoring system and time series database. 
-* https://github.com/prometheus/prometheus
+  * Monitoring system and time series database.
+  * https://github.com/prometheus/prometheus
 */
 
-{ config, domain, hosts, ... }:
+{
+  config,
+  domain,
+  hosts,
+  ...
+}:
 let
   subdomain = "prometheus.${domain}";
   port = 58635;
@@ -16,11 +21,9 @@ in
       {
         job_name = "node";
         scheme = "https";
-        static_configs = [{
-          targets = builtins.map (
-            name: "${name}.${domain}"
-          ) (builtins.attrNames hosts);
-        }];
+        static_configs = [
+          { targets = builtins.map (name: "${name}.${domain}") (builtins.attrNames hosts); }
+        ];
       }
     ];
   };
@@ -37,5 +40,7 @@ in
   };
 
   # Persist service data
-  environment.persistence."/persist".directories = [ "/var/lib/${config.services.prometheus.stateDir}" ];
+  environment.persistence."/persist".directories = [
+    "/var/lib/${config.services.prometheus.stateDir}"
+  ];
 }

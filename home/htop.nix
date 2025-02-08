@@ -1,6 +1,4 @@
-/*
-* htop configuration.
-*/
+# * htop configuration.
 
 { config, ... }:
 

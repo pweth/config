@@ -1,6 +1,6 @@
 /*
-* The free software media system.
-* https://github.com/jellyfin/jellyfin
+  * The free software media system.
+  * https://github.com/jellyfin/jellyfin
 */
 
 { config, domain, ... }:
@@ -23,7 +23,5 @@
   };
 
   # Persist service data
-  environment.persistence."/persist".directories = [
-    config.services.jellyfin.dataDir
-  ];
+  environment.persistence."/persist".directories = [ config.services.jellyfin.dataDir ];
 }

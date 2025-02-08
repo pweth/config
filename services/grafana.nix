@@ -1,6 +1,6 @@
 /*
-* Query, visualize, alerting observability platform.
-* https://github.com/grafana/grafana
+  * Query, visualize, alerting observability platform.
+  * https://github.com/grafana/grafana
 */
 
 { config, domain, ... }:
@@ -57,7 +57,5 @@ in
   };
 
   # Persist service data
-  environment.persistence."/persist".directories = [
-    config.services.grafana.dataDir
-  ];
+  environment.persistence."/persist".directories = [ config.services.grafana.dataDir ];
 }

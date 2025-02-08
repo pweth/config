@@ -1,6 +1,4 @@
-/*
-* Git configuration.
-*/
+# * Git configuration.
 
 { config, user, ... }:
 

@@ -1,8 +1,12 @@
-/*
-* Desktop system configuration.
-*/
+# * Desktop system configuration.
 
-{ config, lib, modulesPath, user, ... }:
+{
+  config,
+  lib,
+  modulesPath,
+  user,
+  ...
+}:
 
 {
   imports = [
@@ -14,7 +18,15 @@
   # Boot settings
   boot = {
     initrd = {
-      availableKernelModules = [ "vmd" "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
+      availableKernelModules = [
+        "vmd"
+        "xhci_pci"
+        "ahci"
+        "nvme"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+      ];
       luks.devices.luks = {
         device = "/dev/disk/by-label/encrypted";
         preLVM = true;
@@ -35,29 +47,43 @@
     "/" = {
       device = "none";
       fsType = "tmpfs";
-      options = [ "defaults" "size=8G" "mode=755" ];
+      options = [
+        "defaults"
+        "size=8G"
+        "mode=755"
+      ];
     };
     "/boot" = {
       device = "/dev/disk/by-label/boot";
       fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
+      options = [
+        "fmask=0022"
+        "dmask=0022"
+      ];
     };
-    "/nix" = { device = "/dev/disk/by-label/data";
+    "/nix" = {
+      device = "/dev/disk/by-label/data";
       fsType = "btrfs";
-      options = [ "subvol=nix" "compress=zstd" "noatime" ];
+      options = [
+        "subvol=nix"
+        "compress=zstd"
+        "noatime"
+      ];
     };
     "/persist" = {
       device = "/dev/disk/by-label/data";
       fsType = "btrfs";
       neededForBoot = true;
-      options = [ "subvol=persist" "compress=zstd" "noatime" ];
+      options = [
+        "subvol=persist"
+        "compress=zstd"
+        "noatime"
+      ];
     };
   };
 
   # Swap space
-  swapDevices = [{
-    device = "/dev/disk/by-label/swap";
-  }];
+  swapDevices = [ { device = "/dev/disk/by-label/swap"; } ];
 
   # Hardware adjustments
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

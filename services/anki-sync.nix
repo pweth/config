@@ -1,9 +1,14 @@
 /*
-* Self-hosted Anki sync server.
-* https://docs.ankiweb.net/sync-server.html
+  * Self-hosted Anki sync server.
+  * https://docs.ankiweb.net/sync-server.html
 */
 
-{ config, domain, user, ... }:
+{
+  config,
+  domain,
+  user,
+  ...
+}:
 let
   subdomain = "anki.${domain}";
 in
@@ -12,10 +17,12 @@ in
 
   services.anki-sync-server = {
     enable = true;
-    users = [{
-      username = user;
-      passwordFile = config.age.secrets.anki.path;
-    }];
+    users = [
+      {
+        username = user;
+        passwordFile = config.age.secrets.anki.path;
+      }
+    ];
   };
 
   # Internal domain

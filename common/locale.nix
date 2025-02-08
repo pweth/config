@@ -1,6 +1,4 @@
-/*
-* Locale configuration.
-*/
+# * Locale configuration.
 
 { config, ... }:
 let

@@ -1,6 +1,4 @@
-/*
-* Microsoft Visual Studio Code configuration.
-*/
+# * Microsoft Visual Studio Code configuration.
 
 { config, pkgs, ... }:
 
@@ -36,9 +34,7 @@
       "explorer.confirmDragAndDrop" = false;
       "jupyter.askForKernelRestart" = false;
       "remote.downloadExtensionsLocally" = true;
-      "remote.SSH.defaultExtensions" = [
-        "jnoortheen.nix-ide"
-      ];
+      "remote.SSH.defaultExtensions" = [ "jnoortheen.nix-ide" ];
       "telemetry.telemetryLevel" = "off";
       "terminal.integrated.fontFamily" = "FiraCode Nerd Font";
       "terminal.integrated.fontLigatures" = true;

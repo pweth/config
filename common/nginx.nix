@@ -1,9 +1,14 @@
 /*
-* HTTP and reverse proxy server.
-* https://nginx.org/
+  * HTTP and reverse proxy server.
+  * https://nginx.org/
 */
 
-{ config, domain, host, ... }:
+{
+  config,
+  domain,
+  host,
+  ...
+}:
 
 {
   # Mount TLS certificate key
@@ -26,7 +31,8 @@
     # Hostname for metrics
     virtualHosts."${host.name}.${domain}" = {
       forceSSL = true;
-      locations."/".proxyPass = "http://localhost:${builtins.toString config.services.prometheus.exporters.node.port}";
+      locations."/".proxyPass =
+        "http://localhost:${builtins.toString config.services.prometheus.exporters.node.port}";
       sslCertificate = ../static/pweth.crt;
       sslCertificateKey = config.age.secrets.certificate.path;
     };

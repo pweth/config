@@ -1,6 +1,6 @@
 /*
-* A self-hosted lightweight software forge.
-* https://forgejo.org/
+  * A self-hosted lightweight software forge.
+  * https://forgejo.org/
 */
 
 { config, domain, ... }:
@@ -37,7 +37,7 @@ in
         DOMAIN = subdomain;
         HTTP_PORT = port;
         LANDING_PAGE = "login";
-        ROOT_URL = "https://${subdomain}/"; 
+        ROOT_URL = "https://${subdomain}/";
       };
       ui = {
         DEFAULT_THEME = "forgejo-dark";

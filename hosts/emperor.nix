@@ -1,8 +1,13 @@
-/*
-* Personal laptop system configuration.
-*/
+# * Personal laptop system configuration.
 
-{ config, lib, modulesPath, nixos-hardware, user, ... }:
+{
+  config,
+  lib,
+  modulesPath,
+  nixos-hardware,
+  user,
+  ...
+}:
 
 {
   imports = [
@@ -15,7 +20,14 @@
   # Boot settings
   boot = {
     initrd = {
-      availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "usbhid" "sd_mod" "rtsx_pci_sdmmc" ];
+      availableKernelModules = [
+        "xhci_pci"
+        "nvme"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+        "rtsx_pci_sdmmc"
+      ];
       luks.devices.luks.device = "/dev/disk/by-label/encrypted";
     };
     kernelModules = [ "kvm-intel" ];
@@ -30,7 +42,11 @@
     "/" = {
       device = "/dev/disk/by-label/data";
       fsType = "btrfs";
-      options = [ "subvol=root" "compress=zstd" "noatime" ];
+      options = [
+        "subvol=root"
+        "compress=zstd"
+        "noatime"
+      ];
     };
     "/boot" = {
       device = "/dev/disk/by-label/boot";
@@ -39,20 +55,26 @@
     "/nix" = {
       device = "/dev/disk/by-label/data";
       fsType = "btrfs";
-      options = [ "subvol=nix" "compress=zstd" "noatime" ];
+      options = [
+        "subvol=nix"
+        "compress=zstd"
+        "noatime"
+      ];
     };
     "/persist" = {
       device = "/dev/disk/by-label/data";
       fsType = "btrfs";
       neededForBoot = true;
-      options = [ "subvol=persist" "compress=zstd" "noatime" ];
+      options = [
+        "subvol=persist"
+        "compress=zstd"
+        "noatime"
+      ];
     };
   };
 
   # Swap space
-  swapDevices = [{
-    device = "/dev/disk/by-label/swap";
-  }];
+  swapDevices = [ { device = "/dev/disk/by-label/swap"; } ];
 
   # Hardware adjustments
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";

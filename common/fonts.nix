@@ -1,6 +1,4 @@
-/*
-* Font configuration.
-*/
+# * Font configuration.
 
 { config, pkgs, ... }:
 

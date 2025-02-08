@@ -1,6 +1,6 @@
 /*
-* High performance self-hosted photo and video management solution.
-* https://github.com/immich-app/immich
+  * High performance self-hosted photo and video management solution.
+  * https://github.com/immich-app/immich
 */
 
 { config, domain, ... }:

@@ -1,6 +1,6 @@
 /*
-* Home manager configuration for GUI programs.
-* See ../home/home.nix for CLI programs.
+  * Home manager configuration for GUI programs.
+  * See ../home/home.nix for CLI programs.
 */
 
 { config, pkgs, ... }:

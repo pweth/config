@@ -1,13 +1,18 @@
-/*
-* Home manager configuration entrypoint.
-*/
-
-{ config, home-manager, domain, host, keys, user, version, ... }:
+# * Home manager configuration entrypoint.
 
 {
-  imports = [
-    home-manager.nixosModules.default
-  ];
+  config,
+  home-manager,
+  domain,
+  host,
+  keys,
+  user,
+  version,
+  ...
+}:
+
+{
+  imports = [ home-manager.nixosModules.default ];
 
   home-manager = {
     extraSpecialArgs = {

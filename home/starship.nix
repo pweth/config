@@ -1,6 +1,6 @@
 /*
-* Starship cross-shell prompt configuration.
-* https://starship.rs/
+  * Starship cross-shell prompt configuration.
+  * https://starship.rs/
 */
 
 { config, ... }:
@@ -13,7 +13,6 @@
       character = {
         error_symbol = "[;](bold red)";
         success_symbol = "[: ;](bold green)";
-       
       };
       cmd_duration = {
         min_time = 5000;

@@ -1,9 +1,15 @@
 /*
-* Home manager configuration for CLI programs.
-* See ../gui/home.nix for GUI programs.
+  * Home manager configuration for CLI programs.
+  * See ../gui/home.nix for GUI programs.
 */
 
-{ config, pkgs, user, version, ... }:
+{
+  config,
+  pkgs,
+  user,
+  version,
+  ...
+}:
 
 {
   imports = [
@@ -60,6 +66,7 @@
     lolcat
     mitmproxy
     multitime
+    nixfmt-rfc-style
     nmap
     nms
     nodejs

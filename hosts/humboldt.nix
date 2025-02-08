@@ -1,8 +1,12 @@
-/*
-* Home server system configuration.
-*/
+# * Home server system configuration.
 
-{ config, lib, modulesPath, nixos-hardware, ... }:
+{
+  config,
+  lib,
+  modulesPath,
+  nixos-hardware,
+  ...
+}:
 
 {
   imports = [
@@ -22,7 +26,13 @@
   # Boot settings
   boot = {
     initrd = {
-      availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+      availableKernelModules = [
+        "xhci_pci"
+        "ahci"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+      ];
       luks.devices.luks.device = "/dev/disk/by-label/encrypted";
     };
     kernelModules = [ "kvm-intel" ];
@@ -37,30 +47,43 @@
     "/" = {
       device = "none";
       fsType = "tmpfs";
-      options = [ "defaults" "size=2G" "mode=755" ];
+      options = [
+        "defaults"
+        "size=2G"
+        "mode=755"
+      ];
     };
     "/boot" = {
       device = "/dev/disk/by-label/boot";
       fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
+      options = [
+        "fmask=0022"
+        "dmask=0022"
+      ];
     };
     "/nix" = {
       device = "/dev/disk/by-label/data";
       fsType = "btrfs";
-      options = [ "subvol=nix" "compress=zstd" "noatime" ];
+      options = [
+        "subvol=nix"
+        "compress=zstd"
+        "noatime"
+      ];
     };
     "/persist" = {
       device = "/dev/disk/by-label/data";
       fsType = "btrfs";
       neededForBoot = true;
-      options = [ "subvol=persist" "compress=zstd" "noatime" ];
+      options = [
+        "subvol=persist"
+        "compress=zstd"
+        "noatime"
+      ];
     };
   };
 
   # Swap space
-  swapDevices = [{
-    device = "/dev/disk/by-label/swap";
-  }];
+  swapDevices = [ { device = "/dev/disk/by-label/swap"; } ];
 
   # Hardware adjustments
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
