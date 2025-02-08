@@ -22,6 +22,7 @@
       gr = "git reset";
       grrr = "git reset --hard";
       gs = "git status";
+      i = "grep";
       ls = "eza -la";
       mkdir = "mkdir -p";
       nano = "nvim";
