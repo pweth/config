@@ -8,7 +8,7 @@
   # Default font packages
   fonts = {
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "Hack" ]; })
+      (nerdfonts.override { fonts = [ "FiraCode" ]; })
       noto-fonts
       noto-fonts-color-emoji
     ];
@@ -18,7 +18,7 @@
         emoji = [ "NotoColorEmoji" ];
         sansSerif = [ "NotoSans" ];
         serif = [ "NotoSerif" ];
-        monospace = [ "Hack Nerd Font" ];
+        monospace = [ "FiraCode Nerd Font" ];
       };
     };
     fontDir.enable = true;

@@ -35,7 +35,7 @@
       label = [{
         text = "$TIME";
         color = "rgb(255, 255, 255)";
-        font_family = "Hack Nerd Font";
+        font_family = "FiraCode Nerd Font";
         font_size = 96;
         halign = "center";
         position = "0, 160";
