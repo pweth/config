@@ -10,6 +10,7 @@ NixOS configuration flake.
 | Hostname | System |
 | --- | --- |
 | Adelie | Dell Precision 3280 |
+| Chinstrap | Cisco Catalyst 1200 Series Switch |
 | Emperor | Dell XPS 13 9360 |
 | Humboldt | Dell OptiPlex 3050 Micro |
 | Rockhopper | Raspberry Pi Model 3B+ |
