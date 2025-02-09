@@ -36,13 +36,13 @@ window#waybar {
     border-color: #FFFFFF;
 }
 
-#bluetooth, #clock, #custom-media, #custom-vpn, #idle_inhibitor, #network {
+#bluetooth, #clock, #custom-vpn, #idle_inhibitor, #network, #pulseaudio {
     background: transparent;
     border-top: solid 2px #111111;
     padding: 10px 15px;
 }
 
-#bluetooth, #custom-media, #custom-vpn, #idle_inhibitor, #network {
+#bluetooth, #custom-vpn, #idle_inhibitor, #network, #pulseaudio {
     background-color: transparent;
     background-position: center;
     background-repeat: no-repeat;
@@ -50,7 +50,7 @@ window#waybar {
     border-color: #777777;
 }
 
-#bluetooth:hover, #custom-media:hover, #custom-vpn:hover, #idle_inhibitor:hover, #network:hover {
+#bluetooth:hover, #custom-vpn:hover, #idle_inhibitor:hover, #network:hover, #pulseaudio:hover {
     background-color: #000000;
 }
 
@@ -60,16 +60,13 @@ window#waybar {
 #idle_inhibitor.activated,
 #network.ethernet,
 #network.linked,
-#network.wifi {
+#network.wifi,
+#pulseaudio:not(.muted) {
     border-color: #FFFFFF;
 }
 
 #bluetooth {
     background-image: url("ICONS/bluetooth.png");
-}
-
-#custom-media {
-    background-image: url("ICONS/media.png");
 }
 
 #custom-vpn {
@@ -90,4 +87,12 @@ window#waybar {
 
 #network {
     background-image: url("ICONS/network.png");
+}
+
+#pulseaudio {
+    background-image: url("ICONS/audio.png");
+}
+
+#pulseaudio.muted {
+    background-image: url("ICONS/audio-mute.png");
 }

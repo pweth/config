@@ -32,6 +32,7 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
+    alsa-utils
     brightnessctl
     firefox
     gparted

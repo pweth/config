@@ -14,20 +14,21 @@
     };
     settings = [
       {
-        modules-left = [ "hyprland/workspaces" ];
+        modules-left = [
+          "hyprland/workspaces"
+        ];
         modules-center = [ "clock" ];
         modules-right = [
-          "custom/media"
           "network"
           "custom/vpn"
           "bluetooth"
+          "pulseaudio"
           "idle_inhibitor"
         ];
 
         # Module configuration
         "bluetooth" = {
           format = " ";
-          format-disabled = "";
           on-click = "blueman-manager";
           tooltip-format = builtins.concatStringsSep "\n" [
             "Status:  {status}"
@@ -37,12 +38,6 @@
         "clock" = {
           format = "{:%a %d %b %H:%M}";
           tooltip = false;
-        };
-        "custom/media" = {
-          interval = 1;
-          on-click = "hyprctl dispatch togglespecialworkspace media";
-          on-click-right = "playerctl play-pause";
-          exec = ../static/media.sh;
         };
         "custom/vpn" = {
           interval = 1;
@@ -86,6 +81,13 @@
             "Address: {ipaddr}"
             "Gateway: {gwaddr}"
           ];
+        };
+        pulseaudio = {
+          format = " ";
+          on-click = "hyprctl dispatch togglespecialworkspace media";
+          on-click-right = "amixer set Master toggle";
+          scroll-step = 5;
+          tooltip-format = "Volume: {volume}%";
         };
       }
     ];
