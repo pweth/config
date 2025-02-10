@@ -1,59 +1,41 @@
-* {
+window#waybar {
+    background: #111;
     font-family: "FiraCode Nerd Font", monospace;
     font-size: 16px;
-    min-height: 0;
-}
-
-window#waybar {
-    background: #111111;
     border: none;
-    color: white;
+    color: #fff;
 }
 
-#workspaces {
-    background: transparent;
-    padding: 0;
-}
-
-#workspaces button {
+button, .module {
     background: transparent;
     border: none;
     border-radius: 0;
-    border-top: solid 2px #111111;
-    box-shadow: none;
+    border-top: solid 2px #000;
     padding: 10px 8px;
 }
 
-#workspaces button.active, #workspaces button:hover {
-    background: #000000;
+button:not(.empty) {
+    border-color: #777;
 }
 
-#workspaces button:not(.empty) {
-    border-color: #777777;
-}
-
-#workspaces button:not(.empty).active {
-    border-color: #FFFFFF;
-}
-
-#bluetooth, #clock, #custom-vpn, #idle_inhibitor, #network, #pulseaudio {
-    background: transparent;
-    border-top: solid 2px #111111;
-    padding: 10px 15px;
-}
-
-#bluetooth, #custom-vpn, #idle_inhibitor, #network, #pulseaudio {
+.modules-right .module {
     background-color: transparent;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 16px;
-    border-color: #777777;
+    border-color: #777;
+    padding: 10px 15px;
 }
 
-#bluetooth:hover, #custom-vpn:hover, #idle_inhibitor:hover, #network:hover, #pulseaudio:hover {
-    background-color: #000000;
+button:hover, .modules-right .module:hover {
+    background-color: #000;
 }
 
+#workspaces {
+    padding: 0;
+}
+
+button.active,
 #bluetooth.connected,
 #custom-media.activated,
 #custom-vpn.activated,
@@ -62,37 +44,5 @@ window#waybar {
 #network.linked,
 #network.wifi,
 #pulseaudio:not(.muted) {
-    border-color: #FFFFFF;
-}
-
-#bluetooth {
-    background-image: url("ICONS/bluetooth.png");
-}
-
-#custom-vpn {
-    background-image: url("ICONS/vpn-deactivated.png");
-}
-
-#custom-vpn.activated {
-    background-image: url("ICONS/vpn-activated.png");
-}
-
-#idle_inhibitor {
-    background-image: url("ICONS/idle-deactivated.png");
-}
-
-#idle_inhibitor.activated {
-    background-image: url("ICONS/idle-activated.png");
-}
-
-#network {
-    background-image: url("ICONS/network.png");
-}
-
-#pulseaudio {
-    background-image: url("ICONS/audio.png");
-}
-
-#pulseaudio.muted {
-    background-image: url("ICONS/audio-mute.png");
+    border-color: #fff;
 }

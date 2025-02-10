@@ -26,7 +26,6 @@
         "hyprctl setcursor Adwaita 24"
         "[workspace special:browser silent] firefox"
         "[workspace special:media silent] sleep 15; spotify"
-        "[workspace special:terminal silent] kitty tmux"
       ];
       general = {
         allow_tearing = false;
@@ -86,9 +85,9 @@
         ", mouse:275, workspace, e-1"
         ", mouse:276, workspace, e+1"
 
-        "SUPER, SPACE, togglespecialworkspace, terminal"
         "SUPER, S, togglespecialworkspace, media"
-        "SUPER SHIFT, SPACE, movetoworkspace, special:terminal"
+        "SUPER, SPACE, togglespecialworkspace, overlay"
+        "SUPER SHIFT, SPACE, movetoworkspace, special:overlay"
 
         # Power control
         "CTRL SUPER SHIFT, P, exec, shutdown now"

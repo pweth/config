@@ -84,15 +84,22 @@
         };
         pulseaudio = {
           format = " ";
-          on-click = "hyprctl dispatch togglespecialworkspace media";
-          on-click-right = "amixer set Master toggle";
+          on-click = "amixer set Master toggle";
+          on-click-right = "hyprctl dispatch togglespecialworkspace media";
           scroll-step = 5;
           tooltip-format = "Volume: {volume}%";
         };
       }
     ];
-    style = builtins.replaceStrings [ "ICONS" ] [ (builtins.toString ../static/icons) ] (
-      builtins.readFile ../static/styles/waybar.css
-    );
+    style = ((builtins.readFile ../static/styles/waybar.css) + ''
+      #bluetooth { background-image: url("${../static/icons/bluetooth.png}") }
+      #custom-vpn { background-image: url("${../static/icons/vpn-deactivated.png}") }
+      #custom-vpn.activated { background-image: url("${../static/icons/vpn-activated.png}") }
+      #idle_inhibitor { background-image: url("${../static/icons/idle-deactivated.png}") }
+      #idle_inhibitor.activated { background-image: url("${../static/icons/idle-activated.png}") }
+      #network { background-image: url("${../static/icons/network.png}") }
+      #pulseaudio { background-image: url("${../static/icons/audio.png}") }
+      #pulseaudio.muted { background-image: url("${../static/icons/audio-mute.png}") }
+   '');
   };
 }

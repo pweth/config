@@ -39,6 +39,7 @@
 
   home.packages = with pkgs; [
     backblaze-b2
+    bitwarden-cli
     bottom
     cbonsai
     cloudflared

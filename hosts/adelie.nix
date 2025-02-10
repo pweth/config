@@ -123,4 +123,8 @@
 
   # Tailscale client
   services.tailscale.useRoutingFeatures = "client";
+
+  # VirtualBox
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ user ];
 }

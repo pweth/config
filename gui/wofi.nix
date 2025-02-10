@@ -4,13 +4,15 @@
 */
 
 { config, ... }:
-
+let
+  height = "48px";
+in
 {
   programs.wofi = {
     enable = true;
     settings = {
       gtk_dark = true;
-      height = "40px";
+      height = height;
       hide_scroll = true;
       insensitive = true;
       location = "top";
@@ -19,7 +21,7 @@
       orientation = "horizontal";
       prompt = "";
       width = "160%";
-      yoffset = "-41px";
+      yoffset = "-${height}";
     };
     style = builtins.readFile ../static/styles/wofi.css;
   };

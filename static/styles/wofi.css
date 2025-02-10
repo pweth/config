@@ -9,7 +9,6 @@
 
 #outer-box, #inner-box, #input, #entry {
     background: #111111;
-    text-align: left;
 }
 
 #input, #input:focus {
@@ -23,7 +22,6 @@
     border-top: solid 2px #111111;
     outline: none;
     padding: 10px 15px;
-    width: fit-content;
 }
 
 #entry:selected {
