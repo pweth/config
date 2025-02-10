@@ -5,12 +5,9 @@
 
 let
   # Load in SSH keys
-  hosts = builtins.mapAttrs (name: host: "ssh-ed25519 ${host.ssh-key}") (
-    builtins.fromTOML (builtins.readFile ../attrs/hosts.toml)
-  );
-  keys = builtins.mapAttrs (name: key: key.age) (
-    builtins.fromTOML (builtins.readFile ../attrs/keys.toml)
-  );
+  devices = builtins.fromTOML (builtins.readFile ../devices.toml);
+  hosts = builtins.mapAttrs (name: host: host.ssh-key) devices.hosts;
+  keys = builtins.mapAttrs (name: key: key.age) devices.keys;
 
   # Secret to host mappings
   secrets = with keys; {

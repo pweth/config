@@ -31,8 +31,7 @@
       nixos-hardware,
     }@inputs:
     let
-      hosts = builtins.fromTOML (builtins.readFile ./attrs/hosts.toml);
-      keys = builtins.fromTOML (builtins.readFile ./attrs/keys.toml);
+      devices = builtins.fromTOML (builtins.readFile ./devices.toml);
     in
     {
       # `sudo nixos-rebuild switch --flake .#host`
@@ -47,13 +46,13 @@
           specialArgs = inputs // {
             domain = "pweth.com";
             host = host;
-            hosts = hosts;
-            keys = keys;
+            hosts = devices.hosts;
+            keys = devices.keys;
             user = "pweth";
             version = "24.11";
           };
           system = host.architecture;
         }
-      ) hosts;
+      ) devices.hosts;
     };
 }

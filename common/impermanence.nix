@@ -51,6 +51,7 @@
           ".config/libreoffice"
           ".config/pcmanfm/default"
           ".config/spotify"
+          ".config/VirtualBox"
           ".local/share/Anki2"
           ".local/share/Emote"
           ".local/share/keyrings"

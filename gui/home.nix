@@ -38,11 +38,16 @@
   # Citrix EULA
   home.file.".ICAClient/.eula_accepted".text = "yes";
 
-  # GTK dark theme
-  xdg.configFile."gtk-3.0/settings.ini".text = ''
-    [Settings]
-    gtk-application-prefer-dark-theme=1
-  '';
+  # GTK bookmarks and dark theme
+  xdg.configFile = {
+    "gtk-3.0/bookmarks".text = ''
+      file:///etc/nixos/config
+    '';
+    "gtk-3.0/settings.ini".text = ''
+      [Settings]
+      gtk-application-prefer-dark-theme=1
+    '';
+  };
 
   # User base directories
   xdg.userDirs = {
