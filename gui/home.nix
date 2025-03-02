@@ -18,7 +18,6 @@
   home.packages = with pkgs; [
     anki
     citrix_workspace
-    discord
     eog
     galculator
     handbrake

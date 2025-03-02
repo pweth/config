@@ -43,8 +43,17 @@
     initExtra = ''
       gl () {
         git log --all --pretty=oneline --pretty=format:"%Cgreen%h%Creset %s" --color=always |
-        fzf --ansi --preview 'git show --pretty=medium --color=always $(echo {} | cut -d " " -f 1)' |
-        cut -d " " -f 1
+          fzf --ansi --preview 'git show --pretty=medium --color=always $(echo {} | cut -d " " -f 1)' |
+          cut -d " " -f 1
+      }
+      run () {
+        nix search nixpkgs . --json > /tmp/nixpkgs
+        PKG=$(cat /tmp/nixpkgs |
+          jq -r 'keys | .[]' |
+          awk -F '.' '{print $NF}' |
+          fzf)
+        cat /tmp/nixpkgs | jq ".\"legacyPackages.x86_64-linux.$PKG\""
+        nix-shell -p $PKG
       }
       weather () {
         curl -s wttr.in/$(jq -rn --arg x "$*" '$x|@uri') | head -n -1

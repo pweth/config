@@ -3,7 +3,7 @@
   * https://hyprland.org
 */
 
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   wayland.windowManager.hyprland = {
@@ -21,8 +21,8 @@
         "__GL_THREADED_OPTIMIZATIONS,0"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
       ];
-      exec-once = [
-        "hyprpaper"
+      exec-once = with pkgs; [
+        "${hyprpaper}/bin/hyprpaper"
         "hyprctl setcursor Adwaita 24"
         "[workspace special:browser silent] firefox"
         "[workspace special:media silent] sleep 15; spotify"
@@ -52,20 +52,21 @@
         ", preferred, auto, 1.25"
         "Unknown-1, disable"
       ];
-      bind = [
+      bind = with pkgs; [
         # Core
         "SUPER SHIFT, RETURN, exec, kitty tmux"
         "SUPER, P, exec, eval $(compgen -ac | sort | uniq | grep -E '^[0-9A-Za-z]+' | wofi)"
         "SUPER, W, killactive"
 
         # Programs
-        "SUPER, C, exec, galculator"
-        "SUPER, E, exec, pcmanfm"
-        "SUPER, F, exec, firefox"
-        "SUPER, L, exec, hyprlock"
-        "SUPER SHIFT, S, exec, hyprshot -m region"
-        ", Print, exec, hyprshot -m region"
-        "SUPER, PERIOD, exec, wofi-emoji"
+        "SUPER, C, exec, ${galculator}/bin/galculator"
+        ", XF86Calculator, exec, ${galculator}/bin/galculator"
+        "SUPER, E, exec, ${pcmanfm}/bin/pcmanfm"
+        "SUPER, F, exec, ${firefox}/bin/firefox"
+        "SUPER, L, exec, ${hyprlock}/bin/hyprlock"
+        "SUPER SHIFT, S, exec, ${hyprshot}/bin/hyprshot -m region"
+        ", Print, exec, ${hyprshot}/bin/hyprshot -m region"
+        "SUPER, PERIOD, exec, ${wofi-emoji}/bin/wofi-emoji"
 
         # Navigation
         "SUPER, M, togglefloating"
@@ -94,10 +95,10 @@
         "CTRL SUPER SHIFT, R, exec, shutdown now --reboot"
       ];
       bindm = [ "SUPER, mouse:273, movewindow" ];
-      bindel = [
-        ", XF86AudioLowerVolume, exec, amixer set Master 5%-"
-        ", XF86AudioMute, exec, amixer set Master toggle"
-        ", XF86AudioRaiseVolume, exec, amixer set Master 5%+"
+      bindel = with pkgs; [
+        ", XF86AudioLowerVolume, exec, ${alsa-utils}/bin/amixer set Master 5%-"
+        ", XF86AudioMute, exec, ${alsa-utils}/bin/amixer set Master toggle"
+        ", XF86AudioRaiseVolume, exec, ${alsa-utils}/bin/amixer set Master 5%+"
         ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
         ", XF86MonBrightnessUp, exec, brightnessctl set 10%+"
       ];

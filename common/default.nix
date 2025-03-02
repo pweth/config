@@ -7,7 +7,6 @@
   agenix,
   domain,
   host,
-  keys,
   user,
   version,
   ...

@@ -40,23 +40,16 @@
   home.packages = with pkgs; [
     backblaze-b2
     bitwarden-cli
-    bottom
-    cbonsai
     cloudflared
     cmatrix
     cowsay
-    dasel
     diff-pdf
-    dive
     exiftool
     ffmpeg
-    fortune
-    gcc
     gdb
     gh
     gnumake
     gnupg
-    go
     home-manager
     httpie
     hwatch
@@ -70,17 +63,12 @@
     nixfmt-rfc-style
     nmap
     nms
-    nodejs
     passage
     ripgrep
-    rustup
     sl
     speedtest-cli
     sqlite
     termdown
-    tldr
-    typescript
-    valgrind
     yt-dlp
   ];
 }

@@ -27,26 +27,19 @@
     enable = true;
     xwayland.enable = true;
   };
-  programs.hyprlock.enable = true;
   services.hypridle.enable = true;
 
   # System packages
   environment.systemPackages = with pkgs; [
-    alsa-utils
     brightnessctl
     firefox
-    gparted
-    hyprpaper
-    hyprshot
     kitty
     networkmanagerapplet
-    pcmanfm
     playerctl
     vscode
     wev
     wl-clipboard
     wofi
-    wofi-emoji
   ];
 
   # Ozone Wayland support in Electron apps
