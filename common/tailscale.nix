@@ -20,6 +20,7 @@
       "--accept-dns=true"
       "--operator=${user}"
     ];
+    useRoutingFeatures = "client";
   };
 
   # Persist application data

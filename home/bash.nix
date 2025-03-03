@@ -26,7 +26,6 @@
       ls = "eza -la";
       mkdir = "mkdir -p";
       nano = "nvim";
-      ngc = "sudo nix-env --delete-generations --profile /nix/var/nix/profiles/system old && nix-collect-garbage -d";
       paste = "xclip -o -selection clipboard";
       pi = "pip install .";
       rb = "sudo nixos-rebuild switch --flake /etc/nixos/config";
@@ -46,15 +45,23 @@
           fzf --ansi --preview 'git show --pretty=medium --color=always $(echo {} | cut -d " " -f 1)' |
           cut -d " " -f 1
       }
+
+      ngc () {
+        nix profile wipe-history
+        nix store gc
+        nix store optimise
+      }
+
       run () {
         nix search nixpkgs . --json > /tmp/nixpkgs
         PKG=$(cat /tmp/nixpkgs |
           jq -r 'keys | .[]' |
-          awk -F '.' '{print $NF}' |
+          awk -F '.' '{for (i=3; i<NF; i++) printf $i "."; print $NF}' |
           fzf)
         cat /tmp/nixpkgs | jq ".\"legacyPackages.x86_64-linux.$PKG\""
         nix-shell -p $PKG
       }
+
       weather () {
         curl -s wttr.in/$(jq -rn --arg x "$*" '$x|@uri') | head -n -1
       }

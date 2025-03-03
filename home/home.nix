@@ -50,7 +50,6 @@
     gh
     gnumake
     gnupg
-    home-manager
     httpie
     hwatch
     imagemagick
@@ -68,6 +67,7 @@
     sl
     speedtest-cli
     sqlite
+    sshfs
     termdown
     yt-dlp
   ];

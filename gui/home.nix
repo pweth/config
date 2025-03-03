@@ -3,7 +3,12 @@
   * See ../home/home.nix for CLI programs.
 */
 
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  user,
+  ...
+}:
 
 {
   imports = [
@@ -19,7 +24,6 @@
     anki
     citrix_workspace
     eog
-    galculator
     handbrake
     libreoffice
     obs-studio
@@ -29,7 +33,6 @@
     spotify
     sqlitebrowser
     vlc
-    webex
     wireshark
     zoom-us
   ];
@@ -41,6 +44,10 @@
   xdg.configFile = {
     "gtk-3.0/bookmarks".text = ''
       file:///etc/nixos/config
+      file:///persist
+      file:///home/${user}/Documents
+      file:///home/${user}/Downloads
+      file:///home/${user}/Pictures
     '';
     "gtk-3.0/settings.ini".text = ''
       [Settings]

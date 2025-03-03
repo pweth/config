@@ -60,6 +60,7 @@
       file
       fzf
       gawk
+      gcc
       git
       htop
       inetutils

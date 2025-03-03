@@ -21,12 +21,12 @@ in
     };
   };
 
-  # UK keyboard layout
+  # Keyboard layout
   services.xserver.xkb = {
     layout = "gb";
     options = "caps:escape";
   };
 
-  # Set time zone to London
+  # Timezone
   time.timeZone = "Europe/London";
 }

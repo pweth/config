@@ -91,15 +91,18 @@
         };
       }
     ];
-    style = ((builtins.readFile ../static/styles/waybar.css) + ''
-      #bluetooth { background-image: url("${../static/icons/bluetooth.png}") }
-      #custom-vpn { background-image: url("${../static/icons/vpn-deactivated.png}") }
-      #custom-vpn.activated { background-image: url("${../static/icons/vpn-activated.png}") }
-      #idle_inhibitor { background-image: url("${../static/icons/idle-deactivated.png}") }
-      #idle_inhibitor.activated { background-image: url("${../static/icons/idle-activated.png}") }
-      #network { background-image: url("${../static/icons/network.png}") }
-      #pulseaudio { background-image: url("${../static/icons/audio.png}") }
-      #pulseaudio.muted { background-image: url("${../static/icons/audio-mute.png}") }
-   '');
+    style = (
+      (builtins.readFile ../static/styles/waybar.css)
+      + ''
+        #bluetooth { background-image: url("${../static/icons/bluetooth.png}") }
+        #custom-vpn { background-image: url("${../static/icons/vpn-deactivated.png}") }
+        #custom-vpn.activated { background-image: url("${../static/icons/vpn-activated.png}") }
+        #idle_inhibitor { background-image: url("${../static/icons/idle-deactivated.png}") }
+        #idle_inhibitor.activated { background-image: url("${../static/icons/idle-activated.png}") }
+        #network { background-image: url("${../static/icons/network.png}") }
+        #pulseaudio { background-image: url("${../static/icons/audio.png}") }
+        #pulseaudio.muted { background-image: url("${../static/icons/audio-mute.png}") }
+      ''
+    );
   };
 }

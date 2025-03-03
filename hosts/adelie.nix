@@ -12,8 +12,13 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ../gui
-    ../home
   ];
+
+  # Custom modules
+  meta = {
+    gui.enable = true;
+    home-manager.enable = true;
+  };
 
   # Boot settings
   boot = {
@@ -120,9 +125,6 @@
   # Disable SSH and fail2ban
   services.openssh.enable = lib.mkForce false;
   services.fail2ban.enable = lib.mkForce false;
-
-  # Tailscale client
-  services.tailscale.useRoutingFeatures = "client";
 
   # VirtualBox
   virtualisation.virtualbox.host.enable = true;

@@ -14,8 +14,13 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     nixos-hardware.nixosModules.dell-xps-13-9360
     ../gui
-    ../home
   ];
+
+  # Custom modules
+  meta = {
+    gui.enable = true;
+    home-manager.enable = true;
+  };
 
   # Boot settings
   boot = {

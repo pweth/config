@@ -15,6 +15,12 @@
     ../services/cage.nix
   ];
 
+  # Custom modules
+  meta = {
+    gui.enable = false;
+    home-manager.enable = false;
+  };
+
   # Boot settings
   boot = {
     initrd.availableKernelModules = [ "usbhid" ];

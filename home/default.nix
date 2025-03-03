@@ -1,8 +1,8 @@
-# * Home manager configuration entrypoint.
+# * Home manager module.
 
 {
   config,
-  home-manager,
+  lib,
   domain,
   host,
   keys,
@@ -10,20 +10,28 @@
   version,
   ...
 }:
-
+let
+  cfg = config.meta.home-manager;
+in
 {
-  imports = [ home-manager.nixosModules.default ];
+  options.meta.home-manager.enable = lib.mkEnableOption "Home manager";
 
-  home-manager = {
-    extraSpecialArgs = {
-      domain = domain;
-      host = host;
-      keys = keys;
-      user = user;
-      version = version;
+  config = lib.mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      home-manager
+    ];
+
+    home-manager = {
+      extraSpecialArgs = {
+        domain = domain;
+        host = host;
+        keys = keys;
+        user = user;
+        version = version;
+      };
+      useGlobalPkgs = true;
+      useUserPackages = true;
+      users."${user}" = import ./home.nix;
     };
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users."${user}" = import ./home.nix;
   };
 }

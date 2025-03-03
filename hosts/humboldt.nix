@@ -12,7 +12,6 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     nixos-hardware.nixosModules.dell-optiplex-3050
-    ../home
     ../services/adguard.nix
     ../services/anki-sync.nix
     ../services/forgejo.nix
@@ -22,6 +21,12 @@
     ../services/masked-email.nix
     ../services/prometheus.nix
   ];
+
+  # Custom modules
+  meta = {
+    gui.enable = false;
+    home-manager.enable = true;
+  };
 
   # Boot settings
   boot = {

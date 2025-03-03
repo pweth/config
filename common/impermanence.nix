@@ -27,7 +27,6 @@
       [
         "/etc/nixos"
         "/var/lib/nixos"
-        "/var/lib/systemd/coredump"
         "/var/log/journal"
       ]
       (lib.mkIf config.networking.networkmanager.enable [ "/etc/NetworkManager/system-connections" ])
@@ -49,12 +48,9 @@
           "Pictures"
           ".config/Code"
           ".config/libreoffice"
-          ".config/pcmanfm/default"
           ".config/spotify"
           ".config/VirtualBox"
           ".local/share/Anki2"
-          ".local/share/Emote"
-          ".local/share/keyrings"
           ".mozilla/firefox/default"
         ])
       ];

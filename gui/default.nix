@@ -1,50 +1,67 @@
-# * Common system configuration across all hosts with a GUI.
+# * GUI module.
 
 {
   config,
+  lib,
   pkgs,
-  home-manager,
   user,
   ...
 }:
-
+let
+  cfg = config.meta.gui;
+in
 {
-  # GUI setup
-  services = {
-    displayManager.autoLogin = {
-      enable = true;
-      user = user;
+  options.meta.gui.enable = lib.mkEnableOption "GUI";
+
+  config = lib.mkIf cfg.enable {
+    # GUI setup
+    services = {
+      displayManager.autoLogin = {
+        enable = true;
+        user = user;
+      };
+      libinput.enable = true;
+      xserver = {
+        enable = true;
+        excludePackages = [ pkgs.xterm ];
+      };
     };
-    libinput.enable = true;
-    xserver = {
+
+    # Hyprland
+    programs.hyprland = {
       enable = true;
-      excludePackages = [ pkgs.xterm ];
+      xwayland.enable = true;
     };
+    services.hypridle.enable = true;
+
+    # System packages
+    environment.systemPackages = with pkgs; [
+      brightnessctl
+      firefox
+      kitty
+      networkmanagerapplet
+      playerctl
+      vscode
+      wev
+      wl-clipboard
+      wofi
+    ];
+
+    # Wayland environment variables
+    environment.sessionVariables = {
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+      NIXOS_OZONE_WL = "1";
+      XDG_SESSION_TYPE = "wayland";
+
+      # NVIDIA-specific
+      GBM_BACKEND = "nvidia-drm";
+      LIBGL_ALWAYS_SOFTWARE = "1";
+      LIBVA_DRIVER_NAME = "nvidia";
+      "__GL_THREADED_OPTIMIZATIONS" = "0";
+      "__GLX_VENDOR_LIBRARY_NAME" = "nvidia";
+    };
+
+    # Home manager GUI packages
+    home-manager.users."${user}" = import ./home.nix;
   };
-
-  # Hyprland
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-  services.hypridle.enable = true;
-
-  # System packages
-  environment.systemPackages = with pkgs; [
-    brightnessctl
-    firefox
-    kitty
-    networkmanagerapplet
-    playerctl
-    vscode
-    wev
-    wl-clipboard
-    wofi
-  ];
-
-  # Ozone Wayland support in Electron apps
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
-  # Home manager GUI packages
-  home-manager.users."${user}" = import ./home.nix;
 }

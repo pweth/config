@@ -12,15 +12,6 @@
       animations.enabled = false;
       cursor.no_hardware_cursors = true;
       decoration.rounding = 5;
-      env = [
-        "ELECTRON_OZONE_PLATFORM_HINT,auto"
-        "GBM_BACKEND,nvidia-drm"
-        "LIBGL_ALWAYS_SOFTWARE,1"
-        "LIBVA_DRIVER_NAME,nvidia"
-        "XDG_SESSION_TYPE,wayland"
-        "__GL_THREADED_OPTIMIZATIONS,0"
-        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-      ];
       exec-once = with pkgs; [
         "${hyprpaper}/bin/hyprpaper"
         "hyprctl setcursor Adwaita 24"

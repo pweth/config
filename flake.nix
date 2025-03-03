@@ -32,6 +32,13 @@
     }@inputs:
     let
       devices = builtins.fromTOML (builtins.readFile ./devices.toml);
+      variables = {
+        domain = "pweth.com";
+        hosts = devices.hosts;
+        keys = devices.keys;
+        user = "pweth";
+        version = "24.11";
+      };
     in
     {
       # `sudo nixos-rebuild switch --flake .#host`
@@ -41,16 +48,17 @@
           modules = [
             (./hosts + "/${name}.nix")
             ./common
+            ./gui
+            ./home
             agenix.nixosModules.default
+            home-manager.nixosModules.default
           ];
-          specialArgs = inputs // {
-            domain = "pweth.com";
-            host = host;
-            hosts = devices.hosts;
-            keys = devices.keys;
-            user = "pweth";
-            version = "24.11";
-          };
+          specialArgs =
+            inputs
+            // variables
+            // {
+              host = host;
+            };
           system = host.architecture;
         }
       ) devices.hosts;
