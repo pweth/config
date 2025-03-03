@@ -1,67 +1,68 @@
-# * GUI module.
+/*
+  * Home manager configuration for GUI programs.
+  * See ../home for CLI programs.
+*/
 
 {
   config,
-  lib,
   pkgs,
   user,
   ...
 }:
-let
-  cfg = config.meta.gui;
-in
+
 {
-  options.meta.gui.enable = lib.mkEnableOption "GUI";
+  imports = [
+    ./firefox.nix
+    ./hyprland.nix
+    ./hyprlock.nix
+    ./vscode.nix
+    ./waybar.nix
+    ./wofi.nix
+  ];
 
-  config = lib.mkIf cfg.enable {
-    # GUI setup
-    services = {
-      displayManager.autoLogin = {
-        enable = true;
-        user = user;
-      };
-      libinput.enable = true;
-      xserver = {
-        enable = true;
-        excludePackages = [ pkgs.xterm ];
-      };
-    };
+  home.packages = with pkgs; [
+    anki
+    citrix_workspace
+    eog
+    handbrake
+    libreoffice
+    obs-studio
+    pinta
+    qFlipper
+    shotcut
+    spotify
+    sqlitebrowser
+    vlc
+    wireshark
+    zoom-us
+  ];
 
-    # Hyprland
-    programs.hyprland = {
-      enable = true;
-      xwayland.enable = true;
-    };
-    services.hypridle.enable = true;
+  # Citrix EULA
+  home.file.".ICAClient/.eula_accepted".text = "yes";
 
-    # System packages
-    environment.systemPackages = with pkgs; [
-      brightnessctl
-      firefox
-      kitty
-      networkmanagerapplet
-      playerctl
-      vscode
-      wev
-      wl-clipboard
-      wofi
-    ];
+  # GTK bookmarks and dark theme
+  xdg.configFile = {
+    "gtk-3.0/bookmarks".text = ''
+      file:///etc/nixos/config
+      file:///persist
+      file:///home/${user}/Documents
+      file:///home/${user}/Downloads
+      file:///home/${user}/Pictures
+    '';
+    "gtk-3.0/settings.ini".text = ''
+      [Settings]
+      gtk-application-prefer-dark-theme=1
+    '';
+  };
 
-    # Wayland environment variables
-    environment.sessionVariables = {
-      ELECTRON_OZONE_PLATFORM_HINT = "auto";
-      NIXOS_OZONE_WL = "1";
-      XDG_SESSION_TYPE = "wayland";
-
-      # NVIDIA-specific
-      GBM_BACKEND = "nvidia-drm";
-      LIBGL_ALWAYS_SOFTWARE = "1";
-      LIBVA_DRIVER_NAME = "nvidia";
-      "__GL_THREADED_OPTIMIZATIONS" = "0";
-      "__GLX_VENDOR_LIBRARY_NAME" = "nvidia";
-    };
-
-    # Home manager GUI packages
-    home-manager.users."${user}" = import ./home.nix;
+  # User base directories
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+    desktop = null;
+    music = null;
+    publicShare = null;
+    templates = null;
+    videos = null;
   };
 }

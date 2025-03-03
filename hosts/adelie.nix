@@ -11,13 +11,13 @@
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    ../gui
   ];
 
   # Custom modules
   meta = {
     gui.enable = true;
     home-manager.enable = true;
+    impermanence.enable = true;
   };
 
   # Boot settings

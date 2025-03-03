@@ -1,37 +1,74 @@
-# * Home manager module.
+/*
+  * Home manager configuration for CLI programs.
+  * See ../gui for GUI programs.
+*/
 
 {
   config,
-  lib,
-  domain,
-  host,
-  keys,
+  pkgs,
   user,
   version,
   ...
 }:
-let
-  cfg = config.meta.home-manager;
-in
+
 {
-  options.meta.home-manager.enable = lib.mkEnableOption "Home manager";
+  imports = [
+    ./bash.nix
+    ./git.nix
+    ./htop.nix
+    ./key-files.nix
+    ./python.nix
+    ./starship.nix
+    ./tmux.nix
+  ];
 
-  config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      home-manager
-    ];
+  programs.home-manager.enable = true;
 
-    home-manager = {
-      extraSpecialArgs = {
-        domain = domain;
-        host = host;
-        keys = keys;
-        user = user;
-        version = version;
-      };
-      useGlobalPkgs = true;
-      useUserPackages = true;
-      users."${user}" = import ./home.nix;
-    };
+  home = {
+    username = user;
+    homeDirectory = "/home/${user}";
+    stateVersion = version;
   };
+
+  # Remove manual
+  manual = {
+    html.enable = false;
+    json.enable = false;
+    manpages.enable = false;
+  };
+
+  home.packages = with pkgs; [
+    backblaze-b2
+    bitwarden-cli
+    cloudflared
+    cmatrix
+    cowsay
+    diff-pdf
+    exiftool
+    ffmpeg
+    gdb
+    gh
+    gnumake
+    gnupg
+    httpie
+    hwatch
+    imagemagick
+    immich-cli
+    lego
+    libheif
+    lolcat
+    mitmproxy
+    multitime
+    nixfmt-rfc-style
+    nmap
+    nms
+    passage
+    ripgrep
+    sl
+    speedtest-cli
+    sqlite
+    sshfs
+    termdown
+    yt-dlp
+  ];
 }

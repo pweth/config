@@ -13,7 +13,6 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     nixos-hardware.nixosModules.dell-xps-13-9360
-    ../gui
   ];
 
   # Custom modules

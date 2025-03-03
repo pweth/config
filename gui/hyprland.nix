@@ -15,8 +15,8 @@
       exec-once = with pkgs; [
         "${hyprpaper}/bin/hyprpaper"
         "hyprctl setcursor Adwaita 24"
-        "[workspace special:browser silent] firefox"
-        "[workspace special:media silent] sleep 15; spotify"
+        "[workspace special:browser silent] ${firefox}/bin/firefox"
+        "[workspace special:media silent] sleep 15; ${spotify}/bin/spotify"
       ];
       general = {
         allow_tearing = false;
@@ -90,8 +90,8 @@
         ", XF86AudioLowerVolume, exec, ${alsa-utils}/bin/amixer set Master 5%-"
         ", XF86AudioMute, exec, ${alsa-utils}/bin/amixer set Master toggle"
         ", XF86AudioRaiseVolume, exec, ${alsa-utils}/bin/amixer set Master 5%+"
-        ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
-        ", XF86MonBrightnessUp, exec, brightnessctl set 10%+"
+        ", XF86MonBrightnessDown, exec, ${brightnessctl}/bin/brightnessctl set 10%-"
+        ", XF86MonBrightnessUp, exec, ${brightnessctl}/bin/brightnessctl set 10%+"
       ];
       windowrulev2 = [
         "float, class:blueman-manager"

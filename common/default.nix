@@ -15,7 +15,6 @@
 {
   imports = [
     ./fonts.nix
-    ./impermanence.nix
     ./locale.nix
     ./nginx.nix
     ./security.nix

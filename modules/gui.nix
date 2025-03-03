@@ -1,0 +1,63 @@
+# * GUI module.
+
+{
+  config,
+  lib,
+  pkgs,
+  user,
+  ...
+}:
+let
+  cfg = config.meta.gui;
+in
+{
+  options.meta.gui.enable = lib.mkEnableOption "GUI";
+
+  config = lib.mkIf cfg.enable {
+    # GUI setup
+    services = {
+      displayManager.autoLogin = {
+        enable = true;
+        user = user;
+      };
+      libinput.enable = true;
+      xserver = {
+        enable = true;
+        excludePackages = [ pkgs.xterm ];
+      };
+    };
+
+    # Hyprland
+    programs.hyprland = {
+      enable = true;
+      xwayland.enable = true;
+    };
+    services.hypridle.enable = true;
+
+    # System packages
+    environment.systemPackages = with pkgs; [
+      firefox
+      kitty
+      vscode
+      wl-clipboard
+      wofi
+    ];
+
+    # Wayland environment variables
+    environment.sessionVariables = {
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+      NIXOS_OZONE_WL = "1";
+      XDG_SESSION_TYPE = "wayland";
+
+      # NVIDIA-specific
+      GBM_BACKEND = "nvidia-drm";
+      LIBGL_ALWAYS_SOFTWARE = "1";
+      LIBVA_DRIVER_NAME = "nvidia";
+      "__GL_THREADED_OPTIMIZATIONS" = "0";
+      "__GLX_VENDOR_LIBRARY_NAME" = "nvidia";
+    };
+
+    # Home manager GUI packages
+    home-manager.users."${user}" = import ../gui;
+  };
+}

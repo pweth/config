@@ -3,7 +3,7 @@
   * https://github.com/Alexays/Waybar
 */
 
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.waybar = {
@@ -69,7 +69,7 @@
         };
         "network" = {
           format = " ";
-          on-click = "nm-connection-editor";
+          on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
           tooltip-format = builtins.concatStringsSep "\n" [
             "Adapter: {ifname}"
             "Address: {ipaddr}"
@@ -84,7 +84,7 @@
         };
         pulseaudio = {
           format = " ";
-          on-click = "amixer set Master toggle";
+          on-click = "${pkgs.alsa-utils}/bin/amixer set Master toggle";
           on-click-right = "hyprctl dispatch togglespecialworkspace media";
           scroll-step = 5;
           tooltip-format = "Volume: {volume}%";

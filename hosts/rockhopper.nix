@@ -19,6 +19,7 @@
   meta = {
     gui.enable = false;
     home-manager.enable = false;
+    impermanence.enable = false;
   };
 
   # Boot settings

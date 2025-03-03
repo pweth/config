@@ -48,10 +48,10 @@
           modules = [
             (./hosts + "/${name}.nix")
             ./common
-            ./gui
-            ./home
+            ./modules
             agenix.nixosModules.default
             home-manager.nixosModules.default
+            impermanence.nixosModules.impermanence
           ];
           specialArgs =
             inputs
