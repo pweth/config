@@ -40,7 +40,7 @@ in
       users = {
         default_language = "en-GB";
         default_theme = "dark";
-        home_page = "/d/rYdddlPWk/linux-devices";
+        home_page = "/d/aeh8ykwdw3bb4d/home-page";
       };
     };
   };
@@ -52,8 +52,8 @@ in
       proxyPass = "http://localhost:${builtins.toString config.services.grafana.settings.server.http_port}";
       proxyWebsockets = true;
     };
-    sslCertificate = ../static/pweth.crt;
-    sslCertificateKey = config.age.secrets.certificate.path;
+    sslCertificate = ../static/certs/service.crt;
+    sslCertificateKey = config.age.secrets.service.path;
   };
 
   # Persist service data

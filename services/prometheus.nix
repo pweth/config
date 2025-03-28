@@ -22,7 +22,14 @@ in
         job_name = "node";
         scheme = "https";
         static_configs = [
-          { targets = builtins.map (name: "${name}.${domain}") (builtins.attrNames hosts); }
+          { targets = builtins.map (host: "${host}.ipn.pw") (builtins.attrNames hosts); }
+        ];
+      }
+      {
+        job_name = "blocky";
+        scheme = "https";
+        static_configs = [
+          { targets = [ "dns.pweth.com" ]; }
         ];
       }
     ];
@@ -35,8 +42,8 @@ in
       proxyPass = "http://localhost:${builtins.toString port}";
       proxyWebsockets = true;
     };
-    sslCertificate = ../static/pweth.crt;
-    sslCertificateKey = config.age.secrets.certificate.path;
+    sslCertificate = ../static/certs/service.crt;
+    sslCertificateKey = config.age.secrets.service.path;
   };
 
   # Persist service data

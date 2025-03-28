@@ -32,7 +32,7 @@ in
       proxyPass = "http://localhost:${builtins.toString config.services.anki-sync-server.port}";
       proxyWebsockets = true;
     };
-    sslCertificate = ../static/pweth.crt;
-    sslCertificateKey = config.age.secrets.certificate.path;
+    sslCertificate = ../static/certs/service.crt;
+    sslCertificateKey = config.age.secrets.service.path;
   };
 }

@@ -16,7 +16,7 @@
     species      = "Aptenodytes forsteri"
     ssh-key      = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILqt+SLcA0kXPLvuF+mogzId9n57rB5y0PyWJ8RE0ja8"
 
-    # Application Server
+    # Home Server
     [hosts.humboldt]
     name         = "humboldt"
     address      = "100.80.0.2"

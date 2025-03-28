@@ -18,8 +18,8 @@
       proxyPass = "http://localhost:${builtins.toString 8096}";
       proxyWebsockets = true;
     };
-    sslCertificate = ../static/pweth.crt;
-    sslCertificateKey = config.age.secrets.certificate.path;
+    sslCertificate = ../static/certs/service.crt;
+    sslCertificateKey = config.age.secrets.service.path;
   };
 
   # Persist service data

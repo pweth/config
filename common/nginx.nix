@@ -12,8 +12,8 @@
 
 {
   # Mount TLS certificate key
-  age.secrets.certificate = {
-    file = ../secrets/certificate.age;
+  age.secrets.ipn = {
+    file = ../secrets/ipn.age;
     owner = "nginx";
   };
 
@@ -29,20 +29,20 @@
     recommendedZstdSettings = true;
 
     # Hostname for metrics
-    virtualHosts."${host.name}.${domain}" = {
+    virtualHosts."${host.name}.ipn.pw" = {
       forceSSL = true;
       locations."/".proxyPass =
         "http://localhost:${builtins.toString config.services.prometheus.exporters.node.port}";
-      sslCertificate = ../static/pweth.crt;
-      sslCertificateKey = config.age.secrets.certificate.path;
+      sslCertificate = ../static/certs/ipn.crt;
+      sslCertificateKey = config.age.secrets.ipn.path;
     };
 
     # Return 444 for unrecognised hostnames
     virtualHosts."_" = {
       forceSSL = true;
       extraConfig = "return 444;";
-      sslCertificate = ../static/pweth.crt;
-      sslCertificateKey = config.age.secrets.certificate.path;
+      sslCertificate = ../static/certs/ipn.crt;
+      sslCertificateKey = config.age.secrets.ipn.path;
     };
   };
 }

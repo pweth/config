@@ -12,8 +12,8 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     nixos-hardware.nixosModules.dell-optiplex-3050
-    ../services/adguard.nix
     ../services/anki-sync.nix
+    ../services/blocky.nix
     ../services/forgejo.nix
     ../services/grafana.nix
     ../services/immich.nix
@@ -94,4 +94,10 @@
   # Hardware adjustments
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+
+  # Mount services certificate key
+  age.secrets.service = {
+    file = ../secrets/service.age;
+    owner = "nginx";
+  };
 }

@@ -15,14 +15,12 @@
   # Set public key for host
   environment.etc."ssh/ssh_host_ed25519_key.pub".text = host.ssh-key;
 
-  security = {
-    # Enable passwordless sudo for remote deployments
-    sudo = {
-      extraConfig = ''
-        Defaults lecture = never
-      '';
-      wheelNeedsPassword = false;
-    };
+  # Enable passwordless sudo for remote deployments
+  security.sudo = {
+    extraConfig = ''
+      Defaults lecture = never
+    '';
+    wheelNeedsPassword = false;
   };
 
   # SSH agent

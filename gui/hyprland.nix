@@ -15,7 +15,7 @@
       exec-once = with pkgs; [
         "${hyprpaper}/bin/hyprpaper"
         "hyprctl setcursor Adwaita 24"
-        "[workspace special:browser silent] ${firefox}/bin/firefox"
+        "[workspace special:browser silent] firefox"
         "[workspace special:media silent] sleep 15; ${spotify}/bin/spotify"
       ];
       general = {
@@ -53,7 +53,7 @@
         "SUPER, C, exec, ${galculator}/bin/galculator"
         ", XF86Calculator, exec, ${galculator}/bin/galculator"
         "SUPER, E, exec, ${pcmanfm}/bin/pcmanfm"
-        "SUPER, F, exec, ${firefox}/bin/firefox"
+        "SUPER, F, exec, firefox"
         "SUPER, L, exec, ${hyprlock}/bin/hyprlock"
         "SUPER SHIFT, S, exec, ${hyprshot}/bin/hyprshot -m region"
         ", Print, exec, ${hyprshot}/bin/hyprshot -m region"

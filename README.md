@@ -13,6 +13,7 @@ NixOS configuration flake.
 | Chinstrap | Cisco Catalyst 1200 Series Switch |
 | Emperor | Dell XPS 13 9360 |
 | Humboldt | Dell OptiPlex 3050 Micro |
+| Macaroni | Oracle VM.Standard.E2.1.Micro |
 | Rockhopper | Raspberry Pi Model 3B+ |
 
 ---

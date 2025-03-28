@@ -36,6 +36,7 @@
     HISTSIZE = "10000";
     HISTFILESIZE = "15000";
     HISTTIMEFORMAT = "%F %T ";
+    TZ = config.time.timeZone;
     TZ_LIST = builtins.concatStringsSep ";" [
       "America/New_York,New York"
       "Europe/London,London"
@@ -64,7 +65,6 @@
       htop
       inetutils
       jq
-      killall
       neovim
       networkmanager
       ncdu
