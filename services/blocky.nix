@@ -1,18 +1,17 @@
 /*
-  * Network-wide ads and trackers blocking DNS server.
-  * https://github.com/AdguardTeam/AdGuardHome
+  * Fast and lightweight DNS proxy as ad-blocker for local network.
+  * https://github.com/0xERR0R/blocky
 */
 
 {
   config,
-  domain,
   host,
   hosts,
   tailnet,
   ...
 }:
 let
-  subdomain = "dns.${domain}";
+  domain = "dns.pweth.com";
   port = 4050;
 in
 {
@@ -63,7 +62,7 @@ in
   };
 
   # Internal domain
-  services.nginx.virtualHosts."${subdomain}" = {
+  services.nginx.virtualHosts."${domain}" = {
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://localhost:${builtins.toString port}";

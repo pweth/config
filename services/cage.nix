@@ -6,7 +6,6 @@
 {
   config,
   pkgs,
-  user,
   ...
 }:
 
@@ -19,9 +18,9 @@
       WLR_LIBINPUT_NO_DEVICES = "1";
     };
     program = "${pkgs.firefox}/bin/firefox --kiosk --private-window https://start.duckduckgo.com";
-    user = user;
+    user = "pweth";
   };
 
   # Auto-login
-  services.getty.autologinUser = user;
+  services.getty.autologinUser = config.services.cage.user;
 }

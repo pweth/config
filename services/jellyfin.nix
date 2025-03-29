@@ -3,8 +3,10 @@
   * https://github.com/jellyfin/jellyfin
 */
 
-{ config, domain, ... }:
-
+{ config, ... }:
+let
+  domain = "jellyfin.pweth.com";
+in
 {
   services.jellyfin = {
     enable = true;
@@ -12,7 +14,7 @@
   };
 
   # Internal domain
-  services.nginx.virtualHosts."jellyfin.${domain}" = {
+  services.nginx.virtualHosts."${domain}" = {
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://localhost:${builtins.toString 8096}";

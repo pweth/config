@@ -6,7 +6,6 @@
 {
   config,
   pkgs,
-  user,
   ...
 }:
 
@@ -45,9 +44,9 @@
     "gtk-3.0/bookmarks".text = ''
       file:///etc/nixos/config
       file:///persist
-      file:///home/${user}/Documents
-      file:///home/${user}/Downloads
-      file:///home/${user}/Pictures
+      file:///home/pweth/Documents
+      file:///home/pweth/Downloads
+      file:///home/pweth/Pictures
     '';
     "gtk-3.0/settings.ini".text = ''
       [Settings]

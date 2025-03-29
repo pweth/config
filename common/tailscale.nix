@@ -4,7 +4,6 @@
   config,
   lib,
   host,
-  user,
   ...
 }:
 
@@ -18,7 +17,7 @@
     authKeyFile = config.age.secrets.tailscale.path;
     extraUpFlags = [
       "--accept-dns=true"
-      "--operator=${user}"
+      "--operator=pweth"
     ];
     useRoutingFeatures = "client";
   };

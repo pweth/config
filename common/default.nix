@@ -5,9 +5,7 @@
   lib,
   pkgs,
   agenix,
-  domain,
   host,
-  user,
   version,
   ...
 }:
@@ -98,7 +96,7 @@
         "nix-command"
         "flakes"
       ];
-      trusted-users = [ user ];
+      trusted-users = [ "pweth" ];
     };
   };
 

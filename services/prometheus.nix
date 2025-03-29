@@ -5,12 +5,11 @@
 
 {
   config,
-  domain,
   hosts,
   ...
 }:
 let
-  subdomain = "prometheus.${domain}";
+  domain = "prometheus.pweth.com";
   port = 58635;
 in
 {
@@ -36,7 +35,7 @@ in
   };
 
   # Internal domain
-  services.nginx.virtualHosts."${subdomain}" = {
+  services.nginx.virtualHosts."${domain}" = {
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://localhost:${builtins.toString port}";

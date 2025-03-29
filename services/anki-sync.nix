@@ -3,14 +3,9 @@
   * https://docs.ankiweb.net/sync-server.html
 */
 
-{
-  config,
-  domain,
-  user,
-  ...
-}:
+{ config, ... }:
 let
-  subdomain = "anki.${domain}";
+  domain = "anki.pweth.com";
 in
 {
   age.secrets.anki.file = ../secrets/anki.age;
@@ -19,14 +14,14 @@ in
     enable = true;
     users = [
       {
-        username = user;
+        username = "pweth";
         passwordFile = config.age.secrets.anki.path;
       }
     ];
   };
 
   # Internal domain
-  services.nginx.virtualHosts."${subdomain}" = {
+  services.nginx.virtualHosts."${domain}" = {
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://localhost:${builtins.toString config.services.anki-sync-server.port}";

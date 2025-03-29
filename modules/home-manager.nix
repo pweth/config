@@ -4,10 +4,8 @@
   config,
   lib,
   pkgs,
-  domain,
   host,
   keys,
-  user,
   version,
   ...
 }:
@@ -24,15 +22,13 @@ in
 
     home-manager = {
       extraSpecialArgs = {
-        domain = domain;
         host = host;
         keys = keys;
-        user = user;
         version = version;
       };
       useGlobalPkgs = true;
       useUserPackages = true;
-      users."${user}" = import ../home;
+      users.pweth = import ../home;
     };
   };
 }

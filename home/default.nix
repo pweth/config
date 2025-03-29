@@ -6,7 +6,6 @@
 {
   config,
   pkgs,
-  user,
   version,
   ...
 }:
@@ -25,8 +24,8 @@
   programs.home-manager.enable = true;
 
   home = {
-    username = user;
-    homeDirectory = "/home/${user}";
+    username = "pweth";
+    homeDirectory = "/home/${config.home.username}";
     stateVersion = version;
   };
 

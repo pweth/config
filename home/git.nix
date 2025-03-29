@@ -1,13 +1,13 @@
 # * Git configuration.
 
-{ config, user, ... }:
+{ config, ... }:
 
 {
   programs.git = {
     enable = true;
 
     # Set username and user email
-    userName = user;
+    userName = config.home.username;
     userEmail = "22416843+pweth@users.noreply.github.com";
 
     # Use the difftastic syntax highlighter

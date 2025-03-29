@@ -4,7 +4,6 @@
   config,
   lib,
   pkgs,
-  user,
   ...
 }:
 let
@@ -18,7 +17,7 @@ in
     services = {
       displayManager.autoLogin = {
         enable = true;
-        user = user;
+        user = "pweth";
       };
       libinput.enable = true;
       xserver = {
@@ -58,6 +57,6 @@ in
     };
 
     # Home manager GUI packages
-    home-manager.users."${user}" = import ../gui;
+    home-manager.users.pweth = import ../gui;
   };
 }

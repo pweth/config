@@ -3,11 +3,9 @@
 {
   config,
   pkgs,
-  domain,
   host,
   hosts,
   keys,
-  user,
   ...
 }:
 
@@ -30,7 +28,7 @@
 
     # Add private keys to ssh-agent
     extraConfig = builtins.concatStringsSep "\n" (
-      builtins.map (key: "IdentityFile /home/${user}/.ssh/${key}") (builtins.attrNames keys)
+      builtins.map (key: "IdentityFile /home/pweth/.ssh/${key}") (builtins.attrNames keys)
     );
 
     # Pre-populate known hosts
@@ -40,7 +38,7 @@
           builtins.attrValues (
             builtins.mapAttrs (name: host: [
               {
-                name = "${name}.${domain}";
+                name = "${name}.pweth.com";
                 value.publicKey = host.ssh-key;
               }
               {
@@ -54,7 +52,7 @@
       // {
         "github.com".publicKey =
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
-        "git.${domain}".publicKey = hosts.humboldt.ssh-key;
+        "git.pweth.com".publicKey = hosts.humboldt.ssh-key;
       };
   };
 
@@ -81,5 +79,5 @@
   # Password hash
   age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
   age.secrets.password-hash.file = ../secrets/password-hash.age;
-  users.users."${user}".hashedPasswordFile = config.age.secrets.password-hash.path;
+  users.users.pweth.hashedPasswordFile = config.age.secrets.password-hash.path;
 }

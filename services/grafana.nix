@@ -3,8 +3,9 @@
   * https://github.com/grafana/grafana
 */
 
-{ config, domain, ... }:
+{ config, ... }:
 let
+  domain = "grafana.pweth.com";
   port = 59663;
 in
 {
@@ -34,7 +35,7 @@ in
         disable_gravatar = true;
       };
       server = {
-        domain = "grafana.${domain}";
+        domain = domain;
         http_port = port;
       };
       users = {
@@ -46,7 +47,7 @@ in
   };
 
   # Internal domain
-  services.nginx.virtualHosts."grafana.${domain}" = {
+  services.nginx.virtualHosts."${domain}" = {
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://localhost:${builtins.toString config.services.grafana.settings.server.http_port}";

@@ -5,7 +5,6 @@
 
 {
   config,
-  domain,
   host,
   ...
 }:

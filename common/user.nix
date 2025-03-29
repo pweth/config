@@ -4,15 +4,14 @@
   config,
   host,
   keys,
-  user,
   ...
 }:
 
 {
   # User account
-  users.users."${user}" = {
+  users.users.pweth = {
     createHome = true;
-    description = user;
+    description = "Peter";
     extraGroups = [
       "dialout"
       "docker"

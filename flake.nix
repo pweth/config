@@ -33,7 +33,6 @@
     let
       devices = builtins.fromTOML (builtins.readFile ./devices.toml);
       variables = {
-        domain = "pweth.com";
         hosts = devices.hosts;
         keys = devices.keys;
         user = "pweth";

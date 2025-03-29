@@ -3,14 +3,16 @@
   * https://github.com/immich-app/immich
 */
 
-{ config, domain, ... }:
-
+{ config, ... }:
+let
+  domain = "photos.pweth.com";
+in
 {
   # Service configuration
   services.immich.enable = true;
 
   # Internal domain
-  services.nginx.virtualHosts."photos.${domain}" = {
+  services.nginx.virtualHosts."${domain}" = {
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://localhost:${builtins.toString config.services.immich.port}";

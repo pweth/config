@@ -3,9 +3,9 @@
   * https://forgejo.org/
 */
 
-{ config, domain, ... }:
+{ config, ... }:
 let
-  subdomain = "git.${domain}";
+  domain = "git.pweth.com";
   port = 23784;
   storage = "/var/lib/forgejo";
 in
@@ -34,10 +34,10 @@ in
         DISABLED_REPO_UNITS = "repo.projects,repo.wiki";
       };
       server = {
-        DOMAIN = subdomain;
+        DOMAIN = domain;
         HTTP_PORT = port;
         LANDING_PAGE = "login";
-        ROOT_URL = "https://${subdomain}/";
+        ROOT_URL = "https://${domain}/";
       };
       ui = {
         DEFAULT_THEME = "forgejo-dark";
@@ -47,7 +47,7 @@ in
   };
 
   # Internal domain
-  services.nginx.virtualHosts."${subdomain}" = {
+  services.nginx.virtualHosts."${domain}" = {
     extraConfig = ''
       client_max_body_size 512M;
     '';

@@ -3,11 +3,10 @@
 {
   config,
   pkgs,
-  domain,
   ...
 }:
 let
-  subdomain = "mask.${domain}";
+  domain = "mask.pweth.com";
   port = 40368;
   python = pkgs.python3.withPackages (ps: with ps; [ requests ]);
 in
@@ -31,7 +30,7 @@ in
   };
 
   # Internal domain
-  services.nginx.virtualHosts."${subdomain}" = {
+  services.nginx.virtualHosts."${domain}" = {
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://localhost:${builtins.toString port}";

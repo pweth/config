@@ -4,7 +4,6 @@
   config,
   lib,
   modulesPath,
-  user,
   ...
 }:
 
@@ -128,5 +127,5 @@
 
   # VirtualBox
   virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ user ];
+  users.extraGroups.vboxusers.members = [ "pweth" ];
 }
