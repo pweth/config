@@ -5,7 +5,6 @@
   lib,
   modulesPath,
   nixos-hardware,
-  user,
   ...
 }:
 

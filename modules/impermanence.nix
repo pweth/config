@@ -3,7 +3,6 @@
 {
   config,
   lib,
-  user,
   ...
 }:
 let
@@ -41,7 +40,7 @@ in
         (lib.mkIf config.networking.networkmanager.enable [ "/etc/NetworkManager/system-connections" ])
         (lib.mkIf config.hardware.bluetooth.enable [ "/var/lib/bluetooth" ])
       ];
-      users."${user}" = {
+      users.pweth = {
         directories = lib.mkMerge [
           [
             ".config/nvim"

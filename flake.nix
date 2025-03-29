@@ -35,7 +35,6 @@
       variables = {
         hosts = devices.hosts;
         keys = devices.keys;
-        user = "pweth";
         version = "24.11";
       };
     in
