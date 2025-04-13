@@ -13,7 +13,7 @@
   ];
 
   # Custom modules
-  meta = {
+  modules = {
     gui.enable = true;
     home-manager.enable = true;
     impermanence.enable = true;

@@ -6,10 +6,10 @@
   ...
 }:
 let
-  cfg = config.meta.impermanence;
+  cfg = config.modules.impermanence;
 in
 {
-  options.meta.impermanence = {
+  options.modules.impermanence = {
     enable = lib.mkEnableOption "impermanence";
     path = lib.mkOption {
       type = lib.types.str;
@@ -37,8 +37,9 @@ in
           "/var/lib/nixos"
           "/var/log/journal"
         ]
-        (lib.mkIf config.networking.networkmanager.enable [ "/etc/NetworkManager/system-connections" ])
         (lib.mkIf config.hardware.bluetooth.enable [ "/var/lib/bluetooth" ])
+        (lib.mkIf config.networking.networkmanager.enable [ "/etc/NetworkManager/system-connections" ])
+        (lib.mkIf config.services.tailscale.enable [ "/var/lib/tailscale" ])
       ];
       users.pweth = {
         directories = lib.mkMerge [
@@ -50,7 +51,7 @@ in
           ]
 
           # Only persist on GUI systems
-          (lib.mkIf config.meta.gui.enable [
+          (lib.mkIf config.modules.gui.enable [
             "Documents"
             "Downloads"
             "Pictures"

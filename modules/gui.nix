@@ -7,10 +7,10 @@
   ...
 }:
 let
-  cfg = config.meta.gui;
+  cfg = config.modules.gui;
 in
 {
-  options.meta.gui.enable = lib.mkEnableOption "GUI";
+  options.modules.gui.enable = lib.mkEnableOption "GUI";
 
   config = lib.mkIf cfg.enable {
     # GUI setup

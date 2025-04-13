@@ -3,13 +3,7 @@
   * https://github.com/0xERR0R/blocky
 */
 
-{
-  config,
-  host,
-  hosts,
-  tailnet,
-  ...
-}:
+{ config, host, ... }:
 let
   domain = "dns.pweth.com";
   port = 4050;
@@ -47,7 +41,7 @@ in
         };
       };
       customDNS.mapping = {
-        "pweth.com" = "100.80.0.2"; # TODO:
+        "pweth.com" = host.address;
       };
       fqdnOnly.enable = true;
       log.level = "warn";

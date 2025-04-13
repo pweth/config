@@ -22,7 +22,7 @@
         allow_tearing = false;
         border_size = 0;
         gaps_in = 10;
-        gaps_out = 20;
+        gaps_out = 0;
         hover_icon_on_border = false;
         layout = "dwindle";
         no_border_on_floating = true;

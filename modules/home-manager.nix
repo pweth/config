@@ -10,10 +10,10 @@
   ...
 }:
 let
-  cfg = config.meta.home-manager;
+  cfg = config.modules.home-manager;
 in
 {
-  options.meta.home-manager.enable = lib.mkEnableOption "home manager";
+  options.modules.home-manager.enable = lib.mkEnableOption "home manager";
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [

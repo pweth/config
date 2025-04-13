@@ -68,6 +68,7 @@
     sqlite
     sshfs
     termdown
+    wrangler
     yt-dlp
   ];
 }

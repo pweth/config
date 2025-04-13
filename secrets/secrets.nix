@@ -5,7 +5,7 @@
 
 let
   # Load in SSH keys
-  devices = builtins.fromTOML (builtins.readFile ../devices.toml);
+  devices = import ../devices.nix;
   hosts = builtins.mapAttrs (name: host: host.ssh-key) devices.hosts;
   keys = builtins.mapAttrs (name: key: key.age) devices.keys;
 

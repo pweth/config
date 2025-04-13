@@ -31,7 +31,7 @@
       nixos-hardware,
     }@inputs:
     let
-      devices = builtins.fromTOML (builtins.readFile ./devices.toml);
+      devices = import ./devices.nix;
       variables = {
         hosts = devices.hosts;
         keys = devices.keys;

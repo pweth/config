@@ -16,7 +16,6 @@
     ./locale.nix
     ./nginx.nix
     ./security.nix
-    ./tailscale.nix
     ./user.nix
   ];
 
@@ -117,5 +116,11 @@
     enable = true;
     enabledCollectors = [ "systemd" ];
     port = 12345;
+  };
+
+  # Tailscale
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "client";
   };
 }
