@@ -7,6 +7,7 @@
       architecture = "x86_64-linux";
       species = "Pygoscelis adeliae";
       ssh-key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIALl6nmhTzqES2qmootEZ6x8DuomSvJCzYTormEevq4y";
+      services = { };
     };
 
     # Home Server
@@ -16,6 +17,16 @@
       architecture = "x86_64-linux";
       species = "Spheniscus humboldti";
       ssh-key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICZDBxFQIZaazAOgPCd9+eLxu7NAg+5a6ZwPmoI2eNGc";
+      services = {
+        anki-sync = "anki.pweth.com";
+        blocky = "dns.pweth.com";
+        forgejo = "git.pweth.com";
+        grafana = "grafana.pweth.com";
+        immich = "photos.pweth.com";
+        jellyfin = "jellyfin.pweth.com";
+        masked-email = "mask.pweth.com";
+        prometheus = "prom.pweth.com";
+      };
     };
   };
 

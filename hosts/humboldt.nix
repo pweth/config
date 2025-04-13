@@ -12,14 +12,6 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     nixos-hardware.nixosModules.dell-optiplex-3050
-    ../services/anki-sync.nix
-    ../services/blocky.nix
-    ../services/forgejo.nix
-    ../services/grafana.nix
-    ../services/immich.nix
-    ../services/jellyfin.nix
-    ../services/masked-email.nix
-    ../services/prometheus.nix
   ];
 
   # Custom modules

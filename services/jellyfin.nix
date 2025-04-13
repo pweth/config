@@ -3,27 +3,26 @@
   * https://github.com/jellyfin/jellyfin
 */
 
-{ config, ... }:
+{ config, lib, host, ... }:
 let
-  domain = "jellyfin.pweth.com";
+  domain = host.services.jellyfin or null;
 in
 {
-  services.jellyfin = {
-    enable = true;
-    openFirewall = true;
-  };
-
-  # Internal domain
-  services.nginx.virtualHosts."${domain}" = {
-    forceSSL = true;
-    locations."/" = {
-      proxyPass = "http://localhost:${builtins.toString 8096}";
-      proxyWebsockets = true;
+  config = lib.mkIf (domain != null) {
+    services.jellyfin = {
+      enable = true;
+      openFirewall = true;
     };
-    sslCertificate = ../static/certs/service.crt;
-    sslCertificateKey = config.age.secrets.service.path;
-  };
 
-  # Persist service data
-  environment.persistence."/persist".directories = [ config.services.jellyfin.dataDir ];
+    # Internal domain
+    services.nginx.virtualHosts."${domain}" = {
+      forceSSL = true;
+      locations."/" = {
+        proxyPass = "http://localhost:${builtins.toString 8096}";
+        proxyWebsockets = true;
+      };
+      sslCertificate = ../static/certs/service.crt;
+      sslCertificateKey = config.age.secrets.service.path;
+    };
+  };
 }

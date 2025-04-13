@@ -31,10 +31,10 @@
       nixos-hardware,
     }@inputs:
     let
-      devices = import ./devices.nix;
+      source = import ./census.nix;
       variables = {
-        hosts = devices.hosts;
-        keys = devices.keys;
+        hosts = source.hosts;
+        keys = source.keys;
         version = "24.11";
       };
     in
@@ -47,6 +47,7 @@
             (./hosts + "/${name}.nix")
             ./common
             ./modules
+            ./services
             agenix.nixosModules.default
             home-manager.nixosModules.default
             impermanence.nixosModules.impermanence
@@ -59,6 +60,6 @@
             };
           system = host.architecture;
         }
-      ) devices.hosts;
+      ) variables.hosts;
     };
 }

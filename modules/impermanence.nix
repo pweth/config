@@ -39,6 +39,14 @@ in
         ]
         (lib.mkIf config.hardware.bluetooth.enable [ "/var/lib/bluetooth" ])
         (lib.mkIf config.networking.networkmanager.enable [ "/etc/NetworkManager/system-connections" ])
+        (lib.mkIf config.services.forgejo.enable [ "/var/lib/forgejo" ])
+        (lib.mkIf config.services.grafana.enable [ config.services.grafana.dataDir ])
+        (lib.mkIf config.services.jellyfin.enable [ config.services.jellyfin.dataDir ])
+        (lib.mkIf config.services.immich.enable [
+          config.services.immich.mediaLocation
+          config.services.postgresql.dataDir
+        ])
+        (lib.mkIf config.services.prometheus.enable [ "/var/lib/${config.services.prometheus.stateDir}" ])
         (lib.mkIf config.services.tailscale.enable [ "/var/lib/tailscale" ])
       ];
       users.pweth = {

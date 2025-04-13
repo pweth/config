@@ -3,28 +3,24 @@
   * https://github.com/immich-app/immich
 */
 
-{ config, ... }:
+{ config, lib, host, ... }:
 let
-  domain = "photos.pweth.com";
+  domain = host.services.immich or null;
 in
 {
-  # Service configuration
-  services.immich.enable = true;
+  config = lib.mkIf (domain != null) {
+    # Service configuration
+    services.immich.enable = true;
 
-  # Internal domain
-  services.nginx.virtualHosts."${domain}" = {
-    forceSSL = true;
-    locations."/" = {
-      proxyPass = "http://localhost:${builtins.toString config.services.immich.port}";
-      proxyWebsockets = true;
+    # Internal domain
+    services.nginx.virtualHosts."${domain}" = {
+      forceSSL = true;
+      locations."/" = {
+        proxyPass = "http://localhost:${builtins.toString config.services.immich.port}";
+        proxyWebsockets = true;
+      };
+      sslCertificate = ../static/certs/service.crt;
+      sslCertificateKey = config.age.secrets.service.path;
     };
-    sslCertificate = ../static/certs/service.crt;
-    sslCertificateKey = config.age.secrets.service.path;
   };
-
-  # Persist service data
-  environment.persistence."/persist".directories = [
-    config.services.immich.mediaLocation
-    config.services.postgresql.dataDir
-  ];
 }

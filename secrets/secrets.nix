@@ -5,9 +5,9 @@
 
 let
   # Load in SSH keys
-  devices = import ../devices.nix;
-  hosts = builtins.mapAttrs (name: host: host.ssh-key) devices.hosts;
-  keys = builtins.mapAttrs (name: key: key.age) devices.keys;
+  source = import ../census.nix;
+  hosts = builtins.mapAttrs (name: host: host.ssh-key) source.hosts;
+  keys = builtins.mapAttrs (name: key: key.age) source.keys;
 
   # Secret to host mappings
   secrets = with keys; {

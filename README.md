@@ -5,7 +5,7 @@ NixOS configuration flake.
 
 ---
 
-## Devices
+## Hosts
 
 | Hostname | System |
 | --- | --- |
