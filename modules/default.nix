@@ -7,5 +7,6 @@
     ./gui.nix
     ./home-manager.nix
     ./impermanence.nix
+    ./services.nix
   ];
 }

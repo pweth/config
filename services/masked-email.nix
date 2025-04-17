@@ -1,40 +1,27 @@
 # * Custom Python web service for generating FastMail email aliases.
 
 { config, lib, host, pkgs, ... }:
-let
-  domain = host.services.masked-email or null;
-  port = 40368;
-  python = pkgs.python3.withPackages (ps: with ps; [ requests ]);
-in
+
 {
-  config = lib.mkIf (domain != null) {
+  config = lib.mkIf (host.services.masked-email or null != null) {
     # Masked email Python script
     age.secrets.masked-email.file = ../secrets/masked-email.age;
 
-    # Systemd service
-    systemd.services.masked-email = {
-      serviceConfig = {
-        ExecStart = "${python}/bin/python ${config.age.secrets.masked-email.path}";
-        RestartSec = 120;
+    modules.services.masked-email = {
+      subdomain = host.services.masked-email;
+      address = "192.168.1.8";
+
+      mounts = {
+        "${config.age.secrets.masked-email.path}".hostPath = config.age.secrets.masked-email.path;
       };
 
-      environment.SERVICE_RUN_MODE = "1";
-      startLimitBurst = 10;
-      startLimitIntervalSec = 5;
-      after = [ "run-agenix.d.mount" ];
-      wants = [ "run-agenix.d.mount" ];
-      wantedBy = [ "multi-user.target" ];
-    };
-
-    # Internal domain
-    services.nginx.virtualHosts."${domain}" = {
-      forceSSL = true;
-      locations."/" = {
-        proxyPass = "http://localhost:${builtins.toString port}";
-        proxyWebsockets = true;
+      config.systemd.services.masked-email = {
+        after = [ "tailscaled.service" ];
+        wantedBy = [ "tailscaled.service" ];
+        serviceConfig.ExecStart = let
+          python = pkgs.python3.withPackages (ps: with ps; [ requests ]);
+        in "${python}/bin/python ${config.age.secrets.masked-email.path}";
       };
-      sslCertificate = ../static/certs/service.crt;
-      sslCertificateKey = config.age.secrets.service.path;
     };
   };
 }

@@ -19,8 +19,8 @@ in
         proxyPass = "http://localhost:${builtins.toString config.services.immich.port}";
         proxyWebsockets = true;
       };
-      sslCertificate = ../static/certs/service.crt;
-      sslCertificateKey = config.age.secrets.service.path;
+      sslCertificate = ../static/pweth.crt;
+      sslCertificateKey = config.age.secrets.certificate.path;
     };
   };
 }

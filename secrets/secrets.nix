@@ -12,12 +12,11 @@ let
   # Secret to host mappings
   secrets = with keys; {
     # Common
-    "ipn.age"           = builtins.attrValues hosts;
+    "pweth.crt.age"     = builtins.attrValues hosts;
     "password-hash.age" = builtins.attrValues hosts;
     "tailscale.age"     = builtins.attrValues hosts;
 
     # Services
-    "service.age"      = [ hosts.humboldt ];
     "anki.age"         = [ hosts.humboldt ];
     "grafana.age"      = [ hosts.humboldt ];
     "masked-email.age" = [ hosts.humboldt ];

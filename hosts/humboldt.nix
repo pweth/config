@@ -87,9 +87,13 @@
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
+  # Networking
+  networking.nat.externalInterface = "enp1s0";
+
   # Mount services certificate key
-  age.secrets.service = {
-    file = ../secrets/service.age;
+  # TODO: remove once all services are using the module
+  age.secrets.certificate = {
+    file = ../secrets/pweth.crt.age;
     owner = "nginx";
   };
 }

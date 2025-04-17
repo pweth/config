@@ -111,10 +111,13 @@
   # OpenGL
   hardware.graphics.enable = true;
 
-  # NetworkManager
-  networking.networkmanager = {
-    enable = true;
-    dns = "none";
+  # Networking
+  networking = {
+    nat.externalInterface = "wlp0s20f3";
+    networkmanager = {
+      enable = true;
+      dns = "none";
+    };
   };
 
   # Sound and Bluetooth

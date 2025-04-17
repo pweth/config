@@ -3,9 +3,8 @@
     # Desktop
     adelie = {
       name = "adelie";
-      address = "100.80.0.1";
-      architecture = "x86_64-linux";
       species = "Pygoscelis adeliae";
+      architecture = "x86_64-linux";
       ssh-key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIALl6nmhTzqES2qmootEZ6x8DuomSvJCzYTormEevq4y";
       services = { };
     };
@@ -13,18 +12,17 @@
     # Home Server
     humboldt = {
       name = "humboldt";
-      address = "100.80.0.2";
-      architecture = "x86_64-linux";
       species = "Spheniscus humboldti";
+      architecture = "x86_64-linux";
       ssh-key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICZDBxFQIZaazAOgPCd9+eLxu7NAg+5a6ZwPmoI2eNGc";
       services = {
-        anki-sync = "anki.pweth.com";
-        blocky = "dns.pweth.com";
+        anki-sync = "anki-sync";
+        blocky = "dns";
         forgejo = "git.pweth.com";
         grafana = "grafana.pweth.com";
         immich = "photos.pweth.com";
         jellyfin = "jellyfin.pweth.com";
-        masked-email = "mask.pweth.com";
+        masked-email = "mask";
         prometheus = "prom.pweth.com";
       };
     };

@@ -4,32 +4,30 @@
 */
 
 { config, lib, host, ... }:
-let
-  domain = host.services.anki-sync or null;
-in
+
 {
-  config = lib.mkIf (domain != null) {
+  config = lib.mkIf (host.services.anki-sync or null != null) {
+    # Sync server password
     age.secrets.anki.file = ../secrets/anki.age;
 
-    services.anki-sync-server = {
-      enable = true;
-      users = [
-        {
-          username = "pweth";
-          passwordFile = config.age.secrets.anki.path;
-        }
-      ];
-    };
+    modules.services.anki-sync = {
+      subdomain = host.services.anki-sync;
+      address = "192.168.1.2";
 
-    # Internal domain
-    services.nginx.virtualHosts."${domain}" = {
-      forceSSL = true;
-      locations."/" = {
-        proxyPass = "http://localhost:${builtins.toString config.services.anki-sync-server.port}";
-        proxyWebsockets = true;
+      mounts = {
+        "${config.age.secrets.anki.path}".hostPath = config.age.secrets.anki.path;
       };
-      sslCertificate = ../static/certs/service.crt;
-      sslCertificateKey = config.age.secrets.service.path;
+
+      config.services.anki-sync-server = {
+        enable = true;
+        port = config.modules.services.anki-sync.port;
+        users = [
+          {
+            username = "pweth";
+            passwordFile = config.age.secrets.anki.path;
+          }
+        ];
+      };
     };
   };
 }
