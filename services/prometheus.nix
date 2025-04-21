@@ -25,7 +25,7 @@ in
           job_name = "blocky";
           scheme = "https";
           static_configs = [
-            { targets = [ host.services.blocky ]; }
+            { targets = [ "${host.services.blocky}.pweth.com" ]; }
           ];
         }
       ];

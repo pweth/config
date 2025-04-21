@@ -18,13 +18,9 @@
           blocking = {
             blockType = "nxDomain";
             clientGroupsBlock.default = [ "default" ];
-            denylists.default = builtins.map (
-              list: "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/${list}.txt"
-            ) [
-              "gambling"
-              "nsfw"
-              "pro"
-              "tif"
+            denylists.default = [
+              "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/pro.txt"
+              "https://pweth.com/noindex/blocklist.txt"
             ];
           };
           bootstrapDns = {
