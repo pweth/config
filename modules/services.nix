@@ -84,7 +84,10 @@ in
           enable = true;
           virtualHosts."${options.subdomain}.pweth.com" = {
             forceSSL = true;
-            locations."/".proxyPass = "http://localhost:${builtins.toString options.port}";
+            locations."/" = {
+              proxyPass = "http://localhost:${builtins.toString options.port}";
+              proxyWebsockets = true;
+            };
             sslCertificate = ../static/pweth.crt;
             sslCertificateKey = config.age.secrets.certificate.path;
           };

@@ -20,6 +20,7 @@
             clientGroupsBlock.default = [ "default" ];
             denylists.default = [
               "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/pro.txt"
+              "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/nsfw.txt"
               "https://pweth.com/noindex/blocklist.txt"
             ];
           };

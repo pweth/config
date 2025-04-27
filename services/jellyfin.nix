@@ -5,24 +5,32 @@
 
 { config, lib, host, ... }:
 let
-  domain = host.services.jellyfin or null;
+  state = "/persist/data/jellyfin";
 in
 {
-  config = lib.mkIf (domain != null) {
-    services.jellyfin = {
-      enable = true;
-      openFirewall = true;
+  config = lib.mkIf (host.services.jellyfin or null != null) {
+    modules.services.jellyfin = {
+      subdomain = host.services.jellyfin;
+      address = "192.168.1.7";
+      port = 8096;
+      tag = "shared";
+
+      mounts = {
+        "${config.services.jellyfin.dataDir}" = {
+          hostPath = state;
+          isReadOnly = false;
+        };
+        "/media".hostPath = "/persist/media";
+      };
+
+      config.services.jellyfin = {
+        enable = true;
+        openFirewall = true;
+      };
     };
 
-    # Internal domain
-    services.nginx.virtualHosts."${domain}" = {
-      forceSSL = true;
-      locations."/" = {
-        proxyPass = "http://localhost:${builtins.toString 8096}";
-        proxyWebsockets = true;
-      };
-      sslCertificate = ../static/pweth.crt;
-      sslCertificateKey = config.age.secrets.certificate.path;
-    };
+    systemd.tmpfiles.rules = [
+      "d ${state} 0770 root root -"
+    ];
   };
 }

@@ -49,6 +49,7 @@
     gh
     gnumake
     gnupg
+    go
     httpie
     hwatch
     imagemagick

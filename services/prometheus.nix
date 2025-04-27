@@ -18,7 +18,7 @@ in
           job_name = "node";
           scheme = "https";
           static_configs = [
-            { targets = builtins.map (host: "${host}.ipn.pw") (builtins.attrNames hosts); }
+            { targets = builtins.map (host: "${host}.pweth.com") (builtins.attrNames hosts); }
           ];
         }
         {

@@ -21,9 +21,9 @@
         forgejo = "git.pweth.com";
         grafana = "grafana.pweth.com";
         immich = "photos.pweth.com";
-        jellyfin = "jellyfin.pweth.com";
+        jellyfin = "jellyfin";
         masked-email = "mask";
-        prometheus = "prom.pweth.com";
+        prometheus = "prometheus.pweth.com";
       };
     };
   };
