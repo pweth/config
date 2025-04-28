@@ -18,7 +18,7 @@
       services = {
         anki-sync = "anki-sync";
         blocky = "dns";
-        forgejo = "git.pweth.com";
+        forgejo = "git";
         grafana = "grafana.pweth.com";
         immich = "photos.pweth.com";
         jellyfin = "jellyfin";

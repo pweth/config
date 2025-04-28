@@ -39,7 +39,6 @@ in
         ]
         (lib.mkIf config.hardware.bluetooth.enable [ "/var/lib/bluetooth" ])
         (lib.mkIf config.networking.networkmanager.enable [ "/etc/NetworkManager/system-connections" ])
-        (lib.mkIf config.services.forgejo.enable [ "/var/lib/forgejo" ])
         (lib.mkIf config.services.grafana.enable [ config.services.grafana.dataDir ])
         (lib.mkIf config.services.immich.enable [
           config.services.immich.mediaLocation

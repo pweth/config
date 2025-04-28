@@ -20,7 +20,6 @@
         modules-center = [ "clock" ];
         modules-right = [
           "network"
-          "custom/vpn"
           "bluetooth"
           "pulseaudio"
           "idle_inhibitor"
@@ -38,19 +37,6 @@
         "clock" = {
           format = "{:%a %d %b %H:%M}";
           tooltip = false;
-        };
-        "custom/vpn" = {
-          interval = 1;
-          on-click = ''
-            tailscale up --accept-dns --exit-node=$(tailscale exit-node \
-              list --filter="UK" |
-              grep "London" |
-              awk '{ print $2 }' |
-              shuf -n 1
-            )
-          '';
-          on-click-right = "tailscale up --accept-dns --exit-node=";
-          exec = ../static/vpn.sh;
         };
         "hyprland/workspaces" = {
           persistent-workspaces = {
@@ -95,8 +81,6 @@
       (builtins.readFile ../static/styles/waybar.css)
       + ''
         #bluetooth { background-image: url("${../static/icons/bluetooth.png}") }
-        #custom-vpn { background-image: url("${../static/icons/vpn-deactivated.png}") }
-        #custom-vpn.activated { background-image: url("${../static/icons/vpn-activated.png}") }
         #idle_inhibitor { background-image: url("${../static/icons/idle-deactivated.png}") }
         #idle_inhibitor.activated { background-image: url("${../static/icons/idle-activated.png}") }
         #network { background-image: url("${../static/icons/network.png}") }

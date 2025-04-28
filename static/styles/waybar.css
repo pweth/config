@@ -38,7 +38,6 @@ button:hover, .modules-right .module:hover {
 button.active,
 #bluetooth.connected,
 #custom-media.activated,
-#custom-vpn.activated,
 #idle_inhibitor.activated,
 #network.ethernet,
 #network.linked,

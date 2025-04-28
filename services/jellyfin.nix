@@ -30,7 +30,7 @@ in
     };
 
     systemd.tmpfiles.rules = [
-      "d ${state} 0770 root root -"
+      "d ${state} 0770 999 999 -"
     ];
   };
 }
