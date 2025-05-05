@@ -10,8 +10,6 @@ in
 {
   config = lib.mkIf (builtins.elem "prometheus" host.services) {
     modules.services.prometheus = {
-      address = "192.168.1.9";
-
       mounts = {
         "/var/lib/${config.services.prometheus.stateDir}" = {
           hostPath = state;

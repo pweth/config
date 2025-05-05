@@ -10,9 +10,7 @@ in
 {
   config = lib.mkIf (builtins.elem "jellyfin" host.services) {
     modules.services.jellyfin = {
-      address = "192.168.1.7";
       port = 8096;
-      tag = "shared";
 
       mounts = {
         "${config.services.jellyfin.dataDir}" = {

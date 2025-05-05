@@ -9,8 +9,6 @@
   config = lib.mkIf (builtins.elem "blocky" host.services) {
     modules.services.blocky = {
       subdomain = "dns";
-      address = "192.168.1.3";
-      tag = "dns";
 
       config.services.blocky = {
         enable = true;

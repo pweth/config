@@ -5,57 +5,62 @@
 
 { config, lib, host, ... }:
 let
-  domain = "grafana.pweth.com";
-  port = 59663;
+  state = "/persist/data/grafana";
 in
 {
   config = lib.mkIf (builtins.elem "grafana" host.services) {
     age.secrets.grafana = {
       file = ../secrets/grafana.age;
-      owner = "grafana";
+      mode = "004";
     };
 
-    # Service configuration
-    services.grafana = {
-      enable = true;
-      settings = {
-        analytics = {
-          check_for_plugin_updates = false;
-          check_for_updates = false;
-          feedback_links_enabled = false;
-          reporting_enabled = false;
-        };
-        "auth.anonymous" = {
-          enabled = true;
-          org_name = "Main Org.";
-          org_role = "Viewer";
-        };
-        security = {
-          admin_user = "pweth";
-          admin_password = "$__file{${config.age.secrets.grafana.path}}";
-          disable_gravatar = true;
-        };
-        server = {
-          domain = domain;
-          http_port = port;
-        };
-        users = {
-          default_language = "en-GB";
-          default_theme = "dark";
-          home_page = "/d/aeh8ykwdw3bb4d/home-page";
+    modules.services.grafana = {
+      mounts = {
+        "${config.age.secrets.grafana.path}".isReadOnly = true;
+        "${config.services.grafana.dataDir}" = {
+          hostPath = state;
+          isReadOnly = false;
         };
       };
+
+      config.services.grafana = {
+        enable = true;
+        settings = {
+          analytics = {
+            check_for_plugin_updates = false;
+            check_for_updates = false;
+            feedback_links_enabled = false;
+            reporting_enabled = false;
+          };
+          "auth.anonymous" = {
+            enabled = true;
+            org_name = "Main Org.";
+            org_role = "Viewer";
+          };
+          security = {
+            admin_user = "pweth";
+            admin_password = "$__file{${config.age.secrets.grafana.path}}";
+            disable_gravatar = true;
+          };
+          server = {
+            domain = "${config.modules.services.grafana.subdomain}.pweth.com";
+            http_port = config.modules.services.grafana.port;
+          };
+          users = {
+            default_language = "en-GB";
+            default_theme = "dark";
+            home_page = "/d/aeh8ykwdw3bb4d/home-page";
+          };
+        };
+      };
+
+      config.services.nginx.virtualHosts."${config.modules.services.grafana.subdomain}.pweth.com".extraConfig = ''
+        proxy_pass_header Authorization;
+      '';
     };
 
-    # Internal domain
-    services.nginx.virtualHosts."${domain}" = {
-      forceSSL = true;
-      locations."/" = {
-        proxyPass = "http://localhost:${builtins.toString config.services.grafana.settings.server.http_port}";
-        proxyWebsockets = true;
-      };
-      sslCertificate = ../static/pweth.crt;
-      sslCertificateKey = config.age.secrets.certificate.path;
-    };
+    systemd.tmpfiles.rules = [
+      "d ${state} 0770 999 999 -"
+    ];
   };
 }

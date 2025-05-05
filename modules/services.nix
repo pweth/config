@@ -4,6 +4,7 @@
   config,
   lib,
   pkgs,
+  host,
   version,
   ...
 }:
@@ -24,10 +25,6 @@ in
           default = name;
           description = "Internal subdomain.";
         };
-        address = lib.mkOption {
-          type = lib.types.str;
-          description = "Container IP address.";
-        };
         port = lib.mkOption {
           type = lib.types.int;
           default = 12345;
@@ -37,11 +34,6 @@ in
           type = lib.types.attrs;
           default = { };
           description = "Container bind mounts.";
-        };
-        tag = lib.mkOption {
-          type = lib.types.nullOr lib.types.str;
-          default = null;
-          description = "Additional ACL tag.";
         };
         config = lib.mkOption {
           type = lib.types.attrs;
@@ -73,8 +65,11 @@ in
 
       # Private networking
       privateNetwork = true;
+      enableTun = true;
       hostAddress = "192.168.100.1";
-      localAddress = options.address;
+      localAddress = "192.168.100.${builtins.toString (
+        (lib.lists.findFirstIndex (service: service == name) null host.services) + 2
+      )}";
 
       # Container configuration
       config = lib.mkMerge [options.config ({ pkgs, ... }: {
@@ -83,42 +78,43 @@ in
         # Reverse proxy
         services.nginx = {
           enable = true;
+          clientMaxBodySize = "0";
+          recommendedGzipSettings = true;
+          recommendedOptimisation = true;
+          recommendedProxySettings = true;
+          recommendedTlsSettings = true;
+          recommendedZstdSettings = true;
+
           virtualHosts."${options.subdomain}.pweth.com" = {
             forceSSL = true;
             locations."/" = {
               proxyPass = "http://localhost:${builtins.toString options.port}";
               proxyWebsockets = true;
+              recommendedProxySettings = true;
             };
             sslCertificate = ../static/pweth.crt;
             sslCertificateKey = config.age.secrets.certificate.path;
           };
         };
 
-        # Ephemeral userspace Tailscale
+        # Ephemeral Tailscale
         # Ref: https://github.com/tailscale/tailscale/issues/4778#issuecomment-1229366518
         services.tailscale = {
           enable = true;
           extraDaemonFlags = [ "--state=mem:" ];
-          interfaceName = "userspace-networking";
         };
 
         # Custom tailscaled-autoconnect systemd service
         systemd.services.tailscaled-autoconnect = {
           after = [ "tailscaled.service" ];
           wantedBy = [ "tailscaled.service" ];
-          serviceConfig.ExecStart =
-            let
-              tags = if options.tag != null
-              then "tag:container,tag:${options.tag}"
-              else "tag:container";
-            in
-            builtins.concatStringsSep " " [
-              "${pkgs.tailscale}/bin/tailscale"
-              "up"
-              "--auth-key file:${config.age.secrets.tailscale.path}"
-              "--hostname ${options.subdomain}"
-              "--advertise-tags ${tags}"
-            ];
+          serviceConfig.ExecStart = builtins.concatStringsSep " " [
+            "${pkgs.tailscale}/bin/tailscale"
+            "up"
+            "--auth-key file:${config.age.secrets.tailscale.path}"
+            "--hostname ${options.subdomain}"
+            "--advertise-tags tag:container,tag:${options.subdomain}"
+          ];
         };
       })];
     }) cfg;

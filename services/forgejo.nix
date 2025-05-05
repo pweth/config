@@ -11,7 +11,6 @@ in
   config = lib.mkIf (builtins.elem "forgejo" host.services) {
     modules.services.forgejo = {
       subdomain = "git";
-      address = "192.168.1.4";
 
       mounts = {
         "${config.services.forgejo.stateDir}" = {
@@ -54,11 +53,11 @@ in
           };
         };
       };
-    };
 
-    services.nginx.virtualHosts."${config.modules.services.forgejo.subdomain}.pweth.com".extraConfig = ''
-      client_max_body_size 512M;
-    '';
+      config.services.nginx.virtualHosts."${config.modules.services.forgejo.subdomain}.pweth.com".extraConfig = ''
+        client_max_body_size 512M;
+      '';
+    };
 
     systemd.tmpfiles.rules = [
       "d ${state} 0770 999 999 -"
