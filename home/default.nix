@@ -29,13 +29,6 @@
     stateVersion = version;
   };
 
-  # Remove manual
-  manual = {
-    html.enable = false;
-    json.enable = false;
-    manpages.enable = false;
-  };
-
   home.packages = with pkgs; [
     backblaze-b2
     bitwarden-cli

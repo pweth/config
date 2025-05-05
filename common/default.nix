@@ -14,16 +14,12 @@
   imports = [
     ./fonts.nix
     ./locale.nix
-    ./nginx.nix
     ./security.nix
     ./user.nix
   ];
 
   # Release version
   system.stateVersion = version;
-
-  # Remove NixOS manual
-  documentation.nixos.enable = false;
 
   # Environment variables
   environment.sessionVariables = {
@@ -92,8 +88,9 @@
     settings = {
       auto-optimise-store = true;
       experimental-features = [
-        "nix-command"
         "flakes"
+        "nix-command"
+        "pipe-operators"
       ];
       trusted-users = [ "pweth" ];
     };
@@ -111,6 +108,26 @@
     keybindings = true;
   };
 
+  # Reverse proxy
+  services.nginx = {
+    enable = true;
+    clientMaxBodySize = "0";
+    recommendedGzipSettings = true;
+    recommendedOptimisation = true;
+    recommendedProxySettings = true;
+    recommendedTlsSettings = true;
+    recommendedZstdSettings = true;
+
+    # Virtual host
+    virtualHosts."${host.name}.pweth.com" = {
+      forceSSL = true;
+      locations."/".proxyPass =
+        "http://localhost:${builtins.toString config.services.prometheus.exporters.node.port}";
+      sslCertificate = ../static/pweth.crt;
+      sslCertificateKey = config.age.secrets.certificate.path;
+    };
+  };
+
   # Node exporter
   services.prometheus.exporters.node = {
     enable = true;
@@ -119,8 +136,5 @@
   };
 
   # Tailscale
-  services.tailscale = {
-    enable = true;
-    useRoutingFeatures = "client";
-  };
+  services.tailscale.enable = true;
 }

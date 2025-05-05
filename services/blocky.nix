@@ -19,8 +19,7 @@
             blockType = "nxDomain";
             clientGroupsBlock.default = [ "default" ];
             denylists.default = [
-              "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/pro.txt"
-              "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/nsfw.txt"
+              "https://big.oisd.nl/domainswild"
               "https://pweth.com/noindex/blocklist.txt"
             ];
           };
