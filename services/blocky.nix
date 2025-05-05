@@ -6,9 +6,9 @@
 { config, lib, host, ... }:
 
 {
-  config = lib.mkIf (host.services.blocky or null != null) {
+  config = lib.mkIf (builtins.elem "blocky" host.services) {
     modules.services.blocky = {
-      subdomain = host.services.blocky;
+      subdomain = "dns";
       address = "192.168.1.3";
       tag = "dns";
 

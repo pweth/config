@@ -44,7 +44,6 @@ in
           config.services.immich.mediaLocation
           config.services.postgresql.dataDir
         ])
-        (lib.mkIf config.services.prometheus.enable [ "/var/lib/${config.services.prometheus.stateDir}" ])
         (lib.mkIf config.services.tailscale.enable [ "/var/lib/tailscale" ])
       ];
       users.pweth = {

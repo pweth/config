@@ -5,10 +5,10 @@
 
 { config, lib, host, ... }:
 let
-  domain = host.services.immich or null;
+  domain = "photos.pweth.com";
 in
 {
-  config = lib.mkIf (domain != null) {
+  config = lib.mkIf (builtins.elem "immich" host.services) {
     # Service configuration
     services.immich.enable = true;
 

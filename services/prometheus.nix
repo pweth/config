@@ -5,41 +5,44 @@
 
 { config, lib, hosts, host, ... }:
 let
-  domain = host.services.prometheus or null;
-  port = 58635;
+  state = "/persist/data/prometheus";
 in
 {
-  config = lib.mkIf (domain != null) {
-    services.prometheus = {
-      enable = true;
-      port = port;
-      scrapeConfigs = [
-        {
-          job_name = "node";
-          scheme = "https";
-          static_configs = [
-            { targets = builtins.map (host: "${host}.pweth.com") (builtins.attrNames hosts); }
-          ];
-        }
-        {
-          job_name = "blocky";
-          scheme = "https";
-          static_configs = [
-            { targets = [ "${host.services.blocky}.pweth.com" ]; }
-          ];
-        }
-      ];
+  config = lib.mkIf (builtins.elem "prometheus" host.services) {
+    modules.services.prometheus = {
+      address = "192.168.1.9";
+
+      mounts = {
+        "/var/lib/${config.services.prometheus.stateDir}" = {
+          hostPath = state;
+          isReadOnly = false;
+        };
+      };
+
+      config.services.prometheus = {
+        enable = true;
+        port = config.modules.services.prometheus.port;
+        scrapeConfigs = [
+          {
+            job_name = "node";
+            scheme = "https";
+            static_configs = [
+              { targets = builtins.map (host: "${host}.pweth.com") (builtins.attrNames hosts); }
+            ];
+          }
+          {
+            job_name = "blocky";
+            scheme = "https";
+            static_configs = [
+              { targets = [ "dns.pweth.com" ]; }
+            ];
+          }
+        ];
+      };
     };
 
-    # Internal domain
-    services.nginx.virtualHosts."${domain}" = {
-      forceSSL = true;
-      locations."/" = {
-        proxyPass = "http://localhost:${builtins.toString port}";
-        proxyWebsockets = true;
-      };
-      sslCertificate = ../static/pweth.crt;
-      sslCertificateKey = config.age.secrets.certificate.path;
-    };
+    systemd.tmpfiles.rules = [
+      "d ${state} 0770 999 999 -"
+    ];
   };
 }

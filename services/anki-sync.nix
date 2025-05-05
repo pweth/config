@@ -6,12 +6,11 @@
 { config, lib, host, ... }:
 
 {
-  config = lib.mkIf (host.services.anki-sync or null != null) {
+  config = lib.mkIf (builtins.elem "anki-sync" host.services) {
     # Sync server password
     age.secrets.anki.file = ../secrets/anki.age;
 
     modules.services.anki-sync = {
-      subdomain = host.services.anki-sync;
       address = "192.168.1.2";
 
       mounts = {

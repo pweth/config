@@ -9,7 +9,6 @@
     # Extensions
     extensions = with pkgs.vscode-extensions; [
       eamodio.gitlens
-      esbenp.prettier-vscode
       golang.go
       haskell.haskell
       jnoortheen.nix-ide
@@ -27,14 +26,13 @@
 
     # settings.json values
     userSettings = {
-      "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "editor.fontFamily" = "FiraCode Nerd Font";
       "editor.fontLigatures" = true;
       "explorer.confirmDelete" = false;
       "explorer.confirmDragAndDrop" = false;
       "jupyter.askForKernelRestart" = false;
+      "nix.formatterPath" = "nixfmt";
       "remote.downloadExtensionsLocally" = true;
-      "remote.SSH.defaultExtensions" = [ "jnoortheen.nix-ide" ];
       "telemetry.telemetryLevel" = "off";
       "terminal.integrated.fontFamily" = "FiraCode Nerd Font";
       "terminal.integrated.fontLigatures" = true;

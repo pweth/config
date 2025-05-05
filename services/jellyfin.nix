@@ -8,9 +8,8 @@ let
   state = "/persist/data/jellyfin";
 in
 {
-  config = lib.mkIf (host.services.jellyfin or null != null) {
+  config = lib.mkIf (builtins.elem "jellyfin" host.services) {
     modules.services.jellyfin = {
-      subdomain = host.services.jellyfin;
       address = "192.168.1.7";
       port = 8096;
       tag = "shared";

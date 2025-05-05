@@ -21,6 +21,7 @@ in
         };
         subdomain = lib.mkOption {
           type = lib.types.str;
+          default = name;
           description = "Internal subdomain.";
         };
         address = lib.mkOption {

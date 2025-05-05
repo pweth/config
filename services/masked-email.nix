@@ -3,12 +3,12 @@
 { config, lib, host, pkgs, ... }:
 
 {
-  config = lib.mkIf (host.services.masked-email or null != null) {
+  config = lib.mkIf (builtins.elem "masked-email" host.services) {
     # Masked email Python script
     age.secrets.masked-email.file = ../secrets/masked-email.age;
 
     modules.services.masked-email = {
-      subdomain = host.services.masked-email;
+      subdomain = "mask";
       address = "192.168.1.8";
 
       mounts = {

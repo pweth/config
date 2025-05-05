@@ -8,9 +8,9 @@ let
   state = "/persist/data/forgejo";
 in
 {
-  config = lib.mkIf (host.services.forgejo or null != null) {
+  config = lib.mkIf (builtins.elem "forgejo" host.services) {
     modules.services.forgejo = {
-      subdomain = host.services.forgejo;
+      subdomain = "git";
       address = "192.168.1.4";
 
       mounts = {
@@ -43,10 +43,10 @@ in
             DISABLED_REPO_UNITS = "repo.projects,repo.wiki";
           };
           server = {
-            DOMAIN = "${host.services.forgejo}.pweth.com";
+            DOMAIN = "${config.modules.services.forgejo.subdomain}.pweth.com";
             HTTP_PORT = config.modules.services.forgejo.port;
             LANDING_PAGE = "login";
-            ROOT_URL = "https://${host.services.forgejo}.pweth.com/";
+            ROOT_URL = "https://${config.modules.services.forgejo.subdomain}.pweth.com/";
           };
           ui = {
             DEFAULT_THEME = "forgejo-dark";
@@ -56,7 +56,7 @@ in
       };
     };
 
-    services.nginx.virtualHosts."${host.services.forgejo}.pweth.com".extraConfig = ''
+    services.nginx.virtualHosts."${config.modules.services.forgejo.subdomain}.pweth.com".extraConfig = ''
       client_max_body_size 512M;
     '';
 

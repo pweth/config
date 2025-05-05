@@ -5,11 +5,11 @@
 
 { config, lib, host, ... }:
 let
-  domain = host.services.grafana or null;
+  domain = "grafana.pweth.com";
   port = 59663;
 in
 {
-  config = lib.mkIf (domain != null) {
+  config = lib.mkIf (builtins.elem "grafana" host.services) {
     age.secrets.grafana = {
       file = ../secrets/grafana.age;
       owner = "grafana";
