@@ -5,22 +5,36 @@
 
 { config, lib, host, ... }:
 let
-  domain = "photos.pweth.com";
+  state = "/persist/data/immich";
 in
 {
   config = lib.mkIf (builtins.elem "immich" host.services) {
-    # Service configuration
-    services.immich.enable = true;
+    modules.services.immich = {
+      subdomain = "photos";
 
-    # Internal domain
-    services.nginx.virtualHosts."${domain}" = {
-      forceSSL = true;
-      locations."/" = {
-        proxyPass = "http://localhost:${builtins.toString config.services.immich.port}";
-        proxyWebsockets = true;
+      mounts = {
+        "${config.services.immich.mediaLocation}" = {
+          hostPath = "${state}/app";
+          isReadOnly = false;
+        };
+        "/var/lib/postgresql" = {
+          hostPath = "${state}/database";
+          isReadOnly = false;
+        };
       };
-      sslCertificate = ../static/pweth.crt;
-      sslCertificateKey = config.age.secrets.certificate.path;
+
+      config = {
+        i18n.defaultLocale = "en_GB.UTF-8";
+        services.immich = {
+          enable = true;
+          port = config.modules.services.immich.port;
+        };
+      };
     };
+
+    systemd.tmpfiles.rules = [
+      "d ${state}/app 0770 999 999 -"
+      "d ${state}/database 0770 999 999 -"
+    ];
   };
 }

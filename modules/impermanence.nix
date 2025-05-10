@@ -37,13 +37,15 @@ in
           "/var/lib/nixos"
           "/var/log/journal"
         ]
-        (lib.mkIf config.hardware.bluetooth.enable [ "/var/lib/bluetooth" ])
-        (lib.mkIf config.networking.networkmanager.enable [ "/etc/NetworkManager/system-connections" ])
-        (lib.mkIf config.services.immich.enable [
-          config.services.immich.mediaLocation
-          config.services.postgresql.dataDir
+        (lib.mkIf config.hardware.bluetooth.enable [
+          "/var/lib/bluetooth"
         ])
-        (lib.mkIf config.services.tailscale.enable [ "/var/lib/tailscale" ])
+        (lib.mkIf config.networking.networkmanager.enable [
+          "/etc/NetworkManager/system-connections"
+        ])
+        (lib.mkIf config.services.tailscale.enable [
+          "/var/lib/tailscale"
+        ])
       ];
       users.pweth = {
         directories = lib.mkMerge [
