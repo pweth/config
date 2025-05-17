@@ -89,11 +89,4 @@
 
   # Networking
   networking.nat.externalInterface = "enp1s0";
-
-  # Mount services certificate key
-  # TODO: remove once all services are using the module
-  age.secrets.certificate = {
-    file = ../secrets/pweth.crt.age;
-    owner = "nginx";
-  };
 }
