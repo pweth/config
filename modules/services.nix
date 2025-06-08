@@ -73,6 +73,7 @@ in
 
       # Container configuration
       config = lib.mkMerge [options.config ({ pkgs, ... }: {
+        nixpkgs.config.allowUnfree = true;
         system.stateVersion = version;
 
         # Reverse proxy

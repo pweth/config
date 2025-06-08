@@ -23,7 +23,9 @@
         "immich"
         "jellyfin"
         "masked-email"
+        "minecraft"
         "prometheus"
+        "usenet"
       ];
     };
   };

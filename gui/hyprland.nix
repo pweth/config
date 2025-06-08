@@ -33,6 +33,7 @@
         kb_layout = "gb";
         kb_options = "caps:escape";
         follow_mouse = 0;
+        numlock_by_default = true;
       };
       misc = {
         disable_hyprland_logo = true;
@@ -43,6 +44,7 @@
         ", preferred, auto, 1.25"
         "Unknown-1, disable"
       ];
+      render.explicit_sync = 0;
       bind = with pkgs; [
         # Core
         "SUPER SHIFT, RETURN, exec, kitty tmux"

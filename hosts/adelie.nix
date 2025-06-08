@@ -114,15 +114,12 @@
   # Networking
   networking = {
     nat.externalInterface = "wlp0s20f3";
-    networkmanager = {
-      enable = true;
-      dns = "none";
-    };
+    networkmanager.enable = true;
   };
 
-  # Sound and Bluetooth
-  services.blueman.enable = true;
+  # Bluetooth
   hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   # Disable SSH and fail2ban
   services.openssh.enable = lib.mkForce false;

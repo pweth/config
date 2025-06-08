@@ -66,6 +66,7 @@ in
             ".config/spotify"
             ".config/VirtualBox"
             ".local/share/Anki2"
+            ".local/share/PrismLauncher"
             ".mozilla/firefox/default"
           ])
         ];
