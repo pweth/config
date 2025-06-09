@@ -6,7 +6,6 @@
 {
   config,
   pkgs,
-  version,
   ...
 }:
 
@@ -26,7 +25,7 @@
   home = {
     username = "pweth";
     homeDirectory = "/home/${config.home.username}";
-    stateVersion = version;
+    stateVersion = "24.11";
   };
 
   home.packages = with pkgs; [
@@ -53,6 +52,7 @@
     mitmproxy
     multitime
     nixfmt-rfc-style
+    nixos-anywhere
     nmap
     nms
     passage

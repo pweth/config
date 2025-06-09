@@ -5,7 +5,6 @@
   lib,
   pkgs,
   host,
-  version,
   ...
 }:
 let
@@ -74,7 +73,7 @@ in
       # Container configuration
       config = lib.mkMerge [options.config ({ pkgs, ... }: {
         nixpkgs.config.allowUnfree = true;
-        system.stateVersion = version;
+        system.stateVersion = "24.11";
 
         # Reverse proxy
         services.nginx = {

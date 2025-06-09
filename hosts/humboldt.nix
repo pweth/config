@@ -1,4 +1,4 @@
-# * Home server system configuration.
+# * Application server system configuration.
 
 {
   config,

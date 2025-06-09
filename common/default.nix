@@ -6,20 +6,18 @@
   pkgs,
   agenix,
   host,
-  version,
   ...
 }:
 
 {
   imports = [
-    ./fonts.nix
-    ./locale.nix
+    ./i18n.nix
     ./security.nix
     ./user.nix
   ];
 
-  # Release version
-  system.stateVersion = version;
+  # Original release version
+  system.stateVersion = "24.11";
 
   # Environment variables
   environment.sessionVariables = {

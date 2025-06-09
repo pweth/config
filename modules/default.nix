@@ -1,9 +1,8 @@
 # * Module configuration.
 
-{ config, ...}:
-
 {
   imports = [
+    ./disko.nix
     ./gui.nix
     ./home-manager.nix
     ./impermanence.nix

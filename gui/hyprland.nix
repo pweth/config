@@ -12,6 +12,7 @@
       animations.enabled = false;
       cursor.no_hardware_cursors = true;
       decoration.rounding = 5;
+      ecosystem.no_update_news = true;
       exec-once = with pkgs; [
         "${hyprpaper}/bin/hyprpaper"
         "hyprctl setcursor Adwaita 24"

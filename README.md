@@ -1,6 +1,6 @@
 <div align="center">
 <h1>🐧 Config</h1>
-NixOS configuration flake.
+NixOS configuration flake for my homelab.
 </div>
 
 ---
@@ -11,6 +11,7 @@ NixOS configuration flake.
 | --- | --- |
 | Adelie | Dell Precision 3280 |
 | Humboldt | Dell OptiPlex 3050 Micro |
+| Macaroni | Dell OptiPlex 3050 Micro |
 
 ---
 
@@ -27,3 +28,5 @@ NixOS configuration flake.
 - [NixOS as a server, part 1: Impermanence](https://guekka.github.io/nixos-server-1/)
 - [[RFC 0166] Nix formatting](https://github.com/NixOS/rfcs/pull/166)
 - [Declarative Container Specification](https://nlewo.github.io/nixos-manual-sphinx/administration/declarative-containers.xml.html)
+- [How I Set up BTRFS and LUKS on NixOS Using Disko](https://haseebmajid.dev/posts/2024-07-30-how-i-setup-btrfs-and-luks-on-nixos-using-disko/)
+- [Install NixOS with disko disk partitioning](https://nixos.asia/en/nixos-install-disko)

@@ -1,11 +1,29 @@
-# * Locale configuration.
+# * Internationalisation configuration.
 
-{ config, ... }:
+{ config, pkgs, ... }:
 let
   locale = "en_GB.UTF-8";
 in
 {
-  # UK locale settings
+  # Default font packages
+  fonts = {
+    packages = with pkgs; [
+      nerd-fonts.fira-code
+      noto-fonts
+      noto-fonts-color-emoji
+    ];
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        emoji = [ "NotoColorEmoji" ];
+        sansSerif = [ "NotoSans" ];
+        serif = [ "NotoSerif" ];
+        monospace = [ "FiraCode Nerd Font" ];
+      };
+    };
+  };
+
+  # Locale settings
   i18n = {
     defaultLocale = locale;
     extraLocaleSettings = {

@@ -6,7 +6,6 @@
   pkgs,
   host,
   keys,
-  version,
   ...
 }:
 let
@@ -24,7 +23,6 @@ in
       extraSpecialArgs = {
         host = host;
         keys = keys;
-        version = version;
       };
       useGlobalPkgs = true;
       useUserPackages = true;

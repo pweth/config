@@ -3,16 +3,20 @@
 
   inputs = {
     # Nix packages
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
 
-    # agenix
+    # Home manager
+    home-manager.url = "github:nix-community/home-manager/release-25.05";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Secret management
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     agenix.inputs.darwin.follows = "";
 
-    # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    # Disk partitioning
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
 
     # Impermanence
     impermanence.url = "github:nix-community/impermanence";
@@ -26,17 +30,15 @@
       self,
       nixpkgs,
       agenix,
+      disko,
       home-manager,
       impermanence,
       nixos-hardware,
     }@inputs:
     let
       source = import ./census.nix;
-      variables = {
-        hosts = source.hosts;
-        keys = source.keys;
-        version = "24.11";
-      };
+      hosts = source.hosts;
+      keys = source.keys;
     in
     {
       # `sudo nixos-rebuild switch --flake .#host`
@@ -49,17 +51,19 @@
             ./modules
             ./services
             agenix.nixosModules.default
+            disko.nixosModules.disko
             home-manager.nixosModules.default
             impermanence.nixosModules.impermanence
           ];
           specialArgs =
             inputs
-            // variables
             // {
               host = host;
+              hosts = hosts;
+              keys = keys;
             };
           system = host.architecture;
         }
-      ) variables.hosts;
+      ) hosts;
     };
 }
