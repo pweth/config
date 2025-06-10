@@ -17,6 +17,11 @@
     outline: none;
 }
 
+#input image {
+    border: none;
+    color: #111111;
+}
+
 #entry, #entry:selected {
     border: none;
     border-top: solid 2px #111111;

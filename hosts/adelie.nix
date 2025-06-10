@@ -14,6 +14,11 @@
 
   # Custom modules
   modules = {
+    disko = {
+      enable = false; 
+      device = "/dev/nvme0n1";
+      rootSize = "8G";
+    };
     gui.enable = true;
     home-manager.enable = true;
     impermanence.enable = true;

@@ -20,7 +20,7 @@ in
       no_actions = true;
       orientation = "horizontal";
       prompt = "";
-      width = "160%";
+      width = "100%";
       yoffset = "-${height}";
     };
     style = builtins.readFile ../static/styles/wofi.css;
