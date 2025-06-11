@@ -29,12 +29,25 @@
   boot = {
     initrd = {
       availableKernelModules = [
-        "xhci_pci"
         "ahci"
+        "r8169"
+        "sd_mod"
         "usb_storage"
         "usbhid"
-        "sd_mod"
+        "xhci_pci"
       ];
+      network = {
+        enable = true;
+        udhcpc.enable = true;
+        ssh = {
+          enable = true;
+          hostKeys = [ "/boot/ecdsa.key" ];
+          authorizedKeys = config.users.users.pweth.openssh.authorizedKeys.keys;
+        };
+        postCommands = ''
+          echo 'cryptsetup-askpass' >> /root/.profile
+        '';
+      };
     };
     kernelModules = [ "kvm-intel" ];
     loader = {
@@ -48,5 +61,5 @@
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
   # Networking
-  networking.nat.externalInterface = "enp2s0";
+  networking.nat.externalInterface = "enp1s0";
 }

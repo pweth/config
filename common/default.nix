@@ -61,6 +61,7 @@
       ncdu
       openssl
       p7zip
+      pciutils
       rclone
       restic
       screen

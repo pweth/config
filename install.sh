@@ -13,11 +13,15 @@ cleanup() {
 }
 trap cleanup EXIT
 
-# Create the directory where sshd expects to find the host keys
+# Create directory structure
+install -d -m755 "$temp/boot"
 install -d -m755 "$temp/etc/ssh"
 install -d -m755 "$temp/persist/etc/ssh"
 
-# Decrypt private key from passage and copy it to the temporary directory
+# Decrypt private keys from passage
+echo "Decrypting ecdsa key..."
+passage "ssh/initramfs" > "$temp/boot/ecdsa.key"
+echo "Decrypting ed25519 key..."
 passage "ssh/$hostname" > "$temp/etc/ssh/ssh_host_ed25519_key"
 cp "$temp/etc/ssh/ssh_host_ed25519_key" "$temp/persist/etc/ssh/ssh_host_ed25519_key"
 
