@@ -56,6 +56,7 @@
       htop
       inetutils
       jq
+      lsof
       neovim
       networkmanager
       ncdu
@@ -65,6 +66,7 @@
       rclone
       restic
       screen
+      strace
       tmux
       tree
       tz

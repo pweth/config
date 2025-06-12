@@ -38,7 +38,9 @@
           };
           fqdnOnly.enable = true;
           log.level = "warn";
-          ports.http = [ config.modules.services.blocky.port ];
+          ports.http = [ 
+            "127.0.0.1:${builtins.toString config.modules.services.blocky.port}"
+          ];
           prometheus.enable = true;
           upstreams.groups.default = [
             "https://dns.cloudflare.com/dns-query"

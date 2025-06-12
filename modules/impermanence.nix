@@ -48,29 +48,24 @@ in
         ])
       ];
       users.pweth = {
-        directories = lib.mkMerge [
-          [
-            ".config/nvim"
-            ".local/share/nvim"
-            ".passage"
-            ".ssh"
-          ]
-
-          # Only persist on GUI systems
-          (lib.mkIf config.modules.gui.enable [
-            "Documents"
-            "Downloads"
-            "Pictures"
-            ".config/Code"
-            ".config/libreoffice"
-            ".config/spotify"
-            ".config/VirtualBox"
-            ".local/share/Anki2"
-            ".local/share/PrismLauncher"
-            ".mozilla/firefox/default"
-          ])
-        ];
         files = [ ".bash_history" ];
+
+        # Only persist on GUI systems
+        directories = lib.mkIf config.modules.gui.enable [
+          "Documents"
+          "Downloads"
+          "Pictures"
+          ".config/Code"
+          ".config/discord"
+          ".config/libreoffice"
+          ".config/spotify"
+          ".config/VirtualBox"
+          ".local/share/Anki2"
+          ".local/share/PrismLauncher"
+          ".mozilla/firefox/default"
+          ".passage"
+          ".ssh"
+        ];
       };
     };
   };
