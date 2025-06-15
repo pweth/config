@@ -16,10 +16,7 @@
 
   # Custom modules
   modules = {
-    disko = {
-      enable = true;
-      device = "/dev/sda";
-    };
+    disko.enable = true;
     gui.enable = false;
     home-manager.enable = true;
     impermanence.enable = true;

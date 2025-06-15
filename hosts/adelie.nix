@@ -15,7 +15,7 @@
   # Custom modules
   modules = {
     disko = {
-      enable = false; 
+      enable = true; 
       device = "/dev/nvme0n1";
       rootSize = "8G";
     };
@@ -36,10 +36,6 @@
         "usbhid"
         "sd_mod"
       ];
-      luks.devices.luks = {
-        device = "/dev/disk/by-label/encrypted";
-        preLVM = true;
-      };
     };
     kernelModules = [ "dm-snapshot" ];
     loader = {
@@ -50,49 +46,6 @@
 
   # Allow cross-architecture builds
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-
-  # Filesystem mounts
-  fileSystems = {
-    "/" = {
-      device = "none";
-      fsType = "tmpfs";
-      options = [
-        "defaults"
-        "size=8G"
-        "mode=755"
-      ];
-    };
-    "/boot" = {
-      device = "/dev/disk/by-label/boot";
-      fsType = "vfat";
-      options = [
-        "fmask=0022"
-        "dmask=0022"
-      ];
-    };
-    "/nix" = {
-      device = "/dev/disk/by-label/data";
-      fsType = "btrfs";
-      options = [
-        "subvol=nix"
-        "compress=zstd"
-        "noatime"
-      ];
-    };
-    "/persist" = {
-      device = "/dev/disk/by-label/data";
-      fsType = "btrfs";
-      neededForBoot = true;
-      options = [
-        "subvol=persist"
-        "compress=zstd"
-        "noatime"
-      ];
-    };
-  };
-
-  # Swap space
-  swapDevices = [ { device = "/dev/disk/by-label/swap"; } ];
 
   # Hardware adjustments
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

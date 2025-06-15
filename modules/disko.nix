@@ -9,7 +9,7 @@ in
     enable = lib.mkEnableOption "disko";
     device = lib.mkOption {
       type = lib.types.str;
-      default = "/dev/nvme0n1";
+      default = "/dev/sda";
       description = "Persistent block device file.";
     };
     rootSize = lib.mkOption {
