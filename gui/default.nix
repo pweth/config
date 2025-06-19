@@ -20,8 +20,6 @@
   ];
 
   home.packages = with pkgs; [
-    anki
-    citrix_workspace
     discord
     eog
     handbrake
@@ -36,6 +34,16 @@
     vlc
     wireshark
     zoom-us
+
+    # Anki Wayland display bug
+    (writeShellScriptBin "anki" ''
+      QTWEBENGINE_CHROMIUM_FLAGS="--disable-gpu" exec ${pkgs.anki}/bin/anki "$@"
+    '')
+
+    # Prevent Citrix Workspace segfault
+    (writeShellScriptBin "wfica" ''
+      env -i DISPLAY=:0 ${pkgs.citrix_workspace}/bin/wfica "$@"
+    '')
   ];
 
   # Citrix EULA

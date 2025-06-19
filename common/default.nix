@@ -52,6 +52,7 @@
       fzf
       gawk
       gcc
+      gdb
       git
       htop
       inetutils
@@ -65,6 +66,7 @@
       pciutils
       rclone
       restic
+      rr
       screen
       strace
       tmux
@@ -72,6 +74,7 @@
       tz
       unzip
       usbutils
+      valgrind
       wget
       xclip
       zip

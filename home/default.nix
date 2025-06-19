@@ -37,7 +37,6 @@
     diff-pdf
     exiftool
     ffmpeg
-    gdb
     gh
     gnumake
     gnupg
