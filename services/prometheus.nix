@@ -32,7 +32,10 @@ in
             job_name = "blocky";
             scheme = "https";
             static_configs = [
-              { targets = [ "dns.pweth.com" ]; }
+              { targets = [
+                "dns-humboldt.pweth.com"
+                "dns-macaroni.pweth.com"
+              ]; }
             ];
           }
         ];

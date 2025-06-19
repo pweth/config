@@ -17,7 +17,6 @@ let
     "tailscale.age"     = builtins.attrValues hosts;
 
     # Services
-    "anki.age"         = [ hosts.humboldt ];
     "grafana.age"      = [ hosts.humboldt ];
     "masked-email.age" = [ hosts.humboldt ];
   };

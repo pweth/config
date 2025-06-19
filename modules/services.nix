@@ -24,6 +24,11 @@ in
           default = name;
           description = "Internal subdomain.";
         };
+        tag = lib.mkOption {
+          type = lib.types.str;
+          default = name;
+          description = "Tailscale device tag.";
+        };
         port = lib.mkOption {
           type = lib.types.int;
           default = 12345;
@@ -75,6 +80,12 @@ in
         nixpkgs.config.allowUnfree = true;
         system.stateVersion = "24.11";
 
+        # Disable IPv6
+        boot.kernel.sysctl = {
+          "net.ipv6.conf.all.disable_ipv6" = true;
+          "net.ipv6.conf.default.disable_ipv6" = true;
+        };
+
         # Reverse proxy
         services.nginx = {
           enable = true;
@@ -113,7 +124,7 @@ in
             "up"
             "--auth-key file:${config.age.secrets.tailscale.path}"
             "--hostname ${options.subdomain}"
-            "--advertise-tags tag:container,tag:${options.subdomain}"
+            "--advertise-tags tag:container,tag:${options.tag}"
           ];
         };
       })];

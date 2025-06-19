@@ -16,7 +16,6 @@
       architecture = "x86_64-linux";
       ssh-key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICZDBxFQIZaazAOgPCd9+eLxu7NAg+5a6ZwPmoI2eNGc";
       services = [
-        "anki-sync"
         "blocky"
         "forgejo"
         "grafana"
@@ -34,6 +33,7 @@
       architecture = "x86_64-linux";
       ssh-key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4rxqM0nNOkhGAg3HrvYngWE6ro/BivxbED4nqS4KxV";
       services = [
+        "blocky"
         "jellyfin"
         "usenet"
       ];

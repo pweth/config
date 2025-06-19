@@ -4,7 +4,6 @@
 
 {
   imports = [
-    ./anki-sync.nix
     ./blocky.nix
     ./forgejo.nix
     ./grafana.nix
