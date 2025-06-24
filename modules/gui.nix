@@ -59,6 +59,9 @@ in
     # OpenGL
     hardware.graphics.enable = true;
 
+    # Steam
+    programs.steam.enable = true;
+
     # Home manager GUI packages
     home-manager.users.pweth = import ../gui;
   };

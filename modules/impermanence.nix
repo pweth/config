@@ -62,9 +62,11 @@ in
           ".config/VirtualBox"
           ".local/share/Anki2"
           ".local/share/PrismLauncher"
+          ".local/share/Steam"
           ".mozilla/firefox/default"
           ".passage"
           ".ssh"
+          ".steam"
         ];
       };
     };
