@@ -28,13 +28,13 @@
   boot = {
     initrd = {
       availableKernelModules = [
-        "vmd"
-        "xhci_pci"
         "ahci"
         "nvme"
+        "sd_mod"
         "usb_storage"
         "usbhid"
-        "sd_mod"
+        "vmd"
+        "xhci_pci"
       ];
     };
     kernelModules = [ "dm-snapshot" ];
@@ -65,9 +65,6 @@
     powerManagement.enable = false;
   };
   services.xserver.videoDrivers = [ "nvidia" ];
-
-  # OpenGL
-  hardware.graphics.enable = true;
 
   # Networking
   networking = {

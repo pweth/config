@@ -25,13 +25,26 @@
   boot = {
     initrd = {
       availableKernelModules = [
-        "xhci_pci"
         "ahci"
+        "r8169"
+        "sd_mod"
         "usb_storage"
         "usbhid"
-        "sd_mod"
+        "xhci_pci"
       ];
       luks.devices.luks.device = "/dev/disk/by-label/encrypted";
+      network = {
+        enable = true;
+        udhcpc.enable = true;
+        ssh = {
+          enable = true;
+          hostKeys = [ "/boot/ecdsa.key" ];
+          authorizedKeys = config.users.users.pweth.openssh.authorizedKeys.keys;
+        };
+        postCommands = ''
+          echo 'cryptsetup-askpass' >> /root/.profile
+        '';
+      };
     };
     kernelModules = [ "kvm-intel" ];
     loader = {

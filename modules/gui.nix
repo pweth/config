@@ -56,6 +56,9 @@ in
       "__GLX_VENDOR_LIBRARY_NAME" = "nvidia";
     };
 
+    # OpenGL
+    hardware.graphics.enable = true;
+
     # Home manager GUI packages
     home-manager.users.pweth = import ../gui;
   };
