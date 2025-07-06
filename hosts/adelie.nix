@@ -76,11 +76,15 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  # Virtual machines
+  programs.virt-manager.enable = true;
+  users.users.pweth.extraGroups = [ "libvirtd" ];
+  virtualisation = {
+    libvirtd.enable = true;
+    spiceUSBRedirection.enable = true;
+  };
+
   # Disable SSH and fail2ban
   services.openssh.enable = lib.mkForce false;
   services.fail2ban.enable = lib.mkForce false;
-
-  # VirtualBox
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "pweth" ];
 }

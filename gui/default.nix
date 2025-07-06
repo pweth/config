@@ -49,6 +49,14 @@
   # Citrix EULA
   home.file.".ICAClient/.eula_accepted".text = "yes";
 
+  # virt-manager auto-connect
+  dconf.settings = {
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = ["qemu:///system"];
+      uris = ["qemu:///system"];
+    };
+  };
+
   # GTK bookmarks and dark theme
   xdg.configFile = {
     "gtk-3.0/bookmarks".text = ''

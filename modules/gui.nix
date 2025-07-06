@@ -38,6 +38,11 @@ in
       firefox
       kitty
       vscode
+      vulkan-loader
+      vulkan-tools
+      vulkan-validation-layers
+      wayland
+      wayland-protocols
       wl-clipboard
       wofi
     ];

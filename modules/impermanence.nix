@@ -46,6 +46,10 @@ in
         (lib.mkIf config.services.tailscale.enable [
           "/var/lib/tailscale"
         ])
+        (lib.mkIf config.virtualisation.libvirtd.enable [
+          "/var/lib/libvirt"
+          "/var/lib/qemu"
+        ])
       ];
       users.pweth = {
         files = [ ".bash_history" ];
@@ -63,6 +67,7 @@ in
           ".local/share/Anki2"
           ".local/share/PrismLauncher"
           ".local/share/Steam"
+          ".local/share/vulkan"
           ".mozilla/firefox/default"
           ".passage"
           ".ssh"
