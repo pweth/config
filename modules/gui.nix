@@ -38,11 +38,6 @@ in
       firefox
       kitty
       vscode
-      vulkan-loader
-      vulkan-tools
-      vulkan-validation-layers
-      wayland
-      wayland-protocols
       wl-clipboard
       wofi
     ];
@@ -63,9 +58,6 @@ in
 
     # OpenGL
     hardware.graphics.enable = true;
-
-    # Steam
-    programs.steam.enable = true;
 
     # Home manager GUI packages
     home-manager.users.pweth = import ../gui;

@@ -85,8 +85,8 @@
         "SUPER SHIFT, SPACE, movetoworkspace, special:overlay"
 
         # Power control
-        "CTRL SUPER SHIFT, P, exec, shutdown now"
-        "CTRL SUPER SHIFT, R, exec, shutdown now --reboot"
+        "CTRL SUPER SHIFT, P, exec, ${systemd}/bin/shutdown now"
+        "CTRL SUPER SHIFT, R, exec, ${systemd}/bin/shutdown now --reboot"
       ];
       bindm = [ "SUPER, mouse:273, movewindow" ];
       bindel = with pkgs; [

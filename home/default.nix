@@ -15,7 +15,6 @@
     ./git.nix
     ./htop.nix
     ./key-files.nix
-    ./python.nix
     ./starship.nix
     ./tmux.nix
   ];
@@ -51,15 +50,14 @@
     mitmproxy
     multitime
     nixfmt-rfc-style
-    nixos-anywhere
     nmap
     nms
     passage
+    python3
     ripgrep
     sl
     speedtest-cli
     sqlite
-    sshfs
     termdown
     yt-dlp
   ];

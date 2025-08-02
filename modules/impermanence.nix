@@ -63,15 +63,11 @@ in
           ".config/discord"
           ".config/libreoffice"
           ".config/spotify"
-          ".config/VirtualBox"
           ".local/share/Anki2"
           ".local/share/PrismLauncher"
-          ".local/share/Steam"
-          ".local/share/vulkan"
           ".mozilla/firefox/default"
           ".passage"
           ".ssh"
-          ".steam"
         ];
       };
     };

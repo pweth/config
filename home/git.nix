@@ -19,14 +19,26 @@
     # Additional configuration
     extraConfig = {
       advice.addIgnoredFile = false;
+      column.ui = "auto";
+      commit.verbose = true;
       core.editor = "nvim";
       credential.helper = "store";
       diff.sqlite3 = {
         binary = true;
         textconv = "echo .dump | sqlite3";
       };
+      difftastic = {
+        enable = true;
+        color = "always";
+      };
+      help.autoCorrect = -1;
       http.postBuffer = 157286400;
       init.defaultBranch = "main";
+      log = {
+        decorate = "short";
+        follow = true;
+      };
+      rebase.stat = true;
     };
   };
 }

@@ -8,6 +8,7 @@
 
     # Command aliases
     shellAliases = {
+      cdt = "cd $(git rev-parse --show-toplevel)";
       cf = "cd /etc/nixos/config";
       cls = "clear";
       copy = "xclip -selection clipboard";
@@ -20,7 +21,7 @@
       gg = "git pull";
       gp = "git push";
       gr = "git reset";
-      grrr = "git reset --hard";
+      grc = "git commit --amend --no-edit";
       gs = "git status";
       i = "grep";
       ls = "eza -la";
@@ -30,7 +31,7 @@
       pi = "pip install .";
       rb = "sudo nixos-rebuild switch --flake /etc/nixos/config";
       src = "source";
-      ta = "tmux attach";
+      ta = "tmux attach || tmux new-session";
       tcls = "tmux kill-session -a";
       tkill = "tmux kill-server";
       tls = "tmux list-sessions";
@@ -40,19 +41,33 @@
 
     # Functions
     initExtra = ''
-      gl () {
+      function exit () {
+        deactivate 2>/dev/null && return
+        builtin exit "$@"
+      }
+
+      function gl () {
         git log --all --pretty=oneline --pretty=format:"%Cgreen%h%Creset %s" --color=always |
           fzf --ansi --preview 'git show --pretty=medium --color=always $(echo {} | cut -d " " -f 1)' |
           cut -d " " -f 1
       }
 
-      ngc () {
+      function grrr () {
+        read -p "Are you sure? (y/n)" confirmation
+        if [ "$confirmation" = "y" ]; then
+          git clean -xfd
+          git fetch
+          git reset --hard origin/main
+        fi
+      }
+
+      function ngc () {
         nix profile wipe-history
         nix store gc
         nix store optimise
       }
 
-      run () {
+      function run () {
         nix search nixpkgs . --json > /tmp/nixpkgs
         PKG=$(cat /tmp/nixpkgs |
           jq -r 'keys | .[]' |
@@ -62,7 +77,7 @@
         nix-shell -p $PKG
       }
 
-      weather () {
+      function weather () {
         curl -s wttr.in/$(jq -rn --arg x "$*" '$x|@uri') | head -n -1
       }
     '';

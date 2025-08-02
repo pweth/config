@@ -11,27 +11,29 @@
     settings = {
       general = {
         hide_cursor = true;
+        ignore_empty_input = true;
         immediate_render = true;
         no_fade_in = true;
         no_fade_out = true;
       };
       background = [
         {
-          blur_passes = 2;
-          path = "${../static/background.jpg}";
+          color = "rgb(0, 0, 0)";
         }
       ];
       input-field = [
         {
-          check_color = "rgba(0, 0, 0, 0)";
+          check_color = "rgb(0, 0, 0)";
           dots_fade_time = 0;
+          dots_size = "0.5";
+          dots_text_format = "*";
           fade_timeout = 0;
-          fail_color = "rgba(0, 0, 0, 0)";
+          fail_color = "rgb(0, 0, 0)";
           fail_timeout = 0;
           fail_transition = 0;
-          font_color = "rgba(255, 255, 255, 0.5)";
-          inner_color = "rgba(0, 0, 0, 0)";
-          outer_color = "rgba(0, 0, 0, 0)";
+          font_color = "rgba(255, 255, 255, 0.75)";
+          inner_color = "rgb(0, 0, 0)";
+          outer_color = "rgb(0, 0, 0)";
           fail_text = "";
           placeholder_text = "";
         }
@@ -39,13 +41,9 @@
       label = [
         {
           text = "$TIME";
-          color = "rgb(255, 255, 255)";
           font_family = "FiraCode Nerd Font";
           font_size = 96;
-          halign = "center";
           position = "0, 160";
-          text_align = "center";
-          valign = "center";
         }
       ];
     };

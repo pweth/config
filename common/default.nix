@@ -58,9 +58,10 @@
       inetutils
       jq
       lsof
+      ncdu
       neovim
       networkmanager
-      ncdu
+      nixos-anywhere
       openssl
       p7zip
       pciutils
@@ -68,6 +69,7 @@
       restic
       rr
       screen
+      sshfs
       strace
       tmux
       tree

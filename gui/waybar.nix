@@ -14,15 +14,12 @@
     };
     settings = [
       {
-        modules-left = [
-          "hyprland/workspaces"
-        ];
         modules-center = [ "clock" ];
+        modules-left = [ "hyprland/workspaces" ];
         modules-right = [
           "network"
           "bluetooth"
           "pulseaudio"
-          "idle_inhibitor"
         ];
 
         # Module configuration
@@ -30,7 +27,7 @@
           format = " ";
           on-click = "blueman-manager";
           tooltip-format = builtins.concatStringsSep "\n" [
-            "Status:  {status}"
+            "Status: {status}"
             "Devices: {num_connections}"
           ];
         };
@@ -48,11 +45,6 @@
           };
           sort-by-number = true;
         };
-        "idle_inhibitor" = {
-          format = " ";
-          tooltip-format-activated = "Awake";
-          tooltip-format-deactivated = "Sleeping";
-        };
         "network" = {
           format = " ";
           on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
@@ -62,7 +54,7 @@
             "Gateway: {gwaddr}"
           ];
           tooltip-format-wifi = builtins.concatStringsSep "\n" [
-            "SSID:    {essid}"
+            "SSID: {essid}"
             "Adapter: {ifname}"
             "Address: {ipaddr}"
             "Gateway: {gwaddr}"
@@ -81,8 +73,6 @@
       (builtins.readFile ../static/styles/waybar.css)
       + ''
         #bluetooth { background-image: url("${../static/icons/bluetooth.png}") }
-        #idle_inhibitor { background-image: url("${../static/icons/idle-deactivated.png}") }
-        #idle_inhibitor.activated { background-image: url("${../static/icons/idle-activated.png}") }
         #network { background-image: url("${../static/icons/network.png}") }
         #pulseaudio { background-image: url("${../static/icons/audio.png}") }
         #pulseaudio.muted { background-image: url("${../static/icons/audio-mute.png}") }
