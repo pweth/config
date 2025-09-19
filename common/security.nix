@@ -1,4 +1,4 @@
-# * SSH configuration.
+# * Security configuration.
 
 {
   config,

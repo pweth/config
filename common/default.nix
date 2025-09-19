@@ -12,6 +12,7 @@
 {
   imports = [
     ./i18n.nix
+    ./networking.nix
     ./security.nix
     ./user.nix
   ];
@@ -60,6 +61,7 @@
       lsof
       ncdu
       neovim
+      nethogs
       networkmanager
       nixos-anywhere
       openssl
@@ -81,12 +83,6 @@
       xclip
       zip
     ]);
-
-  # Networking
-  networking = {
-    hostName = host.name;
-    useDHCP = lib.mkDefault true;
-  };
 
   # Nix settings
   nix = {
@@ -140,7 +136,4 @@
     enabledCollectors = [ "systemd" ];
     port = 12345;
   };
-
-  # Tailscale
-  services.tailscale.enable = true;
 }

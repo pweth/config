@@ -30,12 +30,10 @@ in
           }
           {
             job_name = "blocky";
+            metrics_path = "/dns";
             scheme = "https";
             static_configs = [
-              { targets = [
-                "dns-humboldt.pweth.com"
-                "dns-macaroni.pweth.com"
-              ]; }
+              { targets = builtins.map (host: "${host}.pweth.com") (builtins.attrNames hosts); }
             ];
           }
         ];

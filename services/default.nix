@@ -4,7 +4,6 @@
 
 {
   imports = [
-    ./blocky.nix
     ./forgejo.nix
     ./grafana.nix
     ./immich.nix

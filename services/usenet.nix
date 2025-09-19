@@ -46,8 +46,8 @@ in
 
     systemd.tmpfiles.rules = [
       "d ${state}/nzbget 0770 999 999 -"
-      "d ${state}/radarr 0770 999 999 -"
-      "d ${state}/sonarr 0770 999 999 -"
+      "d ${state}/radarr 0777 999 999 -"
+      "d ${state}/sonarr 0777 999 999 -"
     ];
   };
 }
