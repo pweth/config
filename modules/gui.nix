@@ -48,6 +48,10 @@ in
       NIXOS_OZONE_WL = "1";
       XDG_SESSION_TYPE = "wayland";
 
+      # Cursor theme
+      XCURSOR_THEME = "Adwaita";
+      XCURSOR_SIZE = "24";
+
       # NVIDIA-specific
       GBM_BACKEND = "nvidia-drm";
       LIBGL_ALWAYS_SOFTWARE = "1";
