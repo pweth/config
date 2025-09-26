@@ -8,6 +8,18 @@ NixOS configuration flake for my homelab.
 
 ---
 
+## Highlights
+
+- 🖥️ Minimal and performant [Hyprland](https://github.com/pweth/config/blob/main/gui/hyprland.nix), [Waybar](https://github.com/pweth/config/blob/main/gui/waybar.nix) and [wofi](https://github.com/pweth/config/blob/main/gui/wofi.nix) configurations
+- 💾 Declarative tmpfs root filesystems and LUKS encrypted Btrfs disks using [Disko](https://github.com/pweth/config/blob/main/modules/disko.nix) and [Impermanence](https://github.com/pweth/config/blob/main/modules/impermanence.nix)
+- 🚫 [Blocky DNS-over-HTTPS resolver](https://github.com/pweth/config/blob/main/common/networking.nix) with integrated ad blocking and white-labeled Tailscale MagicDNS
+- 🦊 Optimised Firefox browser featuring [personalised search engines](https://github.com/pweth/config/blob/main/gui/firefox.nix) and a [decluttered UI](https://github.com/pweth/config/blob/main/static/styles/firefox.css)
+- 🎻 NixOS container (systemd-nspawn) [service encapsulation](https://github.com/pweth/config/blob/main/modules/services.nix) providing mount and network isolation
+- 🔒 [agenix secret management](https://github.com/pweth/config/blob/main/secrets/secrets.nix) and YubiKey FIDO2-based [SSH authentication](https://github.com/pweth/config/blob/main/common/security.nix)
+- 🌍 Fully automated remote [installation script](https://github.com/pweth/config/blob/main/install.sh) using nixos-anywhere
+
+---
+
 ## Hosts
 
 | Hostname | System |
@@ -18,7 +30,29 @@ NixOS configuration flake for my homelab.
 
 ---
 
-## Notes
+## Flake Structure
+
+```bash
+.
+├── common   # Config shared by all hosts
+├── gui      # Home Manager GUI config
+├── home     # Home Manager CLI config
+├── hosts    # Host-specific config
+├── modules  # Custom Nix modules
+├── secrets  # age-encrypted secrets
+├── services # Containerised apps running on the servers
+└── static   # Static resources (CSS, images)
+...
+ ├── README.md  # You are here!
+ ├── census.nix # Source of truth for metadata
+ ├── flake.lock # Lock file
+ ├── flake.nix  # Flake entry point
+ └── install.sh # nixos-anywhere installation script
+```
+
+---
+
+## Resources
 
 - [How to Install NixOS on Oracle ARM machine](https://blog.digitalimmigrants.org/deploy-nixos-on-oracle-arm-machines/)
 - [Betterfox User Preferences](https://github.com/yokoffing/Betterfox)
