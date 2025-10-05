@@ -48,7 +48,7 @@
       bind = with pkgs; [
         # Core
         "SUPER SHIFT, RETURN, exec, kitty tmux"
-        "SUPER, P, exec, eval $(compgen -ac | sort | uniq | grep -E '^[0-9A-Za-z]+' | wofi)"
+        "SUPER, P, exec, eval $(compgen -ac | sort -u | grep -E '^[0-9A-Za-z]+' | wofi)"
         "SUPER, W, killactive"
 
         # Programs

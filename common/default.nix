@@ -44,17 +44,19 @@
       age
       age-plugin-yubikey
       bat
+      coreutils
       curl
       dig
-      duf
-      eza
       fastfetch
       file
       fzf
       gawk
       gcc
       gdb
+      gh
       git
+      gnumake
+      gnupg
       htop
       inetutils
       jq
@@ -69,7 +71,6 @@
       pciutils
       rclone
       restic
-      rr
       screen
       sshfs
       strace

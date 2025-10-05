@@ -27,8 +27,6 @@
     obs-studio
     pinta
     prismlauncher
-    qFlipper
-    shotcut
     spotify
     sqlitebrowser
     vlc

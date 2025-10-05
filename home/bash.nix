@@ -10,6 +10,8 @@
     shellAliases = {
       cdt = "cd $(git rev-parse --show-toplevel)";
       cf = "cd /etc/nixos/config";
+      chmod = "chmod -v";
+      chown = "chown -v";
       cls = "clear";
       copy = "xclip -selection clipboard";
       df = "df -h";
@@ -24,7 +26,7 @@
       grc = "git commit --amend --no-edit";
       gs = "git status";
       i = "grep";
-      ls = "eza -la";
+      ls = "ls -l";
       mkdir = "mkdir -p";
       nano = "nvim";
       paste = "xclip -o -selection clipboard";
@@ -32,8 +34,6 @@
       rb = "sudo nixos-rebuild switch --flake /etc/nixos/config";
       src = "source";
       ta = "tmux attach || tmux new-session";
-      tcls = "tmux kill-session -a";
-      tkill = "tmux kill-server";
       tls = "tmux list-sessions";
       tn = "tmux new-session";
       v = "nvim";
@@ -53,7 +53,7 @@
       }
 
       function grrr () {
-        read -p "Are you sure? (y/n)" confirmation
+        read -p "Are you sure? (y/N)" confirmation
         if [ "$confirmation" = "y" ]; then
           git clean -xfd
           git fetch

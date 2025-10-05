@@ -36,9 +36,6 @@
     diff-pdf
     exiftool
     ffmpeg
-    gh
-    gnumake
-    gnupg
     go
     httpie
     hwatch
