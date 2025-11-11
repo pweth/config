@@ -43,13 +43,20 @@
     ++ (with pkgs; [
       age
       age-plugin-yubikey
+      backblaze-b2
       bat
       btop
       bubblewrap
+      cloudflared
+      cmatrix
       coreutils
+      cowsay
       curl
+      diff-pdf
       dig
+      exiftool
       fastfetch
+      ffmpeg
       file
       fzf
       gawk
@@ -59,21 +66,39 @@
       git
       gnumake
       gnupg
+      go
       htop
+      httpie
+      imagemagick
+      immich-cli
       inetutils
       jq
+      lego
+      libheif
+      lolcat
       lsof
+      mitmproxy
+      multitime
       ncdu
       neovim
       nethogs
       networkmanager
+      nixfmt-rfc-style
       nixos-anywhere
+      nmap
+      nms
       openssl
       p7zip
+      passage
       pciutils
+      python3
       rclone
       restic
+      ripgrep
       screen
+      sl
+      speedtest-cli
+      sqlite
       sshfs
       strace
       tmux
@@ -84,6 +109,7 @@
       valgrind
       wget
       xclip
+      yt-dlp
       zip
     ]);
 

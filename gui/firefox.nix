@@ -124,11 +124,6 @@
             ];
             icon = "https://pweth.com/favicon.png";
           };
-          bing.metaData.hidden = true;
-          ddg.metaData.hidden = true;
-          ebay.metaData.hidden = true;
-          google.metaData.hidden = true;
-          wikipedia.metaData.hidden = true;
         };
       };
 
