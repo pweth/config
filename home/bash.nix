@@ -61,12 +61,6 @@
         fi
       }
 
-      function ngc () {
-        nix profile wipe-history
-        nix store gc
-        nix store optimise
-      }
-
       function run () {
         nix search nixpkgs . --json > /tmp/nixpkgs
         PKG=$(cat /tmp/nixpkgs |
