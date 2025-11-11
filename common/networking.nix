@@ -39,9 +39,10 @@ in
         };
       };
       log.level = "warn";
-      ports.http = [ 
-        "127.0.0.1:${builtins.toString blockyHttpPort}"
-      ];
+      ports = {
+        dns = [ "127.0.0.1:53" ];
+        http = [ "127.0.0.1:${builtins.toString blockyHttpPort}" ];
+      };
       prometheus = {
         enable = true;
         path = "/dns";

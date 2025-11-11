@@ -7,5 +7,6 @@
     ./home-manager.nix
     ./impermanence.nix
     ./services.nix
+    ./virtualisation.nix
   ];
 }

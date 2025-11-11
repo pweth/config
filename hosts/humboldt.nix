@@ -16,8 +16,6 @@
 
   # Custom modules
   modules = {
-    disko.enable = false;
-    gui.enable = false;
     home-manager.enable = true;
     impermanence.enable = true;
   };

@@ -20,19 +20,6 @@
   ];
 
   home.packages = with pkgs; [
-    discord
-    eog
-    handbrake
-    libreoffice
-    obs-studio
-    pinta
-    prismlauncher
-    spotify
-    sqlitebrowser
-    vlc
-    wireshark
-    zoom-us
-
     # Anki Wayland display bug
     (writeShellScriptBin "anki" ''
       QTWEBENGINE_CHROMIUM_FLAGS="--disable-gpu" exec ${pkgs.anki}/bin/anki "$@"
@@ -47,8 +34,13 @@
   # Citrix EULA
   home.file.".ICAClient/.eula_accepted".text = "yes";
 
-  # virt-manager auto-connect
   dconf.settings = {
+    # GNOME application dark theme
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+
+    # virt-manager auto-connect
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = ["qemu:///system"];
       uris = ["qemu:///system"];

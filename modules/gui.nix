@@ -33,13 +33,30 @@ in
     };
     services.hypridle.enable = true;
 
-    # System packages
+    # GUI system packages
     environment.systemPackages = with pkgs; [
+      discord
+      eog
       firefox
+      handbrake
+      hyprlock
+      hyprpaper
+      hyprshot
       kitty
+      libreoffice
+      nautilus
+      obs-studio
+      pinta
+      prismlauncher
+      spotify
+      sqlitebrowser
+      vlc
       vscode
+      wireshark
       wl-clipboard
       wofi
+      wofi-emoji
+      zoom-us
     ];
 
     # Wayland environment variables

@@ -22,6 +22,7 @@
     gui.enable = true;
     home-manager.enable = true;
     impermanence.enable = true;
+    virtualisation.enable = true;
   };
 
   # Boot settings
@@ -75,14 +76,6 @@
   # Bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
-
-  # Virtual machines
-  programs.virt-manager.enable = true;
-  users.users.pweth.extraGroups = [ "libvirtd" ];
-  virtualisation = {
-    libvirtd.enable = true;
-    spiceUSBRedirection.enable = true;
-  };
 
   # Disable SSH and fail2ban
   services.openssh.enable = lib.mkForce false;

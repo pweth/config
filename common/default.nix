@@ -44,6 +44,8 @@
       age
       age-plugin-yubikey
       bat
+      btop
+      bubblewrap
       coreutils
       curl
       dig

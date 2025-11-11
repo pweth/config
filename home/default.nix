@@ -13,7 +13,6 @@
   imports = [
     ./bash.nix
     ./git.nix
-    ./htop.nix
     ./key-files.nix
     ./starship.nix
     ./tmux.nix

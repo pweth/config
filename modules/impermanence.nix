@@ -46,7 +46,7 @@ in
         (lib.mkIf config.services.tailscale.enable [
           "/var/lib/tailscale"
         ])
-        (lib.mkIf config.virtualisation.libvirtd.enable [
+        (lib.mkIf config.modules.virtualisation.enable [
           "/var/lib/libvirt"
           "/var/lib/qemu"
         ])

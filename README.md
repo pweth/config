@@ -67,3 +67,4 @@ NixOS configuration flake for my homelab.
 - [Declarative Container Specification](https://nlewo.github.io/nixos-manual-sphinx/administration/declarative-containers.xml.html)
 - [How I Set up BTRFS and LUKS on NixOS Using Disko](https://haseebmajid.dev/posts/2024-07-30-how-i-setup-btrfs-and-luks-on-nixos-using-disko/)
 - [Install NixOS with disko disk partitioning](https://nixos.asia/en/nixos-install-disko)
+- [The least painful way to set up a Windows VM on NixOS](https://crescentro.se/posts/windows-vm-nixos/)

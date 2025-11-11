@@ -13,10 +13,10 @@
       cursor.no_hardware_cursors = true;
       decoration.rounding = 5;
       ecosystem.no_update_news = true;
-      exec-once = with pkgs; [
-        "${hyprpaper}/bin/hyprpaper"
+      exec-once = [
+        "hyprpaper"
         "[workspace special:browser silent] firefox"
-        "[workspace special:media silent] sleep 15; ${spotify}/bin/spotify"
+        "[workspace special:media silent] sleep 15; spotify"
       ];
       general = {
         allow_tearing = false;
@@ -54,12 +54,12 @@
         # Programs
         "SUPER, C, exec, ${galculator}/bin/galculator"
         ", XF86Calculator, exec, ${galculator}/bin/galculator"
-        "SUPER, E, exec, ${pcmanfm}/bin/pcmanfm"
+        "SUPER, E, exec, nautilus --new-window"
         "SUPER, F, exec, firefox"
-        "SUPER, L, exec, ${hyprlock}/bin/hyprlock"
-        "SUPER SHIFT, S, exec, ${hyprshot}/bin/hyprshot -m region"
-        ", Print, exec, ${hyprshot}/bin/hyprshot -m region"
-        "SUPER, PERIOD, exec, ${wofi-emoji}/bin/wofi-emoji"
+        "SUPER, L, exec, hyprlock"
+        "SUPER SHIFT, S, exec, hyprshot -m region"
+        ", Print, exec, hyprshot -m region"
+        "SUPER, PERIOD, exec, wofi-emoji"
 
         # Navigation
         "SUPER, M, togglefloating"
@@ -84,8 +84,8 @@
         "SUPER SHIFT, SPACE, movetoworkspace, special:overlay"
 
         # Power control
-        "CTRL SUPER SHIFT, P, exec, ${systemd}/bin/shutdown now"
-        "CTRL SUPER SHIFT, R, exec, ${systemd}/bin/shutdown now --reboot"
+        "CTRL SUPER SHIFT, P, exec, shutdown now"
+        "CTRL SUPER SHIFT, R, exec, shutdown now --reboot"
       ];
       bindm = [ "SUPER, mouse:273, movewindow" ];
       bindel = with pkgs; [
@@ -99,8 +99,6 @@
         "float, class:blueman-manager"
         "float, class:galculator"
         "float, class:nm-connection-editor"
-        "float, class:pcmanfm"
-        "size 960 720, class:pcmanfm"
         "float, title:(Open File|Open Folder)"
       ];
       xwayland.force_zero_scaling = true;

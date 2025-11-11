@@ -111,46 +111,18 @@
       id = 0;
       isDefault = true;
 
-      # Set default search engine to my themed DuckDuckGo and disable others
+      # Set default search engine to pweth.com/search
       search = {
-        default = "DuckDuckGo Themed";
+        default = "pweth.com/search";
         force = true;
         engines = {
-          "DuckDuckGo Themed" = {
+          "pweth.com/search" = {
             urls = [
               {
-                # https://duckduckgo.com/duckduckgo-help-pages/settings/params/
-                template = "https://duckduckgo.com/?q={searchTerms}&kp=1&kl=uk-en&kad=en_GB&k1=-1&kaj=m&kak=-1&kax=-1&kaq=-1&kap=-1&kao=-1&kau=-1&kae=d&k5=1&kpsb=-1&kav=1";
+                template = "https://pweth.com/search?q={searchTerms}";
               }
             ];
-            icon = "https://duckduckgo.com/favicon.png";
-          };
-          "Fastmail" = {
-            urls = [ { template = "https://app.fastmail.com/mail/search:{searchTerms}/"; } ];
-            definedAliases = [ "!fm" ];
-            icon = "https://app.fastmail.com/static/favicons/icon-32x32.png";
-          };
-          "GitHub Code" = {
-            urls = [ { template = "https://github.com/search?q={searchTerms}&type=code"; } ];
-            definedAliases = [ "!ghc" ];
-            icon = "https://github.githubassets.com/favicons/favicon.png";
-          };
-          "Hacker News" = {
-            urls = [ { template = "https://hn.algolia.com/?q={searchTerms}"; } ];
-            definedAliases = [ "!hn" ];
-            icon = "https://news.ycombinator.com/y18.svg";
-          };
-          "Home Manager" = {
-            urls = [
-              { template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master"; }
-            ];
-            definedAliases = [ "!hm" ];
-            icon = "https://nixos.org/favicon.png";
-          };
-          "NixOS" = {
-            urls = [ { template = "https://search.nixos.org/packages?query={searchTerms}"; } ];
-            definedAliases = [ "!n" ];
-            icon = "https://nixos.org/favicon.png";
+            icon = "https://pweth.com/favicon.png";
           };
           bing.metaData.hidden = true;
           ddg.metaData.hidden = true;
