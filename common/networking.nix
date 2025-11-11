@@ -38,9 +38,10 @@ in
           "pweth.com" = "adelie-monitor.ts.net";
         };
       };
+      connectIPVersion = "v4";
       log.level = "warn";
       ports = {
-        dns = [ "127.0.0.1:53" ];
+        dns = [ "0.0.0.0:53" ];
         http = [ "127.0.0.1:${builtins.toString blockyHttpPort}" ];
       };
       prometheus = {
