@@ -20,13 +20,17 @@ NixOS configuration flake for my homelab.
 
 ---
 
-## Hosts
+## Devices
 
 | Hostname | System |
 | --- | --- |
 | Adelie | Dell Precision 3280 |
 | Humboldt | Dell OptiPlex 3050 Micro |
 | Macaroni | Dell OptiPlex 3050 Micro |
+| Rockhopper | Raspberry Pi 3B+ |
+| | |
+| Chinstrap | Cloud Gateway (UCG-Max) |
+| Fiordland | Switch (USW-Flex-Mini) |
 
 ---
 
@@ -40,7 +44,7 @@ NixOS configuration flake for my homelab.
 ├── hosts    # Host-specific config
 ├── modules  # Custom Nix modules
 ├── secrets  # age-encrypted secrets
-├── services # Containerised apps running on the servers
+├── services # Containerised apps
 └── static   # Static resources (CSS, images)
 ...
  ├── README.md  # You are here!

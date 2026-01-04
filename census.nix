@@ -36,6 +36,15 @@
         "usenet"
       ];
     };
+
+    # Raspberry Pi
+    rockhopper = {
+      name = "rockhopper";
+      species = "Eudyptes moseleyi";
+      architecture = "aarch64-linux";
+      ssh-key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDw/Rhr1cdwp3RIwmxTWBa1tWA3gzMyyC8YTJNMN0Fbf";
+      services = [ ];
+    };
   };
 
   keys = {

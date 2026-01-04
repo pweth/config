@@ -8,6 +8,10 @@ in
   # Networking
   networking = {
     hostName = host.name;
+    firewall = {
+      enable = true;
+      allowedUDPPorts = [ 53 ];
+    };
     nameservers = [ "127.0.0.1" ];
     networkmanager.dns = "none";
     useDHCP = lib.mkDefault true;
