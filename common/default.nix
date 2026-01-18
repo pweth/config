@@ -85,6 +85,7 @@
       networkmanager
       nixfmt-rfc-style
       nixos-anywhere
+      nix-tree
       nmap
       nms
       openssl
@@ -115,7 +116,10 @@
 
   # Nix settings
   nix = {
-    gc.automatic = true;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+    };
     settings = {
       auto-optimise-store = true;
       experimental-features = [
@@ -132,6 +136,9 @@
 
   # Platform
   nixpkgs.hostPlatform = lib.mkDefault host.architecture;
+
+  # Limit boot entries
+  boot.loader.systemd-boot.configurationLimit = 5;
 
   # Fuzzy finder
   programs.fzf = {

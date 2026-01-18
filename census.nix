@@ -19,8 +19,6 @@
         "forgejo"
         "grafana"
         "immich"
-        "masked-email"
-        "minecraft"
         "prometheus"
       ];
     };

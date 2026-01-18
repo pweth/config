@@ -28,14 +28,6 @@ in
               { targets = builtins.map (host: "${host}.pweth.com") (builtins.attrNames hosts); }
             ];
           }
-          {
-            job_name = "blocky";
-            metrics_path = "/dns";
-            scheme = "https";
-            static_configs = [
-              { targets = builtins.map (host: "${host}.pweth.com") (builtins.attrNames hosts); }
-            ];
-          }
         ];
       };
     };

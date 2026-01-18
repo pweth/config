@@ -6,9 +6,15 @@
 {
   config,
   pkgs,
+  nixpkgs-citrix,
   ...
 }:
-
+let
+  citrixPkgs = import nixpkgs-citrix {
+    system = pkgs.system;
+    config.allowUnfree = true;
+  };
+in
 {
   imports = [
     ./firefox.nix
@@ -27,7 +33,7 @@
 
     # Prevent Citrix Workspace segfault
     (writeShellScriptBin "wfica" ''
-      env -i DISPLAY=:0 ${pkgs.citrix_workspace}/bin/wfica "$@"
+      env -i DISPLAY=:0 ${citrixPkgs.citrix_workspace}/bin/wfica "$@"
     '')
   ];
 

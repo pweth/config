@@ -5,6 +5,9 @@
     # Nix packages
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
 
+    # Nix packages w/ working Citrix Workspace
+    nixpkgs-citrix.url = "github:NixOS/nixpkgs/c2448301fb856e351aab33e64c33a3fc8bcf637d";
+
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -29,6 +32,7 @@
     {
       self,
       nixpkgs,
+      nixpkgs-citrix,
       agenix,
       disko,
       home-manager,

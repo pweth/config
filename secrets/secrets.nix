@@ -18,7 +18,6 @@ let
 
     # Services
     "grafana.age"      = [ hosts.humboldt ];
-    "masked-email.age" = [ hosts.humboldt ];
   };
 in
 builtins.mapAttrs (name: hostKeys: {

@@ -4,6 +4,7 @@
   config,
   lib,
   pkgs,
+  nixpkgs-citrix,
   ...
 }:
 let
@@ -81,6 +82,9 @@ in
     hardware.graphics.enable = true;
 
     # Home manager GUI packages
-    home-manager.users.pweth = import ../gui;
+    home-manager = {
+      extraSpecialArgs = { inherit nixpkgs-citrix; };
+      users.pweth = import ../gui;
+    };
   };
 }
