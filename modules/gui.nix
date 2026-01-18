@@ -86,5 +86,17 @@ in
       extraSpecialArgs = { inherit nixpkgs-citrix; };
       users.pweth = import ../gui;
     };
+
+    # Desktop wallpaper service
+    systemd.services.wallpaper = {
+      after = [ "network-online.target" ];
+      wants = [ "network-online.target" ];
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = "${pkgs.curl}/bin/curl -L -o /var/lib/wallpaper.jpg https://pweth.com/noindex/img/background.jpg";
+        ExecPost = "${pkgs.coreutils}/bin/chmod 644 /var/lib/wallpaper.jpg";
+      };
+    };
   };
 }

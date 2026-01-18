@@ -107,7 +107,7 @@
 
   # Wallpaper configuration
   xdg.configFile."hypr/hyprpaper.conf".text = ''
-    preload = ${../static/background.jpg}
-    wallpaper = , ${../static/background.jpg}
+    preload = /var/lib/wallpaper.jpg
+    wallpaper = , /var/lib/wallpaper.jpg
   '';
 }

@@ -51,6 +51,9 @@ in
           "/var/lib/qemu"
         ])
       ];
+      files = lib.mkIf config.modules.gui.enable [
+        "/var/lib/wallpaper.jpg"
+      ];
       users.pweth = {
         files = [ ".bash_history" ];
 
