@@ -61,6 +61,14 @@
         fi
       }
 
+      function rbr () {
+        if [ -z "$1" ]; then
+          echo "Error: No hostname provided. Usage: rbr <hostname>"
+          return 1
+        fi
+        nixos-rebuild switch --flake "/etc/nixos/config#$1" --target-host "pweth@$1" --sudo
+      }
+
       function run () {
         nix search nixpkgs . --json > /tmp/nixpkgs
         PKG=$(cat /tmp/nixpkgs |

@@ -154,7 +154,6 @@
     recommendedOptimisation = true;
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
-    recommendedZstdSettings = true;
 
     # Virtual host
     virtualHosts."${host.name}.pweth.com" = {

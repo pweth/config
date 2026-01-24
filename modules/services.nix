@@ -94,7 +94,6 @@ in
           recommendedOptimisation = true;
           recommendedProxySettings = true;
           recommendedTlsSettings = true;
-          recommendedZstdSettings = true;
 
           virtualHosts."${options.subdomain}.pweth.com" = {
             forceSSL = true;
