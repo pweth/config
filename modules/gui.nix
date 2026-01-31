@@ -69,13 +69,6 @@ in
       # Cursor theme
       XCURSOR_THEME = "Adwaita";
       XCURSOR_SIZE = "24";
-
-      # NVIDIA-specific
-      GBM_BACKEND = "nvidia-drm";
-      LIBGL_ALWAYS_SOFTWARE = "1";
-      LIBVA_DRIVER_NAME = "nvidia";
-      "__GL_THREADED_OPTIMIZATIONS" = "0";
-      "__GLX_VENDOR_LIBRARY_NAME" = "nvidia";
     };
 
     # OpenGL
@@ -91,11 +84,18 @@ in
     systemd.services.wallpaper = {
       after = [ "network-online.target" ];
       wants = [ "network-online.target" ];
-      wantedBy = [ "multi-user.target" ];
       serviceConfig = {
         Type = "oneshot";
         ExecStart = "${pkgs.curl}/bin/curl -L -o /var/lib/wallpaper.jpg https://pweth.com/noindex/img/background.jpg";
-        ExecPost = "${pkgs.coreutils}/bin/chmod 644 /var/lib/wallpaper.jpg";
+        ExecStartPost = "${pkgs.coreutils}/bin/chmod 644 /var/lib/wallpaper.jpg";
+      };
+    };
+    systemd.timers.wallpaper = {
+      wantedBy = [ "timers.target" ];
+      timerConfig = {
+        OnCalendar = "daily";
+        Persistent = true; 
+        Unit = "wallpaper.service";
       };
     };
   };

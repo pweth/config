@@ -111,6 +111,7 @@
       wget
       xclip
       yt-dlp
+      yubikey-manager
       zip
     ]);
 

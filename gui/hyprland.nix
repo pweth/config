@@ -8,6 +8,7 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    package = null;
     settings = {
       animations.enabled = false;
       cursor.no_hardware_cursors = true;
@@ -28,7 +29,6 @@
         no_border_on_floating = true;
         resize_on_border = true;
       };
-      gestures.workspace_swipe = true;
       input = {
         kb_layout = "gb";
         kb_options = "caps:escape";
@@ -44,7 +44,6 @@
         ", preferred, auto, 1.25"
         "Unknown-1, disable"
       ];
-      render.explicit_sync = 0;
       bind = with pkgs; [
         # Core
         "SUPER SHIFT, RETURN, exec, kitty tmux"

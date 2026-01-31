@@ -11,7 +11,7 @@
 }:
 let
   citrixPkgs = import nixpkgs-citrix {
-    system = pkgs.system;
+    localSystem = pkgs.stdenv.hostPlatform.system;
     config.allowUnfree = true;
   };
 in
@@ -53,29 +53,41 @@ in
     };
   };
 
-  # GTK bookmarks and dark theme
-  xdg.configFile = {
-    "gtk-3.0/bookmarks".text = ''
-      file:///etc/nixos/config
-      file:///persist
-      file:///home/pweth/Documents
-      file:///home/pweth/Downloads
-      file:///home/pweth/Pictures
-    '';
-    "gtk-3.0/settings.ini".text = ''
-      [Settings]
-      gtk-application-prefer-dark-theme=1
-    '';
-  };
+  xdg = {
+    # XDG portals for screen sharing and file picking
+    portal = {
+      enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      config = {
+        common.default = ["gtk"];
+        hyprland.default = ["hyprland" "gtk"];
+      };
+    };
 
-  # User base directories
-  xdg.userDirs = {
-    enable = true;
-    createDirectories = true;
-    desktop = null;
-    music = null;
-    publicShare = null;
-    templates = null;
-    videos = null;
+    # GTK bookmarks and dark theme
+    configFile = {
+      "gtk-3.0/bookmarks".text = ''
+        file:///etc/nixos/config
+        file:///persist
+        file:///home/pweth/Documents
+        file:///home/pweth/Downloads
+        file:///home/pweth/Pictures
+      '';
+      "gtk-3.0/settings.ini".text = ''
+        [Settings]
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+
+    # User base directories
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+      desktop = null;
+      music = null;
+      publicShare = null;
+      templates = null;
+      videos = null;
+    };
   };
 }

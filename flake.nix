@@ -59,13 +59,9 @@
             home-manager.nixosModules.default
             impermanence.nixosModules.impermanence
           ];
-          specialArgs =
-            inputs
-            // {
-              host = host;
-              hosts = hosts;
-              keys = keys;
-            };
+          specialArgs = inputs // {
+            inherit host hosts keys;
+          };
         }
       ) hosts;
     };

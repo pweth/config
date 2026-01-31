@@ -62,10 +62,20 @@
     modesetting.enable = true;
     nvidiaSettings = true;
     open = false;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
     powerManagement.enable = false;
   };
   services.xserver.videoDrivers = [ "nvidia" ];
+
+  # NVIDIA-specific environment variables
+  environment.sessionVariables = {
+    AQ_DRM_DEVICES = "/dev/dri/card1";
+    GBM_BACKEND = "nvidia-drm";
+    LIBGL_ALWAYS_SOFTWARE = "1";
+    LIBVA_DRIVER_NAME = "nvidia";
+    "__GL_THREADED_OPTIMIZATIONS" = "0";
+    "__GLX_VENDOR_LIBRARY_NAME" = "nvidia";
+  };
 
   # Networking
   networking = {

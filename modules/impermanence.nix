@@ -46,13 +46,21 @@ in
         (lib.mkIf config.services.tailscale.enable [
           "/var/lib/tailscale"
         ])
+        (lib.mkIf config.modules.gui.enable [
+          "/var/lib/systemd/timers"
+        ])
         (lib.mkIf config.modules.virtualisation.enable [
           "/var/lib/libvirt"
           "/var/lib/qemu"
         ])
       ];
-      files = lib.mkIf config.modules.gui.enable [
-        "/var/lib/wallpaper.jpg"
+      files = lib.mkMerge [
+        [
+          "/etc/machine-id"
+        ]
+        (lib.mkIf config.modules.gui.enable [
+          "/var/lib/wallpaper.jpg"
+        ])
       ];
       users.pweth = {
         files = [ ".bash_history" ];
