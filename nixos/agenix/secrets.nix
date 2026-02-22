@@ -14,7 +14,6 @@ let
     "cloudflare.age"
     "grafana.age"
     "password-hash.age"
-    "pweth.crt.age"
     "tailscale.age"
   ];
 in

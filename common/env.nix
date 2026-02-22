@@ -27,7 +27,6 @@
       tls = "tmux list-sessions";
       tn = "tmux new-session";
       v = "nvim";
-      ssh-add-fido2 = "ssh-add -S ${pkgs.libfido2}/lib/libsk-libfido2.dylib";
     };
 
     # Environment variables
