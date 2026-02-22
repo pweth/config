@@ -1,0 +1,69 @@
+{ inputs, pkgs, ... }:
+
+{
+  # Shared packages
+  environment.systemPackages = with pkgs; [
+    inputs.agenix.packages."${pkgs.stdenv.hostPlatform.system}".default
+    age
+    age-plugin-yubikey
+    backblaze-b2
+    btop
+    cloudflared
+    bat
+    cmatrix
+    cowsay
+    curl
+    diff-pdf
+    dig
+    exiftool
+    fastfetch
+    ffmpeg
+    file
+    fzf
+    gawk
+    gcc
+    gdb
+    gh
+    git
+    gnumake
+    gnupg
+    go
+    htop
+    httpie
+    imagemagick
+    immich-cli
+    jq
+    lego
+    libheif
+    lolcat
+    lsof
+    mitmproxy
+    multitime
+    neovim
+    nixfmt-tree
+    nixos-anywhere
+    nix-tree
+    nmap
+    nms
+    openssh
+    openssl
+    p7zip
+    passage
+    python3
+    rclone
+    restic
+    ripgrep
+    sl
+    speedtest-cli
+    sqlite
+    sshfs
+    tmux
+    tree
+    tz
+    unzip
+    wget
+    yt-dlp
+    yubikey-manager
+    zip
+  ];
+}

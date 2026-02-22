@@ -1,6 +1,6 @@
 <div align="center">
 <h1>🐧 Config</h1>
-NixOS configuration flake for my homelab.
+NixOS configuration flake for my laptop and homelab.
 <br/>
 <br/>
 <img src="./static/meme.png" width="448"/>
@@ -8,51 +8,15 @@ NixOS configuration flake for my homelab.
 
 ---
 
-## Highlights
-
-- 🖥️ Minimal and performant [Hyprland](https://github.com/pweth/config/blob/main/gui/hyprland.nix), [Waybar](https://github.com/pweth/config/blob/main/gui/waybar.nix) and [wofi](https://github.com/pweth/config/blob/main/gui/wofi.nix) configurations
-- 💾 Declarative tmpfs root filesystems and LUKS encrypted Btrfs disks using [Disko](https://github.com/pweth/config/blob/main/modules/disko.nix) and [Impermanence](https://github.com/pweth/config/blob/main/modules/impermanence.nix)
-- 🚫 [Blocky DNS resolver](https://github.com/pweth/config/blob/main/common/networking.nix) for internal Tailscale MagicDNS masquerading
-- 🦊 Optimised Firefox browser featuring [personalised search engines](https://github.com/pweth/config/blob/main/gui/firefox.nix) and a [decluttered UI](https://github.com/pweth/config/blob/main/static/styles/firefox.css)
-- 🎻 NixOS container (systemd-nspawn) [service encapsulation](https://github.com/pweth/config/blob/main/modules/services.nix) providing mount and network isolation
-- 🔒 [agenix secret management](https://github.com/pweth/config/blob/main/secrets/secrets.nix) and YubiKey FIDO2-based [SSH authentication](https://github.com/pweth/config/blob/main/common/security.nix)
-- 🌍 Fully automated remote [installation script](https://github.com/pweth/config/blob/main/install.sh) using nixos-anywhere
-
----
-
 ## Devices
 
 | Hostname | System |
 | --- | --- |
-| Adelie | Dell Precision 3280 |
-| Humboldt | Dell OptiPlex 3050 Micro |
-| Macaroni | Dell OptiPlex 3050 Micro |
+| Adelie | MacBook Air |
+| Chinstrap | UCG-Max |
+| Fiordland | USW-Flex-Mini |
+| Macaroni | Dell Precision 3280 |
 | Rockhopper | Raspberry Pi 3B+ |
-| | |
-| Chinstrap | Cloud Gateway (UCG-Max) |
-| Fiordland | Switch (USW-Flex-Mini) |
-
----
-
-## Flake Structure
-
-```bash
-.
-├── common   # Config shared by all hosts
-├── gui      # Home Manager GUI config
-├── home     # Home Manager CLI config
-├── hosts    # Host-specific config
-├── modules  # Custom Nix modules
-├── secrets  # age-encrypted secrets
-├── services # Containerised apps
-└── static   # Static resources (CSS, images)
-...
- ├── README.md  # You are here!
- ├── census.nix # Source of truth for metadata
- ├── flake.lock # Lock file
- ├── flake.nix  # Flake entry point
- └── install.sh # nixos-anywhere installation script
-```
 
 ---
 
