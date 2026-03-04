@@ -40,9 +40,9 @@
         specialArgs = {
           inherit inputs;
           host = {
-            architecture = "aarch64-darwin";
             name = "adelie";
             species = "Pygoscelis adeliae";
+            architecture = "aarch64-darwin";
           };
         };
       };
@@ -56,12 +56,10 @@
         specialArgs = {
           inherit inputs;
           host = {
-            architecture = "x86_64-linux";
             name = "macaroni";
             species = "Eudyptes chrysolophus";
-            ssh-key = builtins.readFile ./static/ed25519.pub;
+            architecture = "x86_64-linux";
           };
-          keys = builtins.fromTOML (builtins.readFile ./static/keys.toml);
         };
       };
     };

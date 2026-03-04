@@ -6,9 +6,19 @@
     inputs.home-manager.darwinModules.home-manager
     ./homebrew.nix
     ./settings.nix
-    ./ssh-agent.nix
     ./wallpaper.nix
   ];
+
+  # SSH configuration
+  environment.etc."ssh/ssh_config.d/100-hardware-agents.conf".text = ''
+    Host *
+      # macOS Secure Enclave (Touch ID)
+      IdentityAgent /Users/pweth/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+
+      # YubiKeys
+      IdentityFile /Users/pweth/.ssh/igneous
+      IdentityFile /Users/pweth/.ssh/sedimentary
+  '';
 
   # Nix settings
   nix.enable = false;

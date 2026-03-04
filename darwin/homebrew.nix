@@ -24,6 +24,7 @@
       "minecraft"
       "obs"
       "pinta"
+      "secretive"
       "spotify"
       "tailscale-app"
       "visual-studio-code"

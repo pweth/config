@@ -23,9 +23,6 @@
   # Platform
   nixpkgs.hostPlatform = lib.mkDefault host.architecture;
 
-  # Tailscale
-  services.tailscale.enable = true;
-
   # Timezone
   time.timeZone = "Europe/London";
 }

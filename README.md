@@ -3,7 +3,7 @@
 NixOS configuration flake for my laptop and homelab.
 <br/>
 <br/>
-<img src="./static/meme.png" width="448"/>
+<img src="https://pweth.com/img/one-flake.png" width="336"/>
 </div>
 
 ---

@@ -6,6 +6,7 @@
     inputs.agenix.packages."${system}".default
     bubblewrap
     coreutils
+    ethtool
     inetutils
     ncdu
     nethogs

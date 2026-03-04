@@ -7,10 +7,10 @@
     scrapeConfigs = [
       {
         job_name = "node";
-        scheme = "http";
+        scheme = "https";
         static_configs = [{
             targets = [
-              "localhost:${toString config.services.prometheus.exporters.node.port}"
+              "intranet.london"
             ];
         }];
       }
@@ -22,10 +22,17 @@
     "/var/lib/${config.services.prometheus.stateDir}"
   ];
 
-  # Virtual host
-  services.nginx.virtualHosts."prometheus.intranet.london" = {
-    forceSSL = true;
-    useACMEHost = "intranet";
-    locations."/".proxyPass = "http://localhost:${toString config.services.prometheus.port}";
+  # Virtual hosts
+  services.nginx.virtualHosts = {
+    "intranet.london" = {
+      forceSSL = true;
+      useACMEHost = "intranet";
+      locations."/".proxyPass = "http://localhost:${toString config.services.prometheus.exporters.node.port}";
+    };
+    "prometheus.intranet.london" = {
+      forceSSL = true;
+      useACMEHost = "intranet";
+      locations."/".proxyPass = "http://localhost:${toString config.services.prometheus.port}";
+    };
   };
 }

@@ -33,6 +33,16 @@
     enabledCollectors = [ "systemd" ];
   };
 
+  # Tailscale
+  services.tailscale = {
+    enable = true;
+    extraUpFlags = [
+      "--accept-dns"
+      "--advertise-exit-node"
+    ];
+    useRoutingFeatures = "both";
+  };
+
   # Original release version
   system.stateVersion = "24.11";
 }

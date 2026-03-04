@@ -20,13 +20,21 @@
   ];
 
   # Virtual host
-  services.nginx.virtualHosts."media.intranet.london" = {
-    forceSSL = true;
-    useACMEHost = "intranet";
-    locations = {
-      "/".proxyPass = "http://localhost:6789";
-      "/radarr/".proxyPass = "http://localhost:7878";
-      "/sonarr/".proxyPass = "http://localhost:8989";
+  services.nginx.virtualHosts = {
+    "nzbget.intranet.london" = {
+      forceSSL = true;
+      useACMEHost = "intranet";
+      locations."/".proxyPass = "http://localhost:6789";
+    };
+    "radarr.intranet.london" = {
+      forceSSL = true;
+      useACMEHost = "intranet";
+      locations."/".proxyPass = "http://localhost:7878";
+    };
+    "sonarr.intranet.london" = {
+      forceSSL = true;
+      useACMEHost = "intranet";
+      locations."/".proxyPass = "http://localhost:8989";
     };
   };
 }
