@@ -40,11 +40,5 @@
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
     recommendedUwsgiSettings = true;
-
-    # Drop traffic to undefined virtual hosts
-    virtualHosts."_" = {
-      default = true;
-      rejectConnection = true;
-    };
   };
 }

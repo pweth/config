@@ -19,12 +19,12 @@
     "/persist".neededForBoot = true;
   };
 
-  # Boot and LUKS-encrypted btrfs partitions
   disko.devices = {
+    # Boot and LUKS-encrypted btrfs partitions
     disk = {
       ssd = {
         type = "disk";
-        device = "/dev/nvme0n1";
+        device = "/dev/disk/by-id/nvme-PM9F1_Samsung_1024GB_______S7NTNE0X737948";
         content = {
           type = "gpt";
           partitions = {
@@ -77,6 +77,39 @@
                         swap.swapfile.size = "8G";
                     };
                   };      
+                };
+              };
+            };
+          };
+        };
+      };
+
+      # LUKS-encrypted btrfs media drive
+      media = {
+        type = "disk";
+        device = "/dev/disk/by-id/nvme-CT4000P310SSD8_25395336D02A";
+        content = {
+          type = "gpt";
+          partitions = {
+            luks = {
+              size = "100%";
+              content = {
+                name = "cryptmedia";
+                type = "luks";
+                keyFile = "/persist/luks/media.key";
+                extraOpenArgs = [ "--allow-discards" ];
+                content = {
+                  type = "btrfs";
+                  extraArgs = [ "-L" "media" "-f" ];
+                  subvolumes = {
+                    "/media" = {
+                      mountpoint = "/media";
+                      mountOptions = [
+                        "compress=zstd"
+                        "noatime"
+                      ];
+                    };
+                  };
                 };
               };
             };

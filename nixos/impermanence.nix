@@ -23,6 +23,9 @@
         "/var/lib/nixos"
         "/var/log/journal"
       ]
+      (lib.mkIf config.security.acme.acceptTerms [
+        "/var/lib/acme"
+      ])
       (lib.mkIf config.services.tailscale.enable [
         "/var/lib/tailscale"
       ])
