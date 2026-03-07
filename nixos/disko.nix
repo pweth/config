@@ -92,6 +92,7 @@
           type = "gpt";
           partitions = {
             luks = {
+              label = "encrypted-media";
               size = "100%";
               content = {
                 name = "cryptmedia";
