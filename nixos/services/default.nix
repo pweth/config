@@ -6,6 +6,7 @@
     ./immich.nix
     ./jellyfin.nix
     ./prometheus.nix
+    ./uptime-kuma.nix
     ./usenet.nix
   ];
 

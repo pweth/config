@@ -19,7 +19,7 @@
     config.services.sonarr.dataDir
   ];
 
-  # Virtual host
+  # Virtual hosts
   services.nginx.virtualHosts = {
     "nzbget.intranet.london" = {
       forceSSL = true;
