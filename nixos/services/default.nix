@@ -5,6 +5,7 @@
     ./grafana.nix
     ./immich.nix
     ./jellyfin.nix
+    ./ollama.nix
     ./prometheus.nix
     ./uptime-kuma.nix
     ./usenet.nix

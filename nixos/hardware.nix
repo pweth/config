@@ -35,6 +35,7 @@
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   # Graphics card
+  hardware.graphics.enable = true;
   hardware.nvidia = {
     modesetting.enable = true; 
     nvidiaSettings = false; 
@@ -49,4 +50,7 @@
     NVIDIA_DRIVER_CAPABILITIES = "compute,utility,video";
     NVIDIA_VISIBLE_DEVICES = "all";
   };
+
+  # NVIDIA drivers
+  services.xserver.videoDrivers = [ "nvidia" ];
 }

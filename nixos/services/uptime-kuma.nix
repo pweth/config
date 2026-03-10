@@ -1,13 +1,12 @@
-{ lib, ... }:
+{ ... }:
 
 {
   # Service
   services.uptime-kuma.enable = true;
-  systemd.services.uptime-kuma.serviceConfig.DynamicUser = lib.mkForce false;
 
   # State
   environment.persistence."/persist".directories = [
-    "/var/lib/uptime-kuma"
+    "/var/lib/private/uptime-kuma"
   ];
 
   # Virtual host
