@@ -5,9 +5,7 @@
     ./grafana.nix
     ./immich.nix
     ./jellyfin.nix
-    ./ollama.nix
     ./prometheus.nix
-    ./uptime-kuma.nix
     ./usenet.nix
   ];
 
@@ -33,6 +31,7 @@
   };
 
   # Reverse proxy
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
   services.nginx = {
     enable = true;
     clientMaxBodySize = "0";
@@ -42,5 +41,10 @@
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
     recommendedUwsgiSettings = true;
+    virtualHosts."*.intranet.london" = {
+      forceSSL = true;
+      useACMEHost = "intranet";
+      locations."/".return = 444;
+    };
   };
 }
