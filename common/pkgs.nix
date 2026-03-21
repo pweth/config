@@ -7,9 +7,10 @@
     age
     age-plugin-yubikey
     backblaze-b2
+    bat
     btop
     cloudflared
-    bat
+    claude-code
     cmatrix
     cowsay
     curl
