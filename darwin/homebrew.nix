@@ -21,6 +21,9 @@
       "firefox"
       "handbrake-app"
       "libreoffice"
+      "logi-options+"
+      "microsoft-teams"
+      "minecraft"
       "obs"
       "pinta"
       "secretive"
@@ -29,6 +32,7 @@
       "visual-studio-code"
       "vlc"
       "webex"
+      "whatsapp"
       "wireshark-app"
       "zoom"
     ];
