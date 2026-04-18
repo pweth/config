@@ -8,11 +8,13 @@
       {
         job_name = "node";
         scheme = "https";
-        static_configs = [{
+        static_configs = [
+          {
             targets = [
               "intranet.london"
             ];
-        }];
+          }
+        ];
       }
     ];
   };
@@ -27,7 +29,8 @@
     "intranet.london" = {
       forceSSL = true;
       useACMEHost = "intranet";
-      locations."/".proxyPass = "http://localhost:${toString config.services.prometheus.exporters.node.port}";
+      locations."/".proxyPass =
+        "http://localhost:${toString config.services.prometheus.exporters.node.port}";
     };
     "prometheus.intranet.london" = {
       forceSSL = true;

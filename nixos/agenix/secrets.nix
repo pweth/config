@@ -15,7 +15,11 @@ let
     "password-hash.age"
   ];
 in
-builtins.listToAttrs (map (name: {
-  inherit name;
-  value = { publicKeys = keys; };
-}) secrets)
+builtins.listToAttrs (
+  map (name: {
+    inherit name;
+    value = {
+      publicKeys = keys;
+    };
+  }) secrets
+)

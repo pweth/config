@@ -1,4 +1,10 @@
-{ config, inputs, lib, modulesPath, ... }:
+{
+  config,
+  inputs,
+  lib,
+  modulesPath,
+  ...
+}:
 
 {
   imports = with inputs; [
@@ -11,13 +17,13 @@
   # Boot settings
   boot = {
     initrd.availableKernelModules = [
-        "ahci"
-        "nvme"
-        "sd_mod"
-        "usb_storage"
-        "usbhid"
-        "vmd"
-        "xhci_pci"
+      "ahci"
+      "nvme"
+      "sd_mod"
+      "usb_storage"
+      "usbhid"
+      "vmd"
+      "xhci_pci"
     ];
     kernelModules = [
       "dm-snapshot"
@@ -37,9 +43,9 @@
   # Graphics card
   hardware.graphics.enable = true;
   hardware.nvidia = {
-    modesetting.enable = true; 
-    nvidiaSettings = false; 
-    open = false; 
+    modesetting.enable = true;
+    nvidiaSettings = false;
+    open = false;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
     powerManagement.enable = true;
   };

@@ -54,7 +54,11 @@
                 ];
                 content = {
                   type = "btrfs";
-                  extraArgs = [ "-L" "data" "-f" ];
+                  extraArgs = [
+                    "-L"
+                    "data"
+                    "-f"
+                  ];
                   subvolumes = {
                     "/nix" = {
                       mountpoint = "/nix";
@@ -73,10 +77,10 @@
                       ];
                     };
                     "/swap" = {
-                        mountpoint = "/swap";
-                        swap.swapfile.size = "8G";
+                      mountpoint = "/swap";
+                      swap.swapfile.size = "8G";
                     };
-                  };      
+                  };
                 };
               };
             };
@@ -101,7 +105,11 @@
                 extraOpenArgs = [ "--allow-discards" ];
                 content = {
                   type = "btrfs";
-                  extraArgs = [ "-L" "media" "-f" ];
+                  extraArgs = [
+                    "-L"
+                    "media"
+                    "-f"
+                  ];
                   subvolumes = {
                     "/media" = {
                       mountpoint = "/media";

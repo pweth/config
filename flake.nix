@@ -29,7 +29,8 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = inputs@{ nixpkgs, nix-darwin, ... }:
+  outputs =
+    inputs@{ nixpkgs, nix-darwin, ... }:
     {
       # `sudo darwin-rebuild switch --flake .`
       darwinConfigurations.adelie = nix-darwin.lib.darwinSystem {
@@ -62,5 +63,10 @@
           };
         };
       };
+
+      # `nix fmt` (RFC style)
+      formatter = nixpkgs.lib.genAttrs [ "aarch64-darwin" "x86_64-linux" ] (
+        system: nixpkgs.legacyPackages.${system}.nixfmt-tree
+      );
     };
 }

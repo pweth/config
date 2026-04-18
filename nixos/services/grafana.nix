@@ -39,7 +39,8 @@
   services.nginx.virtualHosts."grafana.intranet.london" = {
     forceSSL = true;
     useACMEHost = "intranet";
-    locations."/".proxyPass = "http://localhost:${toString config.services.grafana.settings.server.http_port}";
+    locations."/".proxyPass =
+      "http://localhost:${toString config.services.grafana.settings.server.http_port}";
     extraConfig = ''
       proxy_pass_header Authorization;
     '';

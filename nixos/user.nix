@@ -5,7 +5,10 @@
   users.users.pweth = {
     createHome = true;
     description = "Peter";
-    extraGroups = [ "kvm" "wheel" ];
+    extraGroups = [
+      "kvm"
+      "wheel"
+    ];
     isNormalUser = true;
     openssh.authorizedKeys.keys = [
       # Igneous

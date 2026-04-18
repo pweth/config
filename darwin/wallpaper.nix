@@ -1,12 +1,12 @@
 { pkgs, ... }:
-let 
+let
   script = pkgs.writeShellScriptBin "update-wallpaper" ''
     ${pkgs.curl}/bin/curl -L "https://pweth.com/noindex/img/background.jpg" -o "$HOME/Wallpaper.tmp.jpg" \
       && mv "$HOME/Wallpaper.tmp.jpg" "$HOME/Wallpaper.jpg"
     /usr/bin/osascript -e "tell application \"System Events\" to tell every desktop to set picture to \"$HOME/Wallpaper.jpg\""
     /usr/bin/killall WallpaperAgent
   '';
-in 
+in
 {
   # Script package
   environment.systemPackages = [ script ];
@@ -18,5 +18,5 @@ in
       RunAtLoad = true;
       StartInterval = 3600;
     };
-  };  
+  };
 }
