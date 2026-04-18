@@ -18,6 +18,9 @@
   # Add ~/.local/bin to path
   environment.localBinInPath = true;
 
+  # Allow unpatched binaries (e.g. VS Code Server) to run
+  programs.nix-ld.enable = true;
+
   # Nix settings
   nix = {
     enable = true;

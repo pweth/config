@@ -30,6 +30,12 @@
         "/var/lib/tailscale"
       ])
     ];
-    users.pweth.files = [ ".bash_history" ];
+    users.pweth = {
+      directories = [
+        "source"
+        ".vscode-server"
+      ];
+      files = [ ".bash_history" ];
+    };
   };
 }
