@@ -33,6 +33,7 @@
     users.pweth = {
       directories = [
         "source"
+        "vms"
         ".vscode-server"
       ];
       files = [ ".bash_history" ];

@@ -1,5 +1,5 @@
 <div align="center">
-<h1>🐧 Config</h1>
+<h1>❄️ Config</h1>
 NixOS configuration flake for my laptop and homelab.
 <br/>
 <br/>

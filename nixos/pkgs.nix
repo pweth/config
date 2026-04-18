@@ -11,6 +11,7 @@
     nethogs
     networkmanager
     pciutils
+    quickemu
     strace
     usbutils
     valgrind
