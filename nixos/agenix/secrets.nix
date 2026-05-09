@@ -13,6 +13,7 @@ let
     "cloudflare.age"
     "grafana.age"
     "password-hash.age"
+    "vaultwarden.age"
   ];
 in
 builtins.listToAttrs (

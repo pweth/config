@@ -3,10 +3,10 @@
 {
   imports = [
     ./grafana.nix
-    ./immich.nix
     ./jellyfin.nix
     ./prometheus.nix
     ./usenet.nix
+    ./vaultwarden.nix
   ];
 
   # Cloudflare API token

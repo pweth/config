@@ -37,6 +37,7 @@
     ];
     users.pweth = {
       directories = [
+        "data"
         "source"
         "vms"
         ".vscode-server"
