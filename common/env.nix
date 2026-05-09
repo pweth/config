@@ -15,6 +15,8 @@
       gd = "git diff";
       gds = "git diff --staged";
       gg = "git pull";
+      gi = "git ignore";
+      gii = "git update-index --skip-worktree";
       gp = "git push";
       gr = "git reset";
       grc = "git commit --amend --no-edit";
@@ -23,7 +25,7 @@
       ls = "ls -l";
       mkdir = "mkdir -p";
       nano = "nvim";
-      pi = "pip install .";
+      pi = "pip install";
       src = "source";
       ta = "tmux attach || tmux new-session";
       tls = "tmux list-sessions";

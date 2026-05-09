@@ -39,11 +39,7 @@
   # Tailscale
   services.tailscale = {
     enable = true;
-    extraUpFlags = [
-      "--accept-dns"
-      "--advertise-exit-node"
-    ];
-    useRoutingFeatures = "both";
+    extraUpFlags = [ "--accept-dns" ];
   };
 
   # Original release version

@@ -34,6 +34,7 @@
     imagemagick
     immich-cli
     jq
+    kubectl
     lego
     libheif
     lolcat
