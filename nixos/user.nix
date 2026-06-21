@@ -22,7 +22,7 @@
   };
 
   # Message of the day
-  users.motd = "Connected to ${host.species}.";
+  users.motd = "Connected to ${host.name}.";
 
   # Immutable users
   users.mutableUsers = false;

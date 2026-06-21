@@ -10,13 +10,13 @@ NixOS configuration flake for my laptop and homelab.
 
 ## Devices
 
-| Hostname | System |
+| Host | System |
 | --- | --- |
-| Adelie | MacBook Air |
-| Chinstrap | UCG-Max |
-| Fiordland | USW-Flex-Mini |
-| Macaroni | Dell Precision 3280 |
-| Rockhopper | Raspberry Pi 3B+ |
+| Laptop | MacBook Air |
+| Homelab | Dell Precision 3280 |
+| Router | UCG-Max |
+| Switch | USW-Flex-Mini |
+| VPN Nodes | Raspberry Pi 5s |
 
 ---
 

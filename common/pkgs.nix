@@ -55,6 +55,7 @@
     rclone
     restic
     ripgrep
+    ruff
     sl
     speedtest-cli
     sqlite
@@ -63,6 +64,7 @@
     tree
     tz
     unzip
+    uv
     wget
     yt-dlp
     yubikey-manager

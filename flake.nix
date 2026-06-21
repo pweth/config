@@ -3,14 +3,14 @@
 
   inputs = {
     # Nix packages
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
     # Nix darwin
-    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-25.11";
+    home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Secret management
@@ -33,7 +33,7 @@
     inputs@{ nixpkgs, nix-darwin, ... }:
     {
       # `sudo darwin-rebuild switch --flake .`
-      darwinConfigurations.adelie = nix-darwin.lib.darwinSystem {
+      darwinConfigurations.laptop = nix-darwin.lib.darwinSystem {
         modules = [
           ./common
           ./darwin
@@ -41,15 +41,14 @@
         specialArgs = {
           inherit inputs;
           host = {
-            name = "adelie";
-            species = "Pygoscelis adeliae";
+            name = "laptop";
             architecture = "aarch64-darwin";
           };
         };
       };
 
       # `sudo nixos-rebuild switch --flake .`
-      nixosConfigurations.macaroni = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.homelab = nixpkgs.lib.nixosSystem {
         modules = [
           ./common
           ./nixos
@@ -57,8 +56,7 @@
         specialArgs = {
           inherit inputs;
           host = {
-            name = "macaroni";
-            species = "Eudyptes chrysolophus";
+            name = "homelab";
             architecture = "x86_64-linux";
           };
         };

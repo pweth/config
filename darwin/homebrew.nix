@@ -8,6 +8,7 @@
     onActivation = {
       autoUpdate = true;
       cleanup = "zap";
+      extraFlags = [ "--force" ];
       upgrade = true;
     };
 
@@ -20,9 +21,10 @@
       "discord"
       "firefox"
       "handbrake-app"
-      "libreoffice"
       "logi-options+"
-      "microsoft-teams"
+      "microsoft-excel"
+      "microsoft-powerpoint"
+      "microsoft-word"
       "minecraft"
       "obs"
       "pinta"

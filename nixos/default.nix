@@ -30,6 +30,9 @@
   # Networking
   networking.networkmanager.enable = true;
 
+  # Temporary workaround for dbus-broker crash
+  services.dbus.implementation = "dbus";
+
   # Node exporter
   services.prometheus.exporters.node = {
     enable = true;

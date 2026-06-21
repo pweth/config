@@ -8,14 +8,14 @@
   };
 
   # Requests manager
-  services.jellyseerr.enable = true;
-  systemd.services.jellyseerr.serviceConfig.DynamicUser = lib.mkForce false;
+  services.seerr.enable = true;
+  systemd.services.seerr.serviceConfig.DynamicUser = lib.mkForce false;
 
   # State
   environment.persistence."/persist".directories = [
     config.services.jellyfin.cacheDir
     config.services.jellyfin.dataDir
-    config.services.jellyseerr.configDir
+    config.services.seerr.configDir
   ];
 
   # Virtual hosts
@@ -28,7 +28,7 @@
     "requests.intranet.london" = {
       forceSSL = true;
       useACMEHost = "intranet";
-      locations."/".proxyPass = "http://localhost:${toString config.services.jellyseerr.port}";
+      locations."/".proxyPass = "http://localhost:${toString config.services.seerr.port}";
     };
   };
 }

@@ -21,6 +21,8 @@
         admin_user = "pweth";
         admin_password = "$__file{${config.age.secrets.grafana.path}}";
         disable_gravatar = true;
+        # https://nixos.org/manual/nixos/stable/release-notes#sec-release-26.05-incompatibilities
+        secret_key = "SW2YcwTIb9zpOOhoPsMm";
       };
       server.domain = "grafana.intranet.london";
       users = {
