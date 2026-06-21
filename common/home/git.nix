@@ -20,6 +20,12 @@
         follow = true;
       };
       rebase.stat = true;
+      url = {
+        "git@github.com:".insteadOf = [ "gh:" "github:" ];
+        "https://gitlab.com/".insteadOf = "gitlab:";
+        "https://git.sr.ht/~".insteadOf = "sourcehut:";
+        "https://codeberg.org/".insteadOf = "codeberg:";
+      };
       user = {
         name = config.home.username;
         email = "22416843+pweth@users.noreply.github.com";
