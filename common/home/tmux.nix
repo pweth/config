@@ -7,6 +7,7 @@
     mouse = true;
     extraConfig = ''
       set -g base-index 1
+      set -g renumber-windows on
       set -g mouse on
       set -g pane-active-border-style 'bg=default fg=colour239'
       set -g pane-border-style 'bg=default fg=colour236'

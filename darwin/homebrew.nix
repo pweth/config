@@ -20,6 +20,7 @@
       "db-browser-for-sqlite"
       "discord"
       "firefox"
+      "google-chrome"
       "handbrake-app"
       "logi-options+"
       "microsoft-excel"
