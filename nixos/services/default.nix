@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./blocky.nix
     ./grafana.nix
     ./jellyfin.nix
     ./prometheus.nix

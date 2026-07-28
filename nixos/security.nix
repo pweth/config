@@ -22,20 +22,9 @@
     wheelNeedsPassword = false;
   };
 
-  # fail2ban with default jails
-  services.fail2ban.enable = true;
-
   # OpenSSH
   services.openssh = {
     enable = true;
-    settings = {
-      ChallengeResponseAuthentication = false;
-      GSSAPIAuthentication = false;
-      KerberosAuthentication = false;
-      PasswordAuthentication = false;
-      PermitRootLogin = "no";
-      StreamLocalBindUnlink = "yes";
-      X11Forwarding = false;
-    };
+    settings.StreamLocalBindUnlink = "yes";
   };
 }
